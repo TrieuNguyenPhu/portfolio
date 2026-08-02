@@ -10,7 +10,6 @@ const text = (en: string, vi: string): Localized => ({ en, vi });
 
 const projects = [
   {
-    index: "01",
     slug: "seckube",
     title: "SecKube",
     type: text("Kubernetes GitOps & Security Platform", "Nền tảng GitOps & bảo mật Kubernetes"),
@@ -25,7 +24,6 @@ const projects = [
     metric: text("5 sync waves", "5 nhịp đồng bộ"),
   },
   {
-    index: "02",
     slug: "shortenlink",
     title: "ShortenLink",
     type: text("Serverless URL Shortener on AWS", "Trình rút gọn URL serverless trên AWS"),
@@ -68,26 +66,27 @@ const copy = {
     orchestration: "Orchestration",
     infrastructure: "Infrastructure",
     delivery: "Delivery",
-    projectsLabel: "01 / Personal projects",
+    projectsLabel: "Personal projects",
     projectsHeading: "Systems I built from the ground up.",
     projectsText: "Selected work across Kubernetes, AWS infrastructure, security, containers, and delivery automation.",
     repository: "View repository",
     live: "Live site",
-    experienceLabel: "02 / Experience",
+    experienceLabel: "Experience",
     experienceHeading: "From backend code to cloud operations.",
     xbrainRole: "DevOps Engineer Trainee",
     xbrainText: "Infrastructure planning, Terraform design review, AWS dependency analysis, compliance evidence, audit backlogs, and Git-based change workflows.",
     techhausRole: "Backend Developer Trainee",
     techhausText: "Python and Django backend work covering REST APIs, databases, validation, error handling, pull requests, code reviews, and debugging.",
-    toolkitLabel: "03 / Toolkit",
+    toolkitLabel: "Toolkit",
     toolkitHeading: "The tools behind the work.",
-    educationLabel: "04 / Education",
+    educationLabel: "Education",
     university: "University of Information Technology",
     degree: "Bachelor of Engineering",
     major: "Software Engineering",
     open: "Open to DevOps opportunities",
     contactHeading: "Let’s build a better path to production.",
-    phone: "Phone",
+    xbrainDate: "Apr 2026 — Jul 2026",
+    techhausDate: "Aug 2025 — Nov 2025",
   },
   vi: {
     name: "Nguyễn Phú Triệu",
@@ -106,26 +105,27 @@ const copy = {
     orchestration: "Điều phối",
     infrastructure: "Hạ tầng",
     delivery: "Triển khai",
-    projectsLabel: "01 / Dự án cá nhân",
+    projectsLabel: "Dự án cá nhân",
     projectsHeading: "Những hệ thống tôi xây dựng từ đầu.",
     projectsText: "Các dự án về Kubernetes, hạ tầng AWS, bảo mật, containers và tự động hóa triển khai.",
     repository: "Xem repository",
     live: "Trang web",
-    experienceLabel: "02 / Kinh nghiệm",
+    experienceLabel: "Kinh nghiệm",
     experienceHeading: "Từ code backend đến vận hành cloud.",
     xbrainRole: "Thực tập sinh Kỹ sư DevOps",
     xbrainText: "Lập kế hoạch hạ tầng, đánh giá thiết kế Terraform, phân tích phụ thuộc AWS, bằng chứng tuân thủ, audit backlog và quy trình thay đổi dựa trên Git.",
     techhausRole: "Thực tập sinh Backend Developer",
     techhausText: "Phát triển backend bằng Python và Django: REST API, cơ sở dữ liệu, validation, xử lý lỗi, pull request, code review và debugging.",
-    toolkitLabel: "03 / Công cụ",
+    toolkitLabel: "Công cụ",
     toolkitHeading: "Công cụ đằng sau từng dự án.",
-    educationLabel: "04 / Học vấn",
+    educationLabel: "Học vấn",
     university: "Đại học Công nghệ Thông tin",
     degree: "Cử nhân Kỹ thuật",
     major: "Kỹ thuật Phần mềm",
     open: "Sẵn sàng cho cơ hội DevOps",
     contactHeading: "Cùng xây dựng con đường tốt hơn đến production.",
-    phone: "Điện thoại",
+    xbrainDate: "Tháng 4 2026 — Tháng 7 2026",
+    techhausDate: "Tháng 8 2025 — Tháng 11 2025",
   },
 } as const;
 
@@ -230,7 +230,7 @@ export default function Home() {
           <div className="projects-grid">
             {projects.map((project) => (
               <article className={`project project--${project.slug}`} key={project.slug}>
-                <header><span>{project.index}</span><span>{project.date[language]}</span></header>
+                <header><span>{project.date[language]}</span></header>
                 <div className="project-visual" aria-label={`${project.title} architecture flow`}>
                   {project.visual.map((step, index) => (
                     <span key={step}><b>{step}</b>{index < project.visual.length - 1 ? <i aria-hidden="true">→</i> : null}</span>
@@ -258,12 +258,12 @@ export default function Home() {
           <header className="section-intro"><span>{t.experienceLabel}</span><div><h2>{t.experienceHeading}</h2></div></header>
           <div className="experience-list">
             <article>
-              <p className="experience-date">04 / 2026 — 07 / 2026</p>
+              <p className="experience-date">{t.xbrainDate}</p>
               <div><h3>XBrain</h3><p>{t.xbrainRole}</p></div>
               <p>{t.xbrainText}</p>
             </article>
             <article>
-              <p className="experience-date">08 / 2025 — 11 / 2025</p>
+              <p className="experience-date">{t.techhausDate}</p>
               <div><h3>Techhaus Vietnam</h3><p>{t.techhausRole}</p></div>
               <p>{t.techhausText}</p>
             </article>
@@ -296,7 +296,6 @@ export default function Home() {
       <footer className="site-footer">
         <span>© 2026 Nguyen Phu Trieu</span>
         <nav aria-label="Social links">
-          <a href="tel:+84858976459">{t.phone}</a>
           <a href="https://www.linkedin.com/in/trieunguyenphu86/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
