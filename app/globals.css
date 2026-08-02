@@ -121,7 +121,8 @@ button:focus-visible {
 }
 
 .nav-shell nav > a:not(.nav-cta) { display: none; }
-.nav-shell nav > a:hover { color: var(--text); }
+.nav-shell nav > a:hover,
+.nav-shell nav > a.is-active { color: var(--text); }
 
 .nav-shell nav > a:not(.nav-cta)::after {
   background: linear-gradient(90deg, var(--cyan), var(--lime));
@@ -136,7 +137,8 @@ button:focus-visible {
   width: 100%;
 }
 
-.nav-shell nav > a:not(.nav-cta):hover::after { transform: scaleX(1); }
+.nav-shell nav > a:not(.nav-cta):hover::after,
+.nav-shell nav > a:not(.nav-cta).is-active::after { transform: scaleX(1); }
 
 #about,
 #work,
@@ -180,7 +182,7 @@ button:focus-visible {
   width: 2.5rem;
 }
 
-.theme-toggle:hover { background: var(--surface-light); border-color: var(--lime); transform: rotate(12deg); }
+.theme-toggle:hover { background: var(--surface-light); transform: rotate(12deg); }
 
 .nav-shell .nav-cta {
   background: linear-gradient(135deg, rgb(87 214 255 / 12%), rgb(154 140 255 / 16%));
@@ -274,7 +276,7 @@ main,
 .button--primary { background: linear-gradient(135deg, var(--cyan), var(--lime)); border-color: transparent; color: var(--on-accent); box-shadow: 0 12px 34px var(--glow); }
 .button--primary:hover { box-shadow: 0 16px 42px var(--glow-ring); transform: translateY(-3px); }
 .button--ghost { background: rgb(255 255 255 / 2%); }
-.button--ghost:hover { background: var(--surface-light); border-color: var(--lime); transform: translateY(-3px); }
+.button--ghost:hover { background: var(--surface-light); transform: translateY(-3px); }
 
 .hero-console {
   align-self: center;
@@ -425,10 +427,7 @@ main,
   min-width: 0;
   overflow: hidden;
   padding: clamp(1.25rem, 3vw, 2rem);
-  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
-
-.project:hover { border-color: var(--project-accent); box-shadow: 0 26px 70px rgb(0 0 0 / 28%), 0 0 42px var(--glow); transform: translateY(-7px); }
 
 .project > header {
   color: var(--muted);
@@ -502,11 +501,7 @@ main,
   font-family: var(--font-mono);
   font-size: 0.76rem;
   padding: 0.42rem 0.65rem;
-  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
 }
-
-.tags li:hover { background: rgb(154 140 255 / 10%); border-color: var(--lime); color: var(--text); }
-.project:hover .project-visual i { animation: arrow-nudge 800ms ease-in-out infinite alternate; }
 
 .project-footer {
   align-items: center;
@@ -525,7 +520,6 @@ main,
   white-space: nowrap;
 }
 
-.project-footer a:hover,
 .project-footer a span { color: var(--project-accent); }
 
 .experience-list { display: grid; gap: 1rem; }
@@ -536,10 +530,7 @@ main,
   display: grid;
   gap: 1.25rem;
   padding: clamp(1.5rem, 3vw, 2.25rem);
-  transition: border-color 220ms ease, transform 220ms ease;
 }
-
-.experience-list article:hover { border-color: var(--lime); transform: translateX(6px); }
 .experience-date { color: var(--lime); font-family: var(--font-mono); font-size: 0.82rem; }
 .experience-list h3 { font-size: clamp(1.9rem, 2.3vw, 2.35rem); letter-spacing: -0.03em; }
 .experience-list div > p { color: var(--muted); font-size: 0.96rem; margin-top: 0.35rem; }
@@ -645,7 +636,7 @@ main,
   margin-top: 1.5rem;
 }
 
-.contact-socials a:hover { border-color: var(--lime); color: var(--text); transform: translateY(-3px); }
+.contact-socials a:hover { background: var(--surface-light); color: var(--text); transform: translateY(-3px); }
 
 .site-footer {
   border-top: 1px solid var(--line);
@@ -776,8 +767,6 @@ html.reveal-ready [data-reveal].is-visible { filter: blur(0); opacity: 1; transf
 
 @media (hover: hover) and (pointer: fine) {
   .button,
-  .project,
-  .experience-list article,
   .nav-shell a,
   .project-footer a,
   .social-icon { transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
@@ -798,8 +787,6 @@ html.reveal-ready [data-reveal].is-visible { filter: blur(0); opacity: 1; transf
   .nav-shell a,
   .project-footer a,
   .social-icon { transition: none; }
-  .project:hover,
-  .experience-list article:hover,
   .footer-socials a:hover,
   .contact-socials a:hover { transform: none; }
 }

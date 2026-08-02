@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 type Language = "en" | "vi";
-type Theme = "dark" | "light";
+type Theme = "dark" | "light" | "system";
 type Localized = Record<Language, string>;
 
 const text = (en: string, vi: string): Localized => ({ en, vi });
@@ -57,6 +57,7 @@ const copy = {
     theme: "Theme",
     switchToLight: "Switch to light mode",
     switchToDark: "Switch to dark mode",
+    switchToSystem: "Use system theme",
     status: "Entry-level DevOps Engineer",
     hero: "I turn infrastructure into a repeatable delivery system.",
     lede: "Hands-on experience designing and automating cloud-native AWS infrastructure, CI/CD, and GitOps workflows with Terraform, Docker, Kubernetes, GitHub Actions, Argo CD, and Prometheus—backed by Python and Go.",
@@ -97,6 +98,7 @@ const copy = {
     theme: "Chế độ màu",
     switchToLight: "Chuyển sang chế độ sáng",
     switchToDark: "Chuyển sang chế độ tối",
+    switchToSystem: "Dùng chế độ của hệ thống",
     status: "Kỹ sư DevOps mới bắt đầu",
     hero: "Tôi biến hạ tầng thành một hệ thống triển khai có thể lặp lại.",
     lede: "Có kinh nghiệm thực hành thiết kế và tự động hóa hạ tầng AWS cloud-native, CI/CD và GitOps với Terraform, Docker, Kubernetes, GitHub Actions, Argo CD, Prometheus—cùng nền tảng Python và Go.",
@@ -133,7 +135,8 @@ const copy = {
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>("en");
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("system");
+  const [activeSection, setActiveSection] = useState("about");
   const [preferencesLoaded, setPreferencesLoaded] = useState(false);
   const t = copy[language];
 
@@ -141,10 +144,8 @@ export default function Home() {
     const savedLanguage = window.localStorage.getItem("portfolio-language");
     const savedTheme = window.localStorage.getItem("portfolio-theme");
     if (savedLanguage === "en" || savedLanguage === "vi") setLanguage(savedLanguage);
-    if (savedTheme === "dark" || savedTheme === "light") {
+    if (savedTheme === "dark" || savedTheme === "light" || savedTheme === "system") {
       setTheme(savedTheme);
-    } else {
-      setTheme(window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
     }
     setPreferencesLoaded(true);
   }, []);
@@ -157,9 +158,25 @@ export default function Home() {
 
   useEffect(() => {
     if (!preferencesLoaded) return;
-    document.documentElement.dataset.theme = theme;
+    if (theme === "system") delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = theme;
     window.localStorage.setItem("portfolio-theme", theme);
   }, [theme, preferencesLoaded]);
+
+  useEffect(() => {
+    const sectionIds = ["about", "experience", "work", "education", "certification"];
+    const updateActiveSection = () => {
+      const next = sectionIds.reduce((current, id) => {
+        const section = document.getElementById(id);
+        return section && section.getBoundingClientRect().top <= window.innerHeight * 0.42 ? id : current;
+      }, "about");
+      setActiveSection(next);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    return () => window.removeEventListener("scroll", updateActiveSection);
+  }, []);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -192,11 +209,11 @@ export default function Home() {
           <small>{t.role}</small>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#about">{t.nav.about}</a>
-          <a href="#experience">{t.nav.experience}</a>
-          <a href="#work">{t.nav.projects}</a>
-          <a className="nav-detail" href="#education">{t.nav.education}</a>
-          <a className="nav-detail" href="#certification">{t.nav.certification}</a>
+          <a className={activeSection === "about" ? "is-active" : undefined} href="#about">{t.nav.about}</a>
+          <a className={activeSection === "experience" ? "is-active" : undefined} href="#experience">{t.nav.experience}</a>
+          <a className={activeSection === "work" ? "is-active" : undefined} href="#work">{t.nav.projects}</a>
+          <a className={`nav-detail${activeSection === "education" ? " is-active" : ""}`} href="#education">{t.nav.education}</a>
+          <a className={`nav-detail${activeSection === "certification" ? " is-active" : ""}`} href="#certification">{t.nav.certification}</a>
           <div className="language-switcher" role="group" aria-label={t.language}>
             <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
             <span aria-hidden="true">/</span>
@@ -205,11 +222,11 @@ export default function Home() {
           <button
             className="theme-toggle"
             type="button"
-            aria-label={theme === "dark" ? t.switchToLight : t.switchToDark}
-            title={`${t.theme}: ${theme === "dark" ? t.switchToLight : t.switchToDark}`}
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label={theme === "dark" ? t.switchToLight : theme === "light" ? t.switchToSystem : t.switchToDark}
+            title={`${t.theme}: ${theme === "dark" ? t.switchToLight : theme === "light" ? t.switchToSystem : t.switchToDark}`}
+            onClick={() => setTheme(theme === "dark" ? "light" : theme === "light" ? "system" : "dark")}
           >
-            <span aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>
+            <span aria-hidden="true">{theme === "system" ? "◐" : theme === "dark" ? "☀" : "☾"}</span>
           </button>
           <a className="nav-cta" href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer">{t.nav.contact}</a>
         </nav>
