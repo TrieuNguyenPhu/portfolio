@@ -15,7 +15,7 @@ const projects = [
   {
     index: "02",
     slug: "shortenlink",
-    title: "NPT ShortenLink",
+    title: "ShortenLink",
     type: "Serverless URL Shortener on AWS",
     date: "May — July 2026",
     summary:
