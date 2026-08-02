@@ -2,15 +2,18 @@
   --font-display: var(--font-space-grotesk);
   --font-body: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
-  --bg: #090c10;
-  --surface: #11161d;
-  --surface-light: #171e27;
-  --text: #f4f7fb;
-  --muted: #8995a4;
-  --line: #27313d;
-  --lime: #b7ff3c;
-  --orange: #ff7448;
-  --dark: #06080b;
+  --bg: #103d2d;
+  --surface: #174936;
+  --surface-light: #205b44;
+  --text: #ffffff;
+  --muted: #c1d5c7;
+  --line: #3a715c;
+  --lime: #c4ff6b;
+  --dark: #08261a;
+  --on-accent: #08261a;
+  --glow: rgb(196 255 107 / 10%);
+  --glow-ring: rgb(196 255 107 / 15%);
+  --nav-bg: rgb(16 61 45 / 82%);
   --page: min(94rem, calc(100% - 2rem));
 }
 
@@ -23,9 +26,7 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at 78% 4%, rgb(101 168 255 / 10%), transparent 30rem),
-    var(--bg);
+  background: radial-gradient(circle at 78% 4%, var(--glow), transparent 30rem), var(--bg);
   color: var(--text);
   font-family: var(--font-body);
   margin: 0;
@@ -45,7 +46,7 @@ a:focus-visible {
 .nav-shell {
   align-items: center;
   backdrop-filter: blur(18px);
-  background: rgb(9 12 16 / 82%);
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--line);
   display: flex;
   height: 4.5rem;
@@ -65,7 +66,7 @@ a:focus-visible {
 
 .brand > span {
   background: var(--lime);
-  color: var(--dark);
+  color: var(--on-accent);
   font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 700;
@@ -131,7 +132,7 @@ main,
 .status > span {
   background: var(--lime);
   border-radius: 50%;
-  box-shadow: 0 0 0 5px rgb(183 255 60 / 12%);
+  box-shadow: 0 0 0 5px var(--glow-ring);
   height: 0.45rem;
   width: 0.45rem;
 }
@@ -174,7 +175,7 @@ main,
   white-space: nowrap;
 }
 
-.button--primary { background: var(--lime); border-color: var(--lime); color: var(--dark); }
+.button--primary { background: var(--lime); border-color: var(--lime); color: var(--on-accent); }
 .button--primary:hover { background: var(--text); border-color: var(--text); }
 .button--ghost:hover { border-color: var(--text); }
 
@@ -306,7 +307,6 @@ main,
 }
 
 .project:hover { border-color: var(--project-accent); transform: translateY(-3px); }
-.project--shortenlink { --project-accent: var(--orange); }
 
 .project > header {
   color: var(--muted);
@@ -435,11 +435,11 @@ main,
 .skills-panel dt { color: var(--lime); font-family: var(--font-mono); font-size: 0.62rem; }
 .skills-panel dd { color: var(--muted); font-size: 0.82rem; }
 
-.education-panel { background: var(--lime); color: var(--dark); }
-.education-panel .panel-label { color: var(--dark); opacity: 0.65; }
-.education-panel h2 { color: var(--dark); }
+.education-panel { background: var(--lime); color: var(--on-accent); }
+.education-panel .panel-label { color: var(--on-accent); opacity: 0.65; }
+.education-panel h2 { color: var(--on-accent); }
 .education-mark {
-  border: 2px solid var(--dark);
+  border: 2px solid var(--on-accent);
   display: grid;
   font-family: var(--font-display);
   font-size: clamp(4rem, 10vw, 7rem);
@@ -451,7 +451,7 @@ main,
 }
 .education-panel > p:not(.panel-label) { font-family: var(--font-mono); font-size: 0.68rem; margin-top: 1rem; }
 .education-panel > strong { display: block; font-size: 0.9rem; margin-top: 1.5rem; }
-.certification { border-top: 1px solid var(--dark); display: flex; font-size: 0.7rem; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; }
+.certification { border-top: 1px solid var(--on-accent); display: flex; font-size: 0.7rem; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; }
 
 .contact-section {
   border-block: 1px solid var(--line);
@@ -531,4 +531,29 @@ main,
   .nav-shell a,
   .project-footer a { transition: none; }
   .project:hover { transform: none; }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-light: #eef7f0;
+    --text: #0d3e29;
+    --muted: #4b6d59;
+    --line: #bfd7c5;
+    --lime: #0d5a38;
+    --dark: #edf6ef;
+    --on-accent: #ffffff;
+    --glow: rgb(13 90 56 / 7%);
+    --glow-ring: rgb(13 90 56 / 12%);
+    --nav-bg: rgb(255 255 255 / 86%);
+  }
+
+  html { color-scheme: light; }
+  .project-visual { background: var(--dark); }
+  .education-panel { background: var(--bg); color: var(--text); }
+  .education-panel .panel-label,
+  .education-panel h2 { color: var(--text); }
+  .education-mark { border-color: var(--lime); color: var(--lime); }
+  .certification { border-color: var(--line); }
 }
