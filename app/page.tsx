@@ -209,7 +209,7 @@ export default function Home() {
           >
             <span aria-hidden="true">{theme === "dark" ? "☀" : "◐"}</span>
           </button>
-          <a className="nav-cta" href="mailto:nguyentrieu080604@gmail.com">{t.nav.contact}</a>
+          <a className="nav-cta" href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer">{t.nav.contact}</a>
         </nav>
       </header>
 
@@ -246,6 +246,22 @@ export default function Home() {
           <span>CI/CD</span>
         </div>
 
+        <section className="experience-section" id="experience">
+          <header className="section-intro" data-reveal><span>{t.experienceLabel}</span><div><h2>{t.experienceHeading}</h2></div></header>
+          <div className="experience-list">
+            <article data-reveal>
+              <p className="experience-date">{t.xbrainDate}</p>
+              <div><h3>XBrain</h3><p>{t.xbrainRole}</p></div>
+              <p>{t.xbrainText}</p>
+            </article>
+            <article data-reveal>
+              <p className="experience-date">{t.techhausDate}</p>
+              <div><h3>Techhaus Vietnam</h3><p>{t.techhausRole}</p></div>
+              <p>{t.techhausText}</p>
+            </article>
+          </div>
+        </section>
+
         <section className="projects-section" id="work">
           <header className="section-intro" data-reveal>
             <span>{t.projectsLabel}</span>
@@ -276,22 +292,6 @@ export default function Home() {
                 </footer>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section className="experience-section" id="experience">
-          <header className="section-intro" data-reveal><span>{t.experienceLabel}</span><div><h2>{t.experienceHeading}</h2></div></header>
-          <div className="experience-list">
-            <article data-reveal>
-              <p className="experience-date">{t.xbrainDate}</p>
-              <div><h3>XBrain</h3><p>{t.xbrainRole}</p></div>
-              <p>{t.xbrainText}</p>
-            </article>
-            <article data-reveal>
-              <p className="experience-date">{t.techhausDate}</p>
-              <div><h3>Techhaus Vietnam</h3><p>{t.techhausRole}</p></div>
-              <p>{t.techhausText}</p>
-            </article>
           </div>
         </section>
 
