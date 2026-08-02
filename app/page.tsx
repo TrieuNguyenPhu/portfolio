@@ -159,6 +159,29 @@ export default function Home() {
     window.localStorage.setItem("portfolio-theme", theme);
   }, [theme, preferencesLoaded]);
 
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => entry.target.classList.toggle("is-visible", entry.isIntersecting)),
+      { threshold: 0.12 },
+    );
+
+    elements.forEach((element) => {
+      const { top, bottom } = element.getBoundingClientRect();
+      if (top < window.innerHeight && bottom > 0) element.classList.add("is-visible");
+      observer.observe(element);
+    });
+    document.documentElement.classList.add("reveal-ready");
+
+    return () => {
+      observer.disconnect();
+      elements.forEach((element) => element.classList.remove("is-visible"));
+      document.documentElement.classList.remove("reveal-ready");
+    };
+  }, []);
+
   return (
     <>
       <header className="nav-shell">
@@ -221,14 +244,14 @@ export default function Home() {
         </div>
 
         <section className="projects-section" id="work">
-          <header className="section-intro">
+          <header className="section-intro" data-reveal>
             <span>{t.projectsLabel}</span>
             <div><h2>{t.projectsHeading}</h2><p>{t.projectsText}</p></div>
           </header>
 
           <div className="projects-grid">
             {projects.map((project) => (
-              <article className={`project project--${project.slug}`} key={project.slug}>
+              <article className={`project project--${project.slug}`} data-reveal key={project.slug}>
                 <header><span>{project.date[language]}</span></header>
                 <div className="project-visual" aria-label={`${project.title} architecture flow`}>
                   {project.visual.map((step, index) => (
@@ -254,14 +277,14 @@ export default function Home() {
         </section>
 
         <section className="experience-section" id="experience">
-          <header className="section-intro"><span>{t.experienceLabel}</span><div><h2>{t.experienceHeading}</h2></div></header>
+          <header className="section-intro" data-reveal><span>{t.experienceLabel}</span><div><h2>{t.experienceHeading}</h2></div></header>
           <div className="experience-list">
-            <article>
+            <article data-reveal>
               <p className="experience-date">{t.xbrainDate}</p>
               <div><h3>XBrain</h3><p>{t.xbrainRole}</p></div>
               <p>{t.xbrainText}</p>
             </article>
-            <article>
+            <article data-reveal>
               <p className="experience-date">{t.techhausDate}</p>
               <div><h3>Techhaus Vietnam</h3><p>{t.techhausRole}</p></div>
               <p>{t.techhausText}</p>
@@ -270,12 +293,12 @@ export default function Home() {
         </section>
 
         <section className="profile-section">
-          <article className="skills-panel">
+          <article className="skills-panel" data-reveal>
             <p className="panel-label">{t.toolkitLabel}</p>
             <h2>{t.toolkitHeading}</h2>
             <dl>{skills.map(([label, value]) => <div key={label.en}><dt>{label[language]}</dt><dd>{value}</dd></div>)}</dl>
           </article>
-          <article className="education-panel">
+          <article className="education-panel" data-reveal>
             <p className="panel-label">{t.educationLabel}</p>
             <div className="education-mark">UIT</div>
             <h2>{t.university}</h2>
@@ -285,7 +308,7 @@ export default function Home() {
           </article>
         </section>
 
-        <section className="contact-section">
+        <section className="contact-section" data-reveal>
           <p>{t.open}</p>
           <h2>{t.contactHeading}</h2>
           <div className="contact-links">

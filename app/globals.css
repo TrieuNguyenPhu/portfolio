@@ -548,6 +548,14 @@ main,
 .social-icon svg { fill: currentColor; height: 1.05rem; width: 1.05rem; }
 .site-footer a:hover { color: var(--text); }
 
+html.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+html.reveal-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
 @media (min-width: 42rem) {
   :root { --page: min(94rem, calc(100% - 4rem)); }
   .nav-shell { padding-inline: 2rem; }
@@ -577,6 +585,7 @@ main,
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  html.reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
   .button,
   .project,
   .nav-shell a,
