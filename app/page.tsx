@@ -81,8 +81,7 @@ const copy = {
     toolkitHeading: "The tools behind the work.",
     educationLabel: "Education",
     university: "VNU-HCM University of Information Technology (UIT)",
-    degree: "Bachelor of Engineering",
-    major: "Software Engineering",
+    degree: "Bachelor of Software Engineering",
     open: "Open to DevOps opportunities",
     contactHeading: "Let’s build a better path to production.",
     xbrainDate: "Apr 2026 — Jul 2026",
@@ -120,8 +119,7 @@ const copy = {
     toolkitHeading: "Công cụ đằng sau từng dự án.",
     educationLabel: "Học vấn",
     university: "Đại học Công nghệ Thông tin - ĐHQG-HCM (UIT)",
-    degree: "Cử nhân Kỹ thuật",
-    major: "Kỹ thuật Phần mềm",
+    degree: "Cử nhân Kỹ thuật Phần mềm",
     open: "Sẵn sàng cho cơ hội DevOps",
     contactHeading: "Cùng xây dựng con đường tốt hơn đến production.",
     xbrainDate: "Tháng 4 2026 — Tháng 7 2026",
@@ -306,9 +304,13 @@ export default function Home() {
             <div className="education-mark">UIT</div>
             <h2>{t.university}</h2>
             <p>VNU-HCM · 2022—2026</p>
-            <strong>{t.degree}<br />{t.major}</strong>
-            <div className="certification" id="certification"><span>IELTS</span><strong>Overall Band 5.5 · 2024</strong></div>
+            <strong>{t.degree}</strong>
           </article>
+        </section>
+
+        <section className="certification-section" data-reveal id="certification">
+          <p className="panel-label">{t.nav.certification}</p>
+          <div><strong>IELTS</strong><span>Overall Band 5.5</span><time>2024</time></div>
         </section>
 
         <section className="contact-section" data-reveal>
