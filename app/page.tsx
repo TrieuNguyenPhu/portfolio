@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 type Language = "en" | "vi";
+type Theme = "dark" | "light";
 type Localized = Record<Language, string>;
 
 const text = (en: string, vi: string): Localized => ({ en, vi });
@@ -55,6 +56,9 @@ const copy = {
     role: "DevOps Engineer",
     nav: { projects: "Projects", experience: "Experience", contact: "Contact" },
     language: "Language",
+    theme: "Theme",
+    switchToLight: "Switch to light mode",
+    switchToDark: "Switch to dark mode",
     status: "Entry-level DevOps Engineer",
     hero: "I turn infrastructure into a repeatable delivery system.",
     lede: "AWS, Kubernetes, Terraform, GitOps, CI/CD, observability, and cloud security—supported by a backend foundation in Python and Go.",
@@ -90,6 +94,9 @@ const copy = {
     role: "Kỹ sư DevOps",
     nav: { projects: "Dự án", experience: "Kinh nghiệm", contact: "Liên hệ" },
     language: "Ngôn ngữ",
+    theme: "Chế độ màu",
+    switchToLight: "Chuyển sang chế độ sáng",
+    switchToDark: "Chuyển sang chế độ tối",
     status: "Kỹ sư DevOps mới bắt đầu",
     hero: "Tôi biến hạ tầng thành một hệ thống triển khai có thể lặp lại.",
     lede: "AWS, Kubernetes, Terraform, GitOps, CI/CD, quan sát hệ thống và bảo mật đám mây—cùng nền tảng backend bằng Python và Go.",
@@ -124,17 +131,33 @@ const copy = {
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>("en");
+  const [theme, setTheme] = useState<Theme>("dark");
+  const [preferencesLoaded, setPreferencesLoaded] = useState(false);
   const t = copy[language];
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("portfolio-language");
-    if (saved === "en" || saved === "vi") setLanguage(saved);
+    const savedLanguage = window.localStorage.getItem("portfolio-language");
+    const savedTheme = window.localStorage.getItem("portfolio-theme");
+    if (savedLanguage === "en" || savedLanguage === "vi") setLanguage(savedLanguage);
+    if (savedTheme === "dark" || savedTheme === "light") {
+      setTheme(savedTheme);
+    } else {
+      setTheme(window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    }
+    setPreferencesLoaded(true);
   }, []);
 
   useEffect(() => {
+    if (!preferencesLoaded) return;
     document.documentElement.lang = language;
     window.localStorage.setItem("portfolio-language", language);
-  }, [language]);
+  }, [language, preferencesLoaded]);
+
+  useEffect(() => {
+    if (!preferencesLoaded) return;
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem("portfolio-theme", theme);
+  }, [theme, preferencesLoaded]);
 
   return (
     <>
@@ -151,6 +174,15 @@ export default function Home() {
             <span aria-hidden="true">/</span>
             <button type="button" aria-pressed={language === "vi"} onClick={() => setLanguage("vi")}>VI</button>
           </div>
+          <button
+            className="theme-toggle"
+            type="button"
+            aria-label={theme === "dark" ? t.switchToLight : t.switchToDark}
+            title={`${t.theme}: ${theme === "dark" ? t.switchToLight : t.switchToDark}`}
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          >
+            <span aria-hidden="true">{theme === "dark" ? "☀" : "◐"}</span>
+          </button>
           <a className="nav-cta" href="mailto:nguyentrieu080604@gmail.com">{t.nav.contact}</a>
         </nav>
       </header>
