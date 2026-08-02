@@ -10,8 +10,6 @@
   --line: #27313d;
   --lime: #b7ff3c;
   --orange: #ff7448;
-  --blue: #65a8ff;
-  --violet: #b894ff;
   --dark: #06080b;
   --page: min(94rem, calc(100% - 2rem));
 }
@@ -309,8 +307,6 @@ main,
 
 .project:hover { border-color: var(--project-accent); transform: translateY(-3px); }
 .project--shortenlink { --project-accent: var(--orange); }
-.project--minesweeper { --project-accent: var(--blue); }
-.project--stans { --project-accent: var(--violet); }
 
 .project > header {
   color: var(--muted);
@@ -507,8 +503,8 @@ main,
   .hero { grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.55fr); }
   .section-intro { grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 1fr); }
   .projects-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-  .project--seckube, .project--stans { grid-column: span 7; }
-  .project--shortenlink, .project--minesweeper { grid-column: span 5; }
+  .project--seckube { grid-column: span 7; }
+  .project--shortenlink { grid-column: span 5; }
   .experience-list article { grid-template-columns: minmax(9rem, 0.55fr) minmax(12rem, 0.7fr) minmax(0, 1.35fr); }
   .profile-section { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
   .skills-panel dl > div { grid-template-columns: minmax(7rem, 0.35fr) minmax(0, 1fr); }
@@ -518,7 +514,7 @@ main,
 @media (min-width: 72rem) {
   .nav-shell { padding-inline: max(2rem, calc((100% - 94rem) / 2)); }
   .project { min-height: 42rem; }
-  .project--shortenlink, .project--minesweeper { min-height: 38rem; }
+  .project--shortenlink { min-height: 38rem; }
 }
 
 @media (hover: hover) and (pointer: fine) {

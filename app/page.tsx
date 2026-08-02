@@ -26,32 +26,6 @@ const projects = [
     visual: ["EDGE", "API", "LAMBDA", "DATA"],
     metric: "Serverless stack",
   },
-  {
-    index: "03",
-    slug: "minesweeper",
-    title: "Minesweeper",
-    type: "Kubernetes Application on AWS",
-    date: "June 2026",
-    summary:
-      "A Go service deployed to Minikube on EC2, with networking, compute, load balancing, and secure access provisioned through one Terraform workflow.",
-    stack: ["Go", "Terraform", "EC2", "ALB", "Minikube"],
-    href: "https://github.com/TrieuNguyenPhu/minesweeper-gin",
-    visual: ["VPC", "EC2", "K8S", "ALB"],
-    metric: "16 AWS resources",
-  },
-  {
-    index: "04",
-    slug: "stans",
-    title: "STANS",
-    type: "Containerized Navigation System",
-    date: "July 2026",
-    summary:
-      "A multi-stage React container, GHCR delivery pipeline, and scripted Ubuntu host with Nginx, TLS certificates, health checks, and firewall rules.",
-    stack: ["Docker", "GitHub Actions", "GHCR", "Nginx", "Bash"],
-    href: "https://github.com/TrieuNguyenPhu/STANS-Nav-System",
-    visual: ["COMMIT", "IMAGE", "GHCR", "SERVER"],
-    metric: "Build to TLS",
-  },
 ];
 
 const skills = [
