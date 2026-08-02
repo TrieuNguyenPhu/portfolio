@@ -289,7 +289,10 @@ export default function Home() {
         <section className="contact-section">
           <p>{t.open}</p>
           <h2>{t.contactHeading}</h2>
-          <a href="mailto:nguyentrieu080604@gmail.com">nguyentrieu080604@gmail.com <span>↗</span></a>
+          <div className="contact-links">
+            <a href="mailto:nguyentrieu080604@gmail.com">nguyentrieu080604@gmail.com <span>↗</span></a>
+            <a href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer">Facebook <span>↗</span></a>
+          </div>
         </section>
       </main>
 
