@@ -66,7 +66,7 @@ const copy = {
     orchestration: "Orchestration",
     infrastructure: "Infrastructure",
     delivery: "Delivery",
-    projectsLabel: "Personal projects",
+    projectsLabel: "Projects",
     projectsHeading: "Systems I built from the ground up.",
     projectsText: "Selected work across Kubernetes, AWS infrastructure, security, containers, and delivery automation.",
     repository: "View repository",
@@ -84,6 +84,8 @@ const copy = {
     degree: "Bachelor of Software Engineering",
     open: "Open to DevOps opportunities",
     contactHeading: "Let’s build a better path to production.",
+    footerNote: "Cloud infrastructure, delivery automation, and reliable systems.",
+    backToTop: "Back to top",
     xbrainDate: "Apr 2026 — Jul 2026",
     techhausDate: "Aug 2025 — Nov 2025",
   },
@@ -104,7 +106,7 @@ const copy = {
     orchestration: "Điều phối",
     infrastructure: "Hạ tầng",
     delivery: "Triển khai",
-    projectsLabel: "Dự án cá nhân",
+    projectsLabel: "Dự án",
     projectsHeading: "Những hệ thống tôi xây dựng từ đầu.",
     projectsText: "Các dự án về Kubernetes, hạ tầng AWS, bảo mật, containers và tự động hóa triển khai.",
     repository: "Xem repository",
@@ -122,6 +124,8 @@ const copy = {
     degree: "Cử nhân Kỹ thuật Phần mềm",
     open: "Sẵn sàng cho cơ hội DevOps",
     contactHeading: "Cùng xây dựng con đường tốt hơn đến production.",
+    footerNote: "Hạ tầng đám mây, tự động hóa triển khai và hệ thống đáng tin cậy.",
+    backToTop: "Về đầu trang",
     xbrainDate: "Tháng 4 2026 — Tháng 7 2026",
     techhausDate: "Tháng 8 2025 — Tháng 11 2025",
   },
@@ -226,7 +230,7 @@ export default function Home() {
           <aside className="hero-console" aria-label="Core engineering focus">
             <div className="console-head"><span>SYSTEM PROFILE</span><span>2026</span></div>
             <p className="console-label">{t.focus}</p>
-            <strong>DEV<br />OPS</strong>
+            <strong>DEVOPS</strong>
             <dl>
               <div><dt>{t.cloud}</dt><dd>AWS</dd></div>
               <div><dt>{t.orchestration}</dt><dd>Kubernetes</dd></div>
@@ -236,11 +240,11 @@ export default function Home() {
           </aside>
         </section>
 
-        <div className="ticker" aria-label="Areas of expertise">
-          <span>AWS</span><i />
-          <span>TERRAFORM</span><i />
-          <span>DOCKER</span><i />
-          <span>KUBERNETES</span><i />
+        <div className="ticker" data-reveal aria-label="Areas of expertise">
+          <span>AWS</span>
+          <span>TERRAFORM</span>
+          <span>DOCKER</span>
+          <span>KUBERNETES</span>
           <span>CI/CD</span>
         </div>
 
@@ -323,9 +327,20 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <span>© 2026 Nguyen Phu Trieu</span>
-        <nav aria-label="Social links">
+      <footer className="site-footer" data-reveal>
+        <div className="footer-main">
+          <div className="footer-brand">
+            <a href="#top">{t.name}</a>
+            <p>{t.footerNote}</p>
+          </div>
+          <nav className="footer-navigation" aria-label="Footer navigation">
+            <a href="#about">{t.nav.about}</a>
+            <a href="#experience">{t.nav.experience}</a>
+            <a href="#work">{t.nav.projects}</a>
+            <a href="#education">{t.nav.education}</a>
+            <a href="#certification">{t.nav.certification}</a>
+          </nav>
+          <nav className="footer-socials" aria-label="Social links">
           <a className="social-icon" href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.75l.41-3H13.5V8.08c0-.87.24-1.46 1.5-1.46h1.78V3.94c-.31-.04-1.37-.13-2.61-.13-2.58 0-4.35 1.57-4.35 4.46V10H7v3h2.82v8h3.68Z" /></svg>
           </a>
@@ -335,7 +350,12 @@ export default function Home() {
           <a className="social-icon" href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.72.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.45-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.54 1.06 1.54 1.06.9 1.57 2.35 1.12 2.92.85.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.06A9.36 9.36 0 0 1 12 6.87c.85 0 1.7.12 2.5.34 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.2 2.48.1 2.74.64.72 1.03 1.64 1.03 2.77 0 3.96-2.34 4.83-4.57 5.08.36.32.68.93.68 1.88 0 1.36-.01 2.45-.01 2.78 0 .27.18.59.69.49A10.25 10.25 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" clipRule="evenodd" /></svg>
           </a>
-        </nav>
+          </nav>
+        </div>
+        <div className="footer-bottom">
+          <span>© 2026 {t.name}</span>
+          <a href="#top">{t.backToTop} ↑</a>
+        </div>
       </footer>
     </>
   );
