@@ -1,7 +1,7 @@
 :root {
-  --font-display: var(--font-be-vietnam-pro);
-  --font-body: var(--font-be-vietnam-pro);
-  --font-mono: var(--font-be-vietnam-pro);
+  --font-display: sans-serif;
+  --font-body: sans-serif;
+  --font-mono: sans-serif;
   --bg: #050611;
   --surface: #0d1022;
   --surface-light: #151932;
@@ -27,6 +27,9 @@ html {
 }
 
 body {
+  --font-display: var(--font-be-vietnam-pro), sans-serif;
+  --font-body: var(--font-be-vietnam-pro), sans-serif;
+  --font-mono: var(--font-be-vietnam-pro), sans-serif;
   background:
     radial-gradient(circle at 82% 8%, rgb(72 56 190 / 20%), transparent 28rem),
     radial-gradient(circle at 10% 42%, rgb(34 129 185 / 10%), transparent 32rem),
@@ -616,7 +619,7 @@ main,
 }
 
 .skills-panel h2,
-.certification-section strong,
+.section-intro h2,
 .contact-section h2 {
   background: linear-gradient(120deg, var(--text) 28%, var(--cyan) 70%, var(--lime));
   background-clip: text;
