@@ -1,366 +1,221 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-
-type Filter = "All" | "GitOps" | "AWS" | "CI/CD";
-
 const projects = [
   {
-    id: "seckube",
+    index: "01",
+    slug: "seckube",
     title: "SecKube",
-    subtitle: "Kubernetes GitOps and Security Platform",
-    date: "07 / 2026",
-    categories: ["GitOps", "CI/CD"],
+    type: "Kubernetes GitOps & Security Platform",
+    date: "July 2026",
     summary:
-      "A five-wave Argo CD platform with canary analysis, policy enforcement, signed images, and automated rollback.",
+      "A secure GitOps platform built around five ordered Argo CD sync waves, canary analysis, admission policies, signed images, and automatic rollback.",
     stack: ["Kubernetes", "Argo CD", "Prometheus", "Gatekeeper", "Cosign"],
     href: "https://github.com/TrieuNguyenPhu/SecKube",
-    featured: true,
+    visual: ["SOURCE", "BUILD", "SIGN", "SYNC", "VERIFY"],
+    metric: "5 sync waves",
   },
   {
-    id: "shortenlink",
+    index: "02",
+    slug: "shortenlink",
     title: "NPT ShortenLink",
-    subtitle: "Serverless URL Shortener on AWS",
-    date: "05—07 / 2026",
-    categories: ["AWS", "CI/CD"],
+    type: "Serverless URL Shortener on AWS",
+    date: "May — July 2026",
     summary:
-      "A Next.js and Go platform deployed through SAM, with DynamoDB conditional writes, CloudFront delivery, and post-deploy smoke tests.",
+      "A Next.js and Go platform using Lambda, DynamoDB, CloudFront, Route 53, SAM, automated tests, vulnerability scans, and deployment smoke checks.",
     stack: ["Next.js", "Go", "Lambda", "DynamoDB", "CloudFormation"],
     href: "https://github.com/TrieuNguyenPhu/shorten-link",
-    domain: "https://npt-shortenlink.dev",
+    live: "https://npt-shortenlink.dev",
+    visual: ["EDGE", "API", "LAMBDA", "DATA"],
+    metric: "Serverless stack",
   },
   {
-    id: "minesweeper",
+    index: "03",
+    slug: "minesweeper",
     title: "Minesweeper",
-    subtitle: "Kubernetes Application on AWS",
-    date: "06 / 2026",
-    categories: ["AWS", "GitOps"],
+    type: "Kubernetes Application on AWS",
+    date: "June 2026",
     summary:
-      "A Go service on Minikube and EC2, with 16 AWS resources provisioned through one Terraform apply workflow.",
+      "A Go service deployed to Minikube on EC2, with networking, compute, load balancing, and secure access provisioned through one Terraform workflow.",
     stack: ["Go", "Terraform", "EC2", "ALB", "Minikube"],
     href: "https://github.com/TrieuNguyenPhu/minesweeper-gin",
+    visual: ["VPC", "EC2", "K8S", "ALB"],
+    metric: "16 AWS resources",
   },
   {
-    id: "stans",
+    index: "04",
+    slug: "stans",
     title: "STANS",
-    subtitle: "Containerized Navigation System",
-    date: "07 / 2026",
-    categories: ["CI/CD"],
+    type: "Containerized Navigation System",
+    date: "July 2026",
     summary:
-      "A multi-stage container build, GHCR delivery pipeline, and scripted Ubuntu host with TLS, Nginx, and a restricted firewall.",
+      "A multi-stage React container, GHCR delivery pipeline, and scripted Ubuntu host with Nginx, TLS certificates, health checks, and firewall rules.",
     stack: ["Docker", "GitHub Actions", "GHCR", "Nginx", "Bash"],
     href: "https://github.com/TrieuNguyenPhu/STANS-Nav-System",
+    visual: ["COMMIT", "IMAGE", "GHCR", "SERVER"],
+    metric: "Build to TLS",
   },
-] as const;
-
-const commands = [
-  { label: "View GitHub", detail: "TrieuNguyenPhu", href: "https://github.com/TrieuNguyenPhu" },
-  { label: "Open LinkedIn", detail: "trieunguyenphu86", href: "https://www.linkedin.com/in/trieunguyenphu86/" },
-  { label: "Send email", detail: "nguyentrieu080604@gmail.com", href: "mailto:nguyentrieu080604@gmail.com" },
-  { label: "Browse projects", detail: "Selected work", href: "#projects" },
 ];
 
-function ProjectVisual({ id }: { id: string }) {
-  if (id === "seckube") {
-    return (
-      <figure className="visual visual--topology" aria-label="SecKube delivery topology">
-        <span>GITHUB</span><i aria-hidden="true" /><span>GHCR</span><i aria-hidden="true" />
-        <span>ARGO CD</span><i aria-hidden="true" /><strong>K8S</strong>
-      </figure>
-    );
-  }
-
-  if (id === "shortenlink") {
-    return (
-      <figure className="visual visual--route" aria-label="ShortenLink serverless request path">
-        <span>NEXT.JS</span><b>→</b><span>API GW</span><b>→</b><span>LAMBDA</span><b>→</b><strong>DYNAMODB</strong>
-      </figure>
-    );
-  }
-
-  if (id === "minesweeper") {
-    return (
-      <figure className="visual visual--metric" aria-label="Minesweeper infrastructure count">
-        <strong>16</strong><span>AWS resources<br />from one apply</span>
-      </figure>
-    );
-  }
-
-  return (
-    <figure className="visual visual--pipeline" aria-label="STANS delivery pipeline">
-      <span>BUILD</span><i aria-hidden="true" /><span>GHCR</span><i aria-hidden="true" />
-      <span>SSH</span><i aria-hidden="true" /><strong>TLS</strong>
-    </figure>
-  );
-}
-
-function CommandPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const [query, setQuery] = useState("");
-  const [active, setActive] = useState(0);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const visible = commands.filter((command) =>
-    `${command.label} ${command.detail}`.toLowerCase().includes(query.toLowerCase()),
-  );
-
-  useEffect(() => {
-    if (!open) return;
-    setQuery("");
-    setActive(0);
-    requestAnimationFrame(() => inputRef.current?.focus());
-  }, [open]);
-
-  if (!open) return null;
-
-  return (
-    <div className="palette-backdrop" onMouseDown={onClose}>
-      <section
-        className="palette"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="palette-title"
-        onMouseDown={(event) => event.stopPropagation()}
-        onKeyDown={(event) => {
-          if (event.key === "Escape") onClose();
-          if (event.key === "Tab") {
-            const focusable = Array.from(
-              event.currentTarget.querySelectorAll<HTMLElement>("input, a[href]"),
-            );
-            const first = focusable[0];
-            const last = focusable.at(-1);
-            if (event.shiftKey && document.activeElement === first) {
-              event.preventDefault();
-              last?.focus();
-            } else if (!event.shiftKey && document.activeElement === last) {
-              event.preventDefault();
-              first?.focus();
-            }
-          }
-          if (event.key === "ArrowDown") {
-            event.preventDefault();
-            setActive((value) => Math.min(value + 1, visible.length - 1));
-          }
-          if (event.key === "ArrowUp") {
-            event.preventDefault();
-            setActive((value) => Math.max(value - 1, 0));
-          }
-          if (event.key === "Enter" && visible[active]) window.location.href = visible[active].href;
-        }}
-      >
-        <h2 id="palette-title" className="visually-hidden">Quick navigation</h2>
-        <label className="palette-search">
-          <span>SEARCH</span>
-          <input
-            ref={inputRef}
-            value={query}
-            onChange={(event) => { setQuery(event.target.value); setActive(0); }}
-            placeholder="Type a destination…"
-            aria-controls="command-list"
-          />
-        </label>
-        <div className="palette-helper" aria-live="polite">
-          {visible.length ? `${visible.length} destinations` : "No destination found"}
-        </div>
-        <div id="command-list" className="command-list" role="listbox">
-          {visible.map((command, index) => (
-            <a
-              key={command.label}
-              href={command.href}
-              role="option"
-              aria-selected={active === index}
-              className={active === index ? "command is-active" : "command"}
-              onMouseEnter={() => setActive(index)}
-              onClick={onClose}
-            >
-              <span>{command.label}</span><small>{command.detail}</small>
-            </a>
-          ))}
-        </div>
-        <p className="palette-hint">↑↓ move · enter open · esc close</p>
-      </section>
-    </div>
-  );
-}
+const skills = [
+  ["Cloud & IaC", "AWS, Terraform, AWS SAM, CloudFormation"],
+  ["Containers", "Docker, Docker Compose, Kubernetes, Minikube"],
+  ["Delivery", "GitHub Actions, Argo CD, Argo Rollouts, GHCR"],
+  ["Security", "Trivy, Cosign, OPA Gatekeeper, Kubernetes RBAC"],
+  ["Systems", "Python, Go, Bash, Linux, Git, Nginx"],
+];
 
 export default function Home() {
-  const [filter, setFilter] = useState<Filter>("All");
-  const [paletteOpen, setPaletteOpen] = useState(false);
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
-        event.preventDefault();
-        setPaletteOpen(true);
-      }
-      if (event.key === "Escape") setPaletteOpen(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
-
-  useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const elements = document.querySelectorAll<HTMLElement>(".reveal");
-    if (reduced) {
-      elements.forEach((element) => element.classList.add("is-in"));
-      return;
-    }
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-in")),
-      { threshold: 0.12 },
-    );
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, []);
-
-  const filteredProjects = projects.filter(
-    (project) => filter === "All" || project.categories.includes(filter as never),
-  );
-
-  const closePalette = () => {
-    setPaletteOpen(false);
-    requestAnimationFrame(() => document.querySelector<HTMLButtonElement>(".command-trigger")?.focus());
-  };
-
   return (
     <>
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Nguyen Phu Trieu, home">
-          NPT<span aria-hidden="true">/</span><small>DEVOPS</small>
+      <header className="nav-shell">
+        <a className="brand" href="#top" aria-label="Nguyen Phu Trieu, home">
+          <span>NPT</span>
+          <small>DevOps Engineer</small>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#projects">Work</a>
+          <a href="#work">Projects</a>
           <a href="#experience">Experience</a>
-          <button className="command-trigger" type="button" onClick={() => setPaletteOpen(true)}>
-            Menu <kbd>⌘K</kbd>
-          </button>
+          <a className="nav-cta" href="mailto:nguyentrieu080604@gmail.com">Contact</a>
         </nav>
       </header>
 
       <main id="top">
-        <section className="intro reveal">
-          <div className="intro-copy">
-            <p className="eyebrow"><span aria-hidden="true" /> ENTRY-LEVEL DEVOPS ENGINEER</p>
-            <h1>I build the paths software takes to production.</h1>
-          </div>
-          <div className="intro-detail">
-            <p>
-              Hands-on with AWS, Kubernetes, Terraform, GitOps, CI/CD, observability,
-              and cloud security—backed by Python and Go.
+        <section className="hero">
+          <div className="hero-copy">
+            <p className="status"><span aria-hidden="true" /> ENTRY-LEVEL DEVOPS ENGINEER</p>
+            <h1>I turn infrastructure into a repeatable delivery system.</h1>
+            <p className="hero-lede">
+              AWS, Kubernetes, Terraform, GitOps, CI/CD, observability, and cloud
+              security—supported by a backend foundation in Python and Go.
             </p>
-            <div className="contact-line">
-              <a href="mailto:nguyentrieu080604@gmail.com">Email me ↗</a>
-              <a href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <div className="hero-actions">
+              <a className="button button--primary" href="#work">Explore my work</a>
+              <a className="button button--ghost" href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer">GitHub ↗</a>
             </div>
           </div>
+
+          <aside className="hero-console" aria-label="Core engineering focus">
+            <div className="console-head"><span>SYSTEM PROFILE</span><span>2026</span></div>
+            <p className="console-label">PRIMARY FOCUS</p>
+            <strong>DEV<br />OPS</strong>
+            <dl>
+              <div><dt>Cloud</dt><dd>AWS</dd></div>
+              <div><dt>Orchestration</dt><dd>Kubernetes</dd></div>
+              <div><dt>Infrastructure</dt><dd>Terraform</dd></div>
+              <div><dt>Delivery</dt><dd>GitHub Actions</dd></div>
+            </dl>
+          </aside>
         </section>
 
-        <section className="work-section" id="projects" aria-labelledby="projects-title">
-          <header className="section-heading reveal">
-            <p>SELECTED WORK · 2026</p>
-            <h2 id="projects-title">Infrastructure, delivery, and cloud-native systems.</h2>
+        <div className="ticker" aria-label="Areas of expertise">
+          <span>AWS</span><i />
+          <span>KUBERNETES</span><i />
+          <span>TERRAFORM</span><i />
+          <span>GITOPS</span><i />
+          <span>CI/CD</span><i />
+          <span>LINUX</span>
+        </div>
+
+        <section className="projects-section" id="work">
+          <header className="section-intro">
+            <span>01 / PERSONAL PROJECTS</span>
+            <div>
+              <h2>Systems I built from the ground up.</h2>
+              <p>Selected work across Kubernetes, AWS infrastructure, security, containers, and delivery automation.</p>
+            </div>
           </header>
 
-          <div className="filter-bar reveal" role="group" aria-label="Filter projects">
-            {(["All", "GitOps", "AWS", "CI/CD"] as Filter[]).map((item) => (
-              <button
-                key={item}
-                type="button"
-                aria-pressed={filter === item}
-                onClick={() => setFilter(item)}
-              >
-                {item}
-              </button>
-            ))}
-            <span aria-live="polite">{filteredProjects.length.toString().padStart(2, "0")} PROJECTS</span>
-          </div>
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <article className={`project project--${project.slug}`} key={project.slug}>
+                <header>
+                  <span>{project.index}</span>
+                  <span>{project.date}</span>
+                </header>
 
-          <div className="project-grid">
-            {filteredProjects.map((project) => (
-              <article key={project.id} className={`project ${"featured" in project && project.featured ? "project--featured" : ""}`}>
-                <div className="project-meta"><span>{project.date}</span><span>{project.categories.join(" + ")}</span></div>
-                <ProjectVisual id={project.id} />
-                <div className="project-copy">
-                  <h3>{project.title}</h3>
-                  <p className="project-subtitle">{project.subtitle}</p>
-                  <p>{project.summary}</p>
+                <div className="project-visual" aria-label={`${project.title} architecture flow`}>
+                  {project.visual.map((step, index) => (
+                    <span key={step}>
+                      <b>{step}</b>
+                      {index < project.visual.length - 1 ? <i aria-hidden="true">→</i> : null}
+                    </span>
+                  ))}
                 </div>
-                <ul className="stack-list" aria-label={`${project.title} technology stack`}>
+
+                <div className="project-body">
+                  <p className="project-metric">{project.metric}</p>
+                  <h3>{project.title}</h3>
+                  <p className="project-type">{project.type}</p>
+                  <p className="project-summary">{project.summary}</p>
+                </div>
+
+                <ul className="tags" aria-label={`${project.title} technology stack`}>
                   {project.stack.map((item) => <li key={item}>{item}</li>)}
                 </ul>
-                <div className="project-links">
-                  <a href={project.href} target="_blank" rel="noreferrer">Open repository ↗</a>
-                  {"domain" in project && project.domain ? (
-                    <a href={project.domain} target="_blank" rel="noreferrer">Visit live site ↗</a>
-                  ) : null}
-                </div>
+
+                <footer className="project-footer">
+                  <a href={project.href} target="_blank" rel="noreferrer">View repository <span>↗</span></a>
+                  {project.live ? <a href={project.live} target="_blank" rel="noreferrer">Live site <span>↗</span></a> : null}
+                </footer>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="delivery-band reveal" aria-labelledby="delivery-title">
-          <div>
-            <p>DELIVERY LOOP</p>
-            <h2 id="delivery-title">Plan. Validate. Ship. Observe.</h2>
-          </div>
-          <ol>
-            <li><span>01</span><strong>Provision</strong><small>Terraform · SAM</small></li>
-            <li><span>02</span><strong>Validate</strong><small>Trivy · Kubeconform</small></li>
-            <li><span>03</span><strong>Release</strong><small>GitHub Actions · Argo CD</small></li>
-            <li><span>04</span><strong>Observe</strong><small>Prometheus · CloudWatch</small></li>
-          </ol>
-        </section>
-
-        <section className="experience-section" id="experience" aria-labelledby="experience-title">
-          <header className="section-heading reveal">
-            <h2 id="experience-title">Experience across infrastructure and backend engineering.</h2>
+        <section className="experience-section" id="experience">
+          <header className="section-intro">
+            <span>02 / EXPERIENCE</span>
+            <div><h2>From backend code to cloud operations.</h2></div>
           </header>
-          <div className="timeline reveal">
+
+          <div className="experience-list">
             <article>
-              <div><span>04—07 / 2026</span><strong>XBrain</strong><small>DevOps Engineer Trainee</small></div>
+              <p className="experience-date">04 / 2026 — 07 / 2026</p>
+              <div><h3>XBrain</h3><p>DevOps Engineer Trainee</p></div>
               <p>Infrastructure planning, Terraform design review, AWS dependency analysis, compliance evidence, audit backlogs, and Git-based change workflows.</p>
             </article>
             <article>
-              <div><span>08—11 / 2025</span><strong>Techhaus Vietnam</strong><small>Backend Developer Trainee</small></div>
-              <p>Python and Django backend work covering REST APIs, database interactions, validation, error handling, pull requests, reviews, and debugging.</p>
+              <p className="experience-date">08 / 2025 — 11 / 2025</p>
+              <div><h3>Techhaus Vietnam</h3><p>Backend Developer Trainee</p></div>
+              <p>Python and Django backend work covering REST APIs, databases, validation, error handling, pull requests, code reviews, and debugging.</p>
             </article>
           </div>
         </section>
 
-        <section className="profile-grid reveal" aria-label="Skills and education">
-          <article>
-            <h2 className="profile-title">Core toolkit</h2>
-            <ul className="toolkit">
-              <li><span>Cloud + IaC</span><strong>AWS · Terraform · SAM · CloudFormation</strong></li>
-              <li><span>Containers</span><strong>Docker · Kubernetes · Minikube</strong></li>
-              <li><span>Delivery</span><strong>GitHub Actions · Argo CD · GHCR</strong></li>
-              <li><span>Security</span><strong>Trivy · Cosign · Gatekeeper · RBAC</strong></li>
-              <li><span>Systems</span><strong>Python · Go · Bash · Linux · Nginx</strong></li>
-            </ul>
+        <section className="profile-section">
+          <article className="skills-panel">
+            <p className="panel-label">03 / TOOLKIT</p>
+            <h2>The tools behind the work.</h2>
+            <dl>
+              {skills.map(([label, value]) => (
+                <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
+              ))}
+            </dl>
           </article>
-          <article className="education">
+
+          <article className="education-panel">
+            <p className="panel-label">04 / EDUCATION</p>
+            <div className="education-mark">UIT</div>
             <h2>University of Information Technology</h2>
-            <span>VNU-HCM · 2022—2026</span>
+            <p>VNU-HCM · 2022—2026</p>
             <strong>Bachelor of Engineering<br />Software Engineering</strong>
-            <div><span>IELTS</span><strong>Overall Band 5.5 · 2024</strong></div>
+            <div className="certification"><span>IELTS</span><strong>Overall Band 5.5 · 2024</strong></div>
           </article>
+        </section>
+
+        <section className="contact-section">
+          <p>OPEN TO DEVOPS OPPORTUNITIES</p>
+          <h2>Let&apos;s build a better path to production.</h2>
+          <a href="mailto:nguyentrieu080604@gmail.com">nguyentrieu080604@gmail.com <span>↗</span></a>
         </section>
       </main>
 
-      <footer>
-        <p>Have a system that needs a clearer path to production?</p>
-        <a className="footer-email" href="mailto:nguyentrieu080604@gmail.com">nguyentrieu080604@gmail.com ↗</a>
-        <div className="footer-line">
-          <span>Nguyen Phu Trieu · DevOps Engineer</span>
-          <nav aria-label="Social links">
-            <a href="tel:+84858976459">Phone</a>
-            <a href="https://www.linkedin.com/in/trieunguyenphu86/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer">GitHub</a>
-          </nav>
-        </div>
+      <footer className="site-footer">
+        <span>© 2026 Nguyen Phu Trieu</span>
+        <nav aria-label="Social links">
+          <a href="tel:+84858976459">Phone</a>
+          <a href="https://www.linkedin.com/in/trieunguyenphu86/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
       </footer>
-
-      <CommandPalette open={paletteOpen} onClose={closePalette} />
     </>
   );
 }

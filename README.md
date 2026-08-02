@@ -1,6 +1,6 @@
 # Nguyen Phu Trieu — Portfolio
 
-Next.js portfolio built from the supplied CV, with a responsive Hallmark-inspired Cobalt design system.
+Responsive Next.js portfolio for a DevOps engineer.
 
 ```bash
 npm install
