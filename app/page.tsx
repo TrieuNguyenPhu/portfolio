@@ -205,7 +205,7 @@ export default function Home() {
             title={`${t.theme}: ${theme === "dark" ? t.switchToLight : t.switchToDark}`}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
-            <span aria-hidden="true">{theme === "dark" ? "☀" : "◐"}</span>
+            <span aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>
           </button>
           <a className="nav-cta" href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer">{t.nav.contact}</a>
         </nav>
