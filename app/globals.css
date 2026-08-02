@@ -536,7 +536,16 @@ main,
   padding-block: 2rem;
 }
 
-.site-footer a { white-space: nowrap; }
+.social-icon {
+  align-items: center;
+  border: 1px solid var(--line);
+  display: inline-flex;
+  height: 2.25rem;
+  justify-content: center;
+  width: 2.25rem;
+}
+
+.social-icon svg { fill: currentColor; height: 1.05rem; width: 1.05rem; }
 .site-footer a:hover { color: var(--text); }
 
 @media (min-width: 42rem) {

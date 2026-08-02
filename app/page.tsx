@@ -299,8 +299,15 @@ export default function Home() {
       <footer className="site-footer">
         <span>© 2026 Nguyen Phu Trieu</span>
         <nav aria-label="Social links">
-          <a href="https://www.linkedin.com/in/trieunguyenphu86/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer">GitHub</a>
+          <a className="social-icon" href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.75l.41-3H13.5V8.08c0-.87.24-1.46 1.5-1.46h1.78V3.94c-.31-.04-1.37-.13-2.61-.13-2.58 0-4.35 1.57-4.35 4.46V10H7v3h2.82v8h3.68Z" /></svg>
+          </a>
+          <a className="social-icon" href="https://www.linkedin.com/in/trieunguyenphu86/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 1 0 5.25 6.94 1.97 1.97 0 0 0 5.25 3ZM20.44 13.4c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.1-3.38 1.87V8.5H9.36V20h3.38v-5.7c0-1.5.29-2.96 2.15-2.96 1.84 0 1.87 1.72 1.87 3.05V20h3.68v-6.6Z" /></svg>
+          </a>
+          <a className="social-icon" href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.72.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.45-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.54 1.06 1.54 1.06.9 1.57 2.35 1.12 2.92.85.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.06A9.36 9.36 0 0 1 12 6.87c.85 0 1.7.12 2.5.34 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.2 2.48.1 2.74.64.72 1.03 1.64 1.03 2.77 0 3.96-2.34 4.83-4.57 5.08.36.32.68.93.68 1.88 0 1.36-.01 2.45-.01 2.78 0 .27.18.59.69.49A10.25 10.25 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" clipRule="evenodd" /></svg>
+          </a>
         </nav>
       </footer>
     </>
