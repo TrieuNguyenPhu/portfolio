@@ -333,13 +333,6 @@ export default function Home() {
             <a href="#top">{t.name}</a>
             <p>{t.footerNote}</p>
           </div>
-          <nav className="footer-navigation" aria-label="Footer navigation">
-            <a href="#about">{t.nav.about}</a>
-            <a href="#experience">{t.nav.experience}</a>
-            <a href="#work">{t.nav.projects}</a>
-            <a href="#education">{t.nav.education}</a>
-            <a href="#certification">{t.nav.certification}</a>
-          </nav>
           <nav className="footer-socials" aria-label="Social links">
           <a className="social-icon" href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.75l.41-3H13.5V8.08c0-.87.24-1.46 1.5-1.46h1.78V3.94c-.31-.04-1.37-.13-2.61-.13-2.58 0-4.35 1.57-4.35 4.46V10H7v3h2.82v8h3.68Z" /></svg>
