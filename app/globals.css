@@ -638,6 +638,15 @@ main,
 
 .contact-links a span { color: var(--lime); }
 
+.contact-socials {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.contact-socials a:hover { border-color: var(--lime); color: var(--text); transform: translateY(-3px); }
+
 .site-footer {
   border-top: 1px solid var(--line);
   margin-top: clamp(4rem, 7vw, 7rem);
@@ -791,7 +800,8 @@ html.reveal-ready [data-reveal].is-visible { filter: blur(0); opacity: 1; transf
   .social-icon { transition: none; }
   .project:hover,
   .experience-list article:hover,
-  .footer-socials a:hover { transform: none; }
+  .footer-socials a:hover,
+  .contact-socials a:hover { transform: none; }
 }
 
 :root[data-theme="light"] {
