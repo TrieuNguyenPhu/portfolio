@@ -598,12 +598,16 @@ main,
 
 .site-footer {
   background: linear-gradient(125deg, rgb(87 214 255 / 7%), rgb(154 140 255 / 13%), rgb(13 16 34 / 86%));
-  border: 1px solid var(--line);
-  border-radius: 1rem;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  margin-left: calc(50% - 50vw);
   margin-top: clamp(4rem, 7vw, 6.5rem);
+  max-width: none;
   overflow: hidden;
-  padding: clamp(2rem, 6vw, 5.5rem);
+  padding: clamp(3rem, 6vw, 5.5rem) max(1rem, env(safe-area-inset-left)) 2rem;
   position: relative;
+  width: 100vw;
 }
 
 .site-footer::after { background: var(--glow); border-radius: 50%; content: ""; filter: blur(12px); height: 18rem; pointer-events: none; position: absolute; right: -6rem; top: -8rem; width: 18rem; }
@@ -655,6 +659,8 @@ main,
 
 .contact-socials a:hover { background: var(--surface-light); color: var(--text); transform: translateY(-3px); }
 
+.footer-content,
+.footer-bottom { margin-inline: auto; max-width: var(--page); }
 .footer-content { display: grid; gap: clamp(2.5rem, 7vw, 6rem); }
 .footer-actions { align-self: end; }
 .footer-actions .contact-links { margin-top: 0; }
