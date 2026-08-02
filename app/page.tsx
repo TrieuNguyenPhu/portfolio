@@ -52,7 +52,7 @@ const copy = {
   en: {
     name: "Nguyen Phu Trieu",
     role: "DevOps Engineer",
-    nav: { projects: "Projects", experience: "Experience", contact: "Contact" },
+    nav: { about: "About", experience: "Experience", projects: "Projects", education: "Education", certification: "Certification", contact: "Contact" },
     language: "Language",
     theme: "Theme",
     switchToLight: "Switch to light mode",
@@ -91,7 +91,7 @@ const copy = {
   vi: {
     name: "Nguyễn Phú Triệu",
     role: "Kỹ sư DevOps",
-    nav: { projects: "Dự án", experience: "Kinh nghiệm", contact: "Liên hệ" },
+    nav: { about: "Giới thiệu", experience: "Kinh nghiệm", projects: "Dự án", education: "Học vấn", certification: "Chứng chỉ", contact: "Liên hệ" },
     language: "Ngôn ngữ",
     theme: "Chế độ màu",
     switchToLight: "Chuyển sang chế độ sáng",
@@ -190,8 +190,11 @@ export default function Home() {
           <small>{t.role}</small>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#work">{t.nav.projects}</a>
+          <a href="#about">{t.nav.about}</a>
           <a href="#experience">{t.nav.experience}</a>
+          <a href="#work">{t.nav.projects}</a>
+          <a className="nav-detail" href="#education">{t.nav.education}</a>
+          <a className="nav-detail" href="#certification">{t.nav.certification}</a>
           <div className="language-switcher" role="group" aria-label={t.language}>
             <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
             <span aria-hidden="true">/</span>
@@ -211,7 +214,7 @@ export default function Home() {
       </header>
 
       <main id="top">
-        <section className="hero">
+        <section className="hero" id="about">
           <div className="hero-copy">
             <p className="status"><span aria-hidden="true" /> {t.status}</p>
             <h1>{t.hero}</h1>
@@ -298,13 +301,13 @@ export default function Home() {
             <h2>{t.toolkitHeading}</h2>
             <dl>{skills.map(([label, value]) => <div key={label.en}><dt>{label[language]}</dt><dd>{value}</dd></div>)}</dl>
           </article>
-          <article className="education-panel" data-reveal>
+          <article className="education-panel" data-reveal id="education">
             <p className="panel-label">{t.educationLabel}</p>
             <div className="education-mark">UIT</div>
             <h2>{t.university}</h2>
             <p>VNU-HCM · 2022—2026</p>
             <strong>{t.degree}<br />{t.major}</strong>
-            <div className="certification"><span>IELTS</span><strong>Overall Band 5.5 · 2024</strong></div>
+            <div className="certification" id="certification"><span>IELTS</span><strong>Overall Band 5.5 · 2024</strong></div>
           </article>
         </section>
 

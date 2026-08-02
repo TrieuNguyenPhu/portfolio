@@ -100,6 +100,12 @@ button:focus-visible {
 .nav-shell nav > a:not(.nav-cta) { display: none; }
 .nav-shell nav > a:hover { color: var(--text); }
 
+#about,
+#work,
+#experience,
+#education,
+#certification { scroll-margin-top: 6rem; }
+
 .language-switcher {
   align-items: center;
   color: var(--muted);
@@ -562,6 +568,7 @@ html.reveal-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0
   .brand > span { font-size: 1.05rem; }
   .brand small { display: inline; }
   .nav-shell nav > a:not(.nav-cta) { display: inline; }
+  .nav-shell nav > a.nav-detail { display: none; }
   .hero { grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.55fr); }
   .projects-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
   .project--seckube { grid-column: span 7; }
@@ -574,6 +581,7 @@ html.reveal-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0
 
 @media (min-width: 72rem) {
   .nav-shell { padding-inline: max(2rem, calc((100% - 94rem) / 2)); }
+  .nav-shell nav > a.nav-detail { display: inline; }
 }
 
 @media (hover: hover) and (pointer: fine) {
