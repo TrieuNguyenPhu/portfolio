@@ -80,7 +80,7 @@ const copy = {
     toolkitLabel: "Toolkit",
     toolkitHeading: "The tools behind the work.",
     educationLabel: "Education",
-    university: "VNU-HCM University of Information Technology (UIT)",
+    university: "University of Information Technology",
     degree: "Bachelor of Software Engineering",
     open: "Open to DevOps opportunities",
     contactHeading: "Let’s build a better path to production.",
@@ -118,7 +118,7 @@ const copy = {
     toolkitLabel: "Công cụ",
     toolkitHeading: "Công cụ đằng sau từng dự án.",
     educationLabel: "Học vấn",
-    university: "Đại học Công nghệ Thông tin - ĐHQG-HCM (UIT)",
+    university: "Đại học Công nghệ Thông tin",
     degree: "Cử nhân Kỹ thuật Phần mềm",
     open: "Sẵn sàng cho cơ hội DevOps",
     contactHeading: "Cùng xây dựng con đường tốt hơn đến production.",
@@ -303,7 +303,7 @@ export default function Home() {
             <p className="panel-label">{t.educationLabel}</p>
             <div className="education-mark">UIT</div>
             <h2>{t.university}</h2>
-            <p>VNU-HCM · 2022—2026</p>
+            <p>2022—2026</p>
             <strong>{t.degree}</strong>
           </article>
         </section>

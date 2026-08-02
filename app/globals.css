@@ -357,7 +357,7 @@ main,
   color: var(--muted);
   display: flex;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.84rem;
   justify-content: flex-end;
   letter-spacing: 0.06em;
 }
@@ -387,24 +387,24 @@ main,
   color: var(--text);
   flex: 1;
   font-family: var(--font-mono);
-  font-size: clamp(0.62rem, 1.2vw, 0.74rem);
+  font-size: clamp(0.68rem, 1.35vw, 0.86rem);
   font-weight: 500;
   padding: 0.65rem 0.25rem;
   text-align: center;
 }
 
 .project-visual i { color: var(--project-accent); font-style: normal; }
-.project-metric { color: var(--project-accent); font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; }
+.project-metric { color: var(--project-accent); font-family: var(--font-mono); font-size: 0.86rem; text-transform: uppercase; }
 
 .project h3 {
-  font-size: clamp(1.8rem, 2.8vw, 2.9rem);
+  font-size: clamp(2rem, 3.2vw, 3.35rem);
   font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 1;
   margin-top: 0.5rem;
 }
 
-.project-type { color: var(--text); font-size: 0.86rem; font-weight: 600; margin-top: 0.5rem; }
+.project-type { color: var(--text); font-size: clamp(0.98rem, 1.3vw, 1.1rem); font-weight: 600; margin-top: 0.5rem; }
 .project-summary { color: var(--muted); font-size: 0.92rem; line-height: 1.7; margin-top: 1.25rem; max-width: 58ch; }
 
 .tags {
@@ -419,7 +419,7 @@ main,
   border: 1px solid var(--line);
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   padding: 0.35rem 0.5rem;
 }
 
@@ -435,7 +435,7 @@ main,
 
 .project-footer a {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.84rem;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -482,15 +482,12 @@ main,
 .education-panel .panel-label { color: var(--on-accent); opacity: 0.65; }
 .education-panel h2 { color: var(--on-accent); }
 .education-mark {
-  border: 2px solid var(--on-accent);
-  display: grid;
+  display: block;
   font-family: var(--font-display);
   font-size: clamp(3.25rem, 6vw, 5.25rem);
   font-weight: 700;
-  height: 1.3em;
-  margin-top: 3rem;
-  place-items: center;
-  width: 1.8em;
+  line-height: 1;
+  margin-top: 2.5rem;
 }
 .education-panel > p:not(.panel-label) { font-family: var(--font-mono); font-size: 0.68rem; margin-top: 1rem; }
 .education-panel > strong { display: block; font-size: 0.9rem; margin-top: 1.5rem; }
@@ -635,7 +632,7 @@ html[data-theme="dark"] { color-scheme: dark; }
 :root[data-theme="light"] .education-panel { background: var(--bg); color: var(--text); }
 :root[data-theme="light"] .education-panel .panel-label,
 :root[data-theme="light"] .education-panel h2 { color: var(--text); }
-:root[data-theme="light"] .education-mark { border-color: var(--lime); color: var(--lime); }
+:root[data-theme="light"] .education-mark { color: var(--lime); }
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) {
@@ -658,5 +655,5 @@ html[data-theme="dark"] { color-scheme: dark; }
   html:not([data-theme]) .education-panel { background: var(--bg); color: var(--text); }
   html:not([data-theme]) .education-panel .panel-label,
   html:not([data-theme]) .education-panel h2 { color: var(--text); }
-  html:not([data-theme]) .education-mark { border-color: var(--lime); color: var(--lime); }
+  html:not([data-theme]) .education-mark { color: var(--lime); }
 }
