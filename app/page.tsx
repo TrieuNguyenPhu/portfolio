@@ -51,6 +51,7 @@ const skills = [
 
 const copy = {
   en: {
+    name: "Nguyen Phu Trieu",
     role: "DevOps Engineer",
     nav: { projects: "Projects", experience: "Experience", contact: "Contact" },
     language: "Language",
@@ -85,6 +86,7 @@ const copy = {
     phone: "Phone",
   },
   vi: {
+    name: "Nguyễn Phú Triệu",
     role: "Kỹ sư DevOps",
     nav: { projects: "Dự án", experience: "Kinh nghiệm", contact: "Liên hệ" },
     language: "Ngôn ngữ",
@@ -137,8 +139,8 @@ export default function Home() {
   return (
     <>
       <header className="nav-shell">
-        <a className="brand" href="#top" aria-label="Nguyen Phu Trieu, home">
-          <span>NPT</span>
+        <a className="brand" href="#top" aria-label={`${t.name}, home`}>
+          <span>{t.name}</span>
           <small>{t.role}</small>
         </a>
         <nav aria-label="Primary navigation">
