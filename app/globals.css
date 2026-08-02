@@ -725,11 +725,6 @@ html.reveal-ready [data-reveal].is-visible { filter: blur(0); opacity: 1; transf
   50% { box-shadow: 0 0 0 7px transparent; opacity: 1; }
 }
 
-@keyframes arrow-nudge {
-  from { transform: translateX(0); }
-  to { transform: translateX(4px); }
-}
-
 @media (min-width: 42rem) {
   :root { --page: min(94rem, calc(100% - 4rem)); }
   .nav-shell { padding-inline: 2rem; }
@@ -773,12 +768,9 @@ html.reveal-ready [data-reveal].is-visible { filter: blur(0); opacity: 1; transf
   .hero-copy,
   .hero-console,
   .status > span,
-  .ticker span::after,
-  .project:hover .project-visual i { animation: none; }
+  .ticker span::after { animation: none; }
   html.reveal-ready [data-reveal] { filter: none; opacity: 1; transform: none; transition: none; }
   .button,
-  .project,
-  .experience-list article,
   .nav-shell a,
   .project-footer a,
   .social-icon { transition: none; }
