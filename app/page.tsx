@@ -214,11 +214,10 @@ export default function Home() {
 
         <div className="ticker" aria-label="Areas of expertise">
           <span>AWS</span><i />
-          <span>KUBERNETES</span><i />
           <span>TERRAFORM</span><i />
-          <span>GITOPS</span><i />
-          <span>CI/CD</span><i />
-          <span>LINUX</span>
+          <span>DOCKER</span><i />
+          <span>KUBERNETES</span><i />
+          <span>CI/CD</span>
         </div>
 
         <section className="projects-section" id="work">
