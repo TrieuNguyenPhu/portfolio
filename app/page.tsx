@@ -226,7 +226,9 @@ export default function Home() {
             title={`${t.theme}: ${theme === "dark" ? t.switchToLight : theme === "light" ? t.switchToSystem : t.switchToDark}`}
             onClick={() => setTheme(theme === "dark" ? "light" : theme === "light" ? "system" : "dark")}
           >
-            <span aria-hidden="true">{theme === "system" ? "◐" : theme === "dark" ? "☀" : "☾"}</span>
+            {theme === "system" ? (
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5" /><path d="M8 20h8M12 16v4" /></svg>
+            ) : <span aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>}
           </button>
           <a className="nav-cta" href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer">{t.nav.contact}</a>
         </nav>
@@ -339,7 +341,6 @@ export default function Home() {
           <h2>{t.contactHeading}</h2>
           <div className="contact-links">
             <a href="mailto:nguyentrieu080604@gmail.com">nguyentrieu080604@gmail.com <span>↗</span></a>
-            <a href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer">Facebook <span>↗</span></a>
           </div>
           <nav className="contact-socials" aria-label="Social links">
             <a className="social-icon" href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook">
