@@ -1,45 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import SiteHeader, { type Language } from "./site-header";
 
-type Language = "en" | "vi";
-type Theme = "dark" | "light" | "system";
 type Localized = Record<Language, string>;
 
 const text = (en: string, vi: string): Localized => ({ en, vi });
-const sectionIds = ["about", "experience", "work", "education", "certification"] as const;
-
-const projects = [
-  {
-    slug: "seckube",
-    title: "SecKube",
-    type: text("Kubernetes GitOps and Security Platform", "Nền tảng GitOps và bảo mật Kubernetes"),
-    date: text("June 2026", "Tháng 6, 2026"),
-    summary: text(
-      "Kubernetes GitOps platform with five ordered Argo CD sync waves, Argo Rollouts canary deployments, Prometheus-based release validation, and automated rollback.",
-      "Nền tảng GitOps Kubernetes với năm sync wave Argo CD, canary deployment bằng Argo Rollouts, xác thực phát hành qua Prometheus và tự động rollback.",
-    ),
-    stack: ["Kubernetes", "Argo CD", "Argo Rollouts", "Prometheus", "Grafana", "OPA Gatekeeper", "Docker", "GitHub Actions", "Trivy", "Cosign"],
-    href: "https://github.com/TrieuNguyenPhu/SecKube",
-    visual: ["SOURCE", "BUILD", "SIGN", "SYNC", "VERIFY"],
-    metric: text("5 sync waves", "5 nhịp đồng bộ"),
-  },
-  {
-    slug: "shortenlink",
-    title: "ShortenLink",
-    type: text("Serverless URL Shortener on AWS", "Dịch vụ rút gọn URL serverless trên AWS"),
-    date: text("May — July 2026", "Tháng 5 — Tháng 7, 2026"),
-    summary: text(
-      "Full-stack serverless platform with a statically exported Next.js frontend and Go/Gin API on AWS Lambda. It supports aliases, expiration, metadata, redirects, collision-safe DynamoDB writes, and automated delivery checks.",
-      "Nền tảng serverless full-stack gồm frontend Next.js xuất tĩnh và API Go/Gin trên AWS Lambda; hỗ trợ alias, thời hạn, metadata, chuyển hướng, ghi DynamoDB chống trùng lặp và kiểm tra triển khai tự động.",
-    ),
-    stack: ["Next.js", "Go", "Gin", "AWS Lambda", "API Gateway", "DynamoDB", "S3", "CloudFront", "Route 53", "AWS SAM", "CloudFormation", "GitHub Actions"],
-    href: "https://github.com/TrieuNguyenPhu/shorten-link",
-    live: "https://npt-shortenlink.dev",
-    visual: ["EDGE", "API", "LAMBDA", "DATA"],
-    metric: text("Serverless stack", "Kiến trúc serverless"),
-  },
-];
 
 const skills = [
   [text("Cloud & Infrastructure", "Cloud & hạ tầng"), "AWS, Terraform, AWS SAM, CloudFormation"],
@@ -53,7 +19,7 @@ const copy = {
   en: {
     name: "Nguyen Phu Trieu",
     role: "DevOps Engineer",
-    nav: { about: "About", experience: "Experience", projects: "Projects", education: "Education", certification: "Certification", contact: "Contact" },
+    nav: { blog: "Blog", about: "About", experience: "Experience", projects: "Projects", education: "Education", certification: "Certification", contact: "Contact" },
     language: "Language",
     theme: "Theme",
     switchToLight: "Switch to light mode",
@@ -93,7 +59,7 @@ const copy = {
   vi: {
     name: "Nguyễn Phú Triệu",
     role: "Kỹ sư DevOps",
-    nav: { about: "Giới thiệu", experience: "Kinh nghiệm", projects: "Dự án", education: "Học vấn", certification: "Chứng chỉ", contact: "Liên hệ" },
+    nav: { blog: "Blog", about: "Giới thiệu", experience: "Kinh nghiệm", projects: "Dự án", education: "Học vấn", certification: "Chứng chỉ", contact: "Liên hệ" },
     language: "Ngôn ngữ",
     theme: "Chế độ màu",
     switchToLight: "Chuyển sang chế độ sáng",
@@ -134,47 +100,7 @@ const copy = {
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>("en");
-  const [theme, setTheme] = useState<Theme>("system");
-  const [activeSection, setActiveSection] = useState("about");
-  const [preferencesLoaded, setPreferencesLoaded] = useState(false);
   const t = copy[language];
-
-  useEffect(() => {
-    const savedLanguage = window.localStorage.getItem("portfolio-language");
-    const savedTheme = window.localStorage.getItem("portfolio-theme");
-    if (savedLanguage === "en" || savedLanguage === "vi") setLanguage(savedLanguage);
-    if (savedTheme === "dark" || savedTheme === "light" || savedTheme === "system") {
-      setTheme(savedTheme);
-    }
-    setPreferencesLoaded(true);
-  }, []);
-
-  useEffect(() => {
-    if (!preferencesLoaded) return;
-    document.documentElement.lang = language;
-    window.localStorage.setItem("portfolio-language", language);
-  }, [language, preferencesLoaded]);
-
-  useEffect(() => {
-    if (!preferencesLoaded) return;
-    if (theme === "system") delete document.documentElement.dataset.theme;
-    else document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem("portfolio-theme", theme);
-  }, [theme, preferencesLoaded]);
-
-  useEffect(() => {
-    const updateActiveSection = () => {
-      const next = sectionIds.reduce((current, id) => {
-        const section = document.getElementById(id);
-        return section && section.getBoundingClientRect().top <= window.innerHeight * 0.42 ? id : current;
-      }, "about");
-      setActiveSection(next);
-    };
-
-    updateActiveSection();
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    return () => window.removeEventListener("scroll", updateActiveSection);
-  }, []);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -201,45 +127,17 @@ export default function Home() {
 
   return (
     <>
-      <header className="nav-shell">
-        <a className="brand" href="#top" aria-label={`${t.name}, home`}>
-          <span>{t.name}</span>
-          <small>{t.role}</small>
-        </a>
-        <nav aria-label="Primary navigation">
-          <a className={activeSection === "about" ? "is-active" : undefined} href="#about">{t.nav.about}</a>
-          <a className={activeSection === "experience" ? "is-active" : undefined} href="#experience">{t.nav.experience}</a>
-          <a className={activeSection === "work" ? "is-active" : undefined} href="#work">{t.nav.projects}</a>
-          <a className={`nav-detail${activeSection === "education" ? " is-active" : ""}`} href="#education">{t.nav.education}</a>
-          <a className={`nav-detail${activeSection === "certification" ? " is-active" : ""}`} href="#certification">{t.nav.certification}</a>
-          <div className="language-switcher" role="group" aria-label={t.language}>
-            <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
-            <span aria-hidden="true">/</span>
-            <button type="button" aria-pressed={language === "vi"} onClick={() => setLanguage("vi")}>VI</button>
-          </div>
-          <button
-            className="theme-toggle"
-            type="button"
-            aria-label={theme === "dark" ? t.switchToLight : theme === "light" ? t.switchToSystem : t.switchToDark}
-            title={`${t.theme}: ${theme === "dark" ? t.switchToLight : theme === "light" ? t.switchToSystem : t.switchToDark}`}
-            onClick={() => setTheme(theme === "dark" ? "light" : theme === "light" ? "system" : "dark")}
-          >
-            {theme === "system" ? (
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5" /><path d="M8 20h8M12 16v4" /></svg>
-            ) : <span aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>}
-          </button>
-          <a className="nav-cta" href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer">{t.nav.contact}</a>
-        </nav>
-      </header>
+      <SiteHeader active="about" language={language} onLanguageChange={setLanguage} />
 
       <main id="top">
-        <section className="hero" id="about">
+        <div id="about">
+        <section className="hero">
           <div className="hero-copy">
             <p className="status"><span aria-hidden="true" /> {t.status}</p>
             <h1>{t.hero}</h1>
             <p className="hero-lede">{t.lede}</p>
             <div className="hero-actions">
-              <a className="button button--primary" href="#work">{t.explore}</a>
+              <a className="button button--primary" href="/projects">{t.explore}</a>
               <a className="button button--ghost" href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer">GitHub ↗</a>
             </div>
           </div>
@@ -265,7 +163,7 @@ export default function Home() {
           <span>CI/CD</span>
         </div>
 
-        <section className="experience-section" id="experience">
+        <section className="experience-section">
           <header className="section-intro" data-reveal><span>{t.experienceLabel}</span><div><h2>{t.experienceHeading}</h2></div></header>
           <div className="experience-list">
             <article data-reveal>
@@ -281,46 +179,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="projects-section" id="work">
-          <header className="section-intro" data-reveal>
-            <span>{t.projectsLabel}</span>
-            <div><h2>{t.projectsHeading}</h2><p>{t.projectsText}</p></div>
-          </header>
-
-          <div className="projects-grid">
-            {projects.map((project) => (
-              <article className={`project project--${project.slug}`} data-reveal key={project.slug}>
-                <header><span>{project.date[language]}</span></header>
-                <div className="project-visual" aria-label={`${project.title} architecture flow`}>
-                  {project.visual.map((step, index) => (
-                    <span key={step}><b>{step}</b>{index < project.visual.length - 1 ? <i aria-hidden="true">→</i> : null}</span>
-                  ))}
-                </div>
-                <div className="project-body">
-                  <p className="project-metric">{project.metric[language]}</p>
-                  <h3>{project.title}</h3>
-                  <p className="project-type">{project.type[language]}</p>
-                  <p className="project-summary">{project.summary[language]}</p>
-                </div>
-                <ul className="tags" aria-label={`${project.title} technology stack`}>
-                  {project.stack.map((item) => <li key={item}>{item}</li>)}
-                </ul>
-                <footer className="project-footer">
-                  <a href={project.href} target="_blank" rel="noreferrer">{t.repository} <span>↗</span></a>
-                  {project.live ? <a href={project.live} target="_blank" rel="noreferrer">{t.live} <span>↗</span></a> : null}
-                </footer>
-              </article>
-            ))}
-          </div>
-        </section>
-
         <section className="profile-section">
           <article className="skills-panel" data-reveal>
             <p className="panel-label">{t.toolkitLabel}</p>
             <h2>{t.toolkitHeading}</h2>
             <dl>{skills.map(([label, value]) => <div key={label.en}><dt>{label[language]}</dt><dd>{value}</dd></div>)}</dl>
           </article>
-          <article className="education-panel" data-reveal id="education">
+          <article className="education-panel" data-reveal>
             <p className="panel-label">{t.educationLabel}</p>
             <div className="education-mark">UIT</div>
             <h2>{t.university}</h2>
@@ -329,10 +194,11 @@ export default function Home() {
           </article>
         </section>
 
-        <section className="certification-section" data-reveal id="certification">
+        <section className="certification-section" data-reveal>
           <p className="panel-label">{t.nav.certification}</p>
           <div><strong>IELTS</strong><span>Overall Band 5.5</span><time>2024</time></div>
         </section>
+        </div>
 
         <footer className="site-footer" data-reveal>
           <div className="footer-content">
@@ -350,9 +216,6 @@ export default function Home() {
             </a>
             <a className="social-icon" href="https://www.linkedin.com/in/trieunguyenphu86/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 1 0 5.25 6.94 1.97 1.97 0 0 0 5.25 3ZM20.44 13.4c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.1-3.38 1.87V8.5H9.36V20h3.38v-5.7c0-1.5.29-2.96 2.15-2.96 1.84 0 1.87 1.72 1.87 3.05V20h3.68v-6.6Z" /></svg>
-            </a>
-            <a className="social-icon" href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.72.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.45-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.54 1.06 1.54 1.06.9 1.57 2.35 1.12 2.92.85.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.06A9.36 9.36 0 0 1 12 6.87c.85 0 1.7.12 2.5.34 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.2 2.48.1 2.74.64.72 1.03 1.64 1.03 2.77 0 3.96-2.34 4.83-4.57 5.08.36.32.68.93.68 1.88 0 1.36-.01 2.45-.01 2.78 0 .27.18.59.69.49A10.25 10.25 0 0 0 22 12 6.58 17.52 2 12 2Z" clipRule="evenodd" /></svg>
             </a>
               </nav>
             </div>
