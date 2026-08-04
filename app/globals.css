@@ -413,23 +413,24 @@ main,
 .certification-section time { color: var(--blue); font-size: var(--type-meta); font-weight: 700; }
 
 .site-footer {
+  border-top: 1px solid var(--rule);
   margin-left: calc(50% - 50vw);
   margin-top: clamp(4rem, 7vw, 6rem);
   max-width: none;
-  padding: 1.5rem max(1rem, env(safe-area-inset-left));
+  padding: clamp(1.5rem, 3vw, 2.25rem) max(1rem, env(safe-area-inset-left)) 1.5rem;
   width: 100vw;
 }
 
 .footer-content,
 .footer-bottom { margin-inline: auto; max-width: var(--page); }
-.footer-content { display: flex; justify-content: flex-end; }
-.contact-links a { display: inline-block; font-size: 0.9rem; }
+.footer-content { align-items: center; display: flex; gap: 1rem; justify-content: space-between; }
+.contact-links a { display: inline-block; font-size: 0.9rem; font-weight: 600; }
 .contact-links a:hover { color: var(--blue); }
-.contact-socials { display: flex; gap: 0.6rem; margin-top: 0.9rem; }
+.contact-socials { display: flex; flex-shrink: 0; gap: 0.6rem; }
 .social-icon { align-items: center; border: 1px solid var(--rule); display: inline-flex; height: 2.35rem; justify-content: center; width: 2.35rem; }
 .social-icon:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
 .social-icon svg { fill: currentColor; height: 1rem; width: 1rem; }
-.footer-bottom { align-items: center; color: var(--muted); display: flex; flex-wrap: wrap; font-size: var(--type-meta); gap: 1rem; justify-content: space-between; margin-top: 1.25rem; }
+.footer-bottom { align-items: center; color: var(--muted); display: flex; flex-wrap: wrap; font-size: var(--type-meta); gap: 1rem; justify-content: space-between; margin-top: 1.5rem; }
 .footer-bottom a:hover { color: var(--ink); }
 
 .blog-page,
@@ -565,8 +566,6 @@ html[data-motion="ready"] [data-reveal-delay="2"] { transition-delay: 200ms; }
 
 @media (min-width: 56rem) {
   .hero { grid-template-columns: minmax(0, 1.1fr) minmax(22rem, 0.9fr); }
-  .footer-actions { justify-items: end; text-align: right; }
-  .footer-actions .contact-socials { justify-content: flex-end; }
 }
 
 @media (min-width: 64rem) {
@@ -603,9 +602,7 @@ html[data-motion="ready"] [data-reveal-delay="2"] { transition-delay: 200ms; }
   .blog-hero > p:last-child { margin-top: 1.25rem; }
   .section-intro { display: block; }
   .section-intro > span { display: block; margin-bottom: 1rem; padding: 0; }
-  .footer-content { justify-content: flex-start; }
-  .footer-actions { text-align: left; }
-  .footer-actions .contact-socials { justify-content: flex-start; }
+  .footer-content { align-items: flex-start; flex-direction: column; gap: 1rem; }
 }
 
 @media (max-width: 41.99rem) {
