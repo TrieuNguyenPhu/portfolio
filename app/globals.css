@@ -54,9 +54,9 @@ button:focus-visible {
 .nav-shell {
   align-items: center;
   background: var(--nav-bg);
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   height: 4.5rem;
-  justify-content: space-between;
   padding-inline: max(1rem, env(safe-area-inset-left));
   position: sticky;
   top: 0;
@@ -97,13 +97,14 @@ button:focus-visible {
   text-transform: uppercase;
 }
 
-.nav-shell nav {
+.primary-nav,
+.nav-tools {
   align-items: center;
   display: flex;
   gap: clamp(0.4rem, 1.5vw, 1.25rem);
 }
 
-.nav-shell nav > a {
+.primary-nav > a {
   align-items: center;
   color: var(--muted);
   font-size: 0.86rem;
@@ -113,15 +114,17 @@ button:focus-visible {
   white-space: nowrap;
 }
 
-.nav-shell nav > a:not(.nav-cta) { display: none; }
-.nav-shell nav > a:hover,
-.nav-shell nav > a.is-active { color: var(--ink); }
+.primary-nav > a { display: none; }
+.primary-nav > a:hover,
+.primary-nav > a.is-active { color: var(--ink); }
 
-.nav-shell nav > a:not(.nav-cta)::after {
+.primary-nav > a::after {
   content: none;
 }
 
-.nav-shell nav > a.is-active { color: var(--blue); }
+.primary-nav > a.is-active { color: var(--blue); }
+
+.nav-tools { justify-self: end; }
 
 #about { scroll-margin-top: 5.25rem; }
 
@@ -565,7 +568,7 @@ html[data-motion="ready"] [data-reveal-delay="2"] { transition-delay: 200ms; }
   :root { --page: min(88rem, calc(100% - 4rem)); }
   .nav-shell { padding-inline: 2rem; }
   .brand > span { max-width: none; }
-  .nav-shell nav > a:not(.nav-cta) { display: inline-flex; }
+  .primary-nav > a { display: inline-flex; }
   .certification-section { grid-template-columns: minmax(8rem, 0.28fr) minmax(0, 1fr); }
 }
 
@@ -599,7 +602,7 @@ html[data-motion="ready"] [data-reveal-delay="2"] { transition-delay: 200ms; }
   .blog-read-more,
   .social-icon,
   .contact-links a { transition: color 180ms ease-out, background-color 180ms ease-out, border-color 180ms ease-out, box-shadow 180ms ease-out, transform 180ms ease-out; }
-  .nav-shell nav > a:not(.nav-cta)::after { transition: transform 180ms ease-out; }
+  .primary-nav > a::after { transition: transform 180ms ease-out; }
 }
 
 @media (max-width: 48rem) {
@@ -611,8 +614,8 @@ html[data-motion="ready"] [data-reveal-delay="2"] { transition-delay: 200ms; }
 }
 
 @media (max-width: 41.99rem) {
-  .nav-shell nav > a[href="/blog"],
-  .nav-shell nav > a[href="/projects"] { display: inline-flex; }
+  .primary-nav > a[href="/blog"],
+  .primary-nav > a[href="/projects"] { display: inline-flex; }
   .brand > span,
   .brand small { display: none; }
 }

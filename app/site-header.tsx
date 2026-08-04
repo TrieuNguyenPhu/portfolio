@@ -36,10 +36,12 @@ export default function SiteHeader() {
         <span>{t.name}</span>
         <small>{t.role}</small>
       </a>
-      <nav aria-label="Primary navigation">
+      <nav className="primary-nav" aria-label="Primary navigation">
         <a className={active === "blog" ? "is-active" : undefined} href="/blog">Blog</a>
         <a className={active === "about" ? "is-active" : undefined} href="/#about">{t.about}</a>
         <a className={active === "projects" ? "is-active" : undefined} href="/projects">{t.projects}</a>
+      </nav>
+      <div className="nav-tools">
         <div className="language-switcher" role="group" aria-label={t.language}>
           <button type="button" aria-pressed={language === "vi"} onClick={() => setLanguage("vi")}>VI</button>
           <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
@@ -53,10 +55,10 @@ export default function SiteHeader() {
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5" /><path d="M8 20h8M12 16v4" /></svg>
           )}
         </button>
-        <a className="nav-cta nav-github" href="https://github.com/TrieuNguyenPhu/portfolio" target="_blank" rel="noreferrer" aria-label="Portfolio repository on GitHub" title="GitHub">
+        <a className="nav-github" href="https://github.com/TrieuNguyenPhu/portfolio" target="_blank" rel="noreferrer" aria-label="Portfolio repository on GitHub" title="GitHub">
           <GitHubIcon />
         </a>
-      </nav>
+      </div>
     </header>
   );
 }
