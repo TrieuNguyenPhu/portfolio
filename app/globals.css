@@ -169,7 +169,8 @@ button:focus-visible {
 .theme-toggle:hover,
 .nav-shell .nav-github:hover { background: var(--soft-accent); color: var(--blue); }
 .theme-toggle svg { fill: none; height: 1.15rem; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; width: 1.15rem; }
-.nav-github svg { display: block; fill: currentColor; height: 1.15rem; width: 1.15rem; }
+.github-icon { display: block; fill: currentColor; overflow: visible; }
+.nav-github .github-icon { height: 1.15rem; width: 1.15rem; }
 
 main,
 .site-footer {
