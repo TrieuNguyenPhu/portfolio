@@ -31,7 +31,7 @@ export default function SiteFooter() {
         <div className="footer-actions">
           <div className="contact-links">
             <a href="mailto:nguyentrieu080604@gmail.com">
-              nguyentrieu080604@gmail.com <span className="link-arrow" aria-hidden="true" />
+              nguyentrieu080604@gmail.com
             </a>
           </div>
           <nav className="contact-socials" aria-label="Social links">

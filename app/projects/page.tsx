@@ -33,11 +33,6 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <article className="project" key={project.slug}>
               <header><span>{project.date[language]}</span></header>
-              <div className="project-visual" aria-label={`${project.title} architecture flow`}>
-                {project.visual.map((step, index) => (
-                  <span key={step}><b>{step}</b>{index < project.visual.length - 1 ? <i aria-hidden="true" /> : null}</span>
-                ))}
-              </div>
               <div className="project-body">
                 <p className="project-metric">{project.metric[language]}</p>
                 <h2>{project.title}</h2>
@@ -48,8 +43,8 @@ export default function ProjectsPage() {
                 {project.stack.map((item) => <li key={item}>{item}</li>)}
               </ul>
               <footer className="project-footer">
-                <a href={project.href} target="_blank" rel="noreferrer">{t.repository} <span className="link-arrow" aria-hidden="true" /></a>
-                {project.live ? <a href={project.live} target="_blank" rel="noreferrer">{t.live} <span className="link-arrow" aria-hidden="true" /></a> : null}
+                <a href={project.href} target="_blank" rel="noreferrer">{t.repository}</a>
+                {project.live ? <a href={project.live} target="_blank" rel="noreferrer">{t.live}</a> : null}
               </footer>
             </article>
           ))}

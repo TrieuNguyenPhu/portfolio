@@ -9,7 +9,6 @@ export type Project = {
   stack: string[];
   href: string;
   live?: string;
-  visual: string[];
   metric: Localized;
 };
 
@@ -26,7 +25,6 @@ export const projects = [
     ),
     stack: ["Kubernetes", "Argo CD", "Argo Rollouts", "Prometheus", "Grafana", "OPA Gatekeeper", "Docker", "GitHub Actions", "Trivy", "Cosign"],
     href: "https://github.com/TrieuNguyenPhu/SecKube",
-    visual: ["SOURCE", "BUILD", "SIGN", "SYNC", "VERIFY"],
     metric: text("5 sync waves", "5 nhịp đồng bộ"),
   },
   {
@@ -41,7 +39,6 @@ export const projects = [
     stack: ["Next.js", "Go", "Gin", "AWS Lambda", "API Gateway", "DynamoDB", "S3", "CloudFront", "Route 53", "AWS SAM", "CloudFormation", "GitHub Actions"],
     href: "https://github.com/TrieuNguyenPhu/shorten-link",
     live: "https://npt-shortenlink.dev",
-    visual: ["EDGE", "API", "LAMBDA", "DATA"],
     metric: text("Serverless stack", "Kiến trúc serverless"),
   },
   {
@@ -55,7 +52,6 @@ export const projects = [
     ),
     stack: ["Next.js", "FastAPI", "Spring Boot", "Go", "PostgreSQL", "Redis", "AWS", "Terraform", "Docker", "GitHub Actions"],
     href: "https://github.com/TrieuNguyenPhu/ai-finance-manager",
-    visual: ["WEB", "GATEWAY", "LEDGER", "EVENTS", "INSIGHTS"],
     metric: text("7-service architecture", "Kiến trúc 7 dịch vụ"),
   },
   {
@@ -69,7 +65,6 @@ export const projects = [
     ),
     stack: ["C#", "ASP.NET Core MVC", "Entity Framework Core", "ASP.NET Identity", "Google Gemini API", "SQL Server", "Razor"],
     href: "https://github.com/TrieuNguyenPhu/Book-Store-Gemini-Chatbot",
-    visual: ["STORE", "IDENTITY", "CATALOG", "GEMINI"],
     metric: text("Gemini-powered support", "Hỗ trợ bằng Gemini"),
   },
   {
@@ -83,7 +78,6 @@ export const projects = [
     ),
     stack: ["AWS", "Terraform", "Kinesis", "ECS Fargate", "Timestream", "Lambda", "k6", "Docker", "GitHub Actions", "Python", "Node.js"],
     href: "https://github.com/TrieuNguyenPhu/Foresight-Lens",
-    visual: ["SERVICES", "KINESIS", "TIMESTREAM", "AI", "ALERTS"],
     metric: text("10/10 requirements met", "Đạt 10/10 yêu cầu"),
   },
   {
@@ -97,7 +91,6 @@ export const projects = [
     ),
     stack: ["React", "TypeScript", "Vite", "Graph Algorithms", "Docker", "Nginx", "GitHub Actions", "GHCR", "Let's Encrypt"],
     href: "https://github.com/TrieuNguyenPhu/STANS-Nav-System",
-    visual: ["MAP", "GRAPH", "ROUTE", "DOCKER", "DEPLOY"],
     metric: text("Traffic-aware routing", "Định tuyến theo giao thông"),
   },
 ] satisfies Project[];
