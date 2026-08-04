@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import SiteHeader, { type Language } from "../site-header";
+import { useSitePreferences } from "../site-preferences";
 import { projects } from "./projects";
 
 const copy = {
@@ -20,12 +19,10 @@ const copy = {
 } as const;
 
 export default function ProjectsPage() {
-  const [language, setLanguage] = useState<Language>("en");
+  const { preferences: { language } } = useSitePreferences();
   const t = copy[language];
 
   return (
-    <>
-      <SiteHeader active="projects" language={language} onLanguageChange={setLanguage} />
       <main className="projects-page">
         <header className="blog-hero">
           <h1>{t.heading}</h1>
@@ -58,6 +55,5 @@ export default function ProjectsPage() {
           ))}
         </section>
       </main>
-    </>
   );
 }

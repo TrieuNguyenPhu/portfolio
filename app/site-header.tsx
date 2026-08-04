@@ -1,10 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-export type Language = "en" | "vi";
-type Theme = "dark" | "light" | "system";
-type Page = "blog" | "about" | "projects";
+import { usePathname } from "next/navigation";
+import { useSitePreferences } from "./site-preferences";
 
 const copy = {
   en: {
@@ -12,6 +9,7 @@ const copy = {
     role: "DevOps Engineer",
     about: "About",
     projects: "Projects",
+    language: "Language",
     theme: { dark: "Switch to dark theme", light: "Switch to light theme", system: "Use system theme" },
   },
   vi: {
@@ -19,54 +17,17 @@ const copy = {
     role: "Kỹ sư DevOps",
     about: "Giới thiệu",
     projects: "Dự án",
+    language: "Ngôn ngữ",
     theme: { dark: "Chuyển sang giao diện tối", light: "Chuyển sang giao diện sáng", system: "Dùng giao diện hệ thống" },
   },
 } as const;
 
-export default function SiteHeader({
-  active,
-  language: controlledLanguage,
-  onLanguageChange,
-}: {
-  active: Page;
-  language?: Language;
-  onLanguageChange?: (language: Language) => void;
-}) {
-  const [localLanguage, setLocalLanguage] = useState<Language>("en");
-  const [theme, setTheme] = useState<Theme>("system");
-  const language = controlledLanguage ?? localLanguage;
+export default function SiteHeader() {
+  const pathname = usePathname();
+  const { preferences, setLanguage, cycleTheme } = useSitePreferences();
+  const { language, theme, nextTheme } = preferences;
   const t = copy[language];
-  const nextTheme = theme === "dark" ? "light" : theme === "light" ? "system" : "dark";
-
-  useEffect(() => {
-    const savedLanguage = window.localStorage.getItem("portfolio-language");
-    const savedTheme = window.localStorage.getItem("portfolio-theme");
-    if (savedLanguage === "en" || savedLanguage === "vi") {
-      setLocalLanguage(savedLanguage);
-      onLanguageChange?.(savedLanguage);
-      document.documentElement.lang = savedLanguage;
-    }
-    if (savedTheme === "dark" || savedTheme === "light" || savedTheme === "system") {
-      setTheme(savedTheme);
-      if (savedTheme === "system") delete document.documentElement.dataset.theme;
-      else document.documentElement.dataset.theme = savedTheme;
-    }
-  }, [onLanguageChange]);
-
-  const changeLanguage = (next: Language) => {
-    setLocalLanguage(next);
-    onLanguageChange?.(next);
-    document.documentElement.lang = next;
-    window.localStorage.setItem("portfolio-language", next);
-  };
-
-  const changeTheme = () => {
-    const next = nextTheme;
-    setTheme(next);
-    if (next === "system") delete document.documentElement.dataset.theme;
-    else document.documentElement.dataset.theme = next;
-    window.localStorage.setItem("portfolio-theme", next);
-  };
+  const active = pathname.startsWith("/blog") ? "blog" : pathname.startsWith("/projects") ? "projects" : "about";
 
   return (
     <header className="nav-shell">
@@ -78,12 +39,11 @@ export default function SiteHeader({
         <a className={active === "blog" ? "is-active" : undefined} href="/blog">Blog</a>
         <a className={active === "about" ? "is-active" : undefined} href="/#about">{t.about}</a>
         <a className={active === "projects" ? "is-active" : undefined} href="/projects">{t.projects}</a>
-        <div className="language-switcher" role="group" aria-label="Language">
-          <button type="button" aria-pressed={language === "vi"} onClick={() => changeLanguage("vi")}>VI</button>
-          <span aria-hidden="true">/</span>
-          <button type="button" aria-pressed={language === "en"} onClick={() => changeLanguage("en")}>EN</button>
+        <div className="language-switcher" role="group" aria-label={t.language}>
+          <button type="button" aria-pressed={language === "vi"} onClick={() => setLanguage("vi")}>VI</button>
+          <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
         </div>
-        <button className="theme-toggle" type="button" aria-label={t.theme[nextTheme]} title={t.theme[nextTheme]} onClick={changeTheme}>
+        <button className="theme-toggle" type="button" aria-label={t.theme[nextTheme]} title={t.theme[nextTheme]} onClick={cycleTheme}>
           {theme === "light" ? (
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" /></svg>
           ) : theme === "dark" ? (

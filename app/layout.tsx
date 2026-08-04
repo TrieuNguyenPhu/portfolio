@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
+import SiteShell from "./site-shell";
 
 const manrope = Manrope({
   subsets: ["latin", "vietnamese"],
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={manrope.variable}>
-        {children}
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );

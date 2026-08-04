@@ -1,6 +1,4 @@
-import type { Language } from "../site-header";
-
-type Localized = Record<Language, string>;
+import { text, type Localized } from "../lib/localization";
 
 export type Project = {
   slug: string;
@@ -14,8 +12,6 @@ export type Project = {
   visual: string[];
   metric: Localized;
 };
-
-const text = (en: string, vi: string): Localized => ({ en, vi });
 
 // Thêm project mới bằng cách sao chép một object trong mảng này.
 export const projects = [

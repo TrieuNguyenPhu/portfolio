@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test": "node --no-warnings --experimental-strip-types app/lib/site-preferences.test.ts"
   },
   "dependencies": {
     "next": "16.2.12",

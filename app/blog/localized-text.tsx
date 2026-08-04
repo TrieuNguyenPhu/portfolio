@@ -1,10 +1,9 @@
-import type { Localized } from "./posts";
+"use client";
+
+import type { Localized } from "../lib/localization";
+import { useSitePreferences } from "../site-preferences";
 
 export default function LocalizedText({ value }: { value: Localized }) {
-  return (
-    <>
-      <span className="localized--en" lang="en">{value.en}</span>
-      <span className="localized--vi" lang="vi">{value.vi}</span>
-    </>
-  );
+  const { preferences: { language } } = useSitePreferences();
+  return <span lang={language}>{value[language]}</span>;
 }

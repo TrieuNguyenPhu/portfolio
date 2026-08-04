@@ -1,6 +1,6 @@
-import type { Language } from "../site-header";
+import { text, type Localized } from "../lib/localization";
 
-export type Localized = Record<Language, string>;
+export type { Localized } from "../lib/localization";
 
 export type BlogPost = {
   slug: string;
@@ -12,8 +12,6 @@ export type BlogPost = {
   tags: string[];
   sections: { heading?: Localized; paragraphs: Localized[] }[];
 };
-
-const text = (en: string, vi: string): Localized => ({ en, vi });
 
 // Thêm bài viết mới bằng cách sao chép một object và viết đủ nội dung EN/VI.
 export const posts: BlogPost[] = [

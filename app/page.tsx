@@ -1,11 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import SiteHeader, { type Language } from "./site-header";
-
-type Localized = Record<Language, string>;
-
-const text = (en: string, vi: string): Localized => ({ en, vi });
+import { text } from "./lib/localization";
+import { useSitePreferences } from "./site-preferences";
 
 const skills = [
   [text("Cloud & Infrastructure", "Cloud & hạ tầng"), "AWS, Terraform, AWS SAM, CloudFormation"],
@@ -17,14 +13,7 @@ const skills = [
 
 const copy = {
   en: {
-    name: "Nguyen Phu Trieu",
-    role: "DevOps Engineer",
-    nav: { blog: "Blog", about: "About", experience: "Experience", projects: "Projects", education: "Education", certification: "Certification", contact: "Contact" },
-    language: "Language",
-    theme: "Theme",
-    switchToLight: "Switch to light mode",
-    switchToDark: "Switch to dark mode",
-    switchToSystem: "Use system theme",
+    certification: "Certification",
     status: "Entry-level DevOps Engineer",
     hero: "I turn infrastructure into a repeatable delivery system.",
     lede: "Hands-on experience designing and automating cloud-native AWS infrastructure, CI/CD, and GitOps workflows with Terraform, Docker, Kubernetes, GitHub Actions, Argo CD, and Prometheus—backed by Python and Go.",
@@ -34,11 +23,6 @@ const copy = {
     orchestration: "Orchestration",
     infrastructure: "Infrastructure",
     delivery: "Delivery",
-    projectsLabel: "Projects",
-    projectsHeading: "Systems I built from the ground up.",
-    projectsText: "Selected work across Kubernetes, AWS infrastructure, security, containers, and delivery automation.",
-    repository: "View repository",
-    live: "Live site",
     experienceLabel: "Experience",
     experienceHeading: "From backend code to cloud operations.",
     xbrainRole: "DevOps Engineer Trainee",
@@ -50,21 +34,11 @@ const copy = {
     educationLabel: "Education",
     university: "University of Information Technology",
     degree: "Bachelor of Software Engineering",
-    open: "Open to DevOps opportunities",
-    contactHeading: "Let’s build a better path to production.",
-    backToTop: "Back to top",
     xbrainDate: "Apr 2026 — Jul 2026",
     techhausDate: "Aug 2025 — Nov 2025",
   },
   vi: {
-    name: "Nguyễn Phú Triệu",
-    role: "Kỹ sư DevOps",
-    nav: { blog: "Blog", about: "Giới thiệu", experience: "Kinh nghiệm", projects: "Dự án", education: "Học vấn", certification: "Chứng chỉ", contact: "Liên hệ" },
-    language: "Ngôn ngữ",
-    theme: "Chế độ màu",
-    switchToLight: "Chuyển sang chế độ sáng",
-    switchToDark: "Chuyển sang chế độ tối",
-    switchToSystem: "Dùng chế độ của hệ thống",
+    certification: "Chứng chỉ",
     status: "Kỹ sư DevOps mới bắt đầu",
     hero: "Tôi biến hạ tầng thành một hệ thống triển khai có thể lặp lại.",
     lede: "Có kinh nghiệm thực hành thiết kế và tự động hóa hạ tầng AWS cloud-native, CI/CD và GitOps với Terraform, Docker, Kubernetes, GitHub Actions, Argo CD, Prometheus—cùng nền tảng Python và Go.",
@@ -74,11 +48,6 @@ const copy = {
     orchestration: "Điều phối",
     infrastructure: "Hạ tầng",
     delivery: "Triển khai",
-    projectsLabel: "Dự án",
-    projectsHeading: "Những hệ thống tôi xây dựng từ đầu.",
-    projectsText: "Các dự án về Kubernetes, hạ tầng AWS, bảo mật, containers và tự động hóa triển khai.",
-    repository: "Xem repository",
-    live: "Trang web",
     experienceLabel: "Kinh nghiệm",
     experienceHeading: "Từ code backend đến vận hành cloud.",
     xbrainRole: "Thực tập sinh Kỹ sư DevOps",
@@ -90,23 +59,17 @@ const copy = {
     educationLabel: "Học vấn",
     university: "Đại học Công nghệ Thông tin",
     degree: "Cử nhân Kỹ thuật Phần mềm",
-    open: "Sẵn sàng cho cơ hội DevOps",
-    contactHeading: "Cùng xây dựng con đường tốt hơn đến production.",
-    backToTop: "Về đầu trang",
     xbrainDate: "Tháng 4 2026 — Tháng 7 2026",
     techhausDate: "Tháng 8 2025 — Tháng 11 2025",
   },
 } as const;
 
 export default function Home() {
-  const [language, setLanguage] = useState<Language>("en");
+  const { preferences: { language } } = useSitePreferences();
   const t = copy[language];
 
   return (
-    <>
-      <SiteHeader active="about" language={language} onLanguageChange={setLanguage} />
-
-      <main id="top">
+      <main>
         <div id="about">
         <section className="hero">
           <div className="hero-copy">
@@ -172,38 +135,11 @@ export default function Home() {
         </section>
 
         <section className="certification-section">
-          <p className="panel-label">{t.nav.certification}</p>
+          <p className="panel-label">{t.certification}</p>
           <div><strong>IELTS</strong><span>Overall Band 5.5</span><time>2024</time></div>
         </section>
         </div>
 
-        <footer className="site-footer">
-          <div className="footer-content">
-            <div className="footer-intro">
-              <p>{t.open}</p>
-              <h2>{t.contactHeading}</h2>
-            </div>
-            <div className="footer-actions">
-              <div className="contact-links">
-            <a href="mailto:nguyentrieu080604@gmail.com">nguyentrieu080604@gmail.com <span aria-hidden="true" /></a>
-              </div>
-              <nav className="contact-socials" aria-label="Social links">
-            <a className="social-icon" href="https://www.facebook.com/trieu.nguyenphu.0806" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.75l.41-3H13.5V8.08c0-.87.24-1.46 1.5-1.46h1.78V3.94c-.31-.04-1.37-.13-2.61-.13-2.58 0-4.35 1.57-4.35 4.46V10H7v3h2.82v8h3.68Z" /></svg>
-            </a>
-            <a className="social-icon" href="https://www.linkedin.com/in/trieunguyenphu86/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 1 0 5.25 6.94 1.97 1.97 0 0 0 5.25 3ZM20.44 13.4c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.1-3.38 1.87V8.5H9.36V20h3.38v-5.7c0-1.5.29-2.96 2.15-2.96 1.84 0 1.87 1.72 1.87 3.05V20h3.68v-6.6Z" /></svg>
-            </a>
-              </nav>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <span>© 2026 {t.name}</span>
-            <a href="#top">{t.backToTop} ↑</a>
-          </div>
-        </footer>
       </main>
-
-    </>
   );
 }
