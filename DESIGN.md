@@ -12,7 +12,7 @@ colors:
   cyan: "#00c4cc"
   violet: "#7d2ae8"
   accent-ink: "#ffffff"
-  manifest: "linear-gradient(105deg, #00c4cc 0%, #5a42ff 52%, #7d2ae8 100%)"
+  manifest: "linear-gradient(135deg, #00c4cc 0%, #5a42ff 52%, #7d2ae8 100%)"
   soft-accent: "rgb(87 215 255 / 10%)"
   nav-bg: "rgb(9 12 24 / 94%)"
   light-paper: "#f3f4f7"
@@ -24,7 +24,7 @@ colors:
   light-blue: "#5a42ff"
   light-cyan: "#008f96"
   light-violet: "#7d2ae8"
-  light-manifest: "linear-gradient(105deg, #00c4cc 0%, #5a42ff 52%, #7d2ae8 100%)"
+  light-manifest: "linear-gradient(135deg, #00c4cc 0%, #5a42ff 52%, #7d2ae8 100%)"
   light-soft-accent: "rgb(23 63 212 / 7%)"
   light-nav-bg: "rgb(243 244 247 / 95%)"
 typography:
