@@ -8,11 +8,11 @@ colors:
   ink: "#f7f8ff"
   muted: "#aeb7cc"
   rule: "#2b354e"
-  blue: "#6f86ff"
-  cyan: "#57d7ff"
-  violet: "#9a72ff"
+  blue: "#5a42ff"
+  cyan: "#00c4cc"
+  violet: "#7d2ae8"
   accent-ink: "#ffffff"
-  manifest: "linear-gradient(135deg, #1764d8 0%, #554ee8 54%, #7949dc 100%)"
+  manifest: "linear-gradient(105deg, #00c4cc 0%, #5a42ff 52%, #7d2ae8 100%)"
   soft-accent: "rgb(87 215 255 / 10%)"
   nav-bg: "rgb(9 12 24 / 94%)"
   light-paper: "#f3f4f7"
@@ -21,10 +21,10 @@ colors:
   light-ink: "#11131b"
   light-muted: "#555f72"
   light-rule: "#c9ced9"
-  light-blue: "#173fd4"
-  light-cyan: "#007e9e"
-  light-violet: "#7447f2"
-  light-manifest: "linear-gradient(135deg, #1254dc 0%, #384ee5 50%, #7447f2 100%)"
+  light-blue: "#5a42ff"
+  light-cyan: "#008f96"
+  light-violet: "#7d2ae8"
+  light-manifest: "linear-gradient(105deg, #00c4cc 0%, #5a42ff 52%, #7d2ae8 100%)"
   light-soft-accent: "rgb(23 63 212 / 7%)"
   light-nav-bg: "rgb(243 244 247 / 95%)"
 typography:
@@ -122,16 +122,16 @@ The system is dense but calm. Be Vietnam Pro carries every role, including Vietn
 - Cobalt-to-ultraviolet manifest fields used as structural emphasis.
 - Square controls, clipped sheets, fine rules, and numbered rows.
 - Bilingual typography with compact metadata and oversized headlines.
-- Motion limited to purposeful arrival and hover feedback.
+- Motion is limited to scroll-triggered content reveals and hover feedback; add `data-reveal` plus an optional `data-reveal-delay` to scale it to new semantic blocks.
 
 ## Colors
 
-The palette pairs quiet cool neutrals with a restrained blue, cyan, and violet technical signal; the gradient manifest is reserved for high-value fields and thin registration accents.
+The palette pairs quiet cool neutrals with a Canva-inspired cyan-to-blue-to-purple signal. The manifest gradient identifies focal sheets, primary actions, and major page titles without turning ordinary content into decoration.
 
 ### Primary
 
 - **Deployment Blue** (`blue`, `light-blue`): Career emphasis, numbered indices, dates, active rules, and link feedback.
-- **Manifest Field** (`manifest`, `light-manifest`): Primary actions, deployment-profile sheets, education sheets, and the footer registration line.
+- **Manifest Field** (`manifest`, `light-manifest`): Primary actions, deployment-profile and education sheets, the brand marker, and page-level display titles.
 
 ### Secondary
 
@@ -150,7 +150,7 @@ The palette pairs quiet cool neutrals with a restrained blue, cyan, and violet t
 - **Soft Inspection Field** (`soft-accent`, `light-soft-accent`): Sparse hover and background registration tint.
 - **Navigation Veil** (`nav-bg`, `light-nav-bg`): Nearly opaque sticky-header backing.
 
-**The Manifest Rarity Rule.** Use the blue-to-ultraviolet field for a primary action or a document-like focal sheet, never as a routine headline fill.
+**The Manifest Rarity Rule.** Use the cyan-to-purple field for a primary action, a document-like focal sheet, or one page-level display title—never for routine body copy or every card heading.
 
 **The Theme Equivalence Rule.** Theme switching changes material values, not hierarchy, component geometry, or information order.
 
@@ -180,11 +180,11 @@ The palette pairs quiet cool neutrals with a restrained blue, cyan, and violet t
 
 The page uses a centered fluid folio width of `min(88rem, calc(100% - 2rem))`, expanding to a 4rem outer gutter from 42rem upward. The sticky header is full width and 4.5rem high; main content and footer internals share the same page measure. Section spacing scales with `clamp()` rather than a rigid spacing ladder.
 
-Editorial rows are the core information pattern. Experience, projects, and blog entries use ruled horizontal records with a narrow index or date column and a flexible evidence column. At 64rem, project rows gain a third column for tags and repository actions; experience rows become date, role, and description columns. The hero becomes two columns at 56rem, and profile panels become an asymmetric 1.45-to-0.75 grid at 64rem.
+Editorial evidence remains the core information pattern, but it is grouped into quiet sheet panels instead of long dividing rules. Experience, projects, and blog entries retain their narrow index or date column and flexible evidence column. At 64rem, project panels gain a third column for tags and repository actions; experience panels become date, role, and description columns. The hero becomes two columns at 56rem, and profile panels become an asymmetric 1.45-to-0.75 grid at 64rem.
 
 Below 48rem, split editorial headers stack. Below 42rem, compact navigation keeps Blog and Projects visible while removing the long brand text; the 2rem page gutter contracts to 1rem. Below 29rem, the hero display tightens and long contact text may wrap. Horizontal skill tickers scroll without exposing a scrollbar.
 
-**The Scanline Rule.** Align evidence to rows and rules; do not convert project, experience, or article indexes into floating card mosaics.
+**The Evidence Grouping Rule.** Keep each experience, project, and article entry self-contained in one quiet sheet; do not add decorative dividers between every datum.
 
 **The Mobile Priority Rule.** Preserve primary destinations, language, theme, and repository access before decorative brand text.
 

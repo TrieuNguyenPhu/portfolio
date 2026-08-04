@@ -74,7 +74,7 @@ export default function Home() {
       <main>
         <div id="about">
         <section className="hero">
-          <div className="hero-copy">
+          <div className="hero-copy" data-reveal>
             <h1>{t.heroLead} <span>{t.heroAccent}</span></h1>
             <p className="hero-lede">{t.lede}</p>
             <div className="hero-actions">
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-console-stack">
+          <div className="hero-console-stack" data-reveal data-reveal-delay="1">
             <aside className="hero-console" aria-label="Core engineering focus">
               <div className="console-head"><span>DEPLOYMENT PROFILE</span><span>2026</span></div>
               <p className="console-label">{t.status}</p>
@@ -98,7 +98,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="ticker" aria-label="Areas of expertise">
+        <div className="ticker" aria-label="Areas of expertise" data-reveal>
           <span>AWS</span>
           <span>TERRAFORM</span>
           <span>DOCKER</span>
@@ -107,14 +107,14 @@ export default function Home() {
         </div>
 
         <section className="experience-section">
-          <header className="section-intro"><span>{t.experienceLabel}</span><div><h2>{t.experienceHeading}</h2></div></header>
+          <header className="section-intro" data-reveal><span>{t.experienceLabel}</span><div><h2>{t.experienceHeading}</h2></div></header>
           <div className="experience-list">
-            <article>
+            <article data-reveal>
               <p className="experience-date">{t.xbrainDate}</p>
               <div><h3>XBrain</h3><p>{t.xbrainRole}</p></div>
               <p>{t.xbrainText}</p>
             </article>
-            <article>
+            <article data-reveal data-reveal-delay="1">
               <p className="experience-date">{t.techhausDate}</p>
               <div><h3>Techhaus Vietnam</h3><p>{t.techhausRole}</p></div>
               <p>{t.techhausText}</p>
@@ -123,12 +123,12 @@ export default function Home() {
         </section>
 
         <section className="profile-section">
-          <article className="skills-panel">
+          <article className="skills-panel" data-reveal>
             <h2>{t.toolkitLabel}</h2>
             <p className="panel-summary">{t.toolkitHeading}</p>
             <dl>{skills.map(([label, value]) => <div key={label.en}><dt>{label[language]}</dt><dd>{value}</dd></div>)}</dl>
           </article>
-          <article className="education-panel">
+          <article className="education-panel" data-reveal data-reveal-delay="1">
             <h2>{t.educationLabel}</h2>
             <div className="education-mark">UIT</div>
             <h3>{t.university}</h3>
@@ -137,7 +137,7 @@ export default function Home() {
           </article>
         </section>
 
-        <section className="certification-section">
+        <section className="certification-section" data-reveal>
           <h2>{t.certification}</h2>
           <div><strong>IELTS</strong><span>Overall Band 5.5</span><time>2024</time></div>
         </section>

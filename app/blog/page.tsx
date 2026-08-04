@@ -23,14 +23,14 @@ const copy = {
 export default function BlogPage() {
   return (
     <main className="blog-page">
-      <header className="blog-hero">
+      <header className="blog-hero" data-reveal>
         <h1><LocalizedText value={copy.heading} /></h1>
         <p><LocalizedText value={copy.description} /></p>
       </header>
 
       <section className="blog-list" aria-label="Danh sách bài viết">
         {posts.map((post, index) => (
-          <article className="blog-card" key={post.slug}>
+          <article className="blog-card" key={post.slug} data-reveal data-reveal-delay={String(index % 3)}>
             <div className="blog-card-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</div>
             <div className="blog-card-content">
               <div className="blog-meta">

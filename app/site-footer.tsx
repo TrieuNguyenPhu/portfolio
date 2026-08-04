@@ -5,14 +5,10 @@ import { useSitePreferences } from "./site-preferences";
 const copy = {
   en: {
     name: "Nguyen Phu Trieu",
-    open: "Open to DevOps opportunities",
-    heading: "Let’s build a better path to production.",
     backToTop: "Back to top",
   },
   vi: {
     name: "Nguyễn Phú Triệu",
-    open: "Sẵn sàng cho cơ hội DevOps",
-    heading: "Cùng xây dựng con đường tốt hơn đến production.",
     backToTop: "Về đầu trang",
   },
 } as const;
@@ -24,11 +20,7 @@ export default function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-content">
-        <div className="footer-intro">
-          <h2>{t.heading}</h2>
-          <p>{t.open}</p>
-        </div>
-        <div className="footer-actions">
+        <div className="footer-actions" data-reveal>
           <div className="contact-links">
             <a href="mailto:nguyentrieu080604@gmail.com">
               nguyentrieu080604@gmail.com

@@ -24,14 +24,14 @@ export default function ProjectsPage() {
 
   return (
       <main className="projects-page">
-        <header className="blog-hero">
+        <header className="blog-hero" data-reveal>
           <h1>{t.heading}</h1>
           <p>{t.description}</p>
         </header>
 
         <section className="projects-grid" aria-label="Projects">
-          {projects.map((project) => (
-            <article className="project" key={project.slug}>
+          {projects.map((project, index) => (
+            <article className="project" key={project.slug} data-reveal data-reveal-delay={String(index % 3)}>
               <header><span>{project.metric[language]}</span><span>{project.date[language]}</span></header>
               <div className="project-body">
                 <h2>{project.title}</h2>

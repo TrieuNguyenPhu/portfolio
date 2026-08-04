@@ -23,9 +23,9 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <main className="article-page">
-      <Link className="article-back" href="/blog"><LocalizedText value={backLabel} /></Link>
+      <Link className="article-back" href="/blog" data-reveal><LocalizedText value={backLabel} /></Link>
       <article>
-        <header className="article-header">
+        <header className="article-header" data-reveal data-reveal-delay="1">
           <div className="blog-meta">
             <time dateTime={post.publishedAt}><LocalizedText value={post.displayDate} /></time>
             <span><LocalizedText value={post.readingTime} /></span>
@@ -39,7 +39,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         <div className="article-body">
           {post.sections.map((section, index) => (
-            <section key={section.heading?.en ?? index}>
+            <section key={section.heading?.en ?? index} data-reveal data-reveal-delay={String(index % 3)}>
               {section.heading ? <h2><LocalizedText value={section.heading} /></h2> : null}
               {section.paragraphs.map((paragraph) => <p key={paragraph.en}><LocalizedText value={paragraph} /></p>)}
             </section>

@@ -35,7 +35,7 @@ Visitors typically scan the site on desktop or mobile from a resume, GitHub prof
 
 - The identity is Nguyen Phu Trieu, DevOps Engineer.
 - Vietnamese text must render correctly in every supported font and layout.
-- Blue-to-purple remains the principal color relationship, used with restraint rather than on every headline.
+- A Canva-inspired cyan-to-blue-to-purple gradient is the principal color relationship, used on focal sheets, primary actions, and page-level headings only.
 - The tone is direct, technically credible, and early-career without inflated claims.
 
 ## Evidence on Hand
