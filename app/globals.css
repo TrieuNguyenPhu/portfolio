@@ -55,7 +55,7 @@ button:focus-visible {
   align-items: center;
   background: var(--nav-bg);
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   height: 4.5rem;
   padding-inline: max(1rem, env(safe-area-inset-left));
   position: sticky;
@@ -105,8 +105,8 @@ button:focus-visible {
 }
 
 .primary-nav {
-  justify-self: start;
-  margin-inline-start: clamp(1.25rem, 3vw, 3.5rem);
+  justify-self: end;
+  margin-inline-end: clamp(1.25rem, 3vw, 3.5rem);
 }
 
 .primary-nav > a {
@@ -619,7 +619,7 @@ html[data-motion="ready"] [data-reveal-delay="2"] { transition-delay: 200ms; }
 }
 
 @media (max-width: 41.99rem) {
-  .primary-nav { margin-inline-start: auto; }
+  .primary-nav { margin-inline-end: 0.75rem; }
 
   .primary-nav > a[href="/blog"],
   .primary-nav > a[href="/projects"] { display: inline-flex; }
