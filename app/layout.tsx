@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
+import { Be_Vietnam_Pro, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-be-vietnam-pro",
+  display: "swap",
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600"],
+  variable: "--font-roboto-mono",
   display: "swap",
 });
 
@@ -36,7 +43,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={beVietnamPro.variable}>
+      <body className={`${beVietnamPro.variable} ${robotoMono.variable}`}>
         {children}
       </body>
     </html>

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return post ? { title: `${post.title.en} — Nguyen Phu Trieu`, description: post.excerpt.en } : {};
 }
 
-const backLabel = { en: "← All articles", vi: "← Tất cả bài viết" } as const;
+const backLabel = { en: "All articles", vi: "Tất cả bài viết" } as const;
 
 export default async function BlogPostPage({ params }: Props) {
   const post = getPost((await params).slug);

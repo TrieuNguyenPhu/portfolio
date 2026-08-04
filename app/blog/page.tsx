@@ -24,7 +24,6 @@ export default function BlogPage() {
   return (
     <main className="blog-page">
       <header className="blog-hero">
-        <p className="blog-eyebrow">NOTES / FIELD LOG</p>
         <h1><LocalizedText value={copy.heading} /></h1>
         <p><LocalizedText value={copy.description} /></p>
       </header>
@@ -43,7 +42,7 @@ export default function BlogPage() {
               <ul className="tags" aria-label="Chủ đề">
                 {post.tags.map((tag) => <li key={tag}>{tag}</li>)}
               </ul>
-              <Link className="blog-read-more" href={`/blog/${post.slug}`}><LocalizedText value={copy.readMore} /> <span>→</span></Link>
+              <Link className="blog-read-more" href={`/blog/${post.slug}`}><LocalizedText value={copy.readMore} /> <span aria-hidden="true" /></Link>
             </div>
           </article>
         ))}
