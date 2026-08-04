@@ -42,7 +42,7 @@ export default function BlogPage() {
               <ul className="tags" aria-label="Chủ đề">
                 {post.tags.map((tag) => <li key={tag}>{tag}</li>)}
               </ul>
-              <Link className="blog-read-more" href={`/blog/${post.slug}`}><LocalizedText value={copy.readMore} /> <span aria-hidden="true" /></Link>
+              <Link className="blog-read-more" href={`/blog/${post.slug}`}><LocalizedText value={copy.readMore} /> <span className="link-arrow" aria-hidden="true" /></Link>
             </div>
           </article>
         ))}

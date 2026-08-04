@@ -48,8 +48,8 @@ export default function ProjectsPage() {
                 {project.stack.map((item) => <li key={item}>{item}</li>)}
               </ul>
               <footer className="project-footer">
-                <a href={project.href} target="_blank" rel="noreferrer">{t.repository} <span aria-hidden="true" /></a>
-                {project.live ? <a href={project.live} target="_blank" rel="noreferrer">{t.live} <span aria-hidden="true" /></a> : null}
+                <a href={project.href} target="_blank" rel="noreferrer">{t.repository} <span className="link-arrow" aria-hidden="true" /></a>
+                {project.live ? <a href={project.live} target="_blank" rel="noreferrer">{t.live} <span className="link-arrow" aria-hidden="true" /></a> : null}
               </footer>
             </article>
           ))}

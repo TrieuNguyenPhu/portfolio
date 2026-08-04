@@ -575,9 +575,9 @@ main,
 }
 
 .contact-links a:hover { border-color: var(--cyan); color: var(--cyan); }
-.contact-links a span,
-.project-footer a span,
-.blog-read-more span {
+.contact-links a .link-arrow,
+.project-footer a .link-arrow,
+.blog-read-more .link-arrow {
   display: inline-block;
   flex: 0 0 0.9rem;
   height: 0.7rem;
@@ -585,9 +585,9 @@ main,
   width: 0.9rem;
 }
 
-.contact-links a span::before,
-.project-footer a span::before,
-.blog-read-more span::before {
+.contact-links a .link-arrow::before,
+.project-footer a .link-arrow::before,
+.blog-read-more .link-arrow::before {
   background: currentColor;
   content: "";
   height: 1px;
@@ -597,9 +597,9 @@ main,
   width: 0.86rem;
 }
 
-.contact-links a span::after,
-.project-footer a span::after,
-.blog-read-more span::after {
+.contact-links a .link-arrow::after,
+.project-footer a .link-arrow::after,
+.blog-read-more .link-arrow::after {
   border-right: 1px solid currentColor;
   border-top: 1px solid currentColor;
   content: "";
@@ -663,7 +663,8 @@ main,
   font-size: clamp(2.6rem, 5.5vw, 4.7rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 0.98;
+  line-height: 1.08;
+  padding-block: 0.06em 0.12em;
 }
 
 .blog-hero > p:last-child,
