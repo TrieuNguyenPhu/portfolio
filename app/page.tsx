@@ -15,7 +15,8 @@ const copy = {
   en: {
     certification: "Certification",
     status: "Entry-level DevOps Engineer",
-    hero: "I turn infrastructure into a repeatable delivery system.",
+    heroLead: "I turn infrastructure into a",
+    heroAccent: "repeatable delivery system.",
     lede: "Hands-on experience designing and automating cloud-native AWS infrastructure, CI/CD, and GitOps workflows with Terraform, Docker, Kubernetes, GitHub Actions, Argo CD, and Prometheus—backed by Python and Go.",
     explore: "Explore my work",
     focus: "Primary focus",
@@ -40,7 +41,8 @@ const copy = {
   vi: {
     certification: "Chứng chỉ",
     status: "Kỹ sư DevOps mới bắt đầu",
-    hero: "Tôi biến hạ tầng thành một hệ thống triển khai có thể lặp lại.",
+    heroLead: "Tôi biến hạ tầng thành",
+    heroAccent: "một hệ thống triển khai có thể lặp lại.",
     lede: "Có kinh nghiệm thực hành thiết kế và tự động hóa hạ tầng AWS cloud-native, CI/CD và GitOps với Terraform, Docker, Kubernetes, GitHub Actions, Argo CD, Prometheus—cùng nền tảng Python và Go.",
     explore: "Xem dự án",
     focus: "Trọng tâm",
@@ -73,8 +75,7 @@ export default function Home() {
         <div id="about">
         <section className="hero">
           <div className="hero-copy">
-            <p className="status"><span aria-hidden="true" /> {t.status}</p>
-            <h1>{t.hero}</h1>
+            <h1>{t.heroLead} <span>{t.heroAccent}</span></h1>
             <p className="hero-lede">{t.lede}</p>
             <div className="hero-actions">
               <a className="button button--primary" href="/projects">{t.explore}</a>
@@ -82,17 +83,19 @@ export default function Home() {
             </div>
           </div>
 
-          <aside className="hero-console" aria-label="Core engineering focus">
-            <div className="console-head"><span>SYSTEM PROFILE</span><span>2026</span></div>
-            <p className="console-label">{t.focus}</p>
-            <strong>DEVOPS</strong>
-            <dl>
-              <div><dt>{t.cloud}</dt><dd>AWS</dd></div>
-              <div><dt>{t.orchestration}</dt><dd>Kubernetes</dd></div>
-              <div><dt>{t.infrastructure}</dt><dd>Terraform</dd></div>
-              <div><dt>{t.delivery}</dt><dd>GitHub Actions</dd></div>
-            </dl>
-          </aside>
+          <div className="hero-console-stack">
+            <aside className="hero-console" aria-label="Core engineering focus">
+              <div className="console-head"><span>DEPLOYMENT PROFILE</span><span>2026</span></div>
+              <p className="console-label">{t.status}</p>
+              <strong>DEVOPS</strong>
+              <dl>
+                <div><dt>{t.cloud}</dt><dd>AWS</dd></div>
+                <div><dt>{t.orchestration}</dt><dd>Kubernetes</dd></div>
+                <div><dt>{t.infrastructure}</dt><dd>Terraform</dd></div>
+                <div><dt>{t.delivery}</dt><dd>GitHub Actions</dd></div>
+              </dl>
+            </aside>
+          </div>
         </section>
 
         <div className="ticker" aria-label="Areas of expertise">
@@ -121,21 +124,21 @@ export default function Home() {
 
         <section className="profile-section">
           <article className="skills-panel">
-            <p className="panel-label">{t.toolkitLabel}</p>
-            <h2>{t.toolkitHeading}</h2>
+            <h2>{t.toolkitLabel}</h2>
+            <p className="panel-summary">{t.toolkitHeading}</p>
             <dl>{skills.map(([label, value]) => <div key={label.en}><dt>{label[language]}</dt><dd>{value}</dd></div>)}</dl>
           </article>
           <article className="education-panel">
-            <p className="panel-label">{t.educationLabel}</p>
+            <h2>{t.educationLabel}</h2>
             <div className="education-mark">UIT</div>
-            <h2>{t.university}</h2>
+            <h3>{t.university}</h3>
             <p>2022—2026</p>
             <strong>{t.degree}</strong>
           </article>
         </section>
 
         <section className="certification-section">
-          <p className="panel-label">{t.certification}</p>
+          <h2>{t.certification}</h2>
           <div><strong>IELTS</strong><span>Overall Band 5.5</span><time>2024</time></div>
         </section>
         </div>

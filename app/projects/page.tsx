@@ -32,9 +32,8 @@ export default function ProjectsPage() {
         <section className="projects-grid" aria-label="Projects">
           {projects.map((project) => (
             <article className="project" key={project.slug}>
-              <header><span>{project.date[language]}</span></header>
+              <header><span>{project.metric[language]}</span><span>{project.date[language]}</span></header>
               <div className="project-body">
-                <p className="project-metric">{project.metric[language]}</p>
                 <h2>{project.title}</h2>
                 <p className="project-type">{project.type[language]}</p>
                 <p className="project-summary">{project.summary[language]}</p>
