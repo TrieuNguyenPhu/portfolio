@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import GitHubIcon from "./github-icon";
 import { useSitePreferences } from "./site-preferences";
 
@@ -32,14 +33,14 @@ export default function SiteHeader() {
 
   return (
     <header className="nav-shell">
-      <a className="brand" href="/" aria-label={`${t.name}, home`}>
+      <Link className="brand" href="/" aria-label={`${t.name}, home`}>
         <span>{t.name}</span>
         <small>{t.role}</small>
-      </a>
+      </Link>
       <nav className="primary-nav" aria-label="Primary navigation">
-        <a className={active === "blog" ? "is-active" : undefined} href="/blog">Blog</a>
-        <a className={active === "about" ? "is-active" : undefined} href="/#about">{t.about}</a>
-        <a className={active === "projects" ? "is-active" : undefined} href="/projects">{t.projects}</a>
+        <Link className={active === "blog" ? "is-active" : undefined} href="/blog">Blog</Link>
+        <Link className={active === "about" ? "is-active" : undefined} href="/#about">{t.about}</Link>
+        <Link className={active === "projects" ? "is-active" : undefined} href="/projects">{t.projects}</Link>
       </nav>
       <div className="nav-tools">
         <div className="language-switcher" role="group" aria-label={t.language}>
