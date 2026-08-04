@@ -126,9 +126,11 @@ button:focus-visible {
 #about { scroll-margin-top: 5.25rem; }
 
 .language-switcher {
-  border: 1px solid var(--rule);
+  background: var(--sheet);
+  border: 0;
+  border-radius: 999px;
   display: flex;
-  padding: 0.15rem;
+  padding: 0.2rem;
 }
 
 .language-switcher button {
@@ -136,6 +138,7 @@ button:focus-visible {
   border: 0;
   color: var(--muted);
   cursor: pointer;
+  border-radius: 999px;
   font-size: 0.7rem;
   font-weight: 700;
   min-height: 2.45rem;
@@ -152,7 +155,8 @@ button:focus-visible {
 .nav-shell .nav-github {
   align-items: center;
   background: transparent;
-  border: 1px solid var(--rule);
+  border: 0;
+  border-radius: 50%;
   color: var(--muted);
   cursor: pointer;
   display: inline-flex;
@@ -163,7 +167,7 @@ button:focus-visible {
 }
 
 .theme-toggle:hover,
-.nav-shell .nav-github:hover { border-color: var(--blue); color: var(--ink); }
+.nav-shell .nav-github:hover { background: var(--soft-accent); color: var(--blue); }
 .theme-toggle svg { fill: none; height: 1.15rem; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; width: 1.15rem; }
 .nav-github svg { display: block; fill: currentColor; height: 1.15rem; width: 1.15rem; }
 
