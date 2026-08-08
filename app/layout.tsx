@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import SiteShell from "./site-shell";
 
-const beVietnamPro = Be_Vietnam_Pro({
+const roboto = Roboto({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-be-vietnam-pro",
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-roboto",
   display: "swap",
 });
 
@@ -46,7 +46,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={beVietnamPro.variable}>
+      <body className={roboto.variable}>
         <template data-design-contract dangerouslySetInnerHTML={{ __html: designContract }} />
         <SiteShell>{children}</SiteShell>
       </body>
