@@ -27,14 +27,14 @@ export default function ProjectsPage() {
   return (
       <main className="projects-page">
         <header className="blog-hero" data-reveal>
-          <div><span className="page-number">02 / PROJECT ARCHIVE</span><h1>{t.heading}</h1></div>
-          <div className="page-aside"><span>{String(projects.length).padStart(2, "0")} SYSTEMS</span><p>{t.description}</p></div>
+          <div><span className="page-label">PROJECT ARCHIVE</span><h1>{t.heading}</h1></div>
+          <div className="page-aside"><span>SELECTED SYSTEMS</span><p>{t.description}</p></div>
         </header>
 
         <section className="projects-grid" aria-label="Projects">
           {projects.map((project, index) => (
             <article className="project" key={project.slug} data-reveal data-reveal-delay={String(index % 3)}>
-              <header><span>{project.metric[language]}</span><span>{project.stage[language]}</span><span>{project.date[language]}</span><i>↗</i></header>
+              <header><span>{project.stage[language]}</span><span>{project.date[language]}</span><i>↗</i></header>
               <div className="project-body">
                 <h2>{project.title}</h2>
                 <p className="project-type">{project.type[language]}</p>

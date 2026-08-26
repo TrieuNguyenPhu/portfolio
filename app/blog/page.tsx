@@ -24,14 +24,13 @@ export default function BlogPage() {
   return (
     <main className="blog-page">
       <header className="blog-hero" data-reveal>
-        <div><span className="page-number">03 / FIELD NOTES</span><h1><LocalizedText value={copy.heading} /></h1></div>
-        <div className="page-aside"><span>{String(posts.length).padStart(2, "0")} ARTICLE</span><p><LocalizedText value={copy.description} /></p></div>
+        <div><span className="page-label">FIELD NOTES</span><h1><LocalizedText value={copy.heading} /></h1></div>
+        <div className="page-aside"><span>ENGINEERING NOTES</span><p><LocalizedText value={copy.description} /></p></div>
       </header>
 
       <section className="blog-list" aria-label="Danh sách bài viết">
-        {posts.map((post, index) => (
-          <article className="blog-card" key={post.slug} data-reveal data-reveal-delay={String(index % 3)}>
-            <div className="blog-card-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</div>
+        {posts.map((post) => (
+          <article className="blog-card" key={post.slug} data-reveal>
             <div className="blog-card-content">
               <div className="blog-meta">
                 <time dateTime={post.publishedAt}><LocalizedText value={post.displayDate} /></time>

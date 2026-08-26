@@ -8,7 +8,6 @@ export type Project = {
   summary: Localized;
   stack: string[];
   href: string;
-  metric: Localized;
   stage: Localized;
   architecture: Localized;
   highlights: Localized[];
@@ -27,7 +26,6 @@ export const projects = [
     ),
     stack: ["Kubernetes", "Argo CD", "Argo Rollouts", "Prometheus", "Grafana", "OPA Gatekeeper", "Docker", "GitHub Actions", "Trivy", "Cosign"],
     href: "https://github.com/TrieuNguyenPhu/SecKube",
-    metric: text("5 sync waves", "5 nhịp đồng bộ"),
     stage: text("Verified GitOps lab", "GitOps lab đã kiểm chứng"),
     architecture: text(
       "Git → Argo CD App of Apps → 5 sync waves → Argo Rollouts → Prometheus analysis",
@@ -50,7 +48,6 @@ export const projects = [
     ),
     stack: ["Next.js", "Go", "Gin", "AWS Lambda", "API Gateway", "DynamoDB", "S3", "CloudFront", "Route 53", "AWS SAM", "CloudFormation", "GitHub Actions"],
     href: "https://github.com/TrieuNguyenPhu/shorten-link",
-    metric: text("Serverless stack", "Kiến trúc serverless"),
     stage: text("V2 source complete", "Source V2 hoàn chỉnh"),
     architecture: text(
       "Route 53 → CloudFront → S3 / API Gateway → Go Lambda → DynamoDB",
@@ -73,7 +70,6 @@ export const projects = [
     ),
     stack: ["Next.js", "FastAPI", "Spring Boot", "Go", "PostgreSQL", "Redis", "AWS", "Terraform", "Docker", "GitHub Actions"],
     href: "https://github.com/TrieuNguyenPhu/ai-finance-manager",
-    metric: text("7-service architecture", "Kiến trúc 7 dịch vụ"),
     stage: text("Active development", "Đang phát triển"),
     architecture: text(
       "Next.js → FastAPI BFF → 7 domain services → PostgreSQL + outbox events",
@@ -96,7 +92,6 @@ export const projects = [
     ),
     stack: ["Python", "CoinGecko", "DuckDB", "Parquet", "Streamlit", "Ruff", "mypy", "pytest"],
     href: "https://github.com/TrieuNguyenPhu/cryptopulse-aws-data-lake",
-    metric: text("Bronze → Gold pipeline", "Pipeline Bronze → Gold"),
     stage: text("Implemented MVP", "MVP đã hoàn thiện"),
     architecture: text(
       "CoinGecko → immutable Bronze JSON.gz → Silver / Gold Parquet → DuckDB → Streamlit",
@@ -119,7 +114,6 @@ export const projects = [
     ),
     stack: ["Java 21", "Spring Boot", "Spring Security", "JPA", "Hibernate", "Thymeleaf", "H2", "Docker", "GitHub Actions"],
     href: "https://github.com/TrieuNguyenPhu/examflow",
-    metric: text("Security-first workflow", "Luồng ưu tiên bảo mật"),
     stage: text("Self-hosted release", "Bản phát hành self-hosted"),
     architecture: text(
       "Browser → Spring MVC / Security → JPA + Hibernate → H2 file storage",
@@ -142,7 +136,6 @@ export const projects = [
     ),
     stack: ["C#", "ASP.NET Core MVC", "Entity Framework Core", "ASP.NET Identity", "Google Gemini API", "SQL Server", "Razor"],
     href: "https://github.com/TrieuNguyenPhu/Book-Store-Gemini-Chatbot",
-    metric: text("Gemini-powered support", "Hỗ trợ bằng Gemini"),
     stage: text("Academic application", "Ứng dụng học thuật"),
     architecture: text(
       "Razor views → ASP.NET Core MVC / Identity → EF Core → SQL Server + Gemini API",
@@ -165,7 +158,6 @@ export const projects = [
     ),
     stack: ["AWS", "Terraform", "Kinesis", "ECS Fargate", "Timestream", "Lambda", "k6", "Docker", "GitHub Actions", "Python", "Node.js"],
     href: "https://github.com/TrieuNguyenPhu/Foresight-Lens",
-    metric: text("10/10 requirements met", "Đạt 10/10 yêu cầu"),
     stage: text("Infrastructure prototype", "Prototype hạ tầng"),
     architecture: text(
       "Service telemetry → Kinesis → Lambda / Fargate → Timestream → prediction engine",
@@ -188,7 +180,6 @@ export const projects = [
     ),
     stack: ["React", "TypeScript", "Vite", "Graph Algorithms", "Docker", "Nginx", "GitHub Actions", "GHCR", "Let's Encrypt"],
     href: "https://github.com/TrieuNguyenPhu/STANS-Nav-System",
-    metric: text("Traffic-aware routing", "Định tuyến theo giao thông"),
     stage: text("Container delivery ready", "Sẵn sàng giao bằng container"),
     architecture: text(
       "GitHub Actions → multi-stage Docker → GHCR → Nginx / Let's Encrypt",

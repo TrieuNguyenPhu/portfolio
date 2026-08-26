@@ -14,7 +14,7 @@ const skills = [
 
 const operatingModel = [
   {
-    code: "01 / PROVISION",
+    code: "PROVISION",
     title: text("Rebuildable infrastructure", "Hạ tầng có thể dựng lại"),
     description: text(
       "Describe environments in Terraform or SAM, keep dependencies explicit, and make change review possible before apply.",
@@ -23,7 +23,7 @@ const operatingModel = [
     evidence: "Terraform · AWS SAM · CloudFormation · ADR",
   },
   {
-    code: "02 / DELIVER",
+    code: "DELIVER",
     title: text("Progressive, observable releases", "Phát hành tăng tiến, có quan sát"),
     description: text(
       "Move changes from Git through ordered sync waves and let service health decide whether a canary is promoted or rolled back.",
@@ -32,7 +32,7 @@ const operatingModel = [
     evidence: "Argo CD · GitHub Actions · Argo Rollouts · 95% gate",
   },
   {
-    code: "03 / OBSERVE",
+    code: "OBSERVE",
     title: text("Signals before assumptions", "Tín hiệu trước phỏng đoán"),
     description: text(
       "Connect metrics, logs, traces and SLOs so deployment decisions and incident reviews have inspectable evidence.",
@@ -41,7 +41,7 @@ const operatingModel = [
     evidence: "OpenTelemetry · Prometheus · Grafana · Loki",
   },
   {
-    code: "04 / SECURE",
+    code: "SECURE",
     title: text("Guardrails in the delivery path", "Guardrail ngay trong đường triển khai"),
     description: text(
       "Validate manifests, scan and sign images, enforce admission policy, and keep secrets outside application configuration.",
@@ -172,7 +172,7 @@ export default function Home() {
           <div className="hero-console-stack" data-reveal data-reveal-delay="1" aria-hidden="true">
             <div className="orbit orbit--one" />
             <div className="orbit orbit--two" />
-            <div className="orbit-core"><span>01</span><strong>SHIP</strong><small>CONTINUOUSLY</small></div>
+            <div className="orbit-core"><strong>SHIP</strong><small>CONTINUOUSLY</small></div>
             <span className="topology-node topology-node--aws">AWS<small>cloud</small></span>
             <span className="topology-node topology-node--k8s">K8S<small>runtime</small></span>
             <span className="topology-node topology-node--tf">TF<small>provision</small></span>
@@ -197,10 +197,10 @@ export default function Home() {
         </div>
 
         <section className="proof-strip" aria-label="Portfolio evidence" data-reveal>
-          <div><strong>{String(projects.length).padStart(2, "0")}</strong><span>{t.metricSystems}</span></div>
-          <div><strong>05</strong><span>{t.metricWaves}</span></div>
-          <div><strong>07</strong><span>{t.metricServices}</span></div>
-          <div><strong>95%</strong><span>{t.metricGate}</span></div>
+          <div><strong>BUILD</strong><span>{t.metricSystems}</span></div>
+          <div><strong>SYNC</strong><span>{t.metricWaves}</span></div>
+          <div><strong>MODEL</strong><span>{t.metricServices}</span></div>
+          <div><strong>VERIFY</strong><span>{t.metricGate}</span></div>
         </section>
 
         <section className="experience-section">
@@ -239,7 +239,6 @@ export default function Home() {
           <div className="selected-projects">
             {projects.slice(0, 3).map((project, index) => (
               <a href={project.href} target="_blank" rel="noreferrer" className="selected-project" key={project.slug} data-reveal data-reveal-delay={String(index)}>
-                <span className="selected-index">0{index + 1}</span>
                 <div><p>{project.type[language]}</p><h3>{project.title}</h3></div>
                 <ul>{project.stack.slice(0, 4).map((item) => <li key={item}>{item}</li>)}</ul>
                 <span className="selected-arrow" aria-label={t.viewRepo}>↗</span>

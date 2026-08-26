@@ -31,7 +31,7 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-content" data-reveal>
         <BrandLogo className="footer-logo" />
-        <div className="footer-kicker"><span>05</span> / {t.kicker}</div>
+        <div className="footer-kicker">{t.kicker}</div>
         <h2>{t.heading}</h2>
         <a className="footer-mail" href="mailto:nguyentrieu080604@gmail.com">
           <span>{t.contact}</span><strong>nguyentrieu080604@gmail.com</strong><i aria-hidden="true">↗</i>
