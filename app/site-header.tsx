@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import GitHubIcon from "./github-icon";
+import BrandLogo from "./brand-logo";
 import { useSitePreferences } from "./site-preferences";
 
 const copy = {
@@ -12,6 +13,7 @@ const copy = {
     about: "About",
     projects: "Projects",
     language: "Language",
+    availability: "Open to work",
     theme: { dark: "Switch to dark theme", light: "Switch to light theme", system: "Use system theme" },
   },
   vi: {
@@ -20,6 +22,7 @@ const copy = {
     about: "Giới thiệu",
     projects: "Dự án",
     language: "Ngôn ngữ",
+    availability: "Sẵn sàng làm việc",
     theme: { dark: "Chuyển sang giao diện tối", light: "Chuyển sang giao diện sáng", system: "Dùng giao diện hệ thống" },
   },
 } as const;
@@ -34,8 +37,8 @@ export default function SiteHeader() {
   return (
     <header className="nav-shell">
       <Link className="brand" href="/" aria-label={`${t.name}, home`}>
-        <span>{t.name}</span>
-        <small>{t.role}</small>
+        <span className="brand-mark"><BrandLogo /></span>
+        <span className="brand-copy"><strong>{t.name}</strong><small>{t.role}</small></span>
       </Link>
       <nav className="primary-nav" aria-label="Primary navigation">
         <Link className={active === "blog" ? "is-active" : undefined} href="/blog">Blog</Link>
@@ -43,6 +46,7 @@ export default function SiteHeader() {
         <Link className={active === "projects" ? "is-active" : undefined} href="/projects">{t.projects}</Link>
       </nav>
       <div className="nav-tools">
+        <span className="availability"><i /> {t.availability}</span>
         <div className="language-switcher" role="group" aria-label={t.language}>
           <button type="button" aria-pressed={language === "vi"} onClick={() => setLanguage("vi")}>VI</button>
           <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>

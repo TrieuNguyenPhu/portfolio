@@ -24,8 +24,8 @@ export default function BlogPage() {
   return (
     <main className="blog-page">
       <header className="blog-hero" data-reveal>
-        <h1><LocalizedText value={copy.heading} /></h1>
-        <p><LocalizedText value={copy.description} /></p>
+        <div><span className="page-number">03 / FIELD NOTES</span><h1><LocalizedText value={copy.heading} /></h1></div>
+        <div className="page-aside"><span>{String(posts.length).padStart(2, "0")} ARTICLE</span><p><LocalizedText value={copy.description} /></p></div>
       </header>
 
       <section className="blog-list" aria-label="Danh sách bài viết">

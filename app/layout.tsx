@@ -1,21 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto } from "next/font/google";
+import { Manrope, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import SiteShell from "./site-shell";
 
-const roboto = Roboto({
+const manrope = Manrope({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "700", "900"],
-  variable: "--font-roboto",
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const mono = Roboto_Mono({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-mono",
   display: "swap",
 });
 
 const designContract = `<!--
-THESIS: A portfolio presented as an infrastructure change-set folio; it refuses the dark neon DevOps dashboard.
-OWN-WORLD: Cool paper surfaces, ink-black typography, cobalt and ultraviolet document fields, clipped sheets, and precise registration rules.
-STORY: Visitors understand Trieu's focus, inspect verified experience and systems, then open a repository or make contact.
-FIRST VIEWPORT: A clear career statement sits beside a blue-violet deployment profile built only from verified capabilities; project and GitHub actions remain visible.
-FORM: Layered technical folio, fifth grounded direction, seed 5115ff72.
+THESIS: An immersive cloud-operations field where verified work moves through a living deployment pipeline.
+OWN-WORLD: Midnight infrastructure grids, luminous signal fields, oversized editorial type, and precise monospace telemetry.
+STORY: Visitors meet Trieu through a bold engineering claim, follow his operating path, inspect shipped systems, then make contact.
+FIRST VIEWPORT: A kinetic career statement and animated delivery topology establish the DevOps focus before any scroll.
+FORM: Asymmetric technical editorial with native CSS motion and progressive enhancement.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->`;
 
@@ -46,7 +51,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={roboto.variable}>
+      <body className={`${manrope.variable} ${mono.variable}`}>
         <template data-design-contract dangerouslySetInnerHTML={{ __html: designContract }} />
         <SiteShell>{children}</SiteShell>
       </body>
