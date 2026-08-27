@@ -62,15 +62,15 @@ export default function Home() {
 
       <section className="folio-writing" data-reveal><div><span>{t.writingLabel}</span><h2>{t.writingTitle}</h2><p>{t.writingText}</p></div><Link href={`/blog/${post.slug}`}><div className="blog-meta"><time dateTime={post.publishedAt}>{post.displayDate[language]}</time><span>{post.readingTime[language]}</span></div><h3>{post.title[language]}</h3><strong>{t.read}<UiIcon name="arrow" /></strong></Link></section>
 
-      <section className="portfolio-cta" aria-labelledby="home-contact-title" data-reveal>
-        <div><span>{t.contactLabel}</span><h2 id="home-contact-title">{t.contactTitle}</h2><p>{t.contactText}</p></div>
-        <div className="portfolio-cta__actions"><Link className="button button--ghost" href="/projects">{t.contactProjects}<UiIcon name="arrow" /></Link><a className="button button--primary" href="mailto:nguyentrieu080604@gmail.com">{t.contactAction}<UiIcon name="mail" /></a></div>
-      </section>
-
       <section className="project-showcase" id="case-studies">
         <header className="folio-section-heading" data-reveal><span>{t.projectsLabel}</span><div><h2>{t.projectsTitle}</h2><p>{t.projectsText}</p></div></header>
         <div className="featured-project-grid">{projects.slice(0, 3).map((project, index) => <article className="featured-project-card" key={project.slug} data-reveal data-reveal-delay={String(index)}><div className="featured-project-visual"><ProjectArchitecture project={project} variant={index} language={language} /></div><div className="featured-project-copy"><div className="project-kicker"><span>{project.stage[language]}</span><time>{project.date[language]}</time></div><p className="project-type">{project.type[language]}</p><h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3><p>{project.summary[language]}</p><div className="featured-evidence"><span>{t.evidence}</span><ul>{project.highlights.slice(0, 2).map((item) => <li key={item.en}>{item[language]}</li>)}</ul></div><ul className="tags" aria-label={`${project.title} ${t.stack}`}>{project.stack.slice(0, 6).map((item) => <li key={item}>{item}</li>)}</ul><div className="project-actions"><Link className="case-link case-link--primary" href={`/projects/${project.slug}`}>{t.caseStudy}<span><UiIcon name="arrow" /></span></Link><a className="case-link" href={project.href} target="_blank" rel="noopener noreferrer">{t.repository}<span><UiIcon name="code" /></span></a></div></div></article>)}</div>
         <Link className="folio-outline-link" href="/projects">{t.allProjects}<UiIcon name="arrow" /></Link>
+      </section>
+
+      <section className="portfolio-cta" aria-labelledby="home-contact-title" data-reveal>
+        <div><span>{t.contactLabel}</span><h2 id="home-contact-title">{t.contactTitle}</h2><p>{t.contactText}</p></div>
+        <div className="portfolio-cta__actions"><Link className="button button--ghost" href="/projects">{t.contactProjects}<UiIcon name="arrow" /></Link><a className="button button--primary" href="mailto:nguyentrieu080604@gmail.com">{t.contactAction}<UiIcon name="mail" /></a></div>
       </section>
     </div></main>
   );
