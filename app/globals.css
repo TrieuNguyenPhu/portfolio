@@ -73,9 +73,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .primary-nav, .nav-tools { align-items: center; display: flex; }
 .primary-nav { gap: clamp(.9rem, 2vw, 2rem); justify-self: end; margin-inline: 2rem; }
 .primary-nav a { align-items: center; color: var(--muted); display: inline-flex; font-family: var(--font-mono), monospace; font-size: .65rem; gap: .42rem; min-height: 2.75rem; position: relative; text-transform: uppercase; }
-.primary-nav a::after { background: var(--acid); bottom: .2rem; content: ""; height: 2px; left: 0; position: absolute; transform: scaleX(0); transform-origin: right; width: 100%; }
 .primary-nav a:hover, .primary-nav a.is-active { color: var(--ink); }
-.primary-nav a:hover::after, .primary-nav a.is-active::after { transform: scaleX(1); transform-origin: left; }
 .nav-tools { gap: .35rem; justify-self: end; }
 .availability { align-items: center; color: var(--muted); display: none; font-family: var(--font-mono), monospace; font-size: .58rem; gap: .5rem; margin-right: .7rem; text-transform: uppercase; }
 .availability i, .footer-signal i, .hero-eyebrow i { animation: status-pulse 1.8s ease-in-out infinite; background: var(--acid); border-radius: 50%; box-shadow: 0 0 0 .25rem rgb(201 255 67 / 10%); display: inline-block; height: .38rem; width: .38rem; }
@@ -406,7 +404,6 @@ html[data-motion="ready"] [data-reveal-delay="2"] { transition-delay: .2s; }
 }
 @media (hover: hover) and (pointer: fine) {
   .button, .brand-mark, .nav-shell a, .nav-shell button, .case-link, .case-link span, .archive-link, .experience-list article::before, .writing-card, .writing-card::before, .project, .blog-card::before, .project-footer a, .blog-read-more, .footer-mail i, .social-icon { transition: color .2s ease, background-color .2s ease, border-color .2s ease, filter .35s ease, opacity .35s ease, transform .45s cubic-bezier(.16,1,.3,1); }
-  .primary-nav a::after { transition: transform .35s cubic-bezier(.16,1,.3,1); }
   .brand:hover .brand-mark { filter: drop-shadow(0 0 .5rem rgb(201 255 67 / 35%)); transform: rotate(-3deg) scale(1.04); }
   .experience-list article:hover::before { transform: scaleX(1); }
   .writing-card:hover { background: var(--sheet-raised); border-color: var(--acid); transform: translateY(-.35rem); }
@@ -516,7 +513,6 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 .brand-copy small { font-size: .53rem; }
 .primary-nav { gap: 1.5rem; margin-inline: 1.6rem; }
 .primary-nav a { font-family: var(--font-display), sans-serif; font-size: .76rem; font-weight: 700; text-transform: none; }
-.primary-nav a::after { border-radius: 99px; bottom: .15rem; }
 .search-trigger, .theme-toggle, .nav-github, .language-switcher { border-radius: .8rem; }
 .language-switcher { overflow: hidden; }
 .search-trigger { border-color: var(--rule-strong); }
@@ -714,11 +710,8 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 .primary-nav { background: transparent; border: 0; border-radius: 0; display: grid; gap: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: 1.2rem; overflow: visible; padding: 0; position: relative; width: 20.5rem; }
 .primary-nav::after { content: none; }
 .primary-nav a { border-radius: .65rem; justify-content: center; padding-inline: .65rem; z-index: 1; }
-.primary-nav a::after { background: var(--acid); border-radius: 999px; bottom: .15rem; content: ""; height: 2px; left: .65rem; position: absolute; transform: scaleX(0); transform-origin: center; transition: transform .38s cubic-bezier(.16,1,.3,1); width: calc(100% - 1.3rem); }
-.primary-nav a:hover::after { transform: scaleX(0); transform-origin: center; }
-.primary-nav a.is-active::after, .primary-nav a.is-active:hover::after { transform: scaleX(1); transform-origin: center; }
 .primary-nav a:hover { background: var(--manifest-soft); color: var(--ink); }
-.primary-nav a.is-active { color: var(--acid); }
+.primary-nav a.is-active { background: var(--acid); color: var(--paper); }
 .search-trigger, .theme-toggle, .nav-github { min-height: 2.75rem; min-width: 2.75rem; }
 .language-switcher button { min-height: 2.75rem; min-width: 2.75rem; }
 
