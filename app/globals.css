@@ -702,10 +702,10 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 
 /* Focused navigation, identity, and About refinements */
 :root,
-:root[data-theme="light"] { --education: #168553; --certificate: #9b6500; }
-:root[data-theme="dark"] { --education: #6ff2a7; --certificate: #f2b64c; }
+:root[data-theme="light"] { --education: #168553; --certificate: #237a45; }
+:root[data-theme="dark"] { --education: #6ff2a7; --certificate: #7ce7a2; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) { --education: #6ff2a7; --certificate: #f2b64c; }
+  :root:not([data-theme]) { --education: #6ff2a7; --certificate: #7ce7a2; }
 }
 
 .brand-mark { background: transparent; border: 0; border-radius: 0; padding: 0; }
