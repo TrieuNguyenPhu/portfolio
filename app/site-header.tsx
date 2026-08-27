@@ -9,7 +9,7 @@ import { useSitePreferences } from "./site-preferences";
 const copy = {
   en: {
     name: "Nguyen Phu Trieu",
-    role: "DevOps Engineer",
+    role: "Software Engineer",
     about: "About",
     projects: "Projects",
     blog: "Blog",
@@ -19,7 +19,7 @@ const copy = {
   },
   vi: {
     name: "Nguyễn Phú Triệu",
-    role: "Kỹ sư DevOps",
+    role: "Kỹ sư Phần mềm",
     about: "Giới thiệu",
     projects: "Dự án",
     blog: "Blog",

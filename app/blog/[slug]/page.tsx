@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.publishedAt,
       authors: ["Nguyen Phu Trieu"],
       tags: post.tags,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nguyen Phu Trieu — DevOps Engineer" }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nguyen Phu Trieu — Software Engineer" }],
     },
     twitter: {
       card: "summary_large_image",

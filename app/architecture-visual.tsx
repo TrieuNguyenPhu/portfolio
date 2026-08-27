@@ -20,14 +20,14 @@ const projectNodes = (project: Project) => {
 
 export function CloudWorkbench() {
   return (
-    <div className="cloud-workbench" role="img" aria-label="A cloud engineering workspace connecting source code, delivery automation, security, and Kubernetes">
+    <div className="cloud-workbench" role="img" aria-label="A software engineering workspace connecting backend APIs, data, cloud infrastructure, delivery, and operational signals">
       <svg viewBox="0 0 1000 460" aria-hidden="true">
         <path className="workbench-orbit" d="M118 254C172 80 354 38 488 146c116 94 210 64 380-34M94 350c162 46 274 32 356-42 112-102 246-90 428 36" />
         <g className="workbench-cloud"><path d="M110 178h160c34 0 48-45 18-62-4-54-72-75-107-33-43-18-85 27-71 69-36 6-38 26 0 26Z" /><text x="190" y="144">AWS</text></g>
-        <g className="workbench-monitor"><rect x="308" y="82" width="382" height="258" rx="24" /><rect x="334" y="109" width="330" height="203" rx="10" /><path d="M404 388h190M456 340v48M544 340v48" /><circle cx="365" cy="137" r="7" /><circle cx="365" cy="211" r="7" /><circle cx="488" cy="211" r="7" /><circle cx="610" cy="211" r="7" /><circle cx="610" cy="282" r="7" /><path className="workbench-flow" pathLength="1" d="M365 137v74h245v71M365 211h123" /><text x="349" y="166">GIT</text><text x="446" y="242">CI</text><text x="565" y="242">POLICY</text><text x="552" y="293">RUNTIME</text></g>
-        <g className="workbench-rack"><rect x="752" y="166" width="142" height="191" rx="18" /><rect x="774" y="192" width="98" height="38" rx="8" /><rect x="774" y="242" width="98" height="38" rx="8" /><rect x="774" y="292" width="98" height="38" rx="8" /><circle cx="846" cy="211" r="5" /><circle cx="846" cy="261" r="5" /><circle cx="846" cy="311" r="5" /><text x="779" y="216">K8S</text><text x="779" y="266">API</text><text x="779" y="316">DATA</text></g>
-        <g className="workbench-chip workbench-chip--iac"><rect x="184" y="277" width="134" height="54" rx="27" /><text x="251" y="310">IaC</text></g>
-        <g className="workbench-chip workbench-chip--gitops"><rect x="674" y="64" width="154" height="54" rx="27" /><text x="751" y="97">GitOps</text></g>
+        <g className="workbench-monitor"><rect x="308" y="82" width="382" height="258" rx="24" /><rect x="334" y="109" width="330" height="203" rx="10" /><path d="M404 388h190M456 340v48M544 340v48" /><circle cx="365" cy="137" r="7" /><circle cx="365" cy="211" r="7" /><circle cx="488" cy="211" r="7" /><circle cx="610" cy="211" r="7" /><circle cx="610" cy="282" r="7" /><path className="workbench-flow" pathLength="1" d="M365 137v74h245v71M365 211h123" /><text x="349" y="166">API</text><text x="446" y="242">DATA</text><text x="565" y="242">TEST</text><text x="552" y="293">SIGNAL</text></g>
+        <g className="workbench-rack"><rect x="752" y="166" width="142" height="191" rx="18" /><rect x="774" y="192" width="98" height="38" rx="8" /><rect x="774" y="242" width="98" height="38" rx="8" /><rect x="774" y="292" width="98" height="38" rx="8" /><circle cx="846" cy="211" r="5" /><circle cx="846" cy="261" r="5" /><circle cx="846" cy="311" r="5" /><text x="779" y="216">APP</text><text x="779" y="266">DB</text><text x="779" y="316">OPS</text></g>
+        <g className="workbench-chip workbench-chip--iac"><rect x="184" y="277" width="134" height="54" rx="27" /><text x="251" y="310">Java</text></g>
+        <g className="workbench-chip workbench-chip--gitops"><rect x="674" y="64" width="154" height="54" rx="27" /><text x="751" y="97">Cloud</text></g>
         <path className="workbench-ground" d="M70 390h860" />
       </svg>
     </div>

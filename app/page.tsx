@@ -4,39 +4,39 @@ import Link from "next/link";
 import { CloudWorkbench, ProjectArchitecture } from "./architecture-visual";
 import { posts } from "./blog/posts";
 import ProfileOverview from "./profile-overview";
-import { projects } from "./projects/projects";
+import { featuredProjects } from "./projects/projects";
 import { useSitePreferences } from "./site-preferences";
 import UiIcon from "./ui-icon";
 
-const technologies = ["AWS", "Terraform", "Docker", "Kubernetes", "CI/CD", "GitOps", "Prometheus", "Argo CD"] as const;
+const technologies = ["Java", "Spring Boot", "PostgreSQL", "AWS", "Docker", "GitHub Actions"] as const;
 
 const copy = {
   en: {
-    role: "DEVOPS ENGINEER · CLOUD INFRASTRUCTURE",
-    headline: "I design reliable cloud platforms and delivery systems.",
-    lede: "I build AWS infrastructure, Kubernetes platforms, and CI/CD workflows with repeatability, observability, secure defaults, and a clear path to rollback.",
+    role: "SOFTWARE ENGINEER · BACKEND & CLOUD",
+    headline: "I build reliable backend systems and the infrastructure behind them.",
+    lede: "I work across application code, databases, cloud infrastructure, delivery automation, and operational signals—so the software and the platform support each other from the start.",
     work: "Explore projects", hello: "Contact me", technologies: "Core technologies", stack: "technology stack",
     projectsLabel: "SELECTED ENGINEERING WORK", projectsTitle: "Projects that show how I solve real system problems.",
-    projectsText: "These case studies focus on architecture, delivery constraints, security boundaries, and the evidence used to validate each system.",
+    projectsText: "These case studies focus on system boundaries, correctness, architecture, delivery constraints, and the evidence used to validate each implementation.",
     evidence: "Key engineering decisions", caseStudy: "View case study", repository: "Repository", allProjects: "Browse all projects",
     writingLabel: "ENGINEERING NOTES", writingTitle: "I document the reasoning behind the implementation.",
     writingText: "Concise notes turn project decisions into knowledge another engineer can review and reuse.", read: "Read the article",
-    contactLabel: "WORK TOGETHER", contactTitle: "Need someone who can connect software delivery with cloud operations?",
-    contactText: "I am based in Ho Chi Minh City and open to DevOps, cloud infrastructure, and platform engineering opportunities.",
+    contactLabel: "WORK TOGETHER", contactTitle: "Need an engineer who understands both the application and the platform?",
+    contactText: "Vietnam · Open to software engineering, backend, cloud infrastructure, and platform opportunities.",
     contactProjects: "Review my projects", contactAction: "Start a conversation",
   },
   vi: {
-    role: "KỸ SƯ DEVOPS · HẠ TẦNG CLOUD",
-    headline: "Tôi thiết kế nền tảng cloud và hệ thống triển khai đáng tin cậy.",
-    lede: "Tôi xây hạ tầng AWS, nền tảng Kubernetes và quy trình CI/CD với khả năng tái lập, quan sát, mặc định an toàn và đường rollback rõ ràng.",
+    role: "KỸ SƯ PHẦN MỀM · BACKEND & CLOUD",
+    headline: "Tôi xây dựng hệ thống backend đáng tin cậy cùng hạ tầng vận hành phía sau.",
+    lede: "Tôi làm việc xuyên suốt mã nguồn ứng dụng, cơ sở dữ liệu, hạ tầng cloud, tự động hóa triển khai và tín hiệu vận hành—để phần mềm và platform hỗ trợ nhau ngay từ đầu.",
     work: "Khám phá dự án", hello: "Liên hệ", technologies: "Công nghệ chính", stack: "công nghệ sử dụng",
     projectsLabel: "DỰ ÁN KỸ THUẬT TIÊU BIỂU", projectsTitle: "Những dự án thể hiện cách tôi giải quyết bài toán hệ thống.",
-    projectsText: "Các case study tập trung vào kiến trúc, ràng buộc triển khai, ranh giới bảo mật và bằng chứng dùng để xác thực hệ thống.",
+    projectsText: "Các case study tập trung vào ranh giới hệ thống, tính đúng đắn, kiến trúc, ràng buộc triển khai và bằng chứng xác thực phần hiện thực.",
     evidence: "Quyết định kỹ thuật chính", caseStudy: "Xem case study", repository: "Repository", allProjects: "Xem tất cả dự án",
     writingLabel: "GHI CHÉP KỸ THUẬT", writingTitle: "Tôi ghi lại lập luận phía sau phần triển khai.",
     writingText: "Ghi chép ngắn gọn biến quyết định trong dự án thành tri thức kỹ sư khác có thể review và tái sử dụng.", read: "Đọc bài viết",
-    contactLabel: "HỢP TÁC", contactTitle: "Bạn cần người kết nối software delivery với cloud operations?",
-    contactText: "Tôi đang ở TP. Hồ Chí Minh và sẵn sàng cho cơ hội DevOps, cloud infrastructure hoặc platform engineering.",
+    contactLabel: "HỢP TÁC", contactTitle: "Bạn cần một kỹ sư hiểu cả ứng dụng lẫn platform?",
+    contactText: "Việt Nam · Sẵn sàng cho cơ hội software engineering, backend, cloud infrastructure và platform.",
     contactProjects: "Xem dự án của tôi", contactAction: "Bắt đầu trao đổi",
   },
 } as const;
@@ -60,7 +60,7 @@ export default function Home() {
 
       <section className="project-showcase" id="case-studies">
         <header className="folio-section-heading" data-reveal><span>{t.projectsLabel}</span><div><h2>{t.projectsTitle}</h2><p>{t.projectsText}</p></div></header>
-        <div className="featured-project-grid">{projects.slice(0, 3).map((project, index) => <article className="featured-project-card" key={project.slug} data-reveal data-reveal-delay={String(index)}><div className="featured-project-visual"><ProjectArchitecture project={project} variant={index} language={language} /></div><div className="featured-project-copy"><div className="project-kicker"><span>{project.stage[language]}</span><time>{project.date[language]}</time></div><p className="project-type">{project.type[language]}</p><h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3><p>{project.summary[language]}</p><div className="featured-evidence"><span>{t.evidence}</span><ul>{project.highlights.slice(0, 2).map((item) => <li key={item.en}>{item[language]}</li>)}</ul></div><ul className="tags" aria-label={`${project.title} ${t.stack}`}>{project.stack.slice(0, 6).map((item) => <li key={item}>{item}</li>)}</ul><div className="project-actions"><Link className="case-link case-link--primary" href={`/projects/${project.slug}`}>{t.caseStudy}<span><UiIcon name="arrow" /></span></Link><a className="case-link" href={project.href} target="_blank" rel="noopener noreferrer">{t.repository}<span><UiIcon name="code" /></span></a></div></div></article>)}</div>
+        <div className="featured-project-grid">{featuredProjects.map((project, index) => <article className="featured-project-card" key={project.slug} data-reveal data-reveal-delay={String(index)}><div className="featured-project-visual"><ProjectArchitecture project={project} variant={index} language={language} /></div><div className="featured-project-copy"><div className="project-kicker"><span>{project.stage[language]}</span><time>{project.date[language]}</time></div><p className="project-type">{project.type[language]}</p><h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3><p>{project.summary[language]}</p><div className="featured-evidence"><span>{t.evidence}</span><ul>{project.highlights.slice(0, 2).map((item) => <li key={item.en}>{item[language]}</li>)}</ul></div><ul className="tags" aria-label={`${project.title} ${t.stack}`}>{project.stack.slice(0, 5).map((item) => <li key={item}>{item}</li>)}</ul><div className="project-actions"><Link className="case-link case-link--primary" href={`/projects/${project.slug}`}>{t.caseStudy}<span><UiIcon name="arrow" /></span></Link><a className="case-link" href={project.href} target="_blank" rel="noopener noreferrer">{t.repository}<span><UiIcon name="code" /></span></a></div></div></article>)}</div>
         <Link className="folio-outline-link" href="/projects">{t.allProjects}<UiIcon name="arrow" /></Link>
       </section>
 

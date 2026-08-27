@@ -10,26 +10,26 @@ const copy = {
   en: {
     name: "Nguyen Phu Trieu",
     backToTop: "Back to top",
-    kicker: "DEVOPS ENGINEER · HO CHI MINH CITY",
+    kicker: "SOFTWARE ENGINEER · BACKEND & CLOUD",
     contact: "GET IN TOUCH",
     socials: "Social links",
     navigation: "Footer navigation",
     projects: "Projects",
     about: "About",
     blog: "Blog",
-    status: "AVAILABLE FOR DEVOPS OPPORTUNITIES",
+    status: "VIETNAM · OPEN TO OPPORTUNITIES",
   },
   vi: {
     name: "Nguyễn Phú Triệu",
     backToTop: "Về đầu trang",
-    kicker: "KỸ SƯ DEVOPS · TP. HỒ CHÍ MINH",
+    kicker: "KỸ SƯ PHẦN MỀM · BACKEND & CLOUD",
     contact: "LIÊN HỆ",
     socials: "Liên kết mạng xã hội",
     navigation: "Điều hướng cuối trang",
     projects: "Dự án",
     about: "Giới thiệu",
     blog: "Blog",
-    status: "SẴN SÀNG CHO CƠ HỘI DEVOPS",
+    status: "VIỆT NAM · SẴN SÀNG CHO CƠ HỘI MỚI",
   },
 } as const;
 
@@ -45,9 +45,9 @@ export default function SiteFooter() {
           <div><strong>{t.name}</strong><span>{t.kicker}</span></div>
         </div>
         <nav className="footer-nav" aria-label={t.navigation}>
-          <Link href="/projects">{t.projects}</Link>
           <Link href="/about">{t.about}</Link>
           <Link href="/blog">{t.blog}</Link>
+          <Link href="/projects">{t.projects}</Link>
         </nav>
         <a className="footer-mail" href="mailto:nguyentrieu080604@gmail.com">
           <span><UiIcon name="mail" />{t.contact}</span><strong>nguyentrieu080604@gmail.com</strong><UiIcon name="arrow" />
@@ -62,7 +62,7 @@ export default function SiteFooter() {
         </nav>
       </div>
       <div className="footer-bottom">
-        <span>© 2026 {t.name} · HO CHI MINH CITY, VN</span>
+        <span>© 2026 {t.name} · VIETNAM</span>
         <span className="footer-signal"><i /> {t.status}</span>
         <a href="#top">{t.backToTop}</a>
       </div>

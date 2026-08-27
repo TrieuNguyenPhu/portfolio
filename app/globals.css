@@ -771,11 +771,11 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 .footer-bottom { margin-top: 2rem; }
 
 @media (min-width: 48rem) {
-  .technology-rail { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .technology-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .credentials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (min-width: 72rem) {
-  .technology-rail { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .technology-rail { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 }
 @media (min-width: 48rem) and (max-width: 70rem) {
   .brand-copy, .nav-github, .search-trigger > span, .search-trigger kbd { display: none; }
@@ -979,6 +979,23 @@ body { font-size: var(--type-body); line-height: 1.6; }
 
 /* Active navigation uses the same restrained highlight as hover. */
 .primary-nav a.is-active { background: var(--manifest-soft); color: var(--ink); }
+
+/* Compact experience bridge: backend foundation plus cloud exposure. */
+.home-experience { margin-inline: auto; max-width: var(--page); padding-top: clamp(5.5rem, 9vw, 8rem); }
+.home-experience-list { border-top: 1px solid var(--rule-strong); }
+.home-experience-list article { align-items: start; border-bottom: 1px solid var(--rule); display: grid; gap: 1rem; padding-block: clamp(1.5rem, 3.5vw, 2.5rem); }
+.home-experience-meta { align-items: center; display: flex; gap: 1rem; justify-content: space-between; }
+.home-experience-meta span, .home-experience-meta time { color: var(--acid); font-family: var(--font-mono), monospace; font-size: var(--type-label); }
+.home-experience-list article > div:nth-child(2) > p { color: var(--faint); font-family: var(--font-mono), monospace; font-size: var(--type-label); letter-spacing: .04em; text-transform: uppercase; }
+.home-experience-list h3 { font-size: clamp(1.7rem, 3vw, 2.7rem); letter-spacing: -.045em; line-height: 1; margin-top: .45rem; }
+.home-experience-list article > p { color: var(--muted); line-height: 1.75; max-width: 64ch; }
+.home-experience-link { align-items: center; color: var(--acid); display: inline-flex; font-family: var(--font-mono), monospace; font-size: var(--type-label); font-weight: 700; gap: .6rem; margin-top: 1.4rem; text-transform: uppercase; }
+.home-experience-link:hover { color: var(--ink); }
+
+@media (min-width: 62rem) {
+  .home-experience-list article { gap: clamp(1.5rem, 4vw, 4rem); grid-template-columns: minmax(7rem, .25fr) minmax(15rem, .65fr) minmax(0, 1.1fr); }
+  .home-experience-meta { align-items: flex-start; display: grid; justify-content: stretch; }
+}
 
 /* Project case studies: dedicated evidence pages with a consistent reading path. */
 .featured-project-copy h3 a:hover, .project h3 a:hover, .project-compact h3 a:hover { color: var(--acid); }
