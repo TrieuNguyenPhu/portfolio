@@ -9,16 +9,14 @@ const copy = {
   en: {
     name: "Nguyen Phu Trieu",
     backToTop: "Back to top",
-    kicker: "START A CONVERSATION",
-    heading: "Let’s build something reliable.",
+    kicker: "DEVOPS ENGINEER · HO CHI MINH CITY",
     contact: "GET IN TOUCH",
     status: "SYSTEMS OPERATIONAL",
   },
   vi: {
     name: "Nguyễn Phú Triệu",
     backToTop: "Về đầu trang",
-    kicker: "BẮT ĐẦU TRÒ CHUYỆN",
-    heading: "Cùng xây một hệ thống đáng tin cậy.",
+    kicker: "KỸ SƯ DEVOPS · TP. HỒ CHÍ MINH",
     contact: "LIÊN HỆ",
     status: "HỆ THỐNG ỔN ĐỊNH",
   },
@@ -31,11 +29,12 @@ export default function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-content" data-reveal>
-        <BrandLogo className="footer-logo" />
-        <div className="footer-kicker">{t.kicker}</div>
-        <h2>{t.heading}</h2>
+        <div className="footer-signature">
+          <BrandLogo className="footer-logo" />
+          <div><strong>{t.name}</strong><span>{t.kicker}</span></div>
+        </div>
         <a className="footer-mail" href="mailto:nguyentrieu080604@gmail.com">
-          <span><UiIcon name="mail" />{t.contact}</span><strong>nguyentrieu080604@gmail.com</strong><i aria-hidden="true"><UiIcon name="arrow" /></i>
+          <span><UiIcon name="mail" />{t.contact}</span><strong>nguyentrieu080604@gmail.com</strong><UiIcon name="arrow" />
         </a>
         <nav className="contact-socials" aria-label="Social links">
           <a className="social-icon" href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">

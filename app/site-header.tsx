@@ -36,7 +36,7 @@ export default function SiteHeader() {
   const { preferences, setLanguage, cycleTheme } = useSitePreferences();
   const { language, theme, nextTheme } = preferences;
   const t = copy[language];
-  const active = pathname.startsWith("/blog") ? "blog" : pathname.startsWith("/projects") ? "projects" : "about";
+  const active = pathname.startsWith("/about") ? "about" : pathname.startsWith("/blog") ? "blog" : pathname.startsWith("/projects") ? "projects" : undefined;
 
   return (
     <header className="nav-shell">
@@ -44,10 +44,10 @@ export default function SiteHeader() {
         <span className="brand-mark"><BrandLogo /></span>
         <span className="brand-copy"><strong>{t.name}</strong><small>{t.role}</small></span>
       </Link>
-      <nav className="primary-nav" aria-label="Primary navigation">
-        <Link className={active === "about" ? "is-active" : undefined} href="/"><UiIcon name="about" />{t.about}</Link>
-        <Link className={active === "blog" ? "is-active" : undefined} href="/blog"><UiIcon name="blog" />{t.blog}</Link>
-        <Link className={active === "projects" ? "is-active" : undefined} href="/projects"><UiIcon name="projects" />{t.projects}</Link>
+      <nav className="primary-nav" aria-label="Primary navigation" data-active={active}>
+        <Link className={active === "about" ? "is-active" : undefined} aria-current={active === "about" ? "page" : undefined} href="/about"><UiIcon name="about" />{t.about}</Link>
+        <Link className={active === "blog" ? "is-active" : undefined} aria-current={active === "blog" ? "page" : undefined} href="/blog"><UiIcon name="blog" />{t.blog}</Link>
+        <Link className={active === "projects" ? "is-active" : undefined} aria-current={active === "projects" ? "page" : undefined} href="/projects"><UiIcon name="projects" />{t.projects}</Link>
       </nav>
       <div className="nav-tools">
         <span className="availability"><i /> {t.availability}</span>

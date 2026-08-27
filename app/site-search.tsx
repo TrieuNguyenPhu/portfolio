@@ -20,7 +20,8 @@ export default function SiteSearch() {
   const [query, setQuery] = useState("");
 
   const items = useMemo(() => [
-    { href: "/", title: language === "en" ? "About" : "Giới thiệu", description: language === "en" ? "Profile, experience, skills, and contact" : "Hồ sơ, kinh nghiệm, kỹ năng và liên hệ", kind: t.pages, icon: "about" as const },
+    { href: "/", title: language === "en" ? "Home" : "Trang chủ", description: language === "en" ? "Profile, capabilities, projects, and writing" : "Hồ sơ, năng lực, dự án và bài viết", kind: t.pages, icon: "cloud" as const },
+    { href: "/about", title: language === "en" ? "About" : "Giới thiệu", description: language === "en" ? "Work experience, education, and certification" : "Kinh nghiệm, học vấn và chứng chỉ", kind: t.pages, icon: "about" as const },
     { href: "/blog", title: "Blog", description: language === "en" ? "Engineering notes and field lessons" : "Ghi chép kỹ thuật và bài học thực tế", kind: t.pages, icon: "blog" as const },
     { href: "/projects", title: language === "en" ? "Projects" : "Dự án", description: language === "en" ? "Cloud and software case studies" : "Case study về cloud và phần mềm", kind: t.pages, icon: "projects" as const },
     ...projects.map((project) => ({ href: `/projects#${project.slug}`, title: project.title, description: project.summary[language], kind: t.project, icon: "layers" as const })),

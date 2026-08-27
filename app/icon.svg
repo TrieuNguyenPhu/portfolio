@@ -1,15 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="signal" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#52e8e2" />
-      <stop offset=".52" stop-color="#5f7cff" />
-      <stop offset="1" stop-color="#a66bff" />
-    </linearGradient>
-  </defs>
-  <path fill="#07080d" d="M4 4h40l16 16v40H4Z" />
-  <path fill="none" stroke="url(#signal)" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter" d="M15 18h34M32 18v30" />
-  <g fill="#f5f7ff">
-    <circle cx="15" cy="18" r="3.5" /><circle cx="32" cy="18" r="3.5" />
-    <circle cx="49" cy="18" r="3.5" /><circle cx="32" cy="48" r="3.5" />
-  </g>
+  <rect width="64" height="64" rx="14" fill="#151a33" />
+  <path fill="#9a7bff" d="M15 29c0-10.5 7.6-19 17-19s17 8.5 17 19v6c0 4.4-3.6 8-8 8H23c-4.4 0-8-3.6-8-8Z" />
+  <g fill="#151a33"><circle cx="26" cy="28" r="2.4"/><circle cx="38" cy="28" r="2.4"/></g>
+  <path fill="none" stroke="#84f0cc" stroke-width="3.2" stroke-linecap="round" d="M19 39v6c0 5-7 5-7 10 0 4 4 6 8 3M26 41v8c0 4-4 5-4 9M32 42v11c0 4-3 6-6 6M38 41v9c0 4 3 6 6 5M45 39v7c0 5 7 4 7 9 0 4-4 6-8 3" />
 </svg>

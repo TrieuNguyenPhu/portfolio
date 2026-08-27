@@ -699,3 +699,119 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
   .experience-card-head time { display: block; margin-top: .8rem; text-align: left; }
   .credentials-strip { padding-inline: 1rem; }
 }
+
+/* Focused navigation, identity, and About refinements */
+:root,
+:root[data-theme="light"] { --education: #168553; --certificate: #9b6500; }
+:root[data-theme="dark"] { --education: #6ff2a7; --certificate: #f2b64c; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) { --education: #6ff2a7; --certificate: #f2b64c; }
+}
+
+.brand-mark { background: var(--manifest-soft); border: 1px solid var(--rule-strong); border-radius: .9rem; padding: .32rem; }
+.brand-mark::after { display: none; }
+.logo-head { fill: var(--acid); }
+.logo-eye { fill: #151a33; }
+.logo-tentacle { animation: logo-draw 1.8s cubic-bezier(.16,1,.3,1) both; fill: none; stroke: #65e3ba; stroke-dasharray: 150; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; }
+
+.primary-nav { background: var(--sheet); border: 1px solid var(--rule); border-radius: .9rem; display: grid; gap: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: 1.2rem; overflow: hidden; padding: .2rem; position: relative; width: 20.5rem; }
+.primary-nav::after { background: var(--acid); border-radius: 999px; bottom: .18rem; content: ""; height: 2px; left: .2rem; opacity: 1; position: absolute; transform: translateX(0); transition: opacity .2s ease, transform .48s cubic-bezier(.16,1,.3,1); width: calc((100% - .4rem) / 3); }
+.primary-nav:not([data-active])::after { opacity: 0; }
+.primary-nav[data-active="blog"]::after { transform: translateX(100%); }
+.primary-nav[data-active="projects"]::after { transform: translateX(200%); }
+.primary-nav a { border-radius: .65rem; justify-content: center; padding-inline: .65rem; z-index: 1; }
+.primary-nav a::after { content: none; }
+.primary-nav a:hover { background: var(--manifest-soft); color: var(--ink); }
+.primary-nav a.is-active { color: var(--acid); }
+.search-trigger, .theme-toggle, .nav-github { min-height: 2.75rem; min-width: 2.75rem; }
+.language-switcher button { min-height: 2.75rem; min-width: 2.75rem; }
+
+.folio-home > #home { overflow: clip; }
+.technology-rail { background: var(--rule); border-block: 1px solid var(--rule); display: grid; gap: 1px; grid-template-columns: repeat(2, minmax(0, 1fr)); list-style: none; margin: clamp(5rem, 9vw, 8rem) calc(50% - 50vw) 0; padding: 1px 0; width: 100vw; }
+.technology-rail li { align-items: center; background: var(--paper); color: var(--muted); display: flex; font-family: var(--font-mono), monospace; font-size: .58rem; justify-content: center; letter-spacing: .08em; min-height: 4.2rem; padding: .75rem; text-align: center; text-transform: uppercase; transition: background-color .25s ease, color .25s ease, transform .35s cubic-bezier(.16,1,.3,1); }
+.technology-rail li::before { color: var(--acid); content: "◆"; font-size: .35rem; margin-right: .65rem; }
+.technology-rail li:hover { background: var(--manifest-soft); color: var(--ink); transform: translateY(-2px); }
+
+.about-page { max-width: var(--page); padding-top: clamp(5rem, 10vw, 9rem); }
+.about-hero { border-bottom: 1px solid var(--rule-strong); display: grid; gap: 1.5rem; padding-bottom: clamp(4rem, 8vw, 7rem); }
+.about-hero .page-label { color: var(--acid); font-family: var(--font-mono), monospace; font-size: .62rem; font-weight: 700; letter-spacing: .12em; }
+.about-hero h1 { font-size: clamp(3.2rem, 7vw, 7rem); font-weight: 620; letter-spacing: -.075em; line-height: .9; max-width: 13ch; }
+.about-hero > p { color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.8; max-width: 68ch; }
+.about-experience, .about-credentials { padding-top: clamp(6rem, 11vw, 10rem); }
+.about-experience-cards article { overflow: hidden; position: relative; }
+.about-experience-cards article::before { background: var(--manifest); content: ""; height: 3px; inset: 0 0 auto; transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.16,1,.3,1); }
+.about-experience-cards article:hover::before { transform: scaleX(1); }
+.company-card-top { align-items: start; display: flex; gap: 1rem; justify-content: space-between; }
+.company-card-top time { color: var(--acid); flex: 0 0 auto; font-family: var(--font-mono), monospace; font-size: .62rem; padding-top: .75rem; text-align: right; }
+.company-brand { align-items: center; display: grid; gap: .9rem; grid-template-columns: 4.7rem minmax(0, 1fr) auto; min-width: 0; }
+.company-brand > .ui-icon { color: var(--faint); transition: color .2s ease, transform .35s cubic-bezier(.16,1,.3,1); }
+.company-brand:hover > .ui-icon { color: var(--acid); transform: translate(3px, -3px); }
+.company-mark { align-items: center; background: #151a33; border: 1px solid rgb(255 255 255 / 12%); border-radius: .9rem; display: flex; height: 4.1rem; justify-content: center; overflow: hidden; padding: .7rem; width: 4.7rem; }
+.company-mark img { height: auto; max-height: 100%; object-fit: contain; width: 100%; }
+.company-mark--techhaus { padding: .35rem; }
+.company-name { display: flex; flex-direction: column; min-width: 0; }
+.company-name strong { font-family: var(--font-display), sans-serif; font-size: 1.3rem; }
+.company-name small { color: var(--muted); font-size: .67rem; line-height: 1.45; margin-top: .25rem; }
+.about-experience-cards h3 { font-size: clamp(1.6rem, 3vw, 2.5rem); letter-spacing: -.045em; margin-top: 2rem; }
+
+.credentials-grid { display: grid; gap: 1rem; }
+.credential-card { align-items: center; background: var(--sheet); border: 1px solid var(--rule); border-radius: 1.4rem; display: grid; gap: 1.4rem; grid-template-columns: 5.6rem minmax(0, 1fr); padding: clamp(1.4rem, 3vw, 2rem); }
+.credential-icon { align-items: center; background: color-mix(in srgb, currentColor 7%, transparent); border: 1px solid color-mix(in srgb, currentColor 58%, transparent); border-radius: .35rem; display: flex; height: 5.6rem; justify-content: center; width: 5.6rem; }
+.credential-icon .ui-icon { height: 2.65rem; stroke-width: 1.8; width: 2.65rem; }
+.credential-card--education .credential-icon, .credential-card--education .credential-label { color: var(--education); }
+.credential-card--certificate .credential-icon, .credential-card--certificate .credential-label { color: var(--certificate); }
+.credential-label { font-family: var(--font-mono), monospace; font-size: .57rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.credential-card h3 { font-size: clamp(1.25rem, 2vw, 1.65rem); margin-top: .5rem; }
+.credential-card p { color: var(--muted); font-size: .82rem; margin-top: .35rem; }
+
+.site-footer { margin-top: clamp(6rem, 10vw, 9rem); padding-block: 2.5rem 1.4rem; }
+.site-footer::before { height: 24rem; right: -12rem; top: -12rem; width: 24rem; }
+.footer-content { align-items: center; display: grid; gap: 1.2rem 2rem; grid-template-columns: minmax(0, 1fr) auto auto; }
+.footer-signature { align-items: center; display: flex; gap: .9rem; min-width: 0; }
+.footer-logo { height: 3.2rem; opacity: 1; position: static; width: 3.2rem; }
+.footer-signature > div { display: flex; flex-direction: column; min-width: 0; }
+.footer-signature strong { font-family: var(--font-display), sans-serif; font-size: .95rem; }
+.footer-signature span { color: rgb(255 255 255 / 52%); font-family: var(--font-mono), monospace; font-size: .5rem; letter-spacing: .07em; margin-top: .2rem; }
+.footer-mail { align-items: center; border: 1px solid rgb(255 255 255 / 15%); border-radius: .85rem; display: flex; gap: .65rem; margin: 0; padding: .75rem .9rem; }
+.footer-mail > span { color: #84f0cc; font-size: .5rem; }
+.footer-mail strong { font-family: var(--font-manrope), sans-serif; font-size: .78rem; font-weight: 600; }
+.footer-mail > .ui-icon { color: #84f0cc; height: .9rem; width: .9rem; }
+.footer-mail:hover { background: rgb(255 255 255 / 7%); border-color: #84f0cc; }
+.contact-socials { margin: 0; }
+.social-icon { border-radius: .75rem; }
+.footer-bottom { margin-top: 2rem; }
+
+@media (min-width: 48rem) {
+  .technology-rail { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .credentials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 72rem) {
+  .technology-rail { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+}
+@media (min-width: 48rem) and (max-width: 70rem) {
+  .brand-copy, .nav-github, .search-trigger > span, .search-trigger kbd { display: none; }
+  .primary-nav { margin-inline: .6rem; width: 20rem; }
+  .search-trigger { justify-content: center; padding: 0; width: 2.75rem; }
+}
+@media (max-width: 61.99rem) {
+  .footer-content { grid-template-columns: minmax(0, 1fr) auto; }
+  .footer-mail { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
+}
+@media (max-width: 47.99rem) {
+  .primary-nav { align-self: stretch; border-bottom: 0; border-left: 0; border-radius: 0; border-right: 0; grid-column: 1 / -1; grid-row: 2; margin: 0; padding-inline: 1rem; width: auto; }
+  .primary-nav::after { left: 1rem; width: calc((100% - 2rem) / 3); }
+  .primary-nav a { font-size: .58rem; }
+  .about-page { padding-inline: 1rem; }
+  .about-hero h1 { font-size: clamp(3rem, 14vw, 4.6rem); }
+  .company-card-top { display: block; }
+  .company-card-top time { display: block; margin-top: 1rem; text-align: left; }
+  .company-brand { grid-template-columns: 4.4rem minmax(0, 1fr) auto; }
+  .company-mark { height: 3.8rem; width: 4.4rem; }
+  .credential-card { grid-template-columns: 4.6rem minmax(0, 1fr); }
+  .credential-icon { height: 4.6rem; width: 4.6rem; }
+  .credential-icon .ui-icon { height: 2.25rem; width: 2.25rem; }
+  .footer-content { display: flex; flex-direction: column; align-items: flex-start; }
+  .footer-mail { display: grid; grid-template-columns: minmax(0, 1fr) auto; max-width: 100%; width: 100%; }
+  .footer-mail > span { grid-column: 1 / -1; }
+  .footer-mail strong { font-size: .72rem; overflow-wrap: normal; }
+}
