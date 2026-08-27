@@ -13,7 +13,6 @@ const copy = {
     about: "About",
     projects: "Projects",
     blog: "Blog",
-    contact: "Contact",
     language: "Language",
     navigation: "Primary navigation",
     theme: { dark: "Switch to dark theme", light: "Switch to light theme", system: "Use system theme" },
@@ -24,7 +23,6 @@ const copy = {
     about: "Giới thiệu",
     projects: "Dự án",
     blog: "Blog",
-    contact: "Liên hệ",
     language: "Ngôn ngữ",
     navigation: "Điều hướng chính",
     theme: { dark: "Chuyển sang giao diện tối", light: "Chuyển sang giao diện sáng", system: "Dùng giao diện hệ thống" },
@@ -45,12 +43,11 @@ export default function SiteHeader() {
         <span className="brand-copy"><strong>{t.name}</strong><small>{t.role}</small></span>
       </Link>
       <nav className="primary-nav" aria-label={t.navigation}>
-        <Link className={active === "projects" ? "is-active" : undefined} aria-current={active === "projects" ? "page" : undefined} href="/projects">{t.projects}</Link>
         <Link className={active === "about" ? "is-active" : undefined} aria-current={active === "about" ? "page" : undefined} href="/about">{t.about}</Link>
         <Link className={active === "blog" ? "is-active" : undefined} aria-current={active === "blog" ? "page" : undefined} href="/blog">{t.blog}</Link>
+        <Link className={active === "projects" ? "is-active" : undefined} aria-current={active === "projects" ? "page" : undefined} href="/projects">{t.projects}</Link>
       </nav>
       <div className="nav-tools">
-        <a className="nav-contact" href="mailto:nguyentrieu080604@gmail.com">{t.contact}</a>
         <div className="language-switcher" role="group" aria-label={t.language}>
           <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
           <button type="button" aria-pressed={language === "vi"} onClick={() => setLanguage("vi")}>VI</button>
