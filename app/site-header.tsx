@@ -6,7 +6,6 @@ import GitHubIcon from "./github-icon";
 import BrandLogo from "./brand-logo";
 import SiteSearch from "./site-search";
 import { useSitePreferences } from "./site-preferences";
-import UiIcon from "./ui-icon";
 
 const copy = {
   en: {
@@ -45,9 +44,9 @@ export default function SiteHeader() {
         <span className="brand-copy"><strong>{t.name}</strong><small>{t.role}</small></span>
       </Link>
       <nav className="primary-nav" aria-label={t.navigation}>
-        <Link className={active === "about" ? "is-active" : undefined} aria-current={active === "about" ? "page" : undefined} href="/about"><UiIcon name="about" />{t.about}</Link>
-        <Link className={active === "blog" ? "is-active" : undefined} aria-current={active === "blog" ? "page" : undefined} href="/blog"><UiIcon name="blog" />{t.blog}</Link>
-        <Link className={active === "projects" ? "is-active" : undefined} aria-current={active === "projects" ? "page" : undefined} href="/projects"><UiIcon name="projects" />{t.projects}</Link>
+        <Link className={active === "about" ? "is-active" : undefined} aria-current={active === "about" ? "page" : undefined} href="/about">{t.about}</Link>
+        <Link className={active === "blog" ? "is-active" : undefined} aria-current={active === "blog" ? "page" : undefined} href="/blog">{t.blog}</Link>
+        <Link className={active === "projects" ? "is-active" : undefined} aria-current={active === "projects" ? "page" : undefined} href="/projects">{t.projects}</Link>
       </nav>
       <div className="nav-tools">
         <SiteSearch />
