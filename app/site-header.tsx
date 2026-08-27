@@ -10,6 +10,7 @@ const copy = {
   en: {
     name: "Nguyen Phu Trieu",
     role: "DevOps Engineer",
+    home: "Home",
     about: "About",
     projects: "Projects",
     blog: "Blog",
@@ -20,6 +21,7 @@ const copy = {
   vi: {
     name: "Nguyễn Phú Triệu",
     role: "Kỹ sư DevOps",
+    home: "Trang chủ",
     about: "Giới thiệu",
     projects: "Dự án",
     blog: "Blog",
@@ -34,7 +36,7 @@ export default function SiteHeader() {
   const { preferences, setLanguage, cycleTheme } = useSitePreferences();
   const { language, theme, nextTheme } = preferences;
   const t = copy[language];
-  const active = pathname.startsWith("/about") ? "about" : pathname.startsWith("/blog") ? "blog" : pathname.startsWith("/projects") ? "projects" : undefined;
+  const active = pathname === "/" ? "home" : pathname.startsWith("/about") ? "about" : pathname.startsWith("/blog") ? "blog" : pathname.startsWith("/projects") ? "projects" : undefined;
 
   return (
     <header className="nav-shell">
@@ -43,6 +45,7 @@ export default function SiteHeader() {
         <span className="brand-copy"><strong>{t.name}</strong><small>{t.role}</small></span>
       </Link>
       <nav className="primary-nav" aria-label={t.navigation}>
+        <Link className={active === "home" ? "is-active" : undefined} aria-current={active === "home" ? "page" : undefined} href="/">{t.home}</Link>
         <Link className={active === "about" ? "is-active" : undefined} aria-current={active === "about" ? "page" : undefined} href="/about">{t.about}</Link>
         <Link className={active === "blog" ? "is-active" : undefined} aria-current={active === "blog" ? "page" : undefined} href="/blog">{t.blog}</Link>
         <Link className={active === "projects" ? "is-active" : undefined} aria-current={active === "projects" ? "page" : undefined} href="/projects">{t.projects}</Link>

@@ -707,7 +707,7 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 .logo-arms { animation: logo-draw 1.1s cubic-bezier(.16,1,.3,1) both; fill: none; stroke: var(--acid); stroke-dasharray: 220; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3.7; }
 .logo-core { fill: var(--acid); }
 
-.primary-nav { background: transparent; border: 0; border-radius: 0; display: grid; gap: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: 1.2rem; overflow: visible; padding: 0; position: relative; width: 20.5rem; }
+.primary-nav { background: transparent; border: 0; border-radius: 0; display: grid; gap: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-inline: 1.2rem; overflow: visible; padding: 0; position: relative; width: 22rem; }
 .primary-nav::after { content: none; }
 .primary-nav a { border-radius: .65rem; justify-content: center; padding-inline: .65rem; z-index: 1; }
 .primary-nav a:hover { background: var(--manifest-soft); color: var(--ink); }
@@ -779,7 +779,7 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 }
 @media (min-width: 48rem) and (max-width: 70rem) {
   .brand-copy, .nav-github, .search-trigger > span, .search-trigger kbd { display: none; }
-  .primary-nav { margin-inline: .6rem; width: 20rem; }
+  .primary-nav { margin-inline: .6rem; width: 22rem; }
   .search-trigger { justify-content: center; padding: 0; width: 2.75rem; }
 }
 @media (max-width: 61.99rem) {
@@ -788,7 +788,7 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 }
 @media (max-width: 47.99rem) {
   .primary-nav { align-self: stretch; border-bottom: 0; border-left: 0; border-radius: 0; border-right: 0; grid-column: 1 / -1; grid-row: 2; margin: 0; padding-inline: 1rem; width: auto; }
-  .primary-nav::after { left: 1rem; width: calc((100% - 2rem) / 3); }
+  .primary-nav::after { left: 1rem; width: calc((100% - 2rem) / 4); }
   .primary-nav a { font-size: .58rem; }
   .about-page { padding-inline: 1rem; }
   .about-hero h1 { font-size: clamp(3rem, 14vw, 4.6rem); }
