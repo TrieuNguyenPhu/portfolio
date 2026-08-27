@@ -1,4 +1,4 @@
-name: Deploy production
+name: Portfolio quality
 
 on:
   push:
@@ -10,7 +10,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  quality:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+
   deploy:
+    if: github.event_name == 'workflow_dispatch'
+    needs: quality
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -34,10 +53,3 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment_url }}
         run: npx --yes vercel@59.7.0 alias set "$DEPLOYMENT_URL" "$CANONICAL_DOMAIN" --token="$VERCEL_TOKEN"
-
-      - name: Remove legacy aliases
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          npx --yes vercel@59.7.0 alias rm portfolio-inky-alpha-n2llci3rgh.vercel.app --yes --token="$VERCEL_TOKEN"
-          npx --yes vercel@59.7.0 alias rm portfolio-trieu-nguyen-phus-projects.vercel.app --yes --token="$VERCEL_TOKEN"
