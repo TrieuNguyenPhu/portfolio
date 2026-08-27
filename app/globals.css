@@ -708,11 +708,12 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
   :root:not([data-theme]) { --education: #6ff2a7; --certificate: #f2b64c; }
 }
 
-.brand-mark { background: var(--manifest-soft); border: 1px solid var(--rule-strong); border-radius: .9rem; padding: .32rem; }
+.brand-mark { background: transparent; border: 0; border-radius: 0; padding: 0; }
 .brand-mark::after { display: none; }
-.logo-head { fill: var(--acid); }
+.logo-mantle { fill: var(--acid); }
+.logo-spot { fill: none; stroke: #151a33; stroke-linecap: round; stroke-width: 2.5; }
 .logo-eye { fill: #151a33; }
-.logo-tentacle { animation: logo-draw 1.8s cubic-bezier(.16,1,.3,1) both; fill: none; stroke: #65e3ba; stroke-dasharray: 150; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; }
+.logo-arms { animation: logo-draw 1.2s cubic-bezier(.16,1,.3,1) both; fill: none; stroke: #65e3ba; stroke-dasharray: 180; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; }
 
 .primary-nav { background: transparent; border: 0; border-radius: 0; display: grid; gap: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: 1.2rem; overflow: visible; padding: 0; position: relative; width: 20.5rem; }
 .primary-nav::after { content: none; }
@@ -814,4 +815,34 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
   .footer-mail { display: grid; grid-template-columns: minmax(0, 1fr) auto; max-width: 100%; width: 100%; }
   .footer-mail > span { grid-column: 1 / -1; }
   .footer-mail strong { font-size: .72rem; overflow-wrap: normal; }
+}
+
+/* Unified type scale: readable body copy, calmer display hierarchy. */
+:root {
+  --type-label: clamp(.72rem, .69rem + .08vw, .79rem);
+  --type-meta: clamp(.86rem, .82rem + .1vw, .96rem);
+  --type-body: clamp(1rem, .97rem + .16vw, 1.1rem);
+  --type-heading: clamp(2.2rem, 3.5vw, 4.3rem);
+  --type-hero: clamp(2.8rem, 4.8vw, 5.2rem);
+}
+
+body { font-size: var(--type-body); line-height: 1.6; }
+.folio-hero h1, .hero h1, .about-hero h1, .blog-hero h1 { font-size: var(--type-hero); line-height: .94; }
+.article-header h1 { font-size: clamp(2.7rem, 4.8vw, 4.9rem); line-height: .95; }
+.story-band h2, .centered-section-heading h2, .folio-section-heading h2 { font-size: var(--type-heading); line-height: 1; }
+.folio-writing h2 { font-size: clamp(2.05rem, 3.4vw, 3.7rem); line-height: 1; }
+.featured-project-copy h3 { font-size: clamp(2rem, 3.5vw, 3.8rem); line-height: 1; }
+.folio-writing h3 { font-size: clamp(1.7rem, 2.5vw, 2.5rem); line-height: 1.05; }
+.about-experience-cards h3 { font-size: clamp(1.55rem, 2.5vw, 2.2rem); line-height: 1.08; }
+
+.hero-lede, .folio-lede, .about-hero > p, .story-band p, .folio-section-heading p, .folio-writing > div > p, .archive-note, .article-header > p { font-size: var(--type-body); }
+.expertise-grid article > p, .principles-grid p, .experience-cards li, .featured-evidence li, .credential-card p, .company-name small, .footer-mail strong, .search-results em, .folio-status { font-size: var(--type-meta); }
+.story-band span, .centered-section-heading > span, .folio-section-heading > span, .folio-writing > div > span, .page-label, .about-hero .page-label, .credential-label, .project-kicker, .featured-evidence > span, .technology-rail li, .footer-mail > span, .folio-role, .hero-eyebrow, .button { font-size: var(--type-label); }
+.primary-nav a { font-size: clamp(.76rem, .73rem + .08vw, .83rem); }
+.brand-copy small, .footer-signature span, .search-results small, .project-kicker, .company-card-top time, .experience-card-head span, .experience-card-head time { font-size: var(--type-label); }
+
+@media (max-width: 47.99rem) {
+  .folio-hero h1, .hero h1, .about-hero h1, .blog-hero h1 { font-size: clamp(2.85rem, 13vw, 4.5rem); }
+  .story-band h2, .centered-section-heading h2, .folio-section-heading h2 { font-size: clamp(2rem, 9.6vw, 3rem); }
+  .featured-project-copy h3 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
 }
