@@ -16,6 +16,7 @@ const copy = {
     projects: "Projects",
     blog: "Blog",
     language: "Language",
+    navigation: "Primary navigation",
     theme: { dark: "Switch to dark theme", light: "Switch to light theme", system: "Use system theme" },
   },
   vi: {
@@ -25,6 +26,7 @@ const copy = {
     projects: "Dự án",
     blog: "Blog",
     language: "Ngôn ngữ",
+    navigation: "Điều hướng chính",
     theme: { dark: "Chuyển sang giao diện tối", light: "Chuyển sang giao diện sáng", system: "Dùng giao diện hệ thống" },
   },
 } as const;
@@ -42,7 +44,7 @@ export default function SiteHeader() {
         <span className="brand-mark"><BrandLogo /></span>
         <span className="brand-copy"><strong>{t.name}</strong><small>{t.role}</small></span>
       </Link>
-      <nav className="primary-nav" aria-label="Primary navigation">
+      <nav className="primary-nav" aria-label={t.navigation}>
         <Link className={active === "about" ? "is-active" : undefined} aria-current={active === "about" ? "page" : undefined} href="/about"><UiIcon name="about" />{t.about}</Link>
         <Link className={active === "blog" ? "is-active" : undefined} aria-current={active === "blog" ? "page" : undefined} href="/blog"><UiIcon name="blog" />{t.blog}</Link>
         <Link className={active === "projects" ? "is-active" : undefined} aria-current={active === "projects" ? "page" : undefined} href="/projects"><UiIcon name="projects" />{t.projects}</Link>
@@ -62,7 +64,7 @@ export default function SiteHeader() {
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5" /><path d="M8 20h8M12 16v4" /></svg>
           )}
         </button>
-        <a className="nav-github" href="https://github.com/TrieuNguyenPhu/portfolio" target="_blank" rel="noreferrer" aria-label="Portfolio repository on GitHub" title="GitHub">
+        <a className="nav-github" href="https://github.com/TrieuNguyenPhu/portfolio" target="_blank" rel="noopener noreferrer" aria-label="Portfolio repository on GitHub" title="GitHub">
           <GitHubIcon />
         </a>
       </div>

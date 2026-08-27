@@ -8,8 +8,8 @@ import { useSitePreferences } from "./site-preferences";
 import UiIcon from "./ui-icon";
 
 const copy = {
-  en: { open: "Search portfolio", title: "Search", hint: "Projects, writing, and pages", placeholder: "Type to search…", empty: "No matching results", pages: "Page", project: "Project", post: "Article" },
-  vi: { open: "Tìm kiếm portfolio", title: "Tìm kiếm", hint: "Dự án, bài viết và các trang", placeholder: "Nhập nội dung cần tìm…", empty: "Không tìm thấy kết quả", pages: "Trang", project: "Dự án", post: "Bài viết" },
+  en: { open: "Search portfolio", close: "Close search", title: "Search", hint: "Projects, writing, and pages", placeholder: "Type to search…", empty: "No matching results", pages: "Page", project: "Project", post: "Article" },
+  vi: { open: "Tìm kiếm portfolio", close: "Đóng tìm kiếm", title: "Tìm kiếm", hint: "Dự án, bài viết và các trang", placeholder: "Nhập nội dung cần tìm…", empty: "Không tìm thấy kết quả", pages: "Trang", project: "Dự án", post: "Bài viết" },
 } as const;
 
 export default function SiteSearch() {
@@ -56,14 +56,14 @@ export default function SiteSearch() {
 
   return (
     <>
-      <button className="search-trigger" type="button" onClick={open} aria-label={t.open} title={t.open}>
-        <UiIcon name="search" /><span>{t.title}</span><kbd>⌘K</kbd>
+      <button className="search-trigger" type="button" onClick={open} aria-label={t.open} aria-controls="site-search-dialog" title={t.open}>
+        <UiIcon name="search" /><span>{t.title}</span><kbd>Ctrl K</kbd>
       </button>
-      <dialog className="search-dialog" ref={dialogRef} onClick={(event) => { if (event.target === event.currentTarget) close(); }} onClose={() => setQuery("")}>
+      <dialog id="site-search-dialog" className="search-dialog" ref={dialogRef} aria-labelledby="search-title" aria-describedby="search-hint" onClick={(event) => { if (event.target === event.currentTarget) close(); }} onClose={() => setQuery("")}>
         <div className="search-panel">
           <header>
-            <div><strong>{t.title}</strong><span>{t.hint}</span></div>
-            <button type="button" onClick={close} aria-label="Close search"><UiIcon name="x" /></button>
+            <div><strong id="search-title">{t.title}</strong><span id="search-hint">{t.hint}</span></div>
+            <button type="button" onClick={close} aria-label={t.close}><UiIcon name="x" /></button>
           </header>
           <label className="search-field">
             <span className="sr-only">{t.open}</span>

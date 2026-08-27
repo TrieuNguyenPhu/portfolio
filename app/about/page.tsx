@@ -82,7 +82,7 @@ export default function AboutPage() {
         <div className="experience-cards about-experience-cards">
           <article data-reveal>
             <div className="company-card-top">
-              <a className="company-brand" href="https://xbrain.com.vn/" target="_blank" rel="noreferrer" aria-label={`XBrain — ${t.visit}`}>
+              <a className="company-brand" href="https://xbrain.com.vn/" target="_blank" rel="noopener noreferrer" aria-label={`XBrain — ${t.visit}`}>
                 <span className="company-mark"><Image src="/companies/xbrain.png" alt="XBrain" width={451} height={134} /></span>
                 <span className="company-name"><strong>XBrain</strong><small>{t.xbrainIndustry}</small></span>
                 <UiIcon name="arrow" />
@@ -96,7 +96,7 @@ export default function AboutPage() {
 
           <article data-reveal data-reveal-delay="1">
             <div className="company-card-top">
-              <a className="company-brand" href="https://www.techhaus.vn/" target="_blank" rel="noreferrer" aria-label={`Techhaus Vietnam — ${t.visit}`}>
+              <a className="company-brand" href="https://www.techhaus.vn/" target="_blank" rel="noopener noreferrer" aria-label={`Techhaus Vietnam — ${t.visit}`}>
                 <span className="company-mark company-mark--techhaus"><Image src="/companies/techhaus.png" alt="Techhaus Vietnam" width={683} height={489} /></span>
                 <span className="company-name"><strong>Techhaus Vietnam</strong><small>{t.techhausIndustry}</small></span>
                 <UiIcon name="arrow" />

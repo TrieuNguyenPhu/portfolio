@@ -10,14 +10,14 @@
     "test": "node --no-warnings --experimental-strip-types app/lib/site-preferences.test.ts"
   },
   "dependencies": {
-    "next": "16.2.12",
+    "next": "16.3.3",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/react-dom": "^19.2.5",
     "typescript": "^5.9.0"
   },
   "overrides": {

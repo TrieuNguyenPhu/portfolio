@@ -15,6 +15,7 @@ const copy = {
     label: "PROJECT ARCHIVE",
     aside: "SYSTEM CASE STUDIES",
     note: "Every entry documents what the system does, how the parts connect, and which implementation choices protect reliability, security, or reproducibility.",
+    stack: "technology stack",
   },
   vi: {
     heading: "Những hệ thống tôi xây dựng từ đầu.",
@@ -25,6 +26,7 @@ const copy = {
     label: "KHO DỰ ÁN",
     aside: "CASE STUDY HỆ THỐNG",
     note: "Mỗi dự án mô tả hệ thống giải quyết điều gì, các thành phần kết nối ra sao và lựa chọn kỹ thuật nào bảo vệ độ tin cậy, an toàn hoặc khả năng tái lập.",
+    stack: "công nghệ sử dụng",
   },
 } as const;
 
@@ -60,10 +62,10 @@ export default function ProjectsPage() {
                 </div>
               </div>
               <footer className="project-footer">
-                <ul className="tags" aria-label={`${project.title} technology stack`}>
+                <ul className="tags" aria-label={`${project.title} ${t.stack}`}>
                   {project.stack.map((item) => <li key={item}>{item}</li>)}
                 </ul>
-                <a href={project.href} target="_blank" rel="noreferrer"><UiIcon name="code" />{t.repository}<span><UiIcon name="arrow" /></span></a>
+                <a href={project.href} target="_blank" rel="noopener noreferrer"><UiIcon name="code" />{t.repository}<span><UiIcon name="arrow" /></span></a>
               </footer>
             </article>
           ))}

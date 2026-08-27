@@ -17,9 +17,9 @@ export default function SiteShell({ children }: Readonly<{ children: React.React
         <div className="ambient__noise" />
       </div>
       <div className="scroll-progress" aria-hidden="true" />
-      <a className="skip-link" href="#top">Skip to content</a>
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <SiteHeader />
-      <div id="top" tabIndex={-1}>{children}</div>
+      <div id="main-content" tabIndex={-1}>{children}</div>
       <SiteFooter />
     </SitePreferencesProvider>
   );

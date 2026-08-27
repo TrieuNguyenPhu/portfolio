@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Roboto_Mono, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import SiteShell from "./site-shell";
 
@@ -31,15 +32,31 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 -->`;
 
 export const metadata: Metadata = {
-  title: "Nguyen Phu Trieu — DevOps Engineer",
+  title: {
+    default: "Nguyen Phu Trieu — DevOps Engineer",
+    template: "%s — Nguyen Phu Trieu",
+  },
   description:
     "DevOps engineer focused on AWS, Kubernetes, Terraform, GitOps, CI/CD, observability, and cloud security.",
   metadataBase: new URL("https://nguyen-phu-trieu-portfolio.vercel.app"),
+  applicationName: "Nguyen Phu Trieu Portfolio",
+  authors: [{ name: "Nguyen Phu Trieu", url: "https://nguyen-phu-trieu-portfolio.vercel.app" }],
+  creator: "Nguyen Phu Trieu",
+  publisher: "Nguyen Phu Trieu",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Nguyen Phu Trieu — DevOps Engineer",
     description:
       "Selected cloud infrastructure, GitOps, Kubernetes, and delivery engineering work.",
     type: "website",
+    url: "/",
+    siteName: "Nguyen Phu Trieu Portfolio",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nguyen Phu Trieu — DevOps Engineer",
+    description: "Cloud infrastructure, GitOps, Kubernetes, and delivery engineering work.",
   },
   robots: { index: true, follow: true },
 };
@@ -49,16 +66,39 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0e1020" },
-    { media: "(prefers-color-scheme: light)", color: "#f7f7fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#08130d" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f8f3" },
   ],
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Nguyen Phu Trieu",
+  url: "https://nguyen-phu-trieu-portfolio.vercel.app",
+  jobTitle: "DevOps Engineer",
+  email: "mailto:nguyentrieu080604@gmail.com",
+  sameAs: [
+    "https://github.com/TrieuNguyenPhu",
+    "https://www.linkedin.com/in/trieunguyenphu86/",
+  ],
+  knowsAbout: ["AWS", "Kubernetes", "Terraform", "GitOps", "CI/CD", "Cloud Security", "Observability"],
+};
+
+const themeScript = `try{const theme=localStorage.getItem("portfolio-theme");if(theme==="light"||theme==="dark")document.documentElement.dataset.theme=theme}catch{}`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${manrope.variable} ${mono.variable} ${display.variable}`}>
+    <html lang="en" suppressHydrationWarning>
+      <head><Script id="theme-preference" strategy="beforeInteractive">{themeScript}</Script></head>
+      <body id="top" className={`${manrope.variable} ${mono.variable} ${display.variable}`}>
         <template data-design-contract dangerouslySetInnerHTML={{ __html: designContract }} />
+        <Script
+          id="person-structured-data"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replaceAll("<", "\\u003c") }}
+        />
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

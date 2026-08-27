@@ -5,8 +5,21 @@ import { posts } from "./posts";
 import UiIcon from "../ui-icon";
 
 export const metadata: Metadata = {
-  title: "Blog — Nguyen Phu Trieu",
+  title: "Blog",
   description: "Notes about DevOps, cloud, Kubernetes, GitOps, and building reliable systems.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "DevOps & Cloud Engineering Blog — Nguyen Phu Trieu",
+    description: "Notes about DevOps, cloud, Kubernetes, GitOps, and building reliable systems.",
+    url: "/blog",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nguyen Phu Trieu — DevOps Engineer" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DevOps & Cloud Engineering Blog — Nguyen Phu Trieu",
+    description: "Notes about DevOps, cloud, Kubernetes, GitOps, and building reliable systems.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const copy = {
@@ -19,6 +32,7 @@ const copy = {
     vi: "Những điều tôi học được về DevOps, cloud, Kubernetes, bảo mật và delivery automation.",
   },
   readMore: { en: "Read article", vi: "Đọc bài viết" },
+  articles: { en: "Articles", vi: "Bài viết" },
 } as const;
 
 export default function BlogPage() {
@@ -29,7 +43,8 @@ export default function BlogPage() {
         <div className="page-aside"><span>ENGINEERING NOTES</span><p><LocalizedText value={copy.description} /></p></div>
       </header>
 
-      <section className="blog-list" aria-label="Danh sách bài viết">
+      <section className="blog-list" aria-labelledby="articles-title">
+        <h2 className="sr-only" id="articles-title"><LocalizedText value={copy.articles} /></h2>
         {posts.map((post) => (
           <article className="blog-card" key={post.slug} data-reveal>
             <div className="blog-card-content">
@@ -39,7 +54,7 @@ export default function BlogPage() {
               </div>
               <h2><Link href={`/blog/${post.slug}`}><LocalizedText value={post.title} /></Link></h2>
               <p><LocalizedText value={post.excerpt} /></p>
-              <ul className="tags" aria-label="Chủ đề">
+              <ul className="tags">
                 {post.tags.map((tag) => <li key={tag}>{tag}</li>)}
               </ul>
               <Link className="blog-read-more" href={`/blog/${post.slug}`}><UiIcon name="blog" /><LocalizedText value={copy.readMore} /><UiIcon name="arrow" /></Link>
