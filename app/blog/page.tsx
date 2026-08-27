@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import LocalizedText from "./localized-text";
 import { posts } from "./posts";
+import UiIcon from "../ui-icon";
 
 export const metadata: Metadata = {
   title: "Blog — Nguyen Phu Trieu",
@@ -41,7 +42,7 @@ export default function BlogPage() {
               <ul className="tags" aria-label="Chủ đề">
                 {post.tags.map((tag) => <li key={tag}>{tag}</li>)}
               </ul>
-              <Link className="blog-read-more" href={`/blog/${post.slug}`}><LocalizedText value={copy.readMore} /></Link>
+              <Link className="blog-read-more" href={`/blog/${post.slug}`}><UiIcon name="blog" /><LocalizedText value={copy.readMore} /><UiIcon name="arrow" /></Link>
             </div>
           </article>
         ))}

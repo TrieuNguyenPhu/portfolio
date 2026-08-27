@@ -6,6 +6,7 @@ import { posts } from "./blog/posts";
 import { text } from "./lib/localization";
 import { projects } from "./projects/projects";
 import { useSitePreferences } from "./site-preferences";
+import UiIcon, { type IconName } from "./ui-icon";
 
 const skills = [
   [text("Cloud & Infrastructure", "Cloud & hạ tầng"), "AWS, Terraform, AWS SAM, CloudFormation"],
@@ -18,6 +19,7 @@ const skills = [
 const operatingModel = [
   {
     code: "PROVISION",
+    icon: "cloud" as IconName,
     title: text("Rebuildable by design", "Có thể dựng lại ngay từ thiết kế"),
     description: text(
       "Describe environments as code, expose dependencies, and make every infrastructure change reviewable before it reaches a runtime.",
@@ -27,6 +29,7 @@ const operatingModel = [
   },
   {
     code: "DELIVER",
+    icon: "workflow" as IconName,
     title: text("Release with a way back", "Phát hành luôn có đường lui"),
     description: text(
       "Move changes through ordered delivery stages, promote from health signals, and keep rollback paths visible instead of relying on operator memory.",
@@ -36,6 +39,7 @@ const operatingModel = [
   },
   {
     code: "OBSERVE",
+    icon: "database" as IconName,
     title: text("Evidence before assumptions", "Bằng chứng trước phỏng đoán"),
     description: text(
       "Connect metrics, logs and deployment context so incidents can be explained, release decisions can be inspected, and learning survives the handoff.",
@@ -45,6 +49,7 @@ const operatingModel = [
   },
   {
     code: "SECURE",
+    icon: "shield" as IconName,
     title: text("Trust belongs in the path", "Niềm tin phải nằm trong luồng triển khai"),
     description: text(
       "Scan and sign artifacts, enforce policy at admission, and separate secrets from application configuration so safety is a default path.",
@@ -179,8 +184,8 @@ export default function Home() {
             <h1>{t.heroLead} <span>{t.heroAccent}</span></h1>
             <p className="hero-lede">{t.lede}</p>
             <div className="hero-actions">
-              <Link className="button button--primary" href="#case-studies">{t.explore}</Link>
-              <a className="button button--ghost" href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer">GitHub</a>
+              <Link className="button button--primary" href="#case-studies"><UiIcon name="projects" />{t.explore}<UiIcon name="arrow" /></Link>
+              <a className="button button--ghost" href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer"><UiIcon name="code" />GitHub<UiIcon name="arrow" /></a>
             </div>
           </div>
           <div className="hero-visual" data-reveal data-reveal-delay="1"><DeliveryMap /></div>
@@ -194,9 +199,9 @@ export default function Home() {
         <section className="direction-section" data-reveal>
           <div className="direction-copy"><span>{t.currentLabel}</span><h2>{t.currentTitle}</h2><p>{t.currentText}</p></div>
           <dl className="direction-facts">
-            <div><dt>{t.focus}</dt><dd>{t.focusValue}</dd></div>
-            <div><dt>{t.practice}</dt><dd>{t.practiceValue}</dd></div>
-            <div><dt>{t.proof}</dt><dd>{t.proofValue}</dd></div>
+            <div><UiIcon name="shield" /><dt>{t.focus}</dt><dd>{t.focusValue}</dd></div>
+            <div><UiIcon name="workflow" /><dt>{t.practice}</dt><dd>{t.practiceValue}</dd></div>
+            <div><UiIcon name="code" /><dt>{t.proof}</dt><dd>{t.proofValue}</dd></div>
           </dl>
         </section>
 
@@ -217,12 +222,12 @@ export default function Home() {
                   <div className="case-architecture"><span>{t.architecture}</span><code>{project.architecture[language]}</code></div>
                   <div className="case-evidence"><span>{t.decisions}</span><ul>{project.highlights.map((item) => <li key={item.en}>{item[language]}</li>)}</ul></div>
                   <ul className="tags" aria-label={`${project.title} technology stack`}>{project.stack.slice(0, 6).map((item) => <li key={item}>{item}</li>)}</ul>
-                  <a className="case-link" href={project.href} target="_blank" rel="noreferrer">{t.repository}<span>↗</span></a>
+                  <a className="case-link" href={project.href} target="_blank" rel="noreferrer">{t.repository}<span><UiIcon name="arrow" /></span></a>
                 </div>
               </article>
             ))}
           </div>
-          <Link className="archive-link" href="/projects"><span>{t.allProjects}</span><i>↗</i></Link>
+          <Link className="archive-link" href="/projects"><span>{t.allProjects}</span><i><UiIcon name="arrow" /></i></Link>
         </section>
 
         <section className="operations-section">
@@ -230,7 +235,7 @@ export default function Home() {
           <div className="operations-flow">
             {operatingModel.map((item, index) => (
               <article key={item.code} data-reveal data-reveal-delay={String(index % 3)}>
-                <span>{item.code}</span><i className="operation-signal" aria-hidden="true" />
+                <span className="operation-code"><UiIcon name={item.icon} />{item.code}</span><i className="operation-signal" aria-hidden="true" />
                 <h3>{item.title[language]}</h3><p>{item.description[language]}</p><code>{item.evidence}</code>
               </article>
             ))}
@@ -258,7 +263,7 @@ export default function Home() {
           <Link className="writing-card" href={`/blog/${post.slug}`}>
             <div className="blog-meta"><time dateTime={post.publishedAt}>{post.displayDate[language]}</time><span>{post.readingTime[language]}</span></div>
             <h3>{post.title[language]}</h3><p>{post.excerpt[language]}</p>
-            <strong>{t.readArticle}<i>↗</i></strong>
+            <strong><UiIcon name="blog" />{t.readArticle}<i><UiIcon name="arrow" /></i></strong>
           </Link>
         </section>
 

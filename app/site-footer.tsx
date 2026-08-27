@@ -3,6 +3,7 @@
 import GitHubIcon from "./github-icon";
 import BrandLogo from "./brand-logo";
 import { useSitePreferences } from "./site-preferences";
+import UiIcon from "./ui-icon";
 
 const copy = {
   en: {
@@ -34,7 +35,7 @@ export default function SiteFooter() {
         <div className="footer-kicker">{t.kicker}</div>
         <h2>{t.heading}</h2>
         <a className="footer-mail" href="mailto:nguyentrieu080604@gmail.com">
-          <span>{t.contact}</span><strong>nguyentrieu080604@gmail.com</strong><i aria-hidden="true">↗</i>
+          <span><UiIcon name="mail" />{t.contact}</span><strong>nguyentrieu080604@gmail.com</strong><i aria-hidden="true"><UiIcon name="arrow" /></i>
         </a>
         <nav className="contact-socials" aria-label="Social links">
           <a className="social-icon" href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">

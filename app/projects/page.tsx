@@ -3,6 +3,7 @@
 import { ProjectArchitecture } from "../architecture-visual";
 import { useSitePreferences } from "../site-preferences";
 import { projects } from "./projects";
+import UiIcon from "../ui-icon";
 
 const copy = {
   en: {
@@ -42,7 +43,7 @@ export default function ProjectsPage() {
 
         <section className="projects-grid" aria-label="Projects">
           {projects.map((project, index) => (
-            <article className="project" key={project.slug} data-reveal data-reveal-delay={String(index % 3)}>
+            <article className="project" id={project.slug} key={project.slug} data-reveal data-reveal-delay={String(index % 3)}>
               <header><span>{project.stage[language]}</span><time>{project.date[language]}</time></header>
               <div className="project-visual-wrap"><ProjectArchitecture project={project} variant={index} language={language} /></div>
               <div className="project-body">
@@ -62,7 +63,7 @@ export default function ProjectsPage() {
                 <ul className="tags" aria-label={`${project.title} technology stack`}>
                   {project.stack.map((item) => <li key={item}>{item}</li>)}
                 </ul>
-                <a href={project.href} target="_blank" rel="noreferrer">{t.repository}<span>↗</span></a>
+                <a href={project.href} target="_blank" rel="noreferrer"><UiIcon name="code" />{t.repository}<span><UiIcon name="arrow" /></span></a>
               </footer>
             </article>
           ))}

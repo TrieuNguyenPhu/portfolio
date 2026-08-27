@@ -4,7 +4,9 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import GitHubIcon from "./github-icon";
 import BrandLogo from "./brand-logo";
+import SiteSearch from "./site-search";
 import { useSitePreferences } from "./site-preferences";
+import UiIcon from "./ui-icon";
 
 const copy = {
   en: {
@@ -12,7 +14,7 @@ const copy = {
     role: "DevOps Engineer",
     about: "About",
     projects: "Projects",
-    notes: "Notes",
+    blog: "Blog",
     language: "Language",
     availability: "Open to work",
     theme: { dark: "Switch to dark theme", light: "Switch to light theme", system: "Use system theme" },
@@ -22,7 +24,7 @@ const copy = {
     role: "Kỹ sư DevOps",
     about: "Giới thiệu",
     projects: "Dự án",
-    notes: "Ghi chép",
+    blog: "Blog",
     language: "Ngôn ngữ",
     availability: "Sẵn sàng làm việc",
     theme: { dark: "Chuyển sang giao diện tối", light: "Chuyển sang giao diện sáng", system: "Dùng giao diện hệ thống" },
@@ -43,15 +45,16 @@ export default function SiteHeader() {
         <span className="brand-copy"><strong>{t.name}</strong><small>{t.role}</small></span>
       </Link>
       <nav className="primary-nav" aria-label="Primary navigation">
-        <Link className={active === "projects" ? "is-active" : undefined} href="/projects">{t.projects}</Link>
-        <Link className={active === "about" ? "is-active" : undefined} href="/#about">{t.about}</Link>
-        <Link className={active === "blog" ? "is-active" : undefined} href="/blog">{t.notes}</Link>
+        <Link className={active === "about" ? "is-active" : undefined} href="/"><UiIcon name="about" />{t.about}</Link>
+        <Link className={active === "blog" ? "is-active" : undefined} href="/blog"><UiIcon name="blog" />{t.blog}</Link>
+        <Link className={active === "projects" ? "is-active" : undefined} href="/projects"><UiIcon name="projects" />{t.projects}</Link>
       </nav>
       <div className="nav-tools">
         <span className="availability"><i /> {t.availability}</span>
+        <SiteSearch />
         <div className="language-switcher" role="group" aria-label={t.language}>
-          <button type="button" aria-pressed={language === "vi"} onClick={() => setLanguage("vi")}>VI</button>
           <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
+          <button type="button" aria-pressed={language === "vi"} onClick={() => setLanguage("vi")}>VI</button>
         </div>
         <button className="theme-toggle" type="button" aria-label={t.theme[nextTheme]} title={t.theme[nextTheme]} onClick={cycleTheme}>
           {theme === "light" ? (
