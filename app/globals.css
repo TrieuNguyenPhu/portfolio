@@ -30,7 +30,7 @@
 
 * { box-sizing: border-box; }
 html { background: var(--paper); color-scheme: dark; overflow-x: clip; scroll-behavior: smooth; }
-body { background: var(--paper); color: var(--ink); font-family: var(--font-manrope), sans-serif; margin: 0; min-height: 100vh; overflow-x: clip; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-roboto), sans-serif; margin: 0; min-height: 100vh; overflow-x: clip; }
 ::selection { background: var(--acid); color: #0b0d08; }
 a { color: inherit; text-decoration: none; }
 button { color: inherit; font: inherit; }
@@ -502,8 +502,8 @@ html[data-theme="light"] .map-node, html[data-theme="light"] .visual-node { back
   }
 }
 
-body { font-family: var(--font-manrope), sans-serif; }
-h1, h2, h3 { font-family: var(--font-display), sans-serif; }
+body { font-family: var(--font-roboto), sans-serif; }
+h1, h2, h3 { font-family: var(--font-roboto), sans-serif; }
 .ambient__grid { background-size: 8rem 8rem; mask-image: linear-gradient(to bottom, black, transparent 70%); opacity: .16; }
 .ambient__glow--one { background: rgb(109 60 246 / 10%); }
 .ambient__glow--two { background: rgb(72 215 173 / 8%); }
@@ -513,15 +513,15 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 .nav-shell { height: 5.5rem; padding-inline: max(1.25rem, calc((100% - 78rem) / 2)); }
 .brand-mark { flex-basis: 2.75rem; height: 2.75rem; }
 .brand-mark::after { border-radius: 999px; bottom: -5px; height: 4px; width: 100%; }
-.brand-copy strong { font-family: var(--font-display), sans-serif; font-size: .86rem; }
+.brand-copy strong { font-family: var(--font-roboto), sans-serif; font-size: .86rem; }
 .brand-copy small { font-size: .53rem; }
 .primary-nav { gap: 1.5rem; margin-inline: 1.6rem; }
-.primary-nav a { font-family: var(--font-manrope), sans-serif; font-size: .76rem; font-weight: 700; text-transform: none; }
+.primary-nav a { font-family: var(--font-roboto), sans-serif; font-size: .76rem; font-weight: 700; text-transform: none; }
 .primary-nav a::after { border-radius: 99px; bottom: .15rem; }
 .search-trigger, .theme-toggle, .nav-github, .language-switcher { border-radius: .8rem; }
 .language-switcher { overflow: hidden; }
 .search-trigger { border-color: var(--rule-strong); }
-.search-trigger > span { font-family: var(--font-manrope), sans-serif; font-weight: 700; text-transform: none; }
+.search-trigger > span { font-family: var(--font-roboto), sans-serif; font-weight: 700; text-transform: none; }
 .language-switcher button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 
 .folio-home { max-width: none; }
@@ -532,7 +532,7 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 .folio-hero h1 { font-size: clamp(3.5rem, 6.3vw, 6.3rem); font-weight: 650; letter-spacing: -.075em; line-height: .9; margin: 1.2rem auto 0; max-width: 14ch; }
 .folio-lede { color: var(--muted); font-size: clamp(1rem, 1.45vw, 1.25rem); line-height: 1.75; margin: 1.8rem auto 0; max-width: 68ch; }
 .folio-hero .hero-actions { justify-content: center; margin-top: 2rem; }
-.button { border-radius: .9rem; font-family: var(--font-manrope), sans-serif; font-size: .72rem; letter-spacing: 0; min-height: 3.5rem; text-transform: none; }
+.button { border-radius: .9rem; font-family: var(--font-roboto), sans-serif; font-size: .72rem; letter-spacing: 0; min-height: 3.5rem; text-transform: none; }
 .button--primary { background: var(--acid); border-color: var(--acid); color: #fff; box-shadow: 0 1rem 2rem rgb(109 60 246 / 20%); }
 .button--primary:hover { background: #4f29c7; border-color: #4f29c7; color: #fff; transform: translateY(-3px); }
 .button--ghost { background: var(--sheet); }
@@ -623,7 +623,7 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 .experience-cards article { background: var(--sheet); border: 1px solid var(--rule); border-radius: 1.4rem; padding: clamp(1.6rem, 4vw, 2.8rem); }
 .experience-card-head { align-items: start; display: flex; gap: 1rem; justify-content: space-between; }
 .experience-card-head > div { display: flex; flex-direction: column; gap: .25rem; }
-.experience-card-head strong { font-family: var(--font-display), sans-serif; font-size: 1.45rem; }
+.experience-card-head strong { font-family: var(--font-roboto), sans-serif; font-size: 1.45rem; }
 .experience-card-head span, .experience-card-head time { color: var(--acid); font-size: .7rem; font-weight: 700; }
 .experience-card-head time { font-family: var(--font-mono), monospace; text-align: right; }
 .experience-cards article > p { color: var(--muted); line-height: 1.75; margin-top: 1.4rem; }
@@ -645,11 +645,11 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 .credentials-strip > div { background: var(--sheet); border: 1px solid var(--rule); border-radius: 1.2rem; display: grid; gap: .3rem; grid-template-columns: auto minmax(0, 1fr); padding: 1.4rem; }
 .credentials-strip .ui-icon { color: var(--acid); grid-row: 1 / 4; height: 1.5rem; margin-right: .8rem; width: 1.5rem; }
 .credentials-strip span { color: var(--acid); font-family: var(--font-mono), monospace; font-size: .55rem; text-transform: uppercase; }
-.credentials-strip strong { font-family: var(--font-display), sans-serif; }
+.credentials-strip strong { font-family: var(--font-roboto), sans-serif; }
 .credentials-strip small { color: var(--muted); }
 
 .projects-page, .blog-page, .article-page { max-width: var(--page); }
-.blog-hero h1, .article-header h1 { font-family: var(--font-display), sans-serif; }
+.blog-hero h1, .article-header h1 { font-family: var(--font-roboto), sans-serif; }
 .project, .blog-card { border-radius: 1.4rem; box-shadow: 0 1rem 3rem rgb(21 26 51 / 5%); }
 .blog-list { border: 0; display: grid; gap: 1rem; }
 .blog-card { background: var(--sheet); border: 1px solid var(--rule); padding: clamp(2rem, 5vw, 4rem); }
@@ -748,7 +748,7 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 .company-mark img { height: auto; max-height: 100%; object-fit: contain; width: 100%; }
 .company-mark--techhaus { padding: .35rem; }
 .company-name { display: flex; flex-direction: column; min-width: 0; }
-.company-name strong { font-family: var(--font-display), sans-serif; font-size: 1.3rem; }
+.company-name strong { font-family: var(--font-roboto), sans-serif; font-size: 1.3rem; }
 .company-name small { color: var(--muted); font-size: .67rem; line-height: 1.45; margin-top: .25rem; }
 .about-experience-cards h3 { font-size: clamp(1.6rem, 3vw, 2.5rem); letter-spacing: -.045em; margin-top: 2rem; }
 
@@ -768,11 +768,11 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 .footer-signature { align-items: center; display: flex; gap: .9rem; min-width: 0; }
 .footer-logo { height: 3.2rem; opacity: 1; position: static; width: 3.2rem; }
 .footer-signature > div { display: flex; flex-direction: column; min-width: 0; }
-.footer-signature strong { font-family: var(--font-display), sans-serif; font-size: .95rem; }
+.footer-signature strong { font-family: var(--font-roboto), sans-serif; font-size: .95rem; }
 .footer-signature span { color: rgb(255 255 255 / 52%); font-family: var(--font-mono), monospace; font-size: .5rem; letter-spacing: .07em; margin-top: .2rem; }
 .footer-mail { align-items: center; border: 1px solid rgb(255 255 255 / 15%); border-radius: .85rem; display: flex; gap: .65rem; margin: 0; padding: .75rem .9rem; }
 .footer-mail > span { color: #84f0cc; font-size: .5rem; }
-.footer-mail strong { font-family: var(--font-manrope), sans-serif; font-size: .78rem; font-weight: 600; }
+.footer-mail strong { font-family: var(--font-roboto), sans-serif; font-size: .78rem; font-weight: 600; }
 .footer-mail > .ui-icon { color: #84f0cc; height: .9rem; width: .9rem; }
 .footer-mail:hover { background: rgb(255 255 255 / 7%); border-color: #84f0cc; }
 .contact-socials { margin: 0; }

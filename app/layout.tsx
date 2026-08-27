@@ -1,24 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Roboto_Mono, Space_Grotesk } from "next/font/google";
+import { Roboto, Roboto_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import SiteShell from "./site-shell";
 
-const manrope = Manrope({
+const roboto = Roboto({
   subsets: ["latin", "vietnamese"],
-  variable: "--font-manrope",
+  variable: "--font-roboto",
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 const mono = Roboto_Mono({
   subsets: ["latin", "vietnamese"],
   variable: "--font-mono",
-  display: "swap",
-});
-
-const display = Space_Grotesk({
-  subsets: ["latin", "vietnamese"],
-  variable: "--font-display",
   display: "swap",
 });
 
@@ -91,7 +86,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" suppressHydrationWarning>
       <head><Script id="theme-preference" strategy="beforeInteractive">{themeScript}</Script></head>
-      <body id="top" className={`${manrope.variable} ${mono.variable} ${display.variable}`}>
+      <body id="top" className={`${roboto.variable} ${mono.variable}`}>
         <template data-design-contract dangerouslySetInnerHTML={{ __html: designContract }} />
         <Script
           id="person-structured-data"
