@@ -12,6 +12,7 @@ const copy = {
     role: "DevOps Engineer",
     about: "About",
     projects: "Projects",
+    notes: "Notes",
     language: "Language",
     availability: "Open to work",
     theme: { dark: "Switch to dark theme", light: "Switch to light theme", system: "Use system theme" },
@@ -21,6 +22,7 @@ const copy = {
     role: "Kỹ sư DevOps",
     about: "Giới thiệu",
     projects: "Dự án",
+    notes: "Ghi chép",
     language: "Ngôn ngữ",
     availability: "Sẵn sàng làm việc",
     theme: { dark: "Chuyển sang giao diện tối", light: "Chuyển sang giao diện sáng", system: "Dùng giao diện hệ thống" },
@@ -41,9 +43,9 @@ export default function SiteHeader() {
         <span className="brand-copy"><strong>{t.name}</strong><small>{t.role}</small></span>
       </Link>
       <nav className="primary-nav" aria-label="Primary navigation">
-        <Link className={active === "blog" ? "is-active" : undefined} href="/blog">Blog</Link>
-        <Link className={active === "about" ? "is-active" : undefined} href="/#about">{t.about}</Link>
         <Link className={active === "projects" ? "is-active" : undefined} href="/projects">{t.projects}</Link>
+        <Link className={active === "about" ? "is-active" : undefined} href="/#about">{t.about}</Link>
+        <Link className={active === "blog" ? "is-active" : undefined} href="/blog">{t.notes}</Link>
       </nav>
       <div className="nav-tools">
         <span className="availability"><i /> {t.availability}</span>

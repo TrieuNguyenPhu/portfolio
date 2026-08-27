@@ -16,11 +16,11 @@ const mono = Roboto_Mono({
 });
 
 const designContract = `<!--
-THESIS: An immersive cloud-operations field where verified work moves through a living deployment pipeline.
-OWN-WORLD: Midnight infrastructure grids, luminous signal fields, oversized editorial type, and precise monospace telemetry.
-STORY: Visitors meet Trieu through a bold engineering claim, follow his operating path, inspect shipped systems, then make contact.
-FIRST VIEWPORT: A kinetic career statement and animated delivery topology establish the DevOps focus before any scroll.
-FORM: Asymmetric technical editorial with native CSS motion and progressive enhancement.
+THESIS: A technical editorial portfolio where infrastructure work is understood through architecture, decisions, and evidence.
+OWN-WORLD: Warm midnight surfaces, an acid signal color, oversized editorial typography, and living system diagrams.
+STORY: Visitors meet Trieu through a clear engineering position, inspect case studies, learn his operating principles, then make contact.
+FIRST VIEWPORT: A kinetic career statement and animated commit-to-runtime map establish the DevOps focus before any scroll.
+FORM: Spacious technical editorial with native CSS/SVG motion and progressive enhancement.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->`;
 
@@ -43,8 +43,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#090c18" },
-    { media: "(prefers-color-scheme: light)", color: "#f3f4f7" },
+    { media: "(prefers-color-scheme: dark)", color: "#090a08" },
+    { media: "(prefers-color-scheme: light)", color: "#eeede5" },
   ],
 };
 

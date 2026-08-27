@@ -1,5 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { DeliveryMap, ProjectArchitecture } from "./architecture-visual";
+import { posts } from "./blog/posts";
 import { text } from "./lib/localization";
 import { projects } from "./projects/projects";
 import { useSitePreferences } from "./site-preferences";
@@ -8,44 +11,44 @@ const skills = [
   [text("Cloud & Infrastructure", "Cloud & hạ tầng"), "AWS, Terraform, AWS SAM, CloudFormation"],
   [text("Containers & GitOps", "Containers & GitOps"), "Docker, Kubernetes, Argo CD"],
   [text("CI/CD & Security", "CI/CD & bảo mật"), "GitHub Actions, Trivy, Cosign, Kubernetes RBAC"],
-  [text("Monitoring & Systems", "Giám sát & hệ thống"), "Prometheus, Grafana, Linux, Bash, Git"],
+  [text("Observability & Systems", "Quan sát & hệ thống"), "Prometheus, Grafana, Linux, Bash, Git"],
   [text("Programming", "Lập trình"), "Python, Go, JavaScript, TypeScript"],
 ] as const;
 
 const operatingModel = [
   {
     code: "PROVISION",
-    title: text("Rebuildable infrastructure", "Hạ tầng có thể dựng lại"),
+    title: text("Rebuildable by design", "Có thể dựng lại ngay từ thiết kế"),
     description: text(
-      "Describe environments in Terraform or SAM, keep dependencies explicit, and make change review possible before apply.",
-      "Mô tả môi trường bằng Terraform hoặc SAM, làm rõ dependency và cho phép rà soát thay đổi trước khi apply.",
+      "Describe environments as code, expose dependencies, and make every infrastructure change reviewable before it reaches a runtime.",
+      "Mô tả môi trường bằng code, làm rõ dependency và biến mọi thay đổi hạ tầng thành thứ có thể rà soát trước khi vào runtime.",
     ),
     evidence: "Terraform · AWS SAM · CloudFormation · ADR",
   },
   {
     code: "DELIVER",
-    title: text("Progressive, observable releases", "Phát hành tăng tiến, có quan sát"),
+    title: text("Release with a way back", "Phát hành luôn có đường lui"),
     description: text(
-      "Move changes from Git through ordered sync waves and let service health decide whether a canary is promoted or rolled back.",
-      "Đưa thay đổi từ Git qua các sync wave có thứ tự và để sức khỏe dịch vụ quyết định promote hay rollback canary.",
+      "Move changes through ordered delivery stages, promote from health signals, and keep rollback paths visible instead of relying on operator memory.",
+      "Đưa thay đổi qua các giai đoạn có thứ tự, promote theo tín hiệu sức khỏe và giữ đường rollback rõ ràng thay vì phụ thuộc trí nhớ người vận hành.",
     ),
-    evidence: "Argo CD · GitHub Actions · Argo Rollouts · 95% gate",
+    evidence: "Argo CD · GitHub Actions · Argo Rollouts · health gates",
   },
   {
     code: "OBSERVE",
-    title: text("Signals before assumptions", "Tín hiệu trước phỏng đoán"),
+    title: text("Evidence before assumptions", "Bằng chứng trước phỏng đoán"),
     description: text(
-      "Connect metrics, logs, traces and SLOs so deployment decisions and incident reviews have inspectable evidence.",
-      "Kết nối metrics, logs, traces và SLO để quyết định triển khai và rà soát sự cố có bằng chứng kiểm tra được.",
+      "Connect metrics, logs and deployment context so incidents can be explained, release decisions can be inspected, and learning survives the handoff.",
+      "Kết nối metrics, logs và ngữ cảnh triển khai để giải thích sự cố, kiểm tra quyết định phát hành và giữ lại tri thức sau bàn giao.",
     ),
     evidence: "OpenTelemetry · Prometheus · Grafana · Loki",
   },
   {
     code: "SECURE",
-    title: text("Guardrails in the delivery path", "Guardrail ngay trong đường triển khai"),
+    title: text("Trust belongs in the path", "Niềm tin phải nằm trong luồng triển khai"),
     description: text(
-      "Validate manifests, scan and sign images, enforce admission policy, and keep secrets outside application configuration.",
-      "Xác thực manifest, scan và ký image, thực thi admission policy và giữ secret ngoài cấu hình ứng dụng.",
+      "Scan and sign artifacts, enforce policy at admission, and separate secrets from application configuration so safety is a default path.",
+      "Scan và ký artifact, thực thi policy tại admission, tách secret khỏi cấu hình ứng dụng để an toàn trở thành đường mặc định.",
     ),
     evidence: "Trivy · Cosign · Gatekeeper · External Secrets",
   },
@@ -53,142 +56,134 @@ const operatingModel = [
 
 const copy = {
   en: {
-    certification: "Certification",
-    status: "Entry-level DevOps Engineer",
-    heroLead: "I turn infrastructure into a",
-    heroAccent: "repeatable delivery system.",
-    lede: "Hands-on experience designing and automating cloud-native AWS infrastructure, CI/CD, and GitOps workflows with Terraform, Docker, Kubernetes, GitHub Actions, Argo CD, and Prometheus—backed by Python and Go.",
-    explore: "Explore my work",
-    focus: "Primary focus",
-    cloud: "Cloud",
-    orchestration: "Orchestration",
-    infrastructure: "Infrastructure",
-    delivery: "Delivery",
-    experienceLabel: "Experience",
-    experienceHeading: "From backend code to cloud operations.",
+    eyebrow: "CLOUD / DEVOPS ENGINEER · HO CHI MINH CITY",
+    heroLead: "I engineer change into",
+    heroAccent: "reliable production.",
+    lede: "I design cloud infrastructure, delivery pipelines, and observable runtimes that make change repeatable, inspectable, and safe to reverse—using AWS, Terraform, Kubernetes, GitOps, Python, and Go.",
+    explore: "Explore case studies",
+    status: "Available for DevOps and Cloud opportunities",
+    currentLabel: "CURRENT DIRECTION",
+    currentTitle: "Cloud-native delivery with evidence built into every change.",
+    currentText: "My portfolio connects application engineering with infrastructure, security, and operations. The goal is not a longer tool list—it is a system another engineer can understand, rebuild, and operate.",
+    focus: "FOCUS",
+    practice: "PRACTICE",
+    proof: "PROOF",
+    focusValue: "Reliable delivery",
+    practiceValue: "Infrastructure as code",
+    proofValue: "Public technical repositories",
+    selectedLabel: "SELECTED CASE STUDIES",
+    selectedHeading: "Systems explained through architecture and decisions.",
+    selectedIntro: "Each project shows the delivery path, the constraints I protected, and the engineering choices that make the system reproducible.",
+    architecture: "Architecture",
+    decisions: "Engineering evidence",
+    repository: "Inspect repository",
+    allProjects: "Open the complete project archive",
+    methodLabel: "ENGINEERING PRINCIPLES",
+    methodHeading: "How I think about operating software.",
+    experienceLabel: "EXPERIENCE",
+    experienceHeading: "Application context, infrastructure discipline.",
     xbrainRole: "DevOps Engineer Trainee",
+    xbrainDate: "Apr 2026 — Jul 2026",
     xbrainText: "Applied DevOps governance across provisioning, configuration review, compliance validation, auditing, monitoring, and technical documentation. Reviewed Terraform designs and AWS dependencies, prepared implementation plans, and supported audit evidence validation.",
     xbrainHighlights: [
-      "Automated a Go/Kubernetes workload on EC2 behind a two-AZ AWS ALB with Terraform.",
-      "Built GitOps canary delivery with a 95% Prometheus success gate and automatic rollback.",
-      "Hardened Kubernetes with RBAC, Gatekeeper, External Secrets, Trivy and Cosign.",
+      "Automated a Go and Kubernetes workload on EC2 behind a two-AZ AWS Application Load Balancer with Terraform.",
+      "Built GitOps canary delivery with Prometheus validation and automatic rollback.",
+      "Hardened Kubernetes boundaries with RBAC, Gatekeeper, External Secrets, Trivy, and Cosign.",
     ],
     techhausRole: "Backend Developer Trainee",
-    techhausText: "Developed and tested Python/Django backend features, RESTful APIs, database interactions, validation, error handling, and application logic. Collaborated through Git branches, pull requests, code reviews, debugging, and technical discussions.",
+    techhausDate: "Aug 2025 — Nov 2025",
+    techhausText: "Developed and tested Python and Django backend features, REST APIs, database interactions, validation, error handling, and application logic. Collaborated through Git branches, pull requests, reviews, debugging, and technical discussions.",
     techhausHighlights: [
       "Implemented REST endpoints and Django application logic from defined requirements.",
-      "Validated database interactions, boundary cases and structured error handling.",
-      "Worked through feature branches, pull requests, reviews and debugging sessions.",
+      "Validated database interactions, boundary cases, and structured error handling.",
+      "Worked through feature branches, pull requests, code reviews, and debugging sessions.",
     ],
-    toolkitLabel: "Toolkit",
-    toolkitHeading: "The tools behind the work.",
-    educationLabel: "Education",
+    writingLabel: "FIELD NOTES",
+    writingHeading: "Writing turns project work into reusable knowledge.",
+    writingText: "I document the reasoning behind delivery systems, not only the final configuration. That makes trade-offs visible and gives future work a better starting point.",
+    readArticle: "Read the field note",
+    toolkitLabel: "TECHNICAL RANGE",
+    toolkitHeading: "Tools chosen around the system, not the other way around.",
+    educationLabel: "EDUCATION",
     university: "University of Information Technology",
     degree: "Bachelor of Software Engineering",
-    xbrainDate: "Apr 2026 — Jul 2026",
-    techhausDate: "Aug 2025 — Nov 2025",
-    eyebrow: "CLOUD / DEVOPS ENGINEER · 2026",
-    scroll: "Scroll to inspect",
-    selectedLabel: "Selected systems",
-    selectedHeading: "Built to survive the real world.",
-    allProjects: "View all projects",
-    viewRepo: "View repository",
-    metricSystems: "selected systems",
-    metricWaves: "ordered sync waves",
-    metricServices: "domain services",
-    metricGate: "canary success gate",
-    methodLabel: "Operating model",
-    methodHeading: "How I move a change into production.",
+    certification: "CERTIFICATION",
   },
   vi: {
-    certification: "Chứng chỉ",
-    status: "Kỹ sư DevOps mới bắt đầu",
-    heroLead: "Tôi biến hạ tầng thành",
-    heroAccent: "một hệ thống triển khai có thể lặp lại.",
-    lede: "Có kinh nghiệm thực hành thiết kế và tự động hóa hạ tầng AWS cloud-native, CI/CD và GitOps với Terraform, Docker, Kubernetes, GitHub Actions, Argo CD, Prometheus—cùng nền tảng Python và Go.",
-    explore: "Xem dự án",
-    focus: "Trọng tâm",
-    cloud: "Đám mây",
-    orchestration: "Điều phối",
-    infrastructure: "Hạ tầng",
-    delivery: "Triển khai",
-    experienceLabel: "Kinh nghiệm",
-    experienceHeading: "Từ code backend đến vận hành cloud.",
+    eyebrow: "KỸ SƯ CLOUD / DEVOPS · TP. HỒ CHÍ MINH",
+    heroLead: "Tôi biến thay đổi thành",
+    heroAccent: "production đáng tin cậy.",
+    lede: "Tôi thiết kế hạ tầng cloud, pipeline triển khai và runtime có khả năng quan sát để mọi thay đổi đều có thể lặp lại, kiểm tra và quay lui an toàn—với AWS, Terraform, Kubernetes, GitOps, Python và Go.",
+    explore: "Khám phá case study",
+    status: "Sẵn sàng cho cơ hội DevOps và Cloud",
+    currentLabel: "ĐỊNH HƯỚNG HIỆN TẠI",
+    currentTitle: "Cloud-native delivery với bằng chứng nằm trong mọi thay đổi.",
+    currentText: "Portfolio của tôi kết nối application engineering với hạ tầng, bảo mật và vận hành. Mục tiêu không phải danh sách công cụ dài hơn, mà là một hệ thống kỹ sư khác có thể hiểu, dựng lại và vận hành.",
+    focus: "TRỌNG TÂM",
+    practice: "THỰC HÀNH",
+    proof: "BẰNG CHỨNG",
+    focusValue: "Triển khai đáng tin cậy",
+    practiceValue: "Hạ tầng dưới dạng code",
+    proofValue: "Repository kỹ thuật công khai",
+    selectedLabel: "CASE STUDY TIÊU BIỂU",
+    selectedHeading: "Hệ thống được giải thích bằng kiến trúc và quyết định.",
+    selectedIntro: "Mỗi dự án thể hiện luồng triển khai, ràng buộc cần bảo vệ và các lựa chọn kỹ thuật giúp hệ thống có thể tái lập.",
+    architecture: "Kiến trúc",
+    decisions: "Bằng chứng kỹ thuật",
+    repository: "Xem repository",
+    allProjects: "Mở toàn bộ kho dự án",
+    methodLabel: "NGUYÊN TẮC KỸ THUẬT",
+    methodHeading: "Cách tôi tư duy về vận hành phần mềm.",
+    experienceLabel: "KINH NGHIỆM",
+    experienceHeading: "Hiểu ứng dụng, kỷ luật với hạ tầng.",
     xbrainRole: "Thực tập sinh Kỹ sư DevOps",
-    xbrainText: "Áp dụng thực hành quản trị DevOps trong provisioning, rà soát cấu hình, xác thực tuân thủ, auditing, monitoring và tài liệu kỹ thuật. Rà soát thiết kế Terraform và phụ thuộc AWS, lập kế hoạch triển khai, hỗ trợ xác thực bằng chứng audit.",
+    xbrainDate: "Tháng 4 2026 — Tháng 7 2026",
+    xbrainText: "Áp dụng thực hành quản trị DevOps trong provisioning, rà soát cấu hình, xác thực tuân thủ, auditing, monitoring và tài liệu kỹ thuật. Rà soát thiết kế Terraform cùng dependency AWS, lập kế hoạch triển khai và hỗ trợ xác thực bằng chứng audit.",
     xbrainHighlights: [
-      "Tự động hóa workload Go/Kubernetes trên EC2 sau AWS ALB hai AZ bằng Terraform.",
-      "Xây GitOps canary delivery với ngưỡng Prometheus 95% và rollback tự động.",
-      "Làm cứng Kubernetes bằng RBAC, Gatekeeper, External Secrets, Trivy và Cosign.",
+      "Tự động hóa workload Go và Kubernetes trên EC2 sau AWS Application Load Balancer hai AZ bằng Terraform.",
+      "Xây GitOps canary delivery với xác thực Prometheus và rollback tự động.",
+      "Làm cứng ranh giới Kubernetes bằng RBAC, Gatekeeper, External Secrets, Trivy và Cosign.",
     ],
     techhausRole: "Thực tập sinh Backend Developer",
-    techhausText: "Phát triển và kiểm thử tính năng backend Python/Django, RESTful API, tương tác cơ sở dữ liệu, validation, xử lý lỗi và application logic. Phối hợp qua Git branch, pull request, code review, debugging và trao đổi kỹ thuật.",
+    techhausDate: "Tháng 8 2025 — Tháng 11 2025",
+    techhausText: "Phát triển và kiểm thử tính năng backend Python và Django, REST API, tương tác cơ sở dữ liệu, validation, xử lý lỗi và application logic. Phối hợp qua Git branch, pull request, review, debugging và trao đổi kỹ thuật.",
     techhausHighlights: [
       "Hiện thực REST endpoint và logic Django từ yêu cầu đã xác định.",
       "Kiểm tra tương tác database, trường hợp biên và xử lý lỗi có cấu trúc.",
       "Làm việc qua feature branch, pull request, code review và debugging.",
     ],
-    toolkitLabel: "Công cụ",
-    toolkitHeading: "Công cụ đằng sau từng dự án.",
-    educationLabel: "Học vấn",
+    writingLabel: "GHI CHÉP KỸ THUẬT",
+    writingHeading: "Viết giúp kinh nghiệm dự án trở thành tri thức có thể tái sử dụng.",
+    writingText: "Tôi ghi lại lập luận đằng sau hệ thống triển khai, không chỉ cấu hình cuối cùng. Nhờ đó trade-off trở nên rõ ràng và dự án tiếp theo có điểm bắt đầu tốt hơn.",
+    readArticle: "Đọc bài ghi chép",
+    toolkitLabel: "NĂNG LỰC KỸ THUẬT",
+    toolkitHeading: "Chọn công cụ theo hệ thống, không ép hệ thống theo công cụ.",
+    educationLabel: "HỌC VẤN",
     university: "Đại học Công nghệ Thông tin",
     degree: "Cử nhân Kỹ thuật Phần mềm",
-    xbrainDate: "Tháng 4 2026 — Tháng 7 2026",
-    techhausDate: "Tháng 8 2025 — Tháng 11 2025",
-    eyebrow: "KỸ SƯ CLOUD / DEVOPS · 2026",
-    scroll: "Cuộn để khám phá",
-    selectedLabel: "Hệ thống tiêu biểu",
-    selectedHeading: "Được xây để vận hành ngoài thực tế.",
-    allProjects: "Xem tất cả dự án",
-    viewRepo: "Xem repository",
-    metricSystems: "hệ thống tiêu biểu",
-    metricWaves: "sync wave có thứ tự",
-    metricServices: "dịch vụ domain",
-    metricGate: "ngưỡng canary thành công",
-    methodLabel: "Mô hình vận hành",
-    methodHeading: "Cách tôi đưa một thay đổi vào production.",
+    certification: "CHỨNG CHỈ",
   },
 } as const;
 
 export default function Home() {
   const { preferences: { language } } = useSitePreferences();
   const t = copy[language];
+  const post = posts[0];
 
   return (
-      <main>
-        <div id="about">
+    <main>
+      <div id="about">
         <section className="hero">
           <div className="hero-copy" data-reveal>
-            <div className="hero-eyebrow"><span>{t.eyebrow}</span><span>BASED IN VIETNAM</span></div>
+            <div className="hero-eyebrow"><span>{t.eyebrow}</span><span><i /> {t.status}</span></div>
             <h1>{t.heroLead} <span>{t.heroAccent}</span></h1>
             <p className="hero-lede">{t.lede}</p>
             <div className="hero-actions">
-              <a className="button button--primary" href="/projects">{t.explore}</a>
+              <Link className="button button--primary" href="#case-studies">{t.explore}</Link>
               <a className="button button--ghost" href="https://github.com/TrieuNguyenPhu" target="_blank" rel="noreferrer">GitHub</a>
             </div>
-            <div className="hero-scroll"><i /><span>{t.scroll}</span></div>
           </div>
-
-          <div className="hero-console-stack" data-reveal data-reveal-delay="1" aria-hidden="true">
-            <div className="orbit orbit--one" />
-            <div className="orbit orbit--two" />
-            <div className="orbit-core"><strong>SHIP</strong><small>CONTINUOUSLY</small></div>
-            <span className="topology-node topology-node--aws">AWS<small>cloud</small></span>
-            <span className="topology-node topology-node--k8s">K8S<small>runtime</small></span>
-            <span className="topology-node topology-node--tf">TF<small>provision</small></span>
-            <span className="topology-node topology-node--git">GIT<small>source</small></span>
-            <aside className="hero-console" aria-label="Core engineering focus">
-              <div className="console-head"><span>DEPLOYMENT PROFILE</span><span>2026</span></div>
-              <p className="console-label">{t.status}</p>
-              <strong>DEVOPS</strong>
-              <dl>
-                <div><dt>{t.cloud}</dt><dd>AWS</dd></div>
-                <div><dt>{t.orchestration}</dt><dd>Kubernetes</dd></div>
-                <div><dt>{t.infrastructure}</dt><dd>Terraform</dd></div>
-                <div><dt>{t.delivery}</dt><dd>GitHub Actions</dd></div>
-              </dl>
-            </aside>
-          </div>
+          <div className="hero-visual" data-reveal data-reveal-delay="1"><DeliveryMap /></div>
         </section>
 
         <div className="ticker" aria-label="Areas of expertise. Focus or hover to pause." data-reveal tabIndex={0}>
@@ -196,11 +191,50 @@ export default function Home() {
           <div aria-hidden="true"><span>AWS</span><span>TERRAFORM</span><span>DOCKER</span><span>KUBERNETES</span><span>CI/CD</span><span>GITOPS</span><span>PROMETHEUS</span><span>ARGO CD</span></div>
         </div>
 
-        <section className="proof-strip" aria-label="Portfolio evidence" data-reveal>
-          <div><strong>BUILD</strong><span>{t.metricSystems}</span></div>
-          <div><strong>SYNC</strong><span>{t.metricWaves}</span></div>
-          <div><strong>MODEL</strong><span>{t.metricServices}</span></div>
-          <div><strong>VERIFY</strong><span>{t.metricGate}</span></div>
+        <section className="direction-section" data-reveal>
+          <div className="direction-copy"><span>{t.currentLabel}</span><h2>{t.currentTitle}</h2><p>{t.currentText}</p></div>
+          <dl className="direction-facts">
+            <div><dt>{t.focus}</dt><dd>{t.focusValue}</dd></div>
+            <div><dt>{t.practice}</dt><dd>{t.practiceValue}</dd></div>
+            <div><dt>{t.proof}</dt><dd>{t.proofValue}</dd></div>
+          </dl>
+        </section>
+
+        <section className="case-studies" id="case-studies">
+          <header className="section-intro" data-reveal>
+            <span>{t.selectedLabel}</span>
+            <div><h2>{t.selectedHeading}</h2><p>{t.selectedIntro}</p></div>
+          </header>
+          <div className="case-list">
+            {projects.slice(0, 3).map((project, index) => (
+              <article className="case-study" key={project.slug} data-reveal>
+                <header><span>{project.stage[language]}</span><time>{project.date[language]}</time></header>
+                <div className="case-visual"><ProjectArchitecture project={project} variant={index} language={language} /></div>
+                <div className="case-copy">
+                  <p className="case-type">{project.type[language]}</p>
+                  <h3>{project.title}</h3>
+                  <p className="case-summary">{project.summary[language]}</p>
+                  <div className="case-architecture"><span>{t.architecture}</span><code>{project.architecture[language]}</code></div>
+                  <div className="case-evidence"><span>{t.decisions}</span><ul>{project.highlights.map((item) => <li key={item.en}>{item[language]}</li>)}</ul></div>
+                  <ul className="tags" aria-label={`${project.title} technology stack`}>{project.stack.slice(0, 6).map((item) => <li key={item}>{item}</li>)}</ul>
+                  <a className="case-link" href={project.href} target="_blank" rel="noreferrer">{t.repository}<span>↗</span></a>
+                </div>
+              </article>
+            ))}
+          </div>
+          <Link className="archive-link" href="/projects"><span>{t.allProjects}</span><i>↗</i></Link>
+        </section>
+
+        <section className="operations-section">
+          <header className="section-intro" data-reveal><span>{t.methodLabel}</span><div><h2>{t.methodHeading}</h2></div></header>
+          <div className="operations-flow">
+            {operatingModel.map((item, index) => (
+              <article key={item.code} data-reveal data-reveal-delay={String(index % 3)}>
+                <span>{item.code}</span><i className="operation-signal" aria-hidden="true" />
+                <h3>{item.title[language]}</h3><p>{item.description[language]}</p><code>{item.evidence}</code>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="experience-section">
@@ -219,56 +253,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="operations-section">
-          <header className="section-intro" data-reveal><span>{t.methodLabel}</span><div><h2>{t.methodHeading}</h2></div></header>
-          <div className="operations-flow">
-            {operatingModel.map((item, index) => (
-              <article key={item.code} data-reveal data-reveal-delay={String(index % 3)}>
-                <span>{item.code}</span>
-                <div className="operation-node" aria-hidden="true"><i /></div>
-                <h3>{item.title[language]}</h3>
-                <p>{item.description[language]}</p>
-                <code>{item.evidence}</code>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="selected-section">
-          <header className="section-intro" data-reveal><span>{t.selectedLabel}</span><div><h2>{t.selectedHeading}</h2></div></header>
-          <div className="selected-projects">
-            {projects.slice(0, 3).map((project, index) => (
-              <a href={project.href} target="_blank" rel="noreferrer" className="selected-project" key={project.slug} data-reveal data-reveal-delay={String(index)}>
-                <div><p>{project.type[language]}</p><h3>{project.title}</h3></div>
-                <ul>{project.stack.slice(0, 4).map((item) => <li key={item}>{item}</li>)}</ul>
-                <span className="selected-arrow" aria-label={t.viewRepo}>↗</span>
-              </a>
-            ))}
-          </div>
-          <a className="text-link" href="/projects">{t.allProjects}<span>→</span></a>
+        <section className="writing-section" data-reveal>
+          <div className="writing-copy"><span>{t.writingLabel}</span><h2>{t.writingHeading}</h2><p>{t.writingText}</p></div>
+          <Link className="writing-card" href={`/blog/${post.slug}`}>
+            <div className="blog-meta"><time dateTime={post.publishedAt}>{post.displayDate[language]}</time><span>{post.readingTime[language]}</span></div>
+            <h3>{post.title[language]}</h3><p>{post.excerpt[language]}</p>
+            <strong>{t.readArticle}<i>↗</i></strong>
+          </Link>
         </section>
 
         <section className="profile-section">
           <article className="skills-panel" data-reveal>
-            <h2>{t.toolkitLabel}</h2>
-            <p className="panel-summary">{t.toolkitHeading}</p>
+            <span>{t.toolkitLabel}</span><h2>{t.toolkitHeading}</h2>
             <dl>{skills.map(([label, value]) => <div key={label.en}><dt>{label[language]}</dt><dd>{value}</dd></div>)}</dl>
           </article>
           <article className="education-panel" data-reveal data-reveal-delay="1">
-            <h2>{t.educationLabel}</h2>
-            <div className="education-mark">UIT</div>
-            <h3>{t.university}</h3>
-            <p>2022—2026</p>
-            <strong>{t.degree}</strong>
+            <span>{t.educationLabel}</span><div className="education-mark">UIT</div><h2>{t.university}</h2><p>2022—2026</p><strong>{t.degree}</strong>
           </article>
         </section>
 
         <section className="certification-section" data-reveal>
-          <h2>{t.certification}</h2>
-          <div><strong>IELTS</strong><span>Overall Band 5.5</span><time>2024</time></div>
+          <h2>{t.certification}</h2><div><strong>IELTS</strong><span>Overall Band 5.5</span><time>2024</time></div>
         </section>
-        </div>
-
-      </main>
+      </div>
+    </main>
   );
 }
