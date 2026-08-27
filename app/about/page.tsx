@@ -8,18 +8,19 @@ import UiIcon from "../ui-icon";
 const copy = {
   en: {
     label: "ABOUT",
-    heading: "Software engineering foundation. Backend focus. Cloud capability.",
-    lede: "I am a software engineering graduate building reliable backend systems and the infrastructure behind them. My experience across application code, databases, AWS, Terraform, and delivery workflows helps me reason about systems end to end.",
-    focus: "Primary focus", focusValue: "Backend Engineering · Cloud · Delivery Systems",
+    heading: "Backend foundations. DevOps focus. Systems thinking.",
+    lede: "I am a software engineering graduate focused on DevOps and cloud infrastructure. My backend background helps me understand the application as well as the platform, delivery workflow, and operational signals around it.",
+    focus: "Primary focus", focusValue: "DevOps · Cloud Infrastructure · Platform Engineering",
+    location: "Based in", locationValue: "Ho Chi Minh City, Vietnam",
     approach: "Working style", approachValue: "Reviewable · Repeatable · Observable",
     experienceLabel: "WORK EXPERIENCE",
     experienceTitle: "Hands-on experience across backend, cloud, and delivery systems.",
     visit: "Visit company website",
     xbrainIndustry: "Cloud & AI Operations Center",
-    xbrainRole: "Cloud DevOps Engineer Trainee",
+    xbrainRole: "DevOps Engineer Trainee",
     xbrainDate: "Apr 2026 — Jul 2026",
-    xbrainText: "Worked across Terraform and AWS design review, implementation planning, governance validation, audit evidence, monitoring considerations, and technical documentation.",
-    xbrainHighlights: ["Reviewed infrastructure designs for implementation feasibility and control coverage.", "Documented compliance evidence, technical blockers, and follow-up decisions."],
+    xbrainText: "Applied DevOps governance across Terraform and AWS design review, compliance validation, auditing, monitoring, and technical documentation.",
+    xbrainHighlights: ["Automated a Kubernetes workload on EC2 behind a multi-AZ load balancer.", "Built GitOps canary delivery with health validation and automatic rollback."],
     techhausIndustry: "Software Development Company",
     techhausRole: "Backend Developer Trainee",
     techhausDate: "Aug 2025 — Nov 2025",
@@ -39,18 +40,19 @@ const copy = {
   },
   vi: {
     label: "GIỚI THIỆU",
-    heading: "Nền tảng kỹ thuật phần mềm. Trọng tâm backend. Năng lực cloud.",
-    lede: "Tôi tốt nghiệp kỹ thuật phần mềm và xây dựng hệ thống backend đáng tin cậy cùng hạ tầng vận hành phía sau. Kinh nghiệm về mã nguồn ứng dụng, cơ sở dữ liệu, AWS, Terraform và delivery giúp tôi nhìn hệ thống từ đầu đến cuối.",
-    focus: "Trọng tâm", focusValue: "Backend Engineering · Cloud · Hệ thống Delivery",
+    heading: "Nền tảng backend. Trọng tâm DevOps. Tư duy hệ thống.",
+    lede: "Tôi tốt nghiệp kỹ thuật phần mềm và tập trung vào DevOps cùng hạ tầng cloud. Nền tảng backend giúp tôi hiểu cả ứng dụng lẫn platform, quy trình delivery và tín hiệu vận hành xung quanh.",
+    focus: "Trọng tâm", focusValue: "DevOps · Hạ tầng Cloud · Platform Engineering",
+    location: "Địa điểm", locationValue: "TP. Hồ Chí Minh, Việt Nam",
     approach: "Cách làm việc", approachValue: "Có thể review · Tái lập · Quan sát",
     experienceLabel: "KINH NGHIỆM LÀM VIỆC",
     experienceTitle: "Kinh nghiệm thực tế về backend, cloud và hệ thống triển khai.",
     visit: "Mở website công ty",
     xbrainIndustry: "Trung tâm vận hành Cloud & AI",
-    xbrainRole: "Thực tập sinh Cloud DevOps Engineer",
+    xbrainRole: "Thực tập sinh Kỹ sư DevOps",
     xbrainDate: "Tháng 4 2026 — Tháng 7 2026",
-    xbrainText: "Làm việc với review thiết kế Terraform và AWS, lập kế hoạch hiện thực, xác thực governance, bằng chứng audit, yếu tố monitoring và tài liệu kỹ thuật.",
-    xbrainHighlights: ["Review thiết kế hạ tầng về tính khả thi khi hiện thực và độ bao phủ control.", "Ghi lại bằng chứng tuân thủ, blocker kỹ thuật và quyết định cần theo dõi."],
+    xbrainText: "Áp dụng quản trị DevOps trong review thiết kế Terraform và AWS, xác thực tuân thủ, auditing, monitoring và tài liệu kỹ thuật.",
+    xbrainHighlights: ["Tự động hóa workload Kubernetes trên EC2 sau load balancer đa AZ.", "Xây GitOps canary delivery với health validation và rollback tự động."],
     techhausIndustry: "Công ty phát triển phần mềm",
     techhausRole: "Thực tập sinh Backend Developer",
     techhausDate: "Tháng 8 2025 — Tháng 11 2025",
@@ -84,6 +86,7 @@ export default function AboutPage() {
 
       <dl className="about-facts" data-reveal>
         <div><dt>{t.focus}</dt><dd>{t.focusValue}</dd></div>
+        <div><dt>{t.location}</dt><dd>{t.locationValue}</dd></div>
         <div><dt>{t.approach}</dt><dd>{t.approachValue}</dd></div>
       </dl>
 

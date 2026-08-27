@@ -17,7 +17,7 @@ const mono = Roboto_Mono({
 });
 
 const designContract = `<!--
-THESIS: A software engineering portfolio where backend depth and cloud capability feel clear, approachable, and memorable.
+THESIS: A personal DevOps portfolio where technical depth feels clear, approachable, and memorable.
 OWN-WORLD: Airy editorial space, deep green ink, and a single family of green signals with living cloud-system illustrations.
 STORY: Visitors meet Trieu through a human introduction, understand his capabilities, inspect evidence-rich work, then make contact.
 FIRST VIEWPORT: A concise engineering promise and custom cloud workbench illustration establish personality and focus.
@@ -27,11 +27,11 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 export const metadata: Metadata = {
   title: {
-    default: "Nguyen Phu Trieu — Software Engineer",
+    default: "Nguyen Phu Trieu — DevOps Engineer",
     template: "%s — Nguyen Phu Trieu",
   },
   description:
-    "Software engineer focused on reliable backend systems, data boundaries, cloud infrastructure, delivery automation, and observability.",
+    "DevOps engineer focused on AWS, Kubernetes, Terraform, GitOps, CI/CD, observability, and cloud security.",
   metadataBase: new URL("https://nguyen-phu-trieu-portfolio.vercel.app"),
   applicationName: "Nguyen Phu Trieu Portfolio",
   authors: [{ name: "Nguyen Phu Trieu", url: "https://nguyen-phu-trieu-portfolio.vercel.app" }],
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   publisher: "Nguyen Phu Trieu",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Nguyen Phu Trieu — Software Engineer · Backend & Cloud",
+    title: "Nguyen Phu Trieu — DevOps Engineer",
     description:
-      "Backend systems and cloud infrastructure explained through architecture, engineering decisions, and implementation evidence.",
+      "Selected cloud infrastructure, GitOps, Kubernetes, and delivery engineering work.",
     type: "website",
     url: "/",
     siteName: "Nguyen Phu Trieu Portfolio",
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nguyen Phu Trieu — Software Engineer · Backend & Cloud",
-    description: "Reliable backend systems, cloud infrastructure, and delivery engineering work.",
+    title: "Nguyen Phu Trieu — DevOps Engineer",
+    description: "Cloud infrastructure, GitOps, Kubernetes, and delivery engineering work.",
   },
   robots: { index: true, follow: true },
 };
@@ -70,13 +70,13 @@ const structuredData = {
   "@type": "Person",
   name: "Nguyen Phu Trieu",
   url: "https://nguyen-phu-trieu-portfolio.vercel.app",
-  jobTitle: "Software Engineer",
+  jobTitle: "DevOps Engineer",
   email: "mailto:nguyentrieu080604@gmail.com",
   sameAs: [
     "https://github.com/TrieuNguyenPhu",
     "https://www.linkedin.com/in/trieunguyenphu86/",
   ],
-  knowsAbout: ["Java", "Spring Boot", "REST APIs", "PostgreSQL", "AWS", "Terraform", "Docker", "Kubernetes", "CI/CD", "Observability"],
+  knowsAbout: ["AWS", "Kubernetes", "Terraform", "GitOps", "CI/CD", "Cloud Security", "Observability"],
 };
 
 const themeScript = `try{const theme=localStorage.getItem("portfolio-theme");if(theme==="light"||theme==="dark")document.documentElement.dataset.theme=theme}catch{}`;

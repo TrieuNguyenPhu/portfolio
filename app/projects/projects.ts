@@ -16,28 +16,6 @@ export type Project = {
 // Thêm project mới bằng cách sao chép một object trong mảng này.
 export const projects = [
   {
-    slug: "digital-banking-platform",
-    title: "Digital Banking Platform",
-    type: text("Spring Boot Customer Onboarding Backend", "Backend onboarding khách hàng bằng Spring Boot"),
-    date: text("August 2026", "Tháng 8, 2026"),
-    summary: text(
-      "Production-oriented Spring Boot backend with an implemented customer onboarding vertical slice, REST validation, a transactional application boundary, Flyway-managed PostgreSQL, and Testcontainers integration tests.",
-      "Backend Spring Boot theo định hướng production với vertical slice onboarding khách hàng đã hiện thực, REST validation, transaction boundary ở tầng application, PostgreSQL do Flyway quản lý và integration test bằng Testcontainers.",
-    ),
-    stack: ["Java 21", "Spring Boot", "Spring MVC", "Bean Validation", "JPA", "Hibernate", "PostgreSQL", "Flyway", "Testcontainers", "Docker Compose", "Bruno"],
-    href: "https://github.com/TrieuNguyenPhu/digital-banking-platform",
-    stage: text("Customer onboarding implemented", "Đã hiện thực customer onboarding"),
-    architecture: text(
-      "REST API → application transaction → JPA / Hibernate → Flyway-managed PostgreSQL",
-      "REST API → transaction tầng application → JPA / Hibernate → PostgreSQL do Flyway quản lý",
-    ),
-    highlights: [
-      text("Names and emails are normalized and validated at the REST boundary before persistence.", "Tên và email được chuẩn hóa, xác thực tại ranh giới REST trước khi lưu dữ liệu."),
-      text("Duplicate email protection combines an application check with a database unique constraint and a deterministic 409 response.", "Bảo vệ email trùng kết hợp kiểm tra ở application, unique constraint trong database và phản hồi 409 nhất quán."),
-      text("Integration tests run the production Flyway migration against PostgreSQL Testcontainers.", "Integration test chạy migration Flyway production trên PostgreSQL Testcontainers."),
-    ],
-  },
-  {
     slug: "seckube",
     title: "SecKube",
     type: text("Kubernetes GitOps and Security Platform", "Nền tảng GitOps và bảo mật Kubernetes"),
@@ -214,14 +192,6 @@ export const projects = [
     ],
   },
 ] satisfies Project[];
-
-const featuredSlugs = new Set(["digital-banking-platform", "examflow", "shortenlink"]);
-
-export const featuredProjects = ["digital-banking-platform", "examflow", "shortenlink"]
-  .map((slug) => projects.find((project) => project.slug === slug))
-  .filter((project): project is Project => Boolean(project));
-
-export const archivedProjects = projects.filter((project) => !featuredSlugs.has(project.slug));
 
 export const getProject = (slug: string) => projects.find((project) => project.slug === slug);
 

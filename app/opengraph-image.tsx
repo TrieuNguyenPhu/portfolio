@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Nguyen Phu Trieu — Software Engineer · Backend & Cloud";
+export const alt = "Nguyen Phu Trieu — DevOps Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -21,13 +21,13 @@ export default function OpenGraphImage() {
     >
       <div style={{ display: "flex", flexDirection: "column", maxWidth: 820 }}>
         <span style={{ color: "#7ce7a2", fontSize: 28, fontWeight: 700, letterSpacing: 6 }}>
-          SOFTWARE ENGINEER · BACKEND & CLOUD
+          DEVOPS ENGINEER · CLOUD BUILDER
         </span>
         <strong style={{ fontSize: 76, letterSpacing: -4, lineHeight: 1.05, marginTop: 34 }}>
           Nguyen Phu Trieu
         </strong>
         <span style={{ color: "#abc7b1", fontSize: 34, lineHeight: 1.35, marginTop: 28 }}>
-          Reliable backend systems and the infrastructure behind them.
+          Reliable paths from commit to production.
         </span>
       </div>
       <svg width="190" height="190" viewBox="0 0 64 64">

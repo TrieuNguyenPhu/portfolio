@@ -6,18 +6,18 @@ import UiIcon from "../ui-icon";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Engineering notes about backend systems, data, cloud infrastructure, GitOps, and reliable delivery.",
+  description: "Notes about DevOps, cloud, Kubernetes, GitOps, and building reliable systems.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Backend & Cloud Engineering Notes — Nguyen Phu Trieu",
-    description: "Engineering notes about backend systems, data, cloud infrastructure, GitOps, and reliable delivery.",
+    title: "DevOps & Cloud Engineering Blog — Nguyen Phu Trieu",
+    description: "Notes about DevOps, cloud, Kubernetes, GitOps, and building reliable systems.",
     url: "/blog",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nguyen Phu Trieu — Software Engineer" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Nguyen Phu Trieu — DevOps Engineer" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Backend & Cloud Engineering Notes — Nguyen Phu Trieu",
-    description: "Engineering notes about backend systems, data, cloud infrastructure, GitOps, and reliable delivery.",
+    title: "DevOps & Cloud Engineering Blog — Nguyen Phu Trieu",
+    description: "Notes about DevOps, cloud, Kubernetes, GitOps, and building reliable systems.",
     images: ["/opengraph-image"],
   },
 };
@@ -28,8 +28,8 @@ const copy = {
     vi: "Ghi chép từ quá trình xây dựng và vận hành hệ thống.",
   },
   description: {
-    en: "What I learn while building backend systems, data boundaries, cloud infrastructure, and delivery automation.",
-    vi: "Những điều tôi học được khi xây backend, ranh giới dữ liệu, hạ tầng cloud và delivery automation.",
+    en: "What I learn about DevOps, cloud, Kubernetes, security, and delivery automation.",
+    vi: "Những điều tôi học được về DevOps, cloud, Kubernetes, bảo mật và delivery automation.",
   },
   readMore: { en: "Read article", vi: "Đọc bài viết" },
   articles: { en: "Articles", vi: "Bài viết" },
