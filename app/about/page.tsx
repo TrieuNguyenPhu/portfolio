@@ -11,7 +11,6 @@ const copy = {
     heading: "Software engineering foundation. Backend focus. Cloud capability.",
     lede: "I am a software engineering graduate building reliable backend systems and the infrastructure behind them. My experience across application code, databases, AWS, Terraform, and delivery workflows helps me reason about systems end to end.",
     focus: "Primary focus", focusValue: "Backend Engineering · Cloud · Delivery Systems",
-    location: "Location", locationValue: "Vietnam · Open to opportunities",
     approach: "Working style", approachValue: "Reviewable · Repeatable · Observable",
     experienceLabel: "WORK EXPERIENCE",
     experienceTitle: "Hands-on experience across backend, cloud, and delivery systems.",
@@ -43,7 +42,6 @@ const copy = {
     heading: "Nền tảng kỹ thuật phần mềm. Trọng tâm backend. Năng lực cloud.",
     lede: "Tôi tốt nghiệp kỹ thuật phần mềm và xây dựng hệ thống backend đáng tin cậy cùng hạ tầng vận hành phía sau. Kinh nghiệm về mã nguồn ứng dụng, cơ sở dữ liệu, AWS, Terraform và delivery giúp tôi nhìn hệ thống từ đầu đến cuối.",
     focus: "Trọng tâm", focusValue: "Backend Engineering · Cloud · Hệ thống Delivery",
-    location: "Địa điểm", locationValue: "Việt Nam · Sẵn sàng cho cơ hội mới",
     approach: "Cách làm việc", approachValue: "Có thể review · Tái lập · Quan sát",
     experienceLabel: "KINH NGHIỆM LÀM VIỆC",
     experienceTitle: "Kinh nghiệm thực tế về backend, cloud và hệ thống triển khai.",
@@ -86,7 +84,6 @@ export default function AboutPage() {
 
       <dl className="about-facts" data-reveal>
         <div><dt>{t.focus}</dt><dd>{t.focusValue}</dd></div>
-        <div><dt>{t.location}</dt><dd>{t.locationValue}</dd></div>
         <div><dt>{t.approach}</dt><dd>{t.approachValue}</dd></div>
       </dl>
 

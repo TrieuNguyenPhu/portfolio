@@ -22,7 +22,7 @@ const copy = {
     writingLabel: "ENGINEERING NOTES", writingTitle: "I document the reasoning behind the implementation.",
     writingText: "Concise notes turn project decisions into knowledge another engineer can review and reuse.", read: "Read the article",
     contactLabel: "WORK TOGETHER", contactTitle: "Need an engineer who understands both the application and the platform?",
-    contactText: "Vietnam · Open to software engineering, backend, cloud infrastructure, and platform opportunities.",
+    contactText: "Open to software engineering, backend, cloud infrastructure, and platform opportunities.",
     contactProjects: "Review my projects", contactAction: "Start a conversation",
   },
   vi: {
@@ -36,7 +36,7 @@ const copy = {
     writingLabel: "GHI CHÉP KỸ THUẬT", writingTitle: "Tôi ghi lại lập luận phía sau phần triển khai.",
     writingText: "Ghi chép ngắn gọn biến quyết định trong dự án thành tri thức kỹ sư khác có thể review và tái sử dụng.", read: "Đọc bài viết",
     contactLabel: "HỢP TÁC", contactTitle: "Bạn cần một kỹ sư hiểu cả ứng dụng lẫn platform?",
-    contactText: "Việt Nam · Sẵn sàng cho cơ hội software engineering, backend, cloud infrastructure và platform.",
+    contactText: "Sẵn sàng cho cơ hội software engineering, backend, cloud infrastructure và platform.",
     contactProjects: "Xem dự án của tôi", contactAction: "Bắt đầu trao đổi",
   },
 } as const;

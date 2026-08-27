@@ -17,7 +17,7 @@ const copy = {
     projects: "Projects",
     about: "About",
     blog: "Blog",
-    status: "VIETNAM · OPEN TO OPPORTUNITIES",
+    status: "OPEN TO SOFTWARE ENGINEERING OPPORTUNITIES",
   },
   vi: {
     name: "Nguyễn Phú Triệu",
@@ -29,7 +29,7 @@ const copy = {
     projects: "Dự án",
     about: "Giới thiệu",
     blog: "Blog",
-    status: "VIỆT NAM · SẴN SÀNG CHO CƠ HỘI MỚI",
+    status: "SẴN SÀNG CHO CƠ HỘI KỸ THUẬT PHẦN MỀM",
   },
 } as const;
 
@@ -62,7 +62,7 @@ export default function SiteFooter() {
         </nav>
       </div>
       <div className="footer-bottom">
-        <span>© 2026 {t.name} · VIETNAM</span>
+        <span>© 2026 {t.name}</span>
         <span className="footer-signal"><i /> {t.status}</span>
         <a href="#top">{t.backToTop}</a>
       </div>
