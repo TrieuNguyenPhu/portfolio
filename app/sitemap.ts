@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { posts } from "./blog/posts";
+import { projects } from "./projects/projects";
 
 const baseUrl = "https://nguyen-phu-trieu-portfolio.vercel.app";
 
@@ -18,5 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...pages, ...articles];
+  const caseStudies = projects.map((project) => ({
+    url: `${baseUrl}/projects/${project.slug}`,
+    lastModified: new Date("2026-08-28"),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  return [...pages, ...caseStudies, ...articles];
 }

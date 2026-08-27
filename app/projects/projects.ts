@@ -192,3 +192,16 @@ export const projects = [
     ],
   },
 ] satisfies Project[];
+
+export const getProject = (slug: string) => projects.find((project) => project.slug === slug);
+
+export const getAdjacentProjects = (slug: string) => {
+  const index = projects.findIndex((project) => project.slug === slug);
+
+  if (index === -1) return { previous: undefined, next: undefined };
+
+  return {
+    previous: projects.at(index - 1),
+    next: projects.at((index + 1) % projects.length),
+  };
+};

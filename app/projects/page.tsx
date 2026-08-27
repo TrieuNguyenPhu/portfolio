@@ -13,6 +13,7 @@ const copy = {
     repository: "View repository",
     architecture: "Architecture",
     evidence: "Engineering evidence",
+    caseStudy: "Read case study",
     label: "PROJECTS",
     aside: "SYSTEM CASE STUDIES",
     stack: "technology stack",
@@ -30,6 +31,7 @@ const copy = {
     repository: "Xem repository",
     architecture: "Kiến trúc",
     evidence: "Bằng chứng kỹ thuật",
+    caseStudy: "Đọc case study",
     label: "DỰ ÁN",
     aside: "CASE STUDY HỆ THỐNG",
     stack: "công nghệ sử dụng",
@@ -63,7 +65,7 @@ export default function ProjectsPage() {
               <div className="project-visual-wrap"><ProjectArchitecture project={project} variant={index} language={language} /></div>
               <div className="project-body">
                 <p className="project-type">{project.type[language]}</p>
-                <h3>{project.title}</h3>
+                <h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3>
                 <p className="project-summary">{project.summary[language]}</p>
                 <div className="project-architecture">
                   <span>{t.architecture}</span>
@@ -78,7 +80,7 @@ export default function ProjectsPage() {
                 <ul className="tags" aria-label={`${project.title} ${t.stack}`}>
                   {project.stack.map((item) => <li key={item}>{item}</li>)}
                 </ul>
-                <a href={project.href} target="_blank" rel="noopener noreferrer"><UiIcon name="code" />{t.repository}<span><UiIcon name="arrow" /></span></a>
+                <div className="project-footer__links"><Link href={`/projects/${project.slug}`}>{t.caseStudy}<span><UiIcon name="arrow" /></span></Link><a href={project.href} target="_blank" rel="noopener noreferrer"><UiIcon name="code" />{t.repository}<span><UiIcon name="arrow" /></span></a></div>
               </footer>
             </article>
           ))}
@@ -92,11 +94,11 @@ export default function ProjectsPage() {
               <article className="project-compact" id={project.slug} key={project.slug} data-reveal data-reveal-delay={String(index % 3)}>
                 <div className="project-kicker"><span>{project.stage[language]}</span><time>{project.date[language]}</time></div>
                 <p className="project-type">{project.type[language]}</p>
-                <h3>{project.title}</h3>
+                <h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3>
                 <p>{project.summary[language]}</p>
                 <div className="project-compact-architecture"><span>{t.architecture}</span><code>{project.architecture[language]}</code></div>
                 <ul className="tags" aria-label={`${project.title} ${t.stack}`}>{project.stack.slice(0, 5).map((item) => <li key={item}>{item}</li>)}</ul>
-                <a className="case-link" href={project.href} target="_blank" rel="noopener noreferrer">{t.repository}<span><UiIcon name="arrow" /></span></a>
+                <div className="project-compact-links"><Link className="case-link case-link--primary" href={`/projects/${project.slug}`}>{t.caseStudy}<span><UiIcon name="arrow" /></span></Link><a className="case-link" href={project.href} target="_blank" rel="noopener noreferrer">{t.repository}<span><UiIcon name="code" /></span></a></div>
               </article>
             ))}
           </div>

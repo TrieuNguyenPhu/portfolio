@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const backLabel = { en: "All articles", vi: "Tất cả bài viết" } as const;
 const continueLabel = { en: "Continue exploring", vi: "Tiếp tục khám phá" } as const;
 const continueTitle = { en: "Move from the article to implementation evidence.", vi: "Từ bài viết đến bằng chứng hiện thực." } as const;
-const projectsLabel = { en: "Explore engineering projects", vi: "Khám phá dự án kỹ thuật" } as const;
+const projectsLabel = { en: "See GitOps implemented in SecKube", vi: "Xem GitOps được hiện thực trong SecKube" } as const;
 const aboutLabel = { en: "About my experience", vi: "Xem kinh nghiệm của tôi" } as const;
 
 export default async function BlogPostPage({ params }: Props) {
@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: Props) {
       <aside className="article-next" aria-labelledby="article-next-title" data-reveal>
         <span><LocalizedText value={continueLabel} /></span>
         <h2 id="article-next-title"><LocalizedText value={continueTitle} /></h2>
-        <div><Link href="/projects"><LocalizedText value={projectsLabel} /></Link><Link href="/about"><LocalizedText value={aboutLabel} /></Link></div>
+        <div><Link href="/projects/seckube"><LocalizedText value={projectsLabel} /></Link><Link href="/about"><LocalizedText value={aboutLabel} /></Link></div>
       </aside>
     </main>
   );
