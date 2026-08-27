@@ -4,33 +4,10 @@ import Link from "next/link";
 import { CloudWorkbench, ProjectArchitecture } from "./architecture-visual";
 import { posts } from "./blog/posts";
 import { text } from "./lib/localization";
+import ProfileOverview from "./profile-overview";
 import { projects } from "./projects/projects";
 import { useSitePreferences } from "./site-preferences";
 import UiIcon, { type IconName } from "./ui-icon";
-
-const expertise = [
-  {
-    icon: "cloud" as IconName,
-    title: text("Cloud Infrastructure", "Hạ tầng Cloud"),
-    description: text("I turn environments into reviewable, repeatable code instead of one-off console work.", "Tôi biến môi trường thành code có thể review và tái lập, thay vì thao tác thủ công trên console."),
-    focus: text("What I build", "Tôi xây dựng"), focusValue: "AWS · Terraform · Serverless · Linux",
-    tools: text("Core tools", "Công cụ chính"), toolValue: "Terraform, AWS SAM, CloudFormation, Bash",
-  },
-  {
-    icon: "workflow" as IconName,
-    title: text("Delivery & Security", "Triển khai & Bảo mật"),
-    description: text("I design delivery paths with visible checks, progressive releases, and a safe way back.", "Tôi thiết kế luồng triển khai có kiểm tra rõ ràng, phát hành tăng dần và luôn có đường lui an toàn."),
-    focus: text("What I protect", "Tôi bảo vệ"), focusValue: "CI/CD · GitOps · Supply chain · Policy",
-    tools: text("Core tools", "Công cụ chính"), toolValue: "GitHub Actions, Argo CD, Trivy, Cosign",
-  },
-  {
-    icon: "database" as IconName,
-    title: text("Software & Observability", "Phần mềm & Quan sát"),
-    description: text("I connect application behavior to metrics and logs so systems can be explained under pressure.", "Tôi kết nối hành vi ứng dụng với metrics và logs để hệ thống vẫn có thể được giải thích khi có sự cố."),
-    focus: text("What I operate", "Tôi vận hành"), focusValue: "Kubernetes · APIs · Data · Telemetry",
-    tools: text("Core tools", "Công cụ chính"), toolValue: "Python, Go, Prometheus, Grafana",
-  },
-] as const;
 
 const principles = [
   { icon: "cloud" as IconName, label: "PROVISION", title: text("Rebuildable by design", "Có thể dựng lại từ thiết kế"), description: text("Dependencies stay explicit and infrastructure changes stay reviewable.", "Dependency luôn rõ ràng và thay đổi hạ tầng luôn có thể review.") },
@@ -46,9 +23,6 @@ const copy = {
     role: "DEVOPS ENGINEER & CLOUD BUILDER", headline: "I build cloud systems teams can ship with confidence.",
     lede: "From infrastructure as code to observable runtimes, I make the path from commit to production repeatable, inspectable, and safe to reverse.",
     status: "Open to DevOps and Cloud opportunities", work: "View my work", hello: "Say hello",
-    introTitle: "Hi, I’m Trieu. I turn complex delivery systems into clear, dependable paths.",
-    introText: "My background spans backend engineering and DevOps. That lets me reason about the application, the infrastructure beneath it, and the operational evidence a team needs after release. I care about systems another engineer can understand, rebuild, secure, and operate.",
-    expertiseLabel: "WHAT I DO", expertiseTitle: "Engineering from foundation to feedback loop.",
     projectsLabel: "RECENT WORK", projectsTitle: "Real systems, explained beyond the tool list.",
     projectsText: "Each case study shows the architecture, the constraints, and the decisions that protect reliability or security.",
     evidence: "Engineering evidence", repository: "Inspect repository", allProjects: "See the complete project archive",
@@ -60,9 +34,6 @@ const copy = {
     role: "KỸ SƯ DEVOPS & CLOUD", headline: "Tôi xây hệ thống cloud để đội ngũ phát hành với sự tự tin.",
     lede: "Từ infrastructure as code đến runtime có khả năng quan sát, tôi làm cho hành trình từ commit đến production có thể lặp lại, kiểm tra và quay lui an toàn.",
     status: "Sẵn sàng cho cơ hội DevOps và Cloud", work: "Xem dự án", hello: "Liên hệ",
-    introTitle: "Xin chào, tôi là Triệu. Tôi biến hệ thống triển khai phức tạp thành những luồng rõ ràng và đáng tin cậy.",
-    introText: "Nền tảng của tôi trải dài từ backend engineering đến DevOps. Nhờ đó, tôi có thể hiểu ứng dụng, hạ tầng bên dưới và bằng chứng vận hành mà đội ngũ cần sau mỗi lần phát hành. Tôi quan tâm đến những hệ thống kỹ sư khác có thể hiểu, dựng lại, bảo mật và vận hành.",
-    expertiseLabel: "TÔI LÀM GÌ", expertiseTitle: "Kỹ thuật từ nền móng đến vòng phản hồi.",
     projectsLabel: "DỰ ÁN GẦN ĐÂY", projectsTitle: "Hệ thống thực tế, được giải thích sâu hơn danh sách công cụ.",
     projectsText: "Mỗi case study thể hiện kiến trúc, ràng buộc và quyết định bảo vệ độ tin cậy hoặc an toàn.",
     evidence: "Bằng chứng kỹ thuật", repository: "Xem repository", allProjects: "Xem toàn bộ kho dự án",
@@ -87,24 +58,19 @@ export default function Home() {
         <div className="folio-illustration" data-reveal data-reveal-delay="1"><CloudWorkbench /></div>
       </section>
 
-      <section className="story-band" data-reveal><div><span>NPT / ABOUT</span><h2>{t.introTitle}</h2><p>{t.introText}</p></div></section>
-
-      <section className="expertise-section" aria-labelledby="expertise-title">
-        <header className="centered-section-heading" data-reveal><span>{t.expertiseLabel}</span><h2 id="expertise-title">{t.expertiseTitle}</h2></header>
-        <div className="expertise-grid">{expertise.map((item, index) => <article key={item.title.en} data-reveal data-reveal-delay={String(index)}><div className="expertise-icon"><UiIcon name={item.icon} /></div><h3>{item.title[language]}</h3><p>{item.description[language]}</p><dl><div><dt>{item.focus[language]}</dt><dd>{item.focusValue}</dd></div><div><dt>{item.tools[language]}</dt><dd>{item.toolValue}</dd></div></dl></article>)}</div>
-      </section>
+      <ProfileOverview />
 
       <ul className="technology-rail" aria-label="Core technologies" data-reveal>{technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
+
+      <section className="principles-section"><header className="centered-section-heading" data-reveal><span>{t.principlesLabel}</span><h2>{t.principlesTitle}</h2></header><div className="principles-grid">{principles.map((item, index) => <article key={item.label} data-reveal data-reveal-delay={String(index % 3)}><UiIcon name={item.icon} /><span>{item.label}</span><h3>{item.title[language]}</h3><p>{item.description[language]}</p></article>)}</div></section>
+
+      <section className="folio-writing" data-reveal><div><span>{t.writingLabel}</span><h2>{t.writingTitle}</h2><p>{t.writingText}</p></div><Link href={`/blog/${post.slug}`}><div className="blog-meta"><time dateTime={post.publishedAt}>{post.displayDate[language]}</time><span>{post.readingTime[language]}</span></div><h3>{post.title[language]}</h3><strong>{t.read}<UiIcon name="arrow" /></strong></Link></section>
 
       <section className="project-showcase" id="case-studies">
         <header className="folio-section-heading" data-reveal><span>{t.projectsLabel}</span><div><h2>{t.projectsTitle}</h2><p>{t.projectsText}</p></div></header>
         <div className="featured-project-grid">{projects.slice(0, 3).map((project, index) => <article className="featured-project-card" key={project.slug} data-reveal data-reveal-delay={String(index)}><div className="featured-project-visual"><ProjectArchitecture project={project} variant={index} language={language} /></div><div className="featured-project-copy"><div className="project-kicker"><span>{project.stage[language]}</span><time>{project.date[language]}</time></div><p className="project-type">{project.type[language]}</p><h3>{project.title}</h3><p>{project.summary[language]}</p><div className="featured-evidence"><span>{t.evidence}</span><ul>{project.highlights.slice(0, 2).map((item) => <li key={item.en}>{item[language]}</li>)}</ul></div><ul className="tags" aria-label={`${project.title} technology stack`}>{project.stack.slice(0, 6).map((item) => <li key={item}>{item}</li>)}</ul><a className="case-link" href={project.href} target="_blank" rel="noreferrer">{t.repository}<span><UiIcon name="arrow" /></span></a></div></article>)}</div>
         <Link className="folio-outline-link" href="/projects">{t.allProjects}<UiIcon name="arrow" /></Link>
       </section>
-
-      <section className="principles-section"><header className="centered-section-heading" data-reveal><span>{t.principlesLabel}</span><h2>{t.principlesTitle}</h2></header><div className="principles-grid">{principles.map((item, index) => <article key={item.label} data-reveal data-reveal-delay={String(index % 3)}><UiIcon name={item.icon} /><span>{item.label}</span><h3>{item.title[language]}</h3><p>{item.description[language]}</p></article>)}</div></section>
-
-      <section className="folio-writing" data-reveal><div><span>{t.writingLabel}</span><h2>{t.writingTitle}</h2><p>{t.writingText}</p></div><Link href={`/blog/${post.slug}`}><div className="blog-meta"><time dateTime={post.publishedAt}>{post.displayDate[language]}</time><span>{post.readingTime[language]}</span></div><h3>{post.title[language]}</h3><strong>{t.read}<UiIcon name="arrow" /></strong></Link></section>
     </div></main>
   );
 }

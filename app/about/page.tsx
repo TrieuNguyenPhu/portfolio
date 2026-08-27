@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import ProfileOverview from "../profile-overview";
 import { useSitePreferences } from "../site-preferences";
 import UiIcon from "../ui-icon";
 
@@ -70,6 +71,8 @@ export default function AboutPage() {
         <h1>{t.heading}</h1>
         <p>{t.lede}</p>
       </header>
+
+      <ProfileOverview />
 
       <section className="about-experience" aria-labelledby="experience-title">
         <header className="folio-section-heading" data-reveal>

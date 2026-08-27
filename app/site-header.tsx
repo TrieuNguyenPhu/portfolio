@@ -16,7 +16,6 @@ const copy = {
     projects: "Projects",
     blog: "Blog",
     language: "Language",
-    availability: "Open to work",
     theme: { dark: "Switch to dark theme", light: "Switch to light theme", system: "Use system theme" },
   },
   vi: {
@@ -26,7 +25,6 @@ const copy = {
     projects: "Dự án",
     blog: "Blog",
     language: "Ngôn ngữ",
-    availability: "Sẵn sàng làm việc",
     theme: { dark: "Chuyển sang giao diện tối", light: "Chuyển sang giao diện sáng", system: "Dùng giao diện hệ thống" },
   },
 } as const;
@@ -44,13 +42,12 @@ export default function SiteHeader() {
         <span className="brand-mark"><BrandLogo /></span>
         <span className="brand-copy"><strong>{t.name}</strong><small>{t.role}</small></span>
       </Link>
-      <nav className="primary-nav" aria-label="Primary navigation" data-active={active}>
+      <nav className="primary-nav" aria-label="Primary navigation">
         <Link className={active === "about" ? "is-active" : undefined} aria-current={active === "about" ? "page" : undefined} href="/about"><UiIcon name="about" />{t.about}</Link>
         <Link className={active === "blog" ? "is-active" : undefined} aria-current={active === "blog" ? "page" : undefined} href="/blog"><UiIcon name="blog" />{t.blog}</Link>
         <Link className={active === "projects" ? "is-active" : undefined} aria-current={active === "projects" ? "page" : undefined} href="/projects"><UiIcon name="projects" />{t.projects}</Link>
       </nav>
       <div className="nav-tools">
-        <span className="availability"><i /> {t.availability}</span>
         <SiteSearch />
         <div className="language-switcher" role="group" aria-label={t.language}>
           <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
