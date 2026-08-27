@@ -8,7 +8,7 @@ export class SitePreferences {
 
   constructor(
     language: Language = "en",
-    theme: Theme = "system",
+    theme: Theme = "light",
   ) {
     this.language = language;
     this.theme = theme;
@@ -17,7 +17,7 @@ export class SitePreferences {
   static restore(language: string | null, theme: string | null) {
     return new SitePreferences(
       language === "vi" ? "vi" : "en",
-      theme === "dark" || theme === "light" ? theme : "system",
+      theme === "dark" || theme === "system" ? theme : "light",
     );
   }
 
