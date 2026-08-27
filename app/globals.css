@@ -696,10 +696,10 @@ h1, h2, h3 { font-family: var(--font-display), sans-serif; }
 
 /* Focused navigation, identity, and About refinements */
 :root,
-:root[data-theme="light"] { --education: #168553; --certificate: #237a45; }
-:root[data-theme="dark"] { --education: #6ff2a7; --certificate: #7ce7a2; }
+:root[data-theme="light"] { --education: #3730a3; --certificate: #4f46e5; }
+:root[data-theme="dark"] { --education: #c4b5fd; --certificate: #a5b4fc; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) { --education: #6ff2a7; --certificate: #7ce7a2; }
+  :root:not([data-theme]) { --education: #c4b5fd; --certificate: #a5b4fc; }
 }
 
 .brand-mark { background: transparent; border: 0; border-radius: 0; padding: 0; }
@@ -835,44 +835,50 @@ body { font-size: var(--type-body); line-height: 1.6; }
   .featured-project-copy h3 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
 }
 
-/* Original abstract octopus glyph and one green color family. */
+/* Indigo technology palette and circuit-octopus identity. */
 :root,
 :root[data-theme="light"] {
-  --paper: #f4f8f3; --sheet: #ffffff; --sheet-raised: #f8fcf7; --ink: #102016; --muted: #536657; --faint: #788b7b;
-  --rule: rgb(16 32 22 / 12%); --rule-strong: rgb(16 32 22 / 22%); --acid: #237a45; --violet: #237a45; --coral: #237a45;
-  --manifest: linear-gradient(120deg, #1d6d3d, #48ad6d 52%, #91dca8); --manifest-soft: linear-gradient(120deg, rgb(35 122 69 / 11%), rgb(72 173 109 / 9%));
-  --nav-bg: rgb(244 248 243 / 88%); color-scheme: light;
+  --paper: #f5f7ff; --sheet: #ffffff; --sheet-raised: #fafaff; --ink: #11152e; --muted: #59627d; --faint: #7b849f;
+  --rule: rgb(17 21 46 / 12%); --rule-strong: rgb(17 21 46 / 22%); --acid: #4f46e5; --violet: #6366f1; --coral: #818cf8;
+  --cyan: #22d3ee; --blue: #6366f1; --lime: #a5b4fc;
+  --manifest: linear-gradient(120deg, #4338ca, #6366f1 52%, #22d3ee); --manifest-soft: linear-gradient(120deg, rgb(79 70 229 / 11%), rgb(34 211 238 / 9%));
+  --nav-bg: rgb(245 247 255 / 88%); color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --paper: #08130d; --sheet: #0f1d14; --sheet-raised: #17281c; --ink: #f1faf2; --muted: #abc7b1; --faint: #78947e;
-  --rule: rgb(214 247 222 / 11%); --rule-strong: rgb(214 247 222 / 21%); --acid: #7ce7a2; --violet: #7ce7a2; --coral: #7ce7a2;
-  --manifest: linear-gradient(120deg, #50bf77, #7ce7a2 52%, #b9f5ca); --manifest-soft: linear-gradient(120deg, rgb(124 231 162 / 14%), rgb(80 191 119 / 9%));
-  --nav-bg: rgb(8 19 13 / 88%); color-scheme: dark;
+  --paper: #0b0d1f; --sheet: #111633; --sheet-raised: #171d42; --ink: #f4f6ff; --muted: #aab3d1; --faint: #808aac;
+  --rule: rgb(224 228 255 / 11%); --rule-strong: rgb(224 228 255 / 21%); --acid: #a5b4fc; --violet: #818cf8; --coral: #c4b5fd;
+  --cyan: #67e8f9; --blue: #818cf8; --lime: #c4b5fd;
+  --manifest: linear-gradient(120deg, #818cf8, #60a5fa 52%, #67e8f9); --manifest-soft: linear-gradient(120deg, rgb(165 180 252 / 14%), rgb(103 232 249 / 9%));
+  --nav-bg: rgb(11 13 31 / 88%); color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --paper: #08130d; --sheet: #0f1d14; --sheet-raised: #17281c; --ink: #f1faf2; --muted: #abc7b1; --faint: #78947e;
-    --rule: rgb(214 247 222 / 11%); --rule-strong: rgb(214 247 222 / 21%); --acid: #7ce7a2; --violet: #7ce7a2; --coral: #7ce7a2;
-    --manifest: linear-gradient(120deg, #50bf77, #7ce7a2 52%, #b9f5ca); --manifest-soft: linear-gradient(120deg, rgb(124 231 162 / 14%), rgb(80 191 119 / 9%));
-    --nav-bg: rgb(8 19 13 / 88%); color-scheme: dark;
+    --paper: #0b0d1f; --sheet: #111633; --sheet-raised: #171d42; --ink: #f4f6ff; --muted: #aab3d1; --faint: #808aac;
+    --rule: rgb(224 228 255 / 11%); --rule-strong: rgb(224 228 255 / 21%); --acid: #a5b4fc; --violet: #818cf8; --coral: #c4b5fd;
+    --cyan: #67e8f9; --blue: #818cf8; --lime: #c4b5fd;
+    --manifest: linear-gradient(120deg, #818cf8, #60a5fa 52%, #67e8f9); --manifest-soft: linear-gradient(120deg, rgb(165 180 252 / 14%), rgb(103 232 249 / 9%));
+    --nav-bg: rgb(11 13 31 / 88%); color-scheme: dark;
   }
 }
 
-.ambient__glow--one { background: rgb(35 122 69 / 12%); }
-.ambient__glow--two { background: rgb(124 231 162 / 7%); }
-.button--primary { box-shadow: 0 1rem 2rem rgb(35 122 69 / 20%); }
-.button--primary:hover { background: #185c33; border-color: #185c33; }
-.workbench-cloud path, .workbench-monitor circle, .workbench-rack circle, .workbench-chip--gitops rect { fill: #7ce7a2; }
-.workbench-monitor > rect:nth-of-type(2), .workbench-rack > rect:not(:first-of-type), .featured-project-visual, .company-mark, .site-footer, .principles-section { background: #0b1a10; fill: #0b1a10; }
-.workbench-monitor circle { stroke: #0b1a10; }
-.workbench-monitor circle:nth-of-type(3), .workbench-monitor circle:nth-of-type(5), .workbench-chip rect, .workbench-flow { fill: #48ad6d; stroke: #48ad6d; }
-.story-band, .folio-writing { background: linear-gradient(135deg, #175b32, #2b8a50); }
-.story-band span, .centered-section-heading > span, .folio-writing > div > span, .principles-section .centered-section-heading > span, .principles-grid article > .ui-icon, .footer-mail > span, .footer-mail > .ui-icon { color: #a9efbb; }
-.expertise-icon { background: #a9efbb; color: #0b1a10; }
-.principles-grid article > span { color: #7ce7a2; }
-.principles-grid article:hover, .footer-mail:hover { border-color: #7ce7a2; }
-.project-kicker span::before { background: #48ad6d; box-shadow: 0 0 0 .25rem rgb(72 173 109 / 13%); }
-.logo-arms, .logo-core { color: var(--acid); }
+.ambient__glow--one { background: rgb(99 102 241 / 12%); }
+.ambient__glow--two { background: rgb(103 232 249 / 7%); }
+.button--primary { box-shadow: 0 1rem 2rem rgb(79 70 229 / 20%); }
+.button--primary:hover { background: #3730a3; border-color: #3730a3; }
+.workbench-cloud path, .workbench-monitor circle, .workbench-rack circle, .workbench-chip--gitops rect { fill: #a5b4fc; }
+.workbench-monitor > rect:nth-of-type(2), .workbench-rack > rect:not(:first-of-type), .featured-project-visual, .company-mark, .site-footer, .principles-section { background: #111633; fill: #111633; }
+.workbench-monitor circle { stroke: #111633; }
+.workbench-monitor circle:nth-of-type(3), .workbench-monitor circle:nth-of-type(5), .workbench-chip rect, .workbench-flow { fill: #60a5fa; stroke: #60a5fa; }
+.story-band, .folio-writing { background: linear-gradient(135deg, #312e81, #4f46e5); }
+.story-band span, .centered-section-heading > span, .folio-writing > div > span, .principles-section .centered-section-heading > span, .principles-grid article > .ui-icon, .footer-mail > span, .footer-mail > .ui-icon { color: #c4b5fd; }
+.expertise-icon { background: #c4b5fd; color: #111633; }
+.principles-grid article > span { color: #a5b4fc; }
+.principles-grid article:hover, .footer-mail:hover { border-color: #a5b4fc; }
+.project-kicker span::before { background: #6366f1; box-shadow: 0 0 0 .25rem rgb(99 102 241 / 13%); }
+.logo-arms { animation: logo-draw-tech 1.1s cubic-bezier(.16,1,.3,1) both; fill: none; stroke: var(--acid); stroke-dasharray: 520; stroke-linecap: square; stroke-linejoin: round; stroke-width: 3; }
+.logo-terminals circle { fill: var(--paper); stroke: var(--acid); stroke-width: 1.5; }
+.logo-core { fill: var(--paper); stroke: var(--acid); stroke-width: 2.5; }
+.logo-core-dot { fill: var(--acid); }
 
 /* Professional content architecture: clearer hierarchy, denser proof, stronger cross-links. */
 .folio-hero { margin-inline: auto; min-height: auto; padding: clamp(4.5rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem); text-align: left; width: var(--page); }
@@ -934,7 +940,7 @@ body { font-size: var(--type-body); line-height: 1.6; }
 .footer-content { grid-template-columns: minmax(0, 1fr) auto auto; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; }
 .footer-nav a { color: rgb(255 255 255 / 72%); font-size: var(--type-label); font-weight: 700; }
-.footer-nav a:hover { color: #a9efbb; }
+.footer-nav a:hover { color: #c4b5fd; }
 .footer-mail { grid-column: 1 / 3; grid-row: 2; justify-self: start; }
 .contact-socials { grid-column: 3; grid-row: 1 / 3; }
 
@@ -1002,7 +1008,7 @@ body { font-size: var(--type-body); line-height: 1.6; }
 .case-hero__type { color: var(--acid); font-family: var(--font-mono), monospace; font-size: var(--type-meta); font-weight: 700; line-height: 1.5; margin-top: 1.5rem; }
 .case-hero__summary { color: var(--muted); line-height: 1.8; margin-top: 1.1rem; max-width: 65ch; }
 .case-hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
-.case-hero__visual { background: #0b1a10; border-radius: 1.5rem; min-width: 0; overflow: hidden; padding: clamp(.7rem, 2vw, 1.3rem); }
+.case-hero__visual { background: #111633; border-radius: 1.5rem; min-width: 0; overflow: hidden; padding: clamp(.7rem, 2vw, 1.3rem); }
 .case-hero__visual .project-visual { border: 0; border-radius: 1rem; width: 100%; }
 
 .case-section { border-bottom: 1px solid var(--rule-strong); display: grid; gap: clamp(2rem, 5vw, 5rem); padding-block: clamp(4.5rem, 9vw, 8rem); }
@@ -1020,9 +1026,9 @@ body { font-size: var(--type-body); line-height: 1.6; }
 .case-flow-card li small, .case-decisions > li > span, .case-stack-list span { color: var(--acid); font-family: var(--font-mono), monospace; font-size: var(--type-label); }
 .case-flow-card li strong { overflow-wrap: anywhere; }
 
-.case-architecture-panel { background: #0b1a10; border-radius: 1.5rem; min-width: 0; overflow: hidden; padding: clamp(.8rem, 2.5vw, 1.5rem); }
+.case-architecture-panel { background: #111633; border-radius: 1.5rem; min-width: 0; overflow: hidden; padding: clamp(.8rem, 2.5vw, 1.5rem); }
 .case-architecture-panel .project-visual { border: 0; border-radius: 1rem; width: 100%; }
-.case-architecture-panel code { border-top: 1px solid rgb(255 255 255 / 15%); color: #d8f2df; display: block; font-family: var(--font-mono), monospace; font-size: clamp(.72rem, .68rem + .12vw, .82rem); line-height: 1.8; margin: 1rem .5rem 0; overflow-wrap: anywhere; padding: 1.2rem .3rem .3rem; }
+.case-architecture-panel code { border-top: 1px solid rgb(255 255 255 / 15%); color: #e0e7ff; display: block; font-family: var(--font-mono), monospace; font-size: clamp(.72rem, .68rem + .12vw, .82rem); line-height: 1.8; margin: 1rem .5rem 0; overflow-wrap: anywhere; padding: 1.2rem .3rem .3rem; }
 
 .case-decisions { counter-reset: decision; display: grid; list-style: none; }
 .case-decisions li { align-items: start; border-top: 1px solid var(--rule-strong); display: grid; gap: 1rem; grid-template-columns: 2.4rem minmax(0, 1fr); padding-block: clamp(1.4rem, 3vw, 2.2rem); }
@@ -1067,3 +1073,5 @@ body { font-size: var(--type-body); line-height: 1.6; }
   .case-architecture-panel { border-radius: 1rem; padding: .5rem; }
   .case-pagination { grid-template-columns: 1fr; }
 }
+
+@keyframes logo-draw-tech { from { stroke-dashoffset: 520; } to { stroke-dashoffset: 0; } }

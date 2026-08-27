@@ -18,7 +18,7 @@ const mono = Roboto_Mono({
 
 const designContract = `<!--
 THESIS: A personal DevOps portfolio where technical depth feels clear, approachable, and memorable.
-OWN-WORLD: Airy editorial space, deep green ink, and a single family of green signals with living cloud-system illustrations.
+OWN-WORLD: Airy editorial space, deep indigo ink, and a focused family of indigo signals with living cloud-system illustrations.
 STORY: Visitors meet Trieu through a human introduction, understand his capabilities, inspect evidence-rich work, then make contact.
 FIRST VIEWPORT: A concise engineering promise and custom cloud workbench illustration establish personality and focus.
 FORM: Spacious storytelling with native CSS/SVG motion and progressive enhancement.
@@ -60,8 +60,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#08130d" },
-    { media: "(prefers-color-scheme: light)", color: "#f4f8f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0d1f" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f7ff" },
   ],
 };
 
