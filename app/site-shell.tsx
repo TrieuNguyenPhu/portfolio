@@ -9,7 +9,6 @@ export default function SiteShell({ children }: Readonly<{ children: React.React
   return (
     <SitePreferencesProvider>
       <ScrollReveal />
-      <div className="page-intro" aria-hidden="true"><span>NPT / SIGNAL LEDGER</span><i /></div>
       <div className="ambient" aria-hidden="true">
         <div className="ambient__grid" />
         <div className="ambient__glow ambient__glow--one" />

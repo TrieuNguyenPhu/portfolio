@@ -30,16 +30,18 @@ const expertise = [
 
 const copy = {
   en: {
-    introTitle: "Hi, I’m Trieu. I turn complex delivery systems into clear, dependable paths.",
-    introText: "My background spans backend engineering and DevOps. That lets me reason about the application, the infrastructure beneath it, and the operational evidence a team needs after release. I care about systems another engineer can understand, rebuild, secure, and operate.",
-    expertiseLabel: "WHAT I DO",
-    expertiseTitle: "Engineering from foundation to feedback loop.",
+    introLabel: "PROFILE",
+    introTitle: "I connect application code, cloud infrastructure, and operational evidence.",
+    introText: "My backend engineering foundation helps me design delivery systems end to end—from the application and infrastructure to the signals a team needs after release. I value systems that another engineer can understand, rebuild, secure, and operate.",
+    expertiseLabel: "CORE CAPABILITIES",
+    expertiseTitle: "Engineering across the delivery lifecycle.",
   },
   vi: {
-    introTitle: "Xin chào, tôi là Triệu. Tôi biến hệ thống triển khai phức tạp thành những luồng rõ ràng và đáng tin cậy.",
-    introText: "Nền tảng của tôi trải dài từ backend engineering đến DevOps. Nhờ đó, tôi có thể hiểu ứng dụng, hạ tầng bên dưới và bằng chứng vận hành mà đội ngũ cần sau mỗi lần phát hành. Tôi quan tâm đến những hệ thống kỹ sư khác có thể hiểu, dựng lại, bảo mật và vận hành.",
-    expertiseLabel: "TÔI LÀM GÌ",
-    expertiseTitle: "Kỹ thuật từ nền móng đến vòng phản hồi.",
+    introLabel: "HỒ SƠ",
+    introTitle: "Tôi kết nối mã nguồn ứng dụng, hạ tầng cloud và bằng chứng vận hành.",
+    introText: "Nền tảng backend giúp tôi thiết kế hệ thống delivery từ đầu đến cuối—từ ứng dụng, hạ tầng đến tín hiệu đội ngũ cần sau phát hành. Tôi ưu tiên những hệ thống kỹ sư khác có thể hiểu, dựng lại, bảo mật và vận hành.",
+    expertiseLabel: "NĂNG LỰC CỐT LÕI",
+    expertiseTitle: "Kỹ thuật xuyên suốt vòng đời triển khai.",
   },
 } as const;
 
@@ -49,7 +51,7 @@ export default function ProfileOverview() {
 
   return (
     <>
-      <section className="story-band" data-reveal><div><span>NPT / ABOUT</span><h2>{t.introTitle}</h2><p>{t.introText}</p></div></section>
+      <section className="story-band" data-reveal><div><span>{t.introLabel}</span><h2>{t.introTitle}</h2><p>{t.introText}</p></div></section>
       <section className="expertise-section" aria-labelledby="expertise-title">
         <header className="centered-section-heading" data-reveal><span>{t.expertiseLabel}</span><h2 id="expertise-title">{t.expertiseTitle}</h2></header>
         <div className="expertise-grid">{expertise.map((item, index) => <article key={item.title.en} data-reveal data-reveal-delay={String(index)}><div className="expertise-icon"><UiIcon name={item.icon} /></div><h3>{item.title[language]}</h3><p>{item.description[language]}</p><dl><div><dt>{item.focus[language]}</dt><dd>{item.focusValue}</dd></div><div><dt>{item.tools[language]}</dt><dd>{item.toolValue}</dd></div></dl></article>)}</div>

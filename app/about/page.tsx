@@ -1,15 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import ProfileOverview from "../profile-overview";
+import Link from "next/link";
 import { useSitePreferences } from "../site-preferences";
 import UiIcon from "../ui-icon";
 
 const copy = {
   en: {
-    label: "ABOUT / EXPERIENCE",
-    heading: "Where application engineering meets reliable cloud operations.",
-    lede: "My path from backend development into DevOps helps me see the whole delivery system: the code, the infrastructure, and the evidence needed to operate it with confidence.",
+    label: "ABOUT",
+    heading: "Backend foundations. DevOps focus. Systems thinking.",
+    lede: "I am a software engineering graduate focused on DevOps and cloud infrastructure. My backend background helps me understand the application as well as the platform, delivery workflow, and operational signals around it.",
+    focus: "Primary focus", focusValue: "DevOps · Cloud Infrastructure · Platform Engineering",
+    location: "Based in", locationValue: "Ho Chi Minh City, Vietnam",
+    approach: "Working style", approachValue: "Reviewable · Repeatable · Observable",
     experienceLabel: "WORK EXPERIENCE",
     experienceTitle: "Hands-on experience across backend, cloud, and delivery systems.",
     visit: "Visit company website",
@@ -24,18 +27,24 @@ const copy = {
     techhausText: "Built and tested Python and Django backend features, REST APIs, database interactions, validation, and structured error handling.",
     techhausHighlights: ["Implemented API and application logic from defined requirements.", "Collaborated through feature branches, pull requests, reviews, and debugging."],
     credentialsLabel: "EDUCATION & CREDENTIALS",
-    credentialsTitle: "The foundation behind my engineering practice.",
+    credentialsTitle: "Education and communication foundation.",
     education: "Education",
     university: "University of Information Technology",
     degree: "Bachelor of Software Engineering",
     certification: "Certification",
     ielts: "IELTS",
     ieltsDetail: "Overall Band 5.5",
+    nextLabel: "NEXT STEP", nextTitle: "See how this background translates into engineering work.",
+    nextText: "The project archive documents architectures, delivery constraints, and concrete implementation decisions.",
+    nextProjects: "Explore projects", nextContact: "Contact me",
   },
   vi: {
-    label: "GIỚI THIỆU / KINH NGHIỆM",
-    heading: "Nơi kỹ thuật ứng dụng gặp khả năng vận hành cloud đáng tin cậy.",
-    lede: "Hành trình từ backend development đến DevOps giúp tôi nhìn toàn bộ hệ thống delivery: code, hạ tầng và bằng chứng cần thiết để vận hành một cách tự tin.",
+    label: "GIỚI THIỆU",
+    heading: "Nền tảng backend. Trọng tâm DevOps. Tư duy hệ thống.",
+    lede: "Tôi tốt nghiệp kỹ thuật phần mềm và tập trung vào DevOps cùng hạ tầng cloud. Nền tảng backend giúp tôi hiểu cả ứng dụng lẫn platform, quy trình delivery và tín hiệu vận hành xung quanh.",
+    focus: "Trọng tâm", focusValue: "DevOps · Hạ tầng Cloud · Platform Engineering",
+    location: "Địa điểm", locationValue: "TP. Hồ Chí Minh, Việt Nam",
+    approach: "Cách làm việc", approachValue: "Có thể review · Tái lập · Quan sát",
     experienceLabel: "KINH NGHIỆM LÀM VIỆC",
     experienceTitle: "Kinh nghiệm thực tế về backend, cloud và hệ thống triển khai.",
     visit: "Mở website công ty",
@@ -50,13 +59,16 @@ const copy = {
     techhausText: "Xây dựng và kiểm thử tính năng backend Python, Django, REST API, tương tác database, validation và xử lý lỗi có cấu trúc.",
     techhausHighlights: ["Hiện thực API và application logic từ yêu cầu đã xác định.", "Phối hợp qua feature branch, pull request, review và debugging."],
     credentialsLabel: "HỌC VẤN & CHỨNG CHỈ",
-    credentialsTitle: "Nền tảng phía sau cách tôi thực hành kỹ thuật.",
+    credentialsTitle: "Nền tảng học vấn và giao tiếp.",
     education: "Học vấn",
     university: "Đại học Công nghệ Thông tin",
     degree: "Cử nhân Kỹ thuật Phần mềm",
     certification: "Chứng chỉ",
     ielts: "IELTS",
     ieltsDetail: "Overall Band 5.5",
+    nextLabel: "BƯỚC TIẾP THEO", nextTitle: "Xem cách nền tảng này chuyển thành sản phẩm kỹ thuật.",
+    nextText: "Kho dự án mô tả kiến trúc, ràng buộc triển khai và các quyết định hiện thực cụ thể.",
+    nextProjects: "Khám phá dự án", nextContact: "Liên hệ",
   },
 } as const;
 
@@ -72,7 +84,11 @@ export default function AboutPage() {
         <p>{t.lede}</p>
       </header>
 
-      <ProfileOverview />
+      <dl className="about-facts" data-reveal>
+        <div><dt>{t.focus}</dt><dd>{t.focusValue}</dd></div>
+        <div><dt>{t.location}</dt><dd>{t.locationValue}</dd></div>
+        <div><dt>{t.approach}</dt><dd>{t.approachValue}</dd></div>
+      </dl>
 
       <section className="about-experience" aria-labelledby="experience-title">
         <header className="folio-section-heading" data-reveal>
@@ -125,6 +141,11 @@ export default function AboutPage() {
             <div><span className="credential-label">{t.certification}</span><h3>{t.ielts}</h3><p>{t.ieltsDetail}</p></div>
           </article>
         </div>
+      </section>
+
+      <section className="portfolio-cta" aria-labelledby="about-next-title" data-reveal>
+        <div><span>{t.nextLabel}</span><h2 id="about-next-title">{t.nextTitle}</h2><p>{t.nextText}</p></div>
+        <div className="portfolio-cta__actions"><Link className="button button--primary" href="/projects">{t.nextProjects}<UiIcon name="arrow" /></Link><a className="button button--ghost" href="mailto:nguyentrieu080604@gmail.com">{t.nextContact}<UiIcon name="mail" /></a></div>
       </section>
     </main>
   );

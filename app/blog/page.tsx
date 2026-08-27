@@ -33,6 +33,11 @@ const copy = {
   },
   readMore: { en: "Read article", vi: "Đọc bài viết" },
   articles: { en: "Articles", vi: "Bài viết" },
+  nextLabel: { en: "FROM NOTES TO SYSTEMS", vi: "TỪ GHI CHÉP ĐẾN HỆ THỐNG" },
+  nextTitle: { en: "See the projects behind the engineering notes.", vi: "Xem các dự án phía sau những ghi chép kỹ thuật." },
+  nextText: { en: "The project archive shows architecture, delivery constraints, and implementation evidence.", vi: "Kho dự án trình bày kiến trúc, ràng buộc triển khai và bằng chứng hiện thực." },
+  nextProjects: { en: "Explore projects", vi: "Khám phá dự án" },
+  nextAbout: { en: "About my experience", vi: "Xem kinh nghiệm" },
 } as const;
 
 export default function BlogPage() {
@@ -61,6 +66,11 @@ export default function BlogPage() {
             </div>
           </article>
         ))}
+      </section>
+
+      <section className="portfolio-cta" aria-labelledby="blog-next-title" data-reveal>
+        <div><span><LocalizedText value={copy.nextLabel} /></span><h2 id="blog-next-title"><LocalizedText value={copy.nextTitle} /></h2><p><LocalizedText value={copy.nextText} /></p></div>
+        <div className="portfolio-cta__actions"><Link className="button button--primary" href="/projects"><LocalizedText value={copy.nextProjects} /><UiIcon name="arrow" /></Link><Link className="button button--ghost" href="/about"><LocalizedText value={copy.nextAbout} /><UiIcon name="about" /></Link></div>
       </section>
     </main>
   );
