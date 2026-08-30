@@ -1,23 +1,31 @@
 # Nguyen Phu Trieu — Portfolio
 
-Responsive Next.js portfolio for a DevOps engineer.
+A bilingual Next.js portfolio for DevOps, cloud infrastructure, and platform engineering work. The interface uses Three.js for a progressive ambient signal scene and GSAP for route-scoped motion while keeping all content server-rendered and accessible without either enhancement.
 
-## Structure
+## Architecture
 
-- `app/page.tsx` contains the single-page UI, localized content, and client-side preferences.
-- `app/layout.tsx` owns document metadata, viewport settings, and the shared font.
-- `app/globals.css` contains the design tokens, responsive layout, and motion rules.
+- `app/page.tsx` — home-page content and project evidence.
+- `app/projects` and `app/blog` — statically generated index and detail routes.
+- `app/site-shell.tsx` — shared navigation, preferences, ambient field, and footer.
+- `app/ambient-three.tsx` — disposable, performance-capped Three.js scene.
+- `app/scroll-reveal.tsx` — scoped GSAP/ScrollTrigger choreography.
+- `app/globals.css` — tokens, themes, component styling, responsive rules, and fallbacks.
+- `design-dna.json` — machine-readable source of the redesign decisions.
+- `DESIGN.md` — human-readable design and motion contract.
 
-The project intentionally keeps the portfolio in three application files: it is easier to maintain than introducing components or state layers that the current single-page site does not need. Add a component only when a section is reused or gains independent behavior.
+## Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Production check:
+## Verification
 
 ```bash
 npm run lint
+npm test
 npm run build
 ```
+
+The production build pre-renders the home, about, blog, project index, blog article, and all project case-study routes.

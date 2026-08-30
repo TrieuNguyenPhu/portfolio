@@ -5,6 +5,7 @@ import Link from "next/link";
 import GitHubIcon from "./github-icon";
 import BrandLogo from "./brand-logo";
 import { useSitePreferences } from "./site-preferences";
+import SiteSearch from "./site-search";
 
 const copy = {
   en: {
@@ -51,6 +52,7 @@ export default function SiteHeader() {
         <Link className={active === "projects" ? "is-active" : undefined} aria-current={active === "projects" ? "page" : undefined} href="/projects">{t.projects}</Link>
       </nav>
       <div className="nav-tools">
+        <SiteSearch />
         <div className="language-switcher" role="group" aria-label={t.language}>
           <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
           <button type="button" aria-pressed={language === "vi"} onClick={() => setLanguage("vi")}>VI</button>

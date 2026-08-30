@@ -1,0 +1,279 @@
+{
+  "meta": {
+    "name": "Infrastructure Signal Observatory",
+    "description": "A cinematic but highly legible DevOps portfolio combining editorial evidence, precise system-diagram geometry, and restrained WebGL signal fields.",
+    "source_references": [
+      "https://threeui.com/browse",
+      "https://threeui.com/landing-pages/kage-landing-page",
+      "https://threeui.com/three-js/structure-flow",
+      "https://threeui.com/backgrounds/predictive-arc",
+      "https://threeui.com/ui-elements/diagnostics-panel",
+      "PRODUCT.md",
+      "DESIGN.md"
+    ],
+    "created_at": "2026-08-30"
+  },
+  "design_system": {
+    "color": {
+      "palette_type": "analogous",
+      "primary": {
+        "hex": "#2563eb",
+        "role": "deployment paths, active states, section indices, and system controls"
+      },
+      "secondary": {
+        "hex": "#22d3ee",
+        "role": "inspection signals, focus rings, topology nodes, and live status"
+      },
+      "accent": {
+        "hex": "#8b5cf6",
+        "role": "focal WebGL energy, primary calls to action, and selected highlights"
+      },
+      "neutral": {
+        "scale": [
+          "#ffffff",
+          "#f4f7fb",
+          "#d8deea",
+          "#9aa5b8",
+          "#667085",
+          "#2a3140",
+          "#171c26",
+          "#0d1118",
+          "#07090d"
+        ],
+        "usage": "White and #f4f7fb are primary foregrounds in dark mode; #07090d and #0d1118 form the canvas and panels. Light mode reverses this relationship without changing hierarchy."
+      },
+      "semantic": {
+        "success": "#3ddc97",
+        "warning": "#f6c453",
+        "error": "#ff667a",
+        "info": "#38bdf8"
+      },
+      "surface": {
+        "background": "#07090d",
+        "card": "#0d1118",
+        "elevated": "#171c26"
+      },
+      "contrast_strategy": "Near-white editorial text on deep neutral fields with cyan, blue, and violet reserved for signals; all body text targets WCAG AA."
+    },
+    "typography": {
+      "type_scale": {
+        "display": { "size": "clamp(3.5rem, 9vw, 9rem)", "weight": 700, "line_height": 0.88, "tracking": "-0.075em" },
+        "heading_1": { "size": "clamp(3rem, 7vw, 7rem)", "weight": 700, "line_height": 0.92, "tracking": "-0.065em" },
+        "heading_2": { "size": "clamp(2.25rem, 5vw, 5rem)", "weight": 600, "line_height": 0.98, "tracking": "-0.055em" },
+        "heading_3": { "size": "clamp(1.5rem, 3vw, 2.75rem)", "weight": 600, "line_height": 1.05, "tracking": "-0.04em" },
+        "body": { "size": "clamp(1rem, 0.96rem + 0.2vw, 1.125rem)", "weight": 400, "line_height": 1.75, "tracking": "0em" },
+        "body_small": { "size": "0.9375rem", "weight": 400, "line_height": 1.65, "tracking": "0em" },
+        "caption": { "size": "0.75rem", "weight": 500, "line_height": 1.45, "tracking": "0.06em" },
+        "overline": { "size": "0.6875rem", "weight": 700, "line_height": 1.4, "tracking": "0.16em" }
+      },
+      "font_families": {
+        "heading": "Roboto, sans-serif",
+        "body": "Roboto, sans-serif",
+        "mono": "Roboto, sans-serif"
+      },
+      "font_style_notes": "One Vietnamese-capable Roboto family across all roles; technical character comes from tabular numerals, uppercase metadata, spacing, and rules rather than a second display face."
+    },
+    "spacing": {
+      "base_unit": "0.25rem",
+      "scale": ["0.25rem", "0.5rem", "0.75rem", "1rem", "1.5rem", "2rem", "3rem", "4rem", "6rem", "9rem"],
+      "content_density": "comfortable",
+      "section_rhythm": "Large cinematic pauses between sections, compact metadata clusters, and consistent 1rem or 1.5rem internal steps."
+    },
+    "layout": {
+      "grid_system": "Twelve-column fluid editorial grid with system-diagram overlays",
+      "max_content_width": "88rem",
+      "columns": 12,
+      "gutter": "clamp(1rem, 3vw, 2rem)",
+      "breakpoints": ["30rem", "48rem", "64rem", "80rem"],
+      "alignment_tendency": "Asymmetric editorial on desktop, single-column narrative on mobile"
+    },
+    "shape": {
+      "border_radius": { "small": "0.25rem", "medium": "0.5rem", "large": "0.75rem", "pill": "999px" },
+      "border_usage": "Precise one-pixel signal rules and angular clipped corners; pills are restricted to compact status indicators.",
+      "divider_style": "Low-contrast hairline with occasional cyan-to-violet gradient segment"
+    },
+    "elevation": {
+      "shadow_style": "Ambient glow plus constructed tonal layers",
+      "levels": {
+        "low": "0 1px 0 rgb(255 255 255 / 0.04)",
+        "medium": "0 24px 80px rgb(0 0 0 / 0.28)",
+        "high": "0 40px 140px rgb(0 0 0 / 0.45), 0 0 80px rgb(139 92 246 / 0.10)"
+      },
+      "depth_cues": "Overlapping wireframes, glow intensity, controlled blur, perspective transforms, and WebGL particle depth"
+    },
+    "iconography": {
+      "style": "Geometric outline",
+      "stroke_weight": "1.5px",
+      "size_scale": ["1rem", "1.25rem", "1.5rem", "2rem"],
+      "preferred_set": "Existing custom inline SVG system icons"
+    },
+    "motion": {
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "duration_scale": { "micro": "350ms", "normal": "500ms", "macro": "800ms" },
+      "entrance_pattern": "Premium fade with 0.985-to-1 scale and a short upward settle",
+      "exit_pattern": "Accelerated fade with minimal downward displacement",
+      "philosophy": "Premium technical choreography: primary content first, system evidence second, ambient field last; no overshoot and no decorative motion that competes with reading."
+    },
+    "components": {
+      "button_style": "Angular 48px controls with one-pixel rules, active light sweep, and compact directional icon",
+      "input_style": "Dark ruled field with visible cyan focus ring and no floating label",
+      "card_style": "Editorial signal panel with clipped corner, faint grid, and border highlight rather than conventional shadow",
+      "navigation_pattern": "Sticky translucent command bar with visible primary routes, language state, theme, search, and GitHub",
+      "modal_style": "Centered elevated command panel with dim backdrop, crisp border, and short premium transition",
+      "list_style": "Numbered evidence rows on shared baselines with compact status and technology metadata",
+      "component_notes": "Cards remain content-first; Three.js is a contextual layer, not an interaction requirement."
+    }
+  },
+  "design_style": {
+    "aesthetic": {
+      "mood": ["precise", "cinematic", "calm", "technical", "confident"],
+      "visual_metaphor": "An observatory for infrastructure signals and delivery paths",
+      "era_influence": "Contemporary computational editorial with restrained retro-terminal cues",
+      "genre": "Technical portfolio / spatial editorial",
+      "personality_traits": ["meticulous", "curious", "reliable", "quietly ambitious"],
+      "adjectives": ["signal-rich", "structured", "immersive", "legible", "purposeful"]
+    },
+    "visual_language": {
+      "complexity": "rich",
+      "ornamentation": "subtle technical accents",
+      "whitespace_usage": "Generous section whitespace with compact evidence groupings",
+      "visual_weight_distribution": "Large typographic claims balanced by low-opacity spatial fields",
+      "focal_strategy": "Progressive reveal from hero promise to verified project evidence",
+      "contrast_level": "high",
+      "texture_usage": "Fine noise, sparse dot matrices, and subtle scan-grid registration"
+    },
+    "composition": {
+      "hierarchy_method": "Scale contrast, spatial isolation, and signal color",
+      "balance_type": "asymmetric",
+      "flow_direction": "Top-to-bottom narrative with diagonal and orbital counter-motion",
+      "grouping_strategy": "Editorial sections, evidence rails, and bounded system diagrams",
+      "negative_space_role": "Creates calm around dense technical evidence and lets ambient 3D remain peripheral"
+    },
+    "imagery": {
+      "photo_treatment": "No decorative photography; company marks remain clean and high contrast",
+      "illustration_style": "Generative topology, orbital nodes, wireframe geometry, and diagrammatic SVG",
+      "graphic_elements": "Signal arcs, point fields, registration crosses, node paths, and clipped planes",
+      "pattern_usage": "Sparse grid and dot field used at low opacity",
+      "image_shape": "Wide landscape system canvases with small angular corners"
+    },
+    "interaction_feel": {
+      "feedback_style": "Immediate and precise with light, border, and 1-2px transform responses",
+      "hover_behavior": "Signal edge brightens while content lifts no more than 4px",
+      "transition_personality": "smooth premium glide",
+      "loading_style": "Small orbital signal with percentage or status text",
+      "microinteraction_density": "low-to-medium"
+    },
+    "brand_voice_in_ui": {
+      "tone": "Direct, technically credible, and grounded in evidence",
+      "formality": "Professional but human",
+      "cta_style": "Direct imperative",
+      "empty_state_approach": "Explain the next useful action in one concise sentence",
+      "error_tone": "Calm, specific, and recovery-oriented"
+    }
+  },
+  "visual_effects": {
+    "overview": {
+      "effect_intensity": "moderate",
+      "performance_tier": "heavy",
+      "fallback_strategy": "Disable WebGL on reduced motion or low-end devices and retain a static CSS grid, radial signal glows, and all content.",
+      "primary_technology": "WebGL/Three.js with GSAP ScrollTrigger"
+    },
+    "background_effects": {
+      "type": "generative-art",
+      "description": "A fixed infrastructure signal field combining a particle dome, orbital paths, and a restrained violet energy arc.",
+      "technology": "Three.js",
+      "params": {
+        "color_palette": ["#22d3ee", "#2563eb", "#8b5cf6", "#d8deea"],
+        "speed": "0.025 radians per second",
+        "density": "260-420 points depending on viewport",
+        "opacity": "0.18-0.48",
+        "blend_mode": "additive"
+      }
+    },
+    "particle_systems": {
+      "enabled": true,
+      "type": "connected-nodes",
+      "description": "Sparse infrastructure nodes forming a curved field with a brighter deploy path.",
+      "technology": "Three.js Points and BufferGeometry",
+      "params": {
+        "count": 360,
+        "shape": "soft circular points",
+        "size_range": "1-3px",
+        "movement_pattern": "slow orbital drift with depth parallax",
+        "color_behavior": "cyan through violet based on normalized position",
+        "interaction": "mouse-attract with subtle camera counter-motion",
+        "spawn_area": "elliptical dome covering the viewport perimeter"
+      }
+    },
+    "3d_elements": {
+      "enabled": true,
+      "type": "scene-bg",
+      "description": "A low-poly observatory globe and orbital deployment rings shared across the site.",
+      "technology": "Three.js",
+      "params": {
+        "renderer": "WebGLRenderer with alpha, antialiasing, DPR capped at 1.5",
+        "lighting": "Unlit additive signal materials with one subtle hemisphere light for solid geometry",
+        "camera": "Perspective camera, 44 degree FOV, z 7.5, pointer response capped below 0.2 radians",
+        "materials": "MeshBasic wireframe and custom ShaderMaterial points",
+        "geometry": "Icosahedron wireframe, torus rings, BufferGeometry point dome, and line arcs",
+        "post_processing": ["native additive blending", "CSS vignette fallback"],
+        "interaction_model": "Passive pointer parallax on desktop; static on touch and reduced-motion"
+      }
+    },
+    "shader_effects": {
+      "enabled": true,
+      "type": "color-shift",
+      "description": "Point sprites breathe and shift color along cyan, blue, and violet positions.",
+      "technology": "Three.js ShaderMaterial / GLSL",
+      "params": {
+        "uniforms": ["uTime", "uPixelRatio", "uColorA", "uColorB"],
+        "vertex_manipulation": "Small sine displacement along point normals with perspective-scaled point size",
+        "fragment_output": "Soft circular additive sprite with feathered edge",
+        "noise_type": "value noise",
+        "distortion": "Sub-2% ambient displacement only"
+      }
+    },
+    "scroll_effects": {
+      "parallax": { "enabled": true, "layers": 3, "depth_range": "0.1x to 0.5x", "speed_curve": "linear scroll mapping with GSAP scrub 1" },
+      "scroll_triggered_animations": { "enabled": true, "trigger_points": "top 86% to bottom 12%", "animation_type": "premium fade-scale-settle", "scrub_behavior": "triggered once for content; scrubbed only for ambient progress" },
+      "scroll_morphing": { "enabled": false, "description": "No content morphing; it would compete with evidence scanning." }
+    },
+    "text_effects": {
+      "type": "gradient-fill",
+      "description": "Only selected hero words and section signals use a slow cyan-blue-violet highlight.",
+      "technology": "CSS with GSAP reveal sequencing",
+      "params": { "split_strategy": "by-line", "animation_per_unit": "translateY 24px and autoAlpha", "stagger": "60ms, capped below 400ms", "effect_style": "controlled premium reveal" }
+    },
+    "cursor_effects": {
+      "enabled": true,
+      "type": "magnetic-buttons",
+      "description": "Fine-pointer primary actions move at most 4px toward the cursor; the WebGL camera counter-moves.",
+      "params": { "shape": "native cursor", "size": "system default", "blend_mode": "normal", "trail": "none", "interaction_zone": "primary actions and WebGL canvas only" }
+    },
+    "image_effects": {
+      "type": "parallax-tilt",
+      "description": "System diagram canvases tilt by no more than two degrees and brighten their active route on hover.",
+      "technology": "CSS transforms and GSAP quickTo",
+      "params": { "filter_pipeline": "subtle contrast and glow only", "hover_transform": "translateY(-4px) rotateX/rotateY <= 2deg", "reveal_animation": "clip and fade", "distortion_type": "none" }
+    },
+    "glassmorphism_neumorphism": {
+      "enabled": true,
+      "style": "frosted-layers",
+      "params": { "blur_radius": "18px", "transparency": "0.82 dark / 0.88 light", "border_treatment": "one-pixel neutral rule", "shadow_type": "minimal ambient shadow", "light_source_angle": "top-left" }
+    },
+    "canvas_drawings": {
+      "enabled": false,
+      "type": "none",
+      "description": "Three.js owns the generative field; a second Canvas 2D loop is unnecessary.",
+      "technology": "none",
+      "params": { "draw_method": "none", "animation_loop": "none", "color_scheme": "inherits CSS fallback", "responsiveness": "CSS-only fallback", "interaction": "none" }
+    },
+    "svg_animations": {
+      "enabled": true,
+      "type": "path-draw",
+      "description": "Existing architecture routes draw once as each system diagram enters the viewport.",
+      "params": { "animation_method": "GSAP strokeDashoffset", "path_morphing": false, "stroke_animation": "pathLength 1 to 0", "filter_effects": "subtle cyan glow" }
+    },
+    "composite_notes": "The visual hierarchy must remain readable without WebGL. Three.js supplies atmospheric depth inspired by Structure Flow and Predictive Arc, while Kage contributes scale, framing, and calm cinematic pacing. Diagnostics Panel informs thin-line system geometry. Effects remain peripheral to project evidence and are disabled or simplified for mobile, reduced-motion, low-end hardware, and hidden tabs."
+  }
+}

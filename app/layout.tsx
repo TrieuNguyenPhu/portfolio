@@ -1,28 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto_Mono, Space_Grotesk } from "next/font/google";
+import { Roboto } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import SiteShell from "./site-shell";
 
-const display = Space_Grotesk({
+const roboto = Roboto({
   subsets: ["latin", "vietnamese"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const mono = Roboto_Mono({
-  subsets: ["latin", "vietnamese"],
-  variable: "--font-mono",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-roboto",
   display: "swap",
 });
 
 const designContract = `<!--
 THESIS: A personal DevOps portfolio where technical depth feels clear, approachable, and memorable.
-OWN-WORLD: Airy editorial space, deep indigo ink, and a focused family of indigo signals with living cloud-system illustrations.
+OWN-WORLD: A calm infrastructure signal observatory with deep neutral fields, cyan-blue-violet telemetry, and precise editorial evidence.
 STORY: Visitors meet Trieu through a human introduction, understand his capabilities, inspect evidence-rich work, then make contact.
-FIRST VIEWPORT: A concise engineering promise and custom cloud workbench illustration establish personality and focus.
-FORM: Spacious storytelling with native CSS/SVG motion and progressive enhancement.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+FIRST VIEWPORT: A concise engineering promise sits against a living Three.js topology field without sacrificing scan speed.
+FORM: Spacious storytelling, GSAP choreography, and progressively enhanced WebGL with a complete static fallback.
+FINISH: Every effect is subordinate to evidence, measured against reduced-motion, responsive, performance, and accessibility constraints.
 -->`;
 
 export const metadata: Metadata = {
@@ -60,8 +55,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0b0d1f" },
-    { media: "(prefers-color-scheme: light)", color: "#f5f7ff" },
+    { media: "(prefers-color-scheme: dark)", color: "#07090d" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f7fb" },
   ],
 };
 
@@ -85,7 +80,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" suppressHydrationWarning>
       <head><Script id="theme-preference" strategy="beforeInteractive">{themeScript}</Script></head>
-      <body id="top" className={`${display.variable} ${mono.variable}`}>
+      <body id="top" className={roboto.variable}>
         <template data-design-contract dangerouslySetInnerHTML={{ __html: designContract }} />
         <Script
           id="person-structured-data"
