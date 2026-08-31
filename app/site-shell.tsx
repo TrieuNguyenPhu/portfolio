@@ -4,14 +4,12 @@ import SiteFooter from "./site-footer";
 import SiteHeader from "./site-header";
 import { SitePreferencesProvider } from "./site-preferences";
 import ScrollReveal from "./scroll-reveal";
-import AmbientThree from "./ambient-three";
 
 export default function SiteShell({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <SitePreferencesProvider>
       <ScrollReveal>
         <div className="ambient" aria-hidden="true">
-          <AmbientThree />
           <div className="ambient__grid" />
           <div className="ambient__glow ambient__glow--one" />
           <div className="ambient__glow ambient__glow--two" />

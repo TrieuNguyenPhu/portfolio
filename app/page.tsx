@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { CloudWorkbench, ProjectArchitecture } from "./architecture-visual";
+import { ProjectArchitecture } from "./architecture-visual";
+import HeroThree from "./ambient-three";
 import { posts } from "./blog/posts";
 import ProfileOverview from "./profile-overview";
 import { projects } from "./projects/projects";
@@ -9,6 +10,21 @@ import { useSitePreferences } from "./site-preferences";
 import UiIcon from "./ui-icon";
 
 const technologies = ["AWS", "Terraform", "Docker", "Kubernetes", "CI/CD", "GitOps", "Prometheus", "Argo CD"] as const;
+
+function AnimatedHeadline({ text }: Readonly<{ text: string }>) {
+  return (
+    <h1 aria-label={text}>
+      <span className="sr-only">{text}</span>
+      <span className="hero-headline-words" aria-hidden="true">
+        {text.split(" ").map((word, index) => (
+          <span className="hero-word-mask" key={`${word}-${index}`}>
+            <span data-hero-word>{word}</span>
+          </span>
+        ))}
+      </span>
+    </h1>
+  );
+}
 
 const copy = {
   en: {
@@ -45,15 +61,19 @@ export default function Home() {
   const { preferences: { language } } = useSitePreferences();
   const t = copy[language];
   const post = posts[0];
+  const proof = language === "en"
+    ? [["01", "Cloud platforms"], ["02", "Delivery systems"], ["03", "Observability"]]
+    : [["01", "Nền tảng cloud"], ["02", "Hệ thống triển khai"], ["03", "Khả năng quan sát"]];
 
   return (
     <main className="folio-home"><div id="home">
-      <section className="folio-hero">
-        <div className="folio-hero-copy" data-reveal>
-          <p className="folio-role">{t.role}</p><h1>{t.headline}</h1><p className="folio-lede">{t.lede}</p>
+      <section className="folio-hero" data-hero>
+        <HeroThree />
+        <div className="folio-hero-copy">
+          <p className="folio-role" data-hero-intro>{t.role}</p><AnimatedHeadline text={t.headline} /><p className="folio-lede" data-hero-intro>{t.lede}</p>
           <div className="hero-actions"><Link className="button button--primary" href="#case-studies"><UiIcon name="projects" />{t.work}<UiIcon name="arrow" /></Link><a className="button button--ghost" href="mailto:nguyentrieu080604@gmail.com"><UiIcon name="mail" />{t.hello}</a></div>
+          <div className="hero-proof" data-hero-intro>{proof.map(([index, label]) => <div key={index}><span>{index}</span><strong>{label}</strong></div>)}</div>
         </div>
-        <div className="folio-illustration" data-reveal data-reveal-delay="1"><CloudWorkbench /></div>
       </section>
 
       <ul className="technology-rail" aria-label={t.technologies} data-reveal>{technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
@@ -64,7 +84,7 @@ export default function Home() {
 
       <section className="project-showcase" id="case-studies">
         <header className="folio-section-heading" data-reveal><span>{t.projectsLabel}</span><div><h2>{t.projectsTitle}</h2><p>{t.projectsText}</p></div></header>
-        <div className="featured-project-grid">{projects.slice(0, 3).map((project, index) => <article className="featured-project-card" key={project.slug} data-reveal data-reveal-delay={String(index)}><div className="featured-project-visual"><ProjectArchitecture project={project} variant={index} language={language} /></div><div className="featured-project-copy"><div className="project-kicker"><span>{project.stage[language]}</span><time>{project.date[language]}</time></div><p className="project-type">{project.type[language]}</p><h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3><p>{project.summary[language]}</p><div className="featured-evidence"><span>{t.evidence}</span><ul>{project.highlights.slice(0, 2).map((item) => <li key={item.en}>{item[language]}</li>)}</ul></div><ul className="tags" aria-label={`${project.title} ${t.stack}`}>{project.stack.slice(0, 6).map((item) => <li key={item}>{item}</li>)}</ul><div className="project-actions"><Link className="case-link case-link--primary" href={`/projects/${project.slug}`}>{t.caseStudy}<span><UiIcon name="arrow" /></span></Link><a className="case-link" href={project.href} target="_blank" rel="noopener noreferrer">{t.repository}<span><UiIcon name="code" /></span></a></div></div></article>)}</div>
+        <div className="featured-project-grid">{projects.slice(0, 3).map((project, index) => <article className="featured-project-card" key={project.slug} data-project-card><div className="featured-project-visual" data-project-visual><ProjectArchitecture project={project} variant={index} language={language} /></div><div className="featured-project-copy"><div className="project-kicker"><span>{project.stage[language]}</span><time>{project.date[language]}</time></div><p className="project-type">{project.type[language]}</p><h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3><p>{project.summary[language]}</p><div className="featured-evidence"><span>{t.evidence}</span><ul>{project.highlights.slice(0, 2).map((item) => <li key={item.en}>{item[language]}</li>)}</ul></div><ul className="tags" aria-label={`${project.title} ${t.stack}`}>{project.stack.slice(0, 6).map((item) => <li key={item}>{item}</li>)}</ul><div className="project-actions"><Link className="case-link case-link--primary" href={`/projects/${project.slug}`}>{t.caseStudy}<span><UiIcon name="arrow" /></span></Link><a className="case-link" href={project.href} target="_blank" rel="noopener noreferrer">{t.repository}<span><UiIcon name="code" /></span></a></div></div></article>)}</div>
         <Link className="folio-outline-link" href="/projects">{t.allProjects}<UiIcon name="arrow" /></Link>
       </section>
 

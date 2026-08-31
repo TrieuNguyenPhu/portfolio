@@ -1,17 +1,19 @@
 {
   "meta": {
-    "name": "Infrastructure Signal Observatory",
-    "description": "A cinematic but highly legible DevOps portfolio combining editorial evidence, precise system-diagram geometry, and restrained WebGL signal fields.",
+    "name": "Cloud Orbit Command",
+    "description": "An immersive 3D-first DevOps portfolio where an interactive cloud core, orbital infrastructure nodes, and scroll-driven scene changes lead into legible engineering evidence.",
     "source_references": [
       "https://threeui.com/browse",
       "https://threeui.com/landing-pages/kage-landing-page",
       "https://threeui.com/three-js/structure-flow",
-      "https://threeui.com/backgrounds/predictive-arc",
+      "https://threeui.com/hero/threeui-rings",
+      "https://threeui.com/backgrounds/orrery",
+      "https://threeui.com/backgrounds/predictive-arc/signal-particles",
       "https://threeui.com/ui-elements/diagnostics-panel",
       "PRODUCT.md",
       "DESIGN.md"
     ],
-    "created_at": "2026-08-30"
+    "created_at": "2026-08-31"
   },
   "design_system": {
     "color": {
@@ -138,7 +140,7 @@
       "ornamentation": "subtle technical accents",
       "whitespace_usage": "Generous section whitespace with compact evidence groupings",
       "visual_weight_distribution": "Large typographic claims balanced by low-opacity spatial fields",
-      "focal_strategy": "Progressive reveal from hero promise to verified project evidence",
+      "focal_strategy": "One dominant interactive WebGL hero object followed by progressive project evidence",
       "contrast_level": "high",
       "texture_usage": "Fine noise, sparse dot matrices, and subtle scan-grid registration"
     },
@@ -173,76 +175,76 @@
   },
   "visual_effects": {
     "overview": {
-      "effect_intensity": "moderate",
+      "effect_intensity": "heavy-immersive",
       "performance_tier": "heavy",
       "fallback_strategy": "Disable WebGL on reduced motion or low-end devices and retain a static CSS grid, radial signal glows, and all content.",
       "primary_technology": "WebGL/Three.js with GSAP ScrollTrigger"
     },
     "background_effects": {
       "type": "generative-art",
-      "description": "A fixed infrastructure signal field combining a particle dome, orbital paths, and a restrained violet energy arc.",
+      "description": "A full-viewport black spatial field led by a luminous cloud core, concentric deployment rings, orbital infrastructure nodes, and deep particle dust.",
       "technology": "Three.js",
       "params": {
         "color_palette": ["#22d3ee", "#2563eb", "#8b5cf6", "#d8deea"],
         "speed": "0.025 radians per second",
-        "density": "260-420 points depending on viewport",
-        "opacity": "0.18-0.48",
+        "density": "700-1400 points depending on viewport",
+        "opacity": "0.35-0.9",
         "blend_mode": "additive"
       }
     },
     "particle_systems": {
       "enabled": true,
       "type": "connected-nodes",
-      "description": "Sparse infrastructure nodes forming a curved field with a brighter deploy path.",
+      "description": "A deep dust field surrounds the hero core while brighter deploy particles and orbital nodes define the active infrastructure path.",
       "technology": "Three.js Points and BufferGeometry",
       "params": {
-        "count": 360,
+        "count": 1200,
         "shape": "soft circular points",
         "size_range": "1-3px",
         "movement_pattern": "slow orbital drift with depth parallax",
         "color_behavior": "cyan through violet based on normalized position",
-        "interaction": "mouse-attract with subtle camera counter-motion",
-        "spawn_area": "elliptical dome covering the viewport perimeter"
+        "interaction": "pointer parallax, raycast node focus, and drag-to-orbit on desktop",
+        "spawn_area": "spherical shell around the hero core with foreground and background depth"
       }
     },
     "3d_elements": {
       "enabled": true,
-      "type": "scene-bg",
-      "description": "A low-poly observatory globe and orbital deployment rings shared across the site.",
+      "type": "hero-model",
+      "description": "A large shader-displaced cloud core with particle skin, luminous energy rings, orbiting AWS/Kubernetes/GitOps nodes, and floating data fragments.",
       "technology": "Three.js",
       "params": {
-        "renderer": "WebGLRenderer with alpha, antialiasing, DPR capped at 1.5",
-        "lighting": "Unlit additive signal materials with one subtle hemisphere light for solid geometry",
-        "camera": "Perspective camera, 44 degree FOV, z 7.5, pointer response capped below 0.2 radians",
-        "materials": "MeshBasic wireframe and custom ShaderMaterial points",
-        "geometry": "Icosahedron wireframe, torus rings, BufferGeometry point dome, and line arcs",
-        "post_processing": ["native additive blending", "CSS vignette fallback"],
-        "interaction_model": "Passive pointer parallax on desktop; static on touch and reduced-motion"
+        "renderer": "WebGLRenderer with ACES tone mapping, antialiasing, DPR capped at 1.6, and EffectComposer",
+        "lighting": "Shader-driven Fresnel rim, emissive nodes, additive particles, and a restrained hemisphere/key-light pair",
+        "camera": "Perspective camera, 38 degree FOV, cinematic z movement driven by hero scroll progress",
+        "materials": "Custom Fresnel/displacement ShaderMaterial, additive point sprites, emissive MeshStandardMaterial, and ruled wireframe",
+        "geometry": "High-detail icosahedral core, torus and curve-based rings, surface point skin, orbit nodes, and deep particle shell",
+        "post_processing": ["UnrealBloomPass", "ACES tone mapping", "native additive blending", "CSS vignette fallback"],
+        "interaction_model": "Pointer parallax, drag-to-orbit, raycast node response, scroll-driven camera move; static fallback on touch/reduced-motion"
       }
     },
     "shader_effects": {
       "enabled": true,
       "type": "color-shift",
-      "description": "Point sprites breathe and shift color along cyan, blue, and violet positions.",
+      "description": "The core surface displaces and breathes while Fresnel rim light, scan bands, and point sprites shift through cyan, blue, and violet.",
       "technology": "Three.js ShaderMaterial / GLSL",
       "params": {
-        "uniforms": ["uTime", "uPixelRatio", "uColorA", "uColorB"],
-        "vertex_manipulation": "Small sine displacement along point normals with perspective-scaled point size",
-        "fragment_output": "Soft circular additive sprite with feathered edge",
+        "uniforms": ["uTime", "uPixelRatio", "uPointer", "uColorA", "uColorB", "uIntensity"],
+        "vertex_manipulation": "Layered sine and value-noise displacement along normals plus perspective-scaled point size",
+        "fragment_output": "Dark volumetric core with luminous Fresnel rim and scan bands; feathered additive sprites for its particle skin",
         "noise_type": "value noise",
-        "distortion": "Sub-2% ambient displacement only"
+        "distortion": "6-10% organic core displacement with low-frequency breathing"
       }
     },
     "scroll_effects": {
-      "parallax": { "enabled": true, "layers": 3, "depth_range": "0.1x to 0.5x", "speed_curve": "linear scroll mapping with GSAP scrub 1" },
-      "scroll_triggered_animations": { "enabled": true, "trigger_points": "top 86% to bottom 12%", "animation_type": "premium fade-scale-settle", "scrub_behavior": "triggered once for content; scrubbed only for ambient progress" },
-      "scroll_morphing": { "enabled": false, "description": "No content morphing; it would compete with evidence scanning." }
+      "parallax": { "enabled": true, "layers": 4, "depth_range": "0.1x to 1x", "speed_curve": "GSAP scrub 0.6 with counter-motion between copy, HUD, and WebGL stage" },
+      "scroll_triggered_animations": { "enabled": true, "trigger_points": "hero pinned from top to +=55vh; content enters at top 86%", "animation_type": "pinned 3D scene transition, by-word hero reveal, project perspective settle, SVG path draw", "scrub_behavior": "scrubbed hero and project depth; triggered once for supporting content" },
+      "scroll_morphing": { "enabled": true, "description": "Desktop hero pins briefly while the cloud core scales, rotates, and recedes as the copy resolves into the technology rail." }
     },
     "text_effects": {
-      "type": "gradient-fill",
-      "description": "Only selected hero words and section signals use a slow cyan-blue-violet highlight.",
+      "type": "split-letter-animate",
+      "description": "The hero claim arrives by word with depth and a masked vertical reveal; selected signals retain the cyan-blue-violet highlight.",
       "technology": "CSS with GSAP reveal sequencing",
-      "params": { "split_strategy": "by-line", "animation_per_unit": "translateY 24px and autoAlpha", "stagger": "60ms, capped below 400ms", "effect_style": "controlled premium reveal" }
+      "params": { "split_strategy": "by-word", "animation_per_unit": "translateY 110% rotateX -18deg and autoAlpha", "stagger": "45ms, capped below 450ms", "effect_style": "cinematic masked depth reveal" }
     },
     "cursor_effects": {
       "enabled": true,
@@ -274,6 +276,6 @@
       "description": "Existing architecture routes draw once as each system diagram enters the viewport.",
       "params": { "animation_method": "GSAP strokeDashoffset", "path_morphing": false, "stroke_animation": "pathLength 1 to 0", "filter_effects": "subtle cyan glow" }
     },
-    "composite_notes": "The visual hierarchy must remain readable without WebGL. Three.js supplies atmospheric depth inspired by Structure Flow and Predictive Arc, while Kage contributes scale, framing, and calm cinematic pacing. Diagnostics Panel informs thin-line system geometry. Effects remain peripheral to project evidence and are disabled or simplified for mobile, reduced-motion, low-end hardware, and hidden tabs."
+    "composite_notes": "The first viewport is intentionally 3D-first: ThreeUI Rings supplies the typographic/orbital scale, Orbital Sphere informs the particle core, and Orrery informs luminous rotating paths. The scene remains behind semantic HTML rather than replacing it. GSAP pins and resolves the hero on desktop, then project cards use restrained perspective depth. Mobile removes pinning and bloom resolution; reduced-motion receives a static radial core, complete text, and no continuous spatial movement."
   }
 }

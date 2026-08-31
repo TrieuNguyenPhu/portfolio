@@ -1,16 +1,16 @@
 # Nguyen Phu Trieu — Portfolio
 
-A bilingual Next.js portfolio for DevOps, cloud infrastructure, and platform engineering work. The interface uses Three.js for a progressive ambient signal scene and GSAP for route-scoped motion while keeping all content server-rendered and accessible without either enhancement.
+A bilingual Next.js portfolio for DevOps, cloud infrastructure, and platform engineering work. The home page uses a shader-driven Three.js cloud core, particles, orbital paths, bloom, and pointer interaction. GSAP adds a pinned hero narrative, word reveals, and project-depth choreography while retaining static accessible fallbacks.
 
 ## Architecture
 
 - `app/page.tsx` — home-page content and project evidence.
 - `app/projects` and `app/blog` — statically generated index and detail routes.
-- `app/site-shell.tsx` — shared navigation, preferences, ambient field, and footer.
-- `app/ambient-three.tsx` — disposable, performance-capped Three.js scene.
+- `app/site-shell.tsx` — shared navigation, preferences, CSS ambient field, and footer.
+- `app/ambient-three.tsx` — interactive, disposable, performance-capped hero scene.
 - `app/scroll-reveal.tsx` — scoped GSAP/ScrollTrigger choreography.
 - `app/globals.css` — tokens, themes, component styling, responsive rules, and fallbacks.
-- `design-dna.json` — machine-readable source of the redesign decisions.
+- `design-dna.json` — machine-readable source of redesign decisions.
 - `DESIGN.md` — human-readable design and motion contract.
 
 ## Development

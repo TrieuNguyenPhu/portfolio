@@ -22,6 +22,13 @@ export default function ScrollReveal({ children }: Readonly<{ children: React.Re
       ".visual-route, .workbench-flow, .map-route",
       root,
     );
+    const hero = root.querySelector<HTMLElement>("[data-hero]");
+    const heroWords = gsap.utils.toArray<HTMLElement>("[data-hero-word]", root);
+    const heroIntro = gsap.utils.toArray<HTMLElement>(
+      "[data-hero-intro], .hero-actions",
+      root,
+    );
+    const projectCards = gsap.utils.toArray<HTMLElement>("[data-project-card]", root);
 
     media.add(
       {
@@ -36,8 +43,54 @@ export default function ScrollReveal({ children }: Readonly<{ children: React.Re
 
         if (reduceMotion) {
           gsap.set(revealTargets, { autoAlpha: 1, clearProps: "transform" });
+          gsap.set([...heroWords, ...heroIntro, ...projectCards], {
+            autoAlpha: 1,
+            clearProps: "transform",
+          });
           gsap.set(routePaths, { strokeDashoffset: 0 });
           return;
+        }
+
+        if (hero) {
+          gsap.set(heroWords, { autoAlpha: 0, yPercent: 115, rotateX: -28 });
+          gsap.set(heroIntro, { autoAlpha: 0, y: 18 });
+
+          const heroEntrance = gsap.timeline({ defaults: { ease: "power3.out" } });
+          heroEntrance
+            .to(heroWords, {
+              autoAlpha: 1,
+              yPercent: 0,
+              rotateX: 0,
+              duration: 0.82,
+              stagger: 0.045,
+            }, 0.12)
+            .to(heroIntro, {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.62,
+              stagger: 0.07,
+            }, 0.28);
+
+          if (isDesktop) {
+            const heroStage = hero.querySelector<HTMLElement>(".hero-stage");
+            const heroCopy = hero.querySelector<HTMLElement>(".folio-hero-copy");
+            const heroHud = gsap.utils.toArray<HTMLElement>(".hero-stage__hud, .hero-node-label", hero);
+            const heroScroll = gsap.timeline({
+              scrollTrigger: {
+                trigger: hero,
+                start: "top top+=76",
+                end: "+=70%",
+                pin: true,
+                pinSpacing: true,
+                scrub: 0.65,
+                anticipatePin: 1,
+              },
+            });
+
+            if (heroStage) heroScroll.to(heroStage, { scale: 1.045, duration: 1, ease: "none" }, 0);
+            if (heroCopy) heroScroll.to(heroCopy, { y: -38, autoAlpha: 0.34, duration: 1, ease: "none" }, 0.18);
+            if (heroHud.length) heroScroll.to(heroHud, { autoAlpha: 0, duration: 0.45, stagger: 0.025 }, 0.45);
+          }
         }
 
         gsap.set(revealTargets, {
@@ -80,6 +133,46 @@ export default function ScrollReveal({ children }: Readonly<{ children: React.Re
               },
             },
           );
+        });
+
+        projectCards.forEach((card, index) => {
+          const visual = card.querySelector<HTMLElement>("[data-project-visual]");
+          gsap.fromTo(
+            card,
+            {
+              autoAlpha: 0,
+              y: isDesktop ? 80 : 42,
+              rotateY: isDesktop ? (index % 2 === 0 ? -5 : 5) : 0,
+              scale: 0.965,
+            },
+            {
+              autoAlpha: 1,
+              y: 0,
+              rotateY: 0,
+              scale: 1,
+              duration: isDesktop ? 0.92 : 0.58,
+              ease: "power3.out",
+              scrollTrigger: { trigger: card, start: "top 84%", once: true },
+            },
+          );
+
+          if (visual && isDesktop) {
+            gsap.fromTo(
+              visual,
+              { yPercent: -5, scale: 1.035 },
+              {
+                yPercent: 5,
+                scale: 1,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 0.7,
+                },
+              },
+            );
+          }
         });
 
         const progress = root.querySelector<HTMLElement>(".scroll-progress");
