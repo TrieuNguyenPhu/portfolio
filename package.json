@@ -7,14 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit",
-    "test": "node --no-warnings --experimental-strip-types app/lib/site-preferences.test.ts"
+    "test": "node --no-warnings --experimental-strip-types app/portfolio-data.test.ts"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.2",
-    "gsap": "^3.15.0",
+    "@designcodeio/threeui": "1.1.0",
     "next": "16.3.3",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "three": "0.165.0"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

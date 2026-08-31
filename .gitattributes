@@ -1,3 +1,4 @@
-src/shaders/crt/* text eol=lf
+src/shaders/landing-pages/* text eol=lf
 src/shaders/threeui.css text eol=lf
 src/shaders/fonts/*.woff2 binary
+public/landing-pages/*.html text eol=lf

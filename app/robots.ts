@@ -1,9 +1,5 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://nguyen-phu-trieu-portfolio.vercel.app/sitemap.xml",
-    host: "https://nguyen-phu-trieu-portfolio.vercel.app",
-  };
+  return { rules: { userAgent: "*", allow: "/" }, sitemap: "https://nguyen-phu-trieu-portfolio.vercel.app/sitemap.xml" };
 }

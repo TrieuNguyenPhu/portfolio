@@ -1,18 +1,21 @@
-# Nguyen Phu Trieu — Portfolio
+# Nguyen Phu Trieu — Working Systems
 
-A bilingual Next.js portfolio for DevOps, cloud infrastructure, and platform engineering. The complete interface is styled as a phosphor operations terminal, anchored by ThreeUI's exact `CrtBackground` `terminal` variant using Raw WebGL and Canvas 2D. GSAP provides route-scoped reveals and depth while the content remains accessible without animation or WebGL.
+A rebuilt Next.js portfolio organized as seven editorial volumes. The landing experience uses ThreeUI's exact `CompleteShelfLandingPage` source and canonical Three.js r165 document; the profile translates the same bookshelf language into verified DevOps, DevSecOps, project, and career evidence.
 
-## Architecture
+## Source integrity
 
-- `app/page.tsx` — home terminal, configured CRT usage, profile, and project evidence.
-- `app/projects`, `app/blog`, and `app/about` — statically generated terminal-styled routes.
-- `app/site-shell.tsx` — shared navigation, language/theme preferences, and footer.
-- `app/scroll-reveal.tsx` — scoped GSAP and ScrollTrigger choreography.
-- `app/globals.css` — phosphor tokens, route styling, responsive rules, and fallbacks.
-- `src/shaders/crt` — exact registered ThreeUI component, renderer, shaders, and terminal screen source.
-- `src/shaders/threeui.css` — exact registered shared ThreeUI stylesheet.
-- `design-dna.json` — machine-readable redesign decisions.
-- `DESIGN.md` — human-readable visual, source-integrity, motion, and performance contract.
+The registered files are stored without modification:
+
+- `src/shaders/landing-pages/LandingPages.tsx`
+- `public/landing-pages/complete-shelf-v2.html`
+- `src/shaders/threeui.css`
+
+Git attributes force LF for these sources so their published SHA-256 values remain stable after checkout. The application imports `CompleteShelfLandingPage` from `@designcodeio/threeui@1.1.0` and pins `three@0.165.0`.
+
+## Routes
+
+- `/` — exact interactive Working Volumes shelf with the configured typography and copper accent.
+- `/profile` — seven portfolio volumes derived from the supplied CV.
 
 ## Development
 
@@ -28,5 +31,3 @@ npm run lint
 npm test
 npm run build
 ```
-
-The production build pre-renders the home, about, blog, project index, blog article, and all project case-study routes.
