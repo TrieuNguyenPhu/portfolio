@@ -28,6 +28,8 @@ export default function ScrollReveal({ children }: Readonly<{ children: React.Re
       "[data-hero-intro], .hero-actions",
       root,
     );
+    const heroName = root.querySelector<HTMLElement>("[data-hero-name]");
+    const heroFeature = root.querySelector<HTMLElement>("[data-hero-feature]");
     const projectCards = gsap.utils.toArray<HTMLElement>("[data-project-card]", root);
 
     media.add(
@@ -43,7 +45,7 @@ export default function ScrollReveal({ children }: Readonly<{ children: React.Re
 
         if (reduceMotion) {
           gsap.set(revealTargets, { autoAlpha: 1, clearProps: "transform" });
-          gsap.set([...heroWords, ...heroIntro, ...projectCards], {
+          gsap.set([...heroWords, ...heroIntro, ...projectCards, heroName, heroFeature].filter(Boolean), {
             autoAlpha: 1,
             clearProps: "transform",
           });
@@ -54,6 +56,8 @@ export default function ScrollReveal({ children }: Readonly<{ children: React.Re
         if (hero) {
           gsap.set(heroWords, { autoAlpha: 0, yPercent: 115, rotateX: -28 });
           gsap.set(heroIntro, { autoAlpha: 0, y: 18 });
+          if (heroName) gsap.set(heroName, { autoAlpha: 0, yPercent: 28, clipPath: "inset(0 0 100% 0)" });
+          if (heroFeature) gsap.set(heroFeature, { autoAlpha: 0, x: 24 });
 
           const heroEntrance = gsap.timeline({ defaults: { ease: "power3.out" } });
           heroEntrance
@@ -70,6 +74,18 @@ export default function ScrollReveal({ children }: Readonly<{ children: React.Re
               duration: 0.62,
               stagger: 0.07,
             }, 0.28);
+          if (heroName) {
+            heroEntrance.to(heroName, {
+              autoAlpha: 1,
+              yPercent: 0,
+              clipPath: "inset(0 0 0% 0)",
+              duration: 1.05,
+              ease: "power4.out",
+            }, 0.18);
+          }
+          if (heroFeature) {
+            heroEntrance.to(heroFeature, { autoAlpha: 1, x: 0, duration: 0.7 }, 0.48);
+          }
 
           if (isDesktop) {
             const heroStage = hero.querySelector<HTMLElement>(".hero-stage");
@@ -89,6 +105,8 @@ export default function ScrollReveal({ children }: Readonly<{ children: React.Re
 
             if (heroStage) heroScroll.to(heroStage, { scale: 1.045, duration: 1, ease: "none" }, 0);
             if (heroCopy) heroScroll.to(heroCopy, { y: -38, autoAlpha: 0.34, duration: 1, ease: "none" }, 0.18);
+            if (heroName) heroScroll.to(heroName, { yPercent: 24, autoAlpha: 0.22, duration: 1, ease: "none" }, 0);
+            if (heroFeature) heroScroll.to(heroFeature, { x: 36, autoAlpha: 0, duration: .72, ease: "none" }, 0.2);
             if (heroHud.length) heroScroll.to(heroHud, { autoAlpha: 0, duration: 0.45, stagger: 0.025 }, 0.45);
           }
         }

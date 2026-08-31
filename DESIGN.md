@@ -1,6 +1,6 @@
 ---
 name: Nguyen Phu Trieu Portfolio
-description: A bilingual 3D cloud-orbit portfolio for verified DevOps work.
+description: A bilingual isometric Logic Core portfolio for verified DevOps work.
 colors:
   dark-paper: "#07090d"
   dark-sheet: "#0d1119"
@@ -26,11 +26,11 @@ rounded:
   square: "0"
 ---
 
-# Design System: Cloud Orbit Command
+# Design System: Logic Core Chapters
 
 ## Creative direction
 
-The portfolio behaves like a cloud command environment: one cinematic WebGL object establishes the first impression, while precise registration lines, architecture routes, and project evidence support technical inspection. The composition draws from ThreeUI's orbital, signal-particle, rings, and orrery references without copying their layouts.
+The portfolio behaves like an interactive infrastructure chapter. The composition is based on ThreeUI's Kage landing-page hierarchy, Logic Core scene, Flowing Mesh diagnostic surface, Connectivity Graph field, and Gradient Beam CTA. Those references are translated into a DevOps system rather than copied verbatim.
 
 The canonical machine-readable extraction is in `design-dna.json`.
 
@@ -44,13 +44,13 @@ The canonical machine-readable extraction is in `design-dna.json`.
 
 ## Visual DNA
 
-Dark mode uses `#07090d` as the observation field and `#0d1119` for raised technical sheets. Light mode uses `#f4f7fb` and white sheets. The signal gradient runs from cyan `#22d3ee`, through blue `#2563eb`, to violet `#8b5cf6`.
+Dark mode uses `#020606` as the hero field and `#0d1119` for raised technical sheets. Light mode uses `#f4f7fb` and white sheets. Cyan `#68eadb` is the primary signal, amber `#f0c078` indicates warm system state, and violet `#9d8dff` marks secondary topology.
 
 Roboto is the only type family. Hero type is tightly tracked and editorial; body copy remains relaxed; labels use compact uppercase tracking. Corners stay square, borders are one-pixel registration rules, and system diagrams use orthogonal routes with restrained arcs and status points.
 
 ## Spatial system
 
-Content uses a fluid maximum width of 88rem with responsive outer gutters. The home hero is a full-viewport composition: a shader-driven cloud core fills the right side while the career claim overlays the left. Below 62rem the object moves behind and below the copy. Below 48rem actions become full width and project/case-study layouts stack.
+Content uses a fluid maximum width of 88rem with responsive outer gutters. The home hero is a full-viewport chapter: editorial copy sits at upper left, an isometric infrastructure table occupies the center/right, and the monumental `TRIEU` wordmark crosses the bottom foreground. Below 48rem the scene moves lower, optional labels and the featured card disappear, actions become full width, and project/case-study layouts stack.
 
 Primary thresholds are 70rem, 62rem, 48rem, and 32rem.
 
@@ -58,13 +58,15 @@ Primary thresholds are 70rem, 62rem, 48rem, and 32rem.
 
 `app/ambient-three.tsx` provides the dedicated home-hero WebGL stage:
 
-- shader-displaced icosahedral cloud core with Fresnel and scan-band lighting;
-- surface particles, atmospheric dust, four technical orbits, and two energy tubes;
-- moving AWS, Kubernetes, GitOps, and observability signal nodes;
+- shader-scanned hexagonal Logic Core with cyan-to-amber Fresnel lighting;
+- Flowing Mesh diagnostic surface, boxed isometric platform, status ring, and atmospheric dust;
+- eight routed infrastructure nodes with moving deployment pulses;
 - desktop bloom post-processing;
 - pointer parallax, drag-to-orbit, node raycasting, and scroll-based camera response.
 
-The renderer caps pixel ratio and particle density, lowers geometry on low-core devices, pauses outside the viewport, observes resize, and disposes every allocated resource. A failed WebGL context receives the CSS orbital fallback.
+The renderer caps pixel ratio and particle density, disables bloom on narrow/low-core devices, pauses outside the viewport, observes resize, and disposes allocated resources. A failed WebGL context receives a CSS isometric-platform fallback.
+
+`app/infrastructure-field.tsx` adds the Connectivity Graph-inspired Canvas 2D field behind the profile sections. It uses deterministic rays, subtle pointer parallax, viewport pausing, a DPR cap, and a static reduced-motion frame.
 
 The scene is decorative and absent from the accessibility tree. DOM labels and a left-side vignette protect readable contrast while interaction remains optional.
 
@@ -75,7 +77,7 @@ The motion personality is **premium technical**: deliberate, precise, and withou
 `app/scroll-reveal.tsx` owns route-scoped GSAP behavior:
 
 - hero words arrive by word, followed by supporting copy and proof;
-- the desktop hero pins briefly while the core advances and HUD signals recede;
+- the desktop hero pins briefly while the core advances, the `TRIEU` layer drops through frame, and HUD signals recede;
 - project cards enter with shallow perspective and scrubbed visual parallax;
 - architecture routes draw as they enter the viewport;
 - the global progress line scrubs linearly;
@@ -85,7 +87,7 @@ All animation is scoped and reverted on route changes.
 
 ### Reduced motion
 
-When `prefers-reduced-motion: reduce` is active, the Three.js scene renders one static frame with no pointer, scroll, or continuous spatial motion. Reveal targets remain visible, SVG routes appear complete, magnetic movement is removed, and smooth scrolling is disabled.
+When `prefers-reduced-motion: reduce` is active, the Three.js scene and Connectivity Graph each render one static frame with no pointer, scroll, or continuous spatial motion. Reveal targets remain visible, SVG routes appear complete, magnetic movement is removed, the Gradient Beam stops, and smooth scrolling is disabled.
 
 ## Accessibility and performance contract
 

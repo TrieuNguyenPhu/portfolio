@@ -1,6 +1,6 @@
 # Nguyen Phu Trieu — Portfolio
 
-A bilingual Next.js portfolio for DevOps, cloud infrastructure, and platform engineering work. The home page uses a shader-driven Three.js cloud core, particles, orbital paths, bloom, and pointer interaction. GSAP adds a pinned hero narrative, word reveals, and project-depth choreography while retaining static accessible fallbacks.
+A bilingual Next.js portfolio for DevOps, cloud infrastructure, and platform engineering work. The home page combines a Kage-inspired editorial composition with a shader-driven Three.js Logic Core, isometric infrastructure nodes, a Flowing Mesh diagnostic surface, a Canvas 2D connectivity field, bloom, and pointer interaction. GSAP adds a pinned chapter narrative, word reveals, and project-depth choreography while retaining static accessible fallbacks.
 
 ## Architecture
 

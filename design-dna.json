@@ -1,15 +1,14 @@
 {
   "meta": {
-    "name": "Cloud Orbit Command",
-    "description": "An immersive 3D-first DevOps portfolio where an interactive cloud core, orbital infrastructure nodes, and scroll-driven scene changes lead into legible engineering evidence.",
+    "name": "Logic Core Chapters",
+    "description": "A cinematic DevOps portfolio that combines Kage's chapter-like editorial composition with an interactive isometric infrastructure core, flowing diagnostics mesh, connectivity field, and restrained beam interactions.",
     "source_references": [
       "https://threeui.com/browse",
       "https://threeui.com/landing-pages/kage-landing-page",
-      "https://threeui.com/three-js/structure-flow",
-      "https://threeui.com/hero/threeui-rings",
-      "https://threeui.com/backgrounds/orrery",
-      "https://threeui.com/backgrounds/predictive-arc/signal-particles",
-      "https://threeui.com/ui-elements/diagnostics-panel",
+      "https://threeui.com/three-js/structure-flow/logic-core",
+      "https://threeui.com/ui-elements/diagnostics-panel/flow",
+      "https://threeui.com/backgrounds/constellation-field/connectivity-graph",
+      "https://threeui.com/buttons/rectangle-buttons/gradient-beam-cta",
       "PRODUCT.md",
       "DESIGN.md"
     ],
@@ -20,15 +19,15 @@
       "palette_type": "analogous",
       "primary": {
         "hex": "#2563eb",
-        "role": "deployment paths, active states, section indices, and system controls"
+        "role": "secondary deployment paths, section indices, and system controls"
       },
       "secondary": {
         "hex": "#22d3ee",
-        "role": "inspection signals, focus rings, topology nodes, and live status"
+        "role": "primary inspection signals, focus rings, topology nodes, and live status"
       },
       "accent": {
         "hex": "#8b5cf6",
-        "role": "focal WebGL energy, primary calls to action, and selected highlights"
+        "role": "secondary topology accents and selected highlights"
       },
       "neutral": {
         "scale": [
@@ -73,7 +72,7 @@
         "body": "Roboto, sans-serif",
         "mono": "Roboto, sans-serif"
       },
-      "font_style_notes": "One Vietnamese-capable Roboto family across all roles; technical character comes from tabular numerals, uppercase metadata, spacing, and rules rather than a second display face."
+      "font_style_notes": "One Vietnamese-capable Roboto family across all roles; a monumental TRIEU wordmark and smaller editorial headline create the Kage-inspired scale contrast."
     },
     "spacing": {
       "base_unit": "0.25rem",
@@ -101,7 +100,7 @@
         "medium": "0 24px 80px rgb(0 0 0 / 0.28)",
         "high": "0 40px 140px rgb(0 0 0 / 0.45), 0 0 80px rgb(139 92 246 / 0.10)"
       },
-      "depth_cues": "Overlapping wireframes, glow intensity, controlled blur, perspective transforms, and WebGL particle depth"
+      "depth_cues": "An isometric platform, flowing wireframe surface, routed pulses, restrained glow, foreground wordmark, and WebGL particle depth"
     },
     "iconography": {
       "style": "Geometric outline",
@@ -117,7 +116,7 @@
       "philosophy": "Premium technical choreography: primary content first, system evidence second, ambient field last; no overshoot and no decorative motion that competes with reading."
     },
     "components": {
-      "button_style": "Angular 48px controls with one-pixel rules, active light sweep, and compact directional icon",
+      "button_style": "Angular 48px controls with a continuously rotating cyan-amber-violet gradient beam, dark inner fill, and compact directional icon",
       "input_style": "Dark ruled field with visible cyan focus ring and no floating label",
       "card_style": "Editorial signal panel with clipped corner, faint grid, and border highlight rather than conventional shadow",
       "navigation_pattern": "Sticky translucent command bar with visible primary routes, language state, theme, search, and GitHub",
@@ -129,7 +128,7 @@
   "design_style": {
     "aesthetic": {
       "mood": ["precise", "cinematic", "calm", "technical", "confident"],
-      "visual_metaphor": "An observatory for infrastructure signals and delivery paths",
+      "visual_metaphor": "A deployable logic core viewed as an isometric infrastructure table",
       "era_influence": "Contemporary computational editorial with restrained retro-terminal cues",
       "genre": "Technical portfolio / spatial editorial",
       "personality_traits": ["meticulous", "curious", "reliable", "quietly ambitious"],
@@ -140,21 +139,21 @@
       "ornamentation": "subtle technical accents",
       "whitespace_usage": "Generous section whitespace with compact evidence groupings",
       "visual_weight_distribution": "Large typographic claims balanced by low-opacity spatial fields",
-      "focal_strategy": "One dominant interactive WebGL hero object followed by progressive project evidence",
+      "focal_strategy": "A central isometric Logic Core balanced by a monumental foreground name and compact editorial copy",
       "contrast_level": "high",
       "texture_usage": "Fine noise, sparse dot matrices, and subtle scan-grid registration"
     },
     "composition": {
       "hierarchy_method": "Scale contrast, spatial isolation, and signal color",
       "balance_type": "asymmetric",
-      "flow_direction": "Top-to-bottom narrative with diagonal and orbital counter-motion",
+      "flow_direction": "Top-to-bottom chapter narrative with isometric diagonals and routed counter-motion",
       "grouping_strategy": "Editorial sections, evidence rails, and bounded system diagrams",
       "negative_space_role": "Creates calm around dense technical evidence and lets ambient 3D remain peripheral"
     },
     "imagery": {
       "photo_treatment": "No decorative photography; company marks remain clean and high contrast",
-      "illustration_style": "Generative topology, orbital nodes, wireframe geometry, and diagrammatic SVG",
-      "graphic_elements": "Signal arcs, point fields, registration crosses, node paths, and clipped planes",
+      "illustration_style": "Isometric topology, diagnostic wire mesh, routed nodes, particle depth, and diagrammatic SVG",
+      "graphic_elements": "Logic prism, deployment routes, connectivity rays, registration crosses, and clipped planes",
       "pattern_usage": "Sparse grid and dot field used at low opacity",
       "image_shape": "Wide landscape system canvases with small angular corners"
     },
@@ -162,7 +161,7 @@
       "feedback_style": "Immediate and precise with light, border, and 1-2px transform responses",
       "hover_behavior": "Signal edge brightens while content lifts no more than 4px",
       "transition_personality": "smooth premium glide",
-      "loading_style": "Small orbital signal with percentage or status text",
+      "loading_style": "Small infrastructure signal with percentage or status text",
       "microinteraction_density": "low-to-medium"
     },
     "brand_voice_in_ui": {
@@ -177,47 +176,47 @@
     "overview": {
       "effect_intensity": "heavy-immersive",
       "performance_tier": "heavy",
-      "fallback_strategy": "Disable WebGL on reduced motion or low-end devices and retain a static CSS grid, radial signal glows, and all content.",
+      "fallback_strategy": "Render one static frame for reduced motion, reduce bloom and particle density on low-end devices, and retain a CSS isometric platform when WebGL fails.",
       "primary_technology": "WebGL/Three.js with GSAP ScrollTrigger"
     },
     "background_effects": {
       "type": "generative-art",
-      "description": "A full-viewport black spatial field led by a luminous cloud core, concentric deployment rings, orbital infrastructure nodes, and deep particle dust.",
+      "description": "A full-viewport black field led by an isometric platform, luminous hexagonal logic prism, routed infrastructure nodes, flowing diagnostic mesh, and sparse particle dust.",
       "technology": "Three.js",
       "params": {
-        "color_palette": ["#22d3ee", "#2563eb", "#8b5cf6", "#d8deea"],
-        "speed": "0.025 radians per second",
-        "density": "700-1400 points depending on viewport",
-        "opacity": "0.35-0.9",
+        "color_palette": ["#68eadb", "#f0c078", "#9d8dff", "#dcebe7"],
+        "speed": "0.006 radians per second ambient drift with slow diagnostic ripples",
+        "density": "180-520 dust points plus eight infrastructure nodes",
+        "opacity": "0.18-0.8",
         "blend_mode": "additive"
       }
     },
     "particle_systems": {
       "enabled": true,
       "type": "connected-nodes",
-      "description": "A deep dust field surrounds the hero core while brighter deploy particles and orbital nodes define the active infrastructure path.",
+      "description": "Sparse depth dust surrounds the isometric table while eight brighter route pulses travel from the central logic prism to named infrastructure nodes.",
       "technology": "Three.js Points and BufferGeometry",
       "params": {
-        "count": 1200,
+        "count": 520,
         "shape": "soft circular points",
         "size_range": "1-3px",
-        "movement_pattern": "slow orbital drift with depth parallax",
-        "color_behavior": "cyan through violet based on normalized position",
+        "movement_pattern": "slow vertical drift with routed Bezier pulses",
+        "color_behavior": "cyan with amber and violet system accents",
         "interaction": "pointer parallax, raycast node focus, and drag-to-orbit on desktop",
-        "spawn_area": "spherical shell around the hero core with foreground and background depth"
+        "spawn_area": "rectangular depth field around the isometric infrastructure platform"
       }
     },
     "3d_elements": {
       "enabled": true,
-      "type": "hero-model",
-      "description": "A large shader-displaced cloud core with particle skin, luminous energy rings, orbiting AWS/Kubernetes/GitOps nodes, and floating data fragments.",
+      "type": "isometric-infrastructure-scene",
+      "description": "A shader-scanned hexagonal Logic Core rises from a Flowing Mesh platform and connects to AWS, Kubernetes, GitOps, observability, Terraform, CI/CD, security, and runtime nodes.",
       "technology": "Three.js",
       "params": {
-        "renderer": "WebGLRenderer with ACES tone mapping, antialiasing, DPR capped at 1.6, and EffectComposer",
-        "lighting": "Shader-driven Fresnel rim, emissive nodes, additive particles, and a restrained hemisphere/key-light pair",
-        "camera": "Perspective camera, 38 degree FOV, cinematic z movement driven by hero scroll progress",
-        "materials": "Custom Fresnel/displacement ShaderMaterial, additive point sprites, emissive MeshStandardMaterial, and ruled wireframe",
-        "geometry": "High-detail icosahedral core, torus and curve-based rings, surface point skin, orbit nodes, and deep particle shell",
+        "renderer": "WebGLRenderer with ACES tone mapping, antialiasing, DPR capped at 1.5, and EffectComposer",
+        "lighting": "Shader-driven Fresnel rim, emissive route nodes, additive particles, and a restrained hemisphere/key/point-light set",
+        "camera": "Perspective camera, 34 degree FOV, fixed isometric base angle with subtle pointer and scroll response",
+        "materials": "Custom scan-band and diagnostic-wave ShaderMaterials, additive point sprites, emissive MeshStandardMaterial, and ruled wireframe",
+        "geometry": "Hexagonal cylinder core, boxed platform, diagnostic plane, torus status ring, cube nodes, and quadratic route curves",
         "post_processing": ["UnrealBloomPass", "ACES tone mapping", "native additive blending", "CSS vignette fallback"],
         "interaction_model": "Pointer parallax, drag-to-orbit, raycast node response, scroll-driven camera move; static fallback on touch/reduced-motion"
       }
@@ -225,20 +224,20 @@
     "shader_effects": {
       "enabled": true,
       "type": "color-shift",
-      "description": "The core surface displaces and breathes while Fresnel rim light, scan bands, and point sprites shift through cyan, blue, and violet.",
+      "description": "The hexagonal core carries restrained scan-band displacement and Fresnel light while the wireframe platform emits radial diagnostic ripples.",
       "technology": "Three.js ShaderMaterial / GLSL",
       "params": {
-        "uniforms": ["uTime", "uPixelRatio", "uPointer", "uColorA", "uColorB", "uIntensity"],
-        "vertex_manipulation": "Layered sine and value-noise displacement along normals plus perspective-scaled point size",
-        "fragment_output": "Dark volumetric core with luminous Fresnel rim and scan bands; feathered additive sprites for its particle skin",
-        "noise_type": "value noise",
-        "distortion": "6-10% organic core displacement with low-frequency breathing"
+        "uniforms": ["uTime", "uPixelRatio", "uColorA", "uColorB"],
+        "vertex_manipulation": "Low-amplitude vertical core scanning, radial sine-wave mesh displacement, and perspective-scaled point size",
+        "fragment_output": "Cyan-to-amber Fresnel prism, energy-weighted cyan mesh lines, and feathered additive dust sprites",
+        "noise_type": "deterministic sine-wave interference",
+        "distortion": "1.8% core scan displacement and 18% localized diagnostic mesh ripple"
       }
     },
     "scroll_effects": {
       "parallax": { "enabled": true, "layers": 4, "depth_range": "0.1x to 1x", "speed_curve": "GSAP scrub 0.6 with counter-motion between copy, HUD, and WebGL stage" },
       "scroll_triggered_animations": { "enabled": true, "trigger_points": "hero pinned from top to +=55vh; content enters at top 86%", "animation_type": "pinned 3D scene transition, by-word hero reveal, project perspective settle, SVG path draw", "scrub_behavior": "scrubbed hero and project depth; triggered once for supporting content" },
-      "scroll_morphing": { "enabled": true, "description": "Desktop hero pins briefly while the cloud core scales, rotates, and recedes as the copy resolves into the technology rail." }
+      "scroll_morphing": { "enabled": true, "description": "Desktop hero pins briefly while the isometric core advances, the monumental name drops through frame, and the editorial layers recede into the technology rail." }
     },
     "text_effects": {
       "type": "split-letter-animate",
@@ -264,11 +263,11 @@
       "params": { "blur_radius": "18px", "transparency": "0.82 dark / 0.88 light", "border_treatment": "one-pixel neutral rule", "shadow_type": "minimal ambient shadow", "light_source_angle": "top-left" }
     },
     "canvas_drawings": {
-      "enabled": false,
-      "type": "none",
-      "description": "Three.js owns the generative field; a second Canvas 2D loop is unnecessary.",
-      "technology": "none",
-      "params": { "draw_method": "none", "animation_loop": "none", "color_scheme": "inherits CSS fallback", "responsiveness": "CSS-only fallback", "interaction": "none" }
+      "enabled": true,
+      "type": "connectivity-graph",
+      "description": "A Canvas 2D constellation field radiates subtle infrastructure paths behind the profile and capability sections.",
+      "technology": "Canvas 2D",
+      "params": { "draw_method": "92 deterministic radial rays and nodes", "animation_loop": "slow sine drift paused outside viewport", "color_scheme": "cyan with sparse violet accents", "responsiveness": "ResizeObserver with DPR capped at 1.5", "interaction": "subtle pointer-origin parallax on fine pointers" }
     },
     "svg_animations": {
       "enabled": true,
@@ -276,6 +275,6 @@
       "description": "Existing architecture routes draw once as each system diagram enters the viewport.",
       "params": { "animation_method": "GSAP strokeDashoffset", "path_morphing": false, "stroke_animation": "pathLength 1 to 0", "filter_effects": "subtle cyan glow" }
     },
-    "composite_notes": "The first viewport is intentionally 3D-first: ThreeUI Rings supplies the typographic/orbital scale, Orbital Sphere informs the particle core, and Orrery informs luminous rotating paths. The scene remains behind semantic HTML rather than replacing it. GSAP pins and resolves the hero on desktop, then project cards use restrained perspective depth. Mobile removes pinning and bloom resolution; reduced-motion receives a static radial core, complete text, and no continuous spatial movement."
+    "composite_notes": "The Kage landing page supplies the chapter composition and monumental foreground typography. Logic Core supplies the central isometric infrastructure metaphor; Flowing Mesh supplies the diagnostic platform surface; Connectivity Graph supplies the Canvas 2D profile field; Gradient Beam CTA supplies the primary button edge treatment. The scene remains behind semantic HTML. GSAP pins and resolves the layered hero on desktop. Mobile removes pinning, labels, featured card, and bloom; reduced-motion receives a static Three.js frame, static connectivity field, complete text, and no continuous spatial movement."
   }
 }
