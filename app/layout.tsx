@@ -1,23 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import Script from "next/script";
+import "../src/shaders/threeui.css";
 import "./globals.css";
 import SiteShell from "./site-shell";
 
-const roboto = Roboto({
+const roboto = Roboto_Mono({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-roboto",
   display: "swap",
 });
 
 const designContract = `<!--
-THESIS: A personal DevOps portfolio where technical depth feels clear, approachable, and memorable.
-OWN-WORLD: A calm infrastructure signal observatory with deep neutral fields, cyan-blue-violet telemetry, and precise editorial evidence.
-STORY: Visitors meet Trieu through a human introduction, understand his capabilities, inspect evidence-rich work, then make contact.
-FIRST VIEWPORT: A concise engineering promise sits against a living Three.js topology field without sacrificing scan speed.
-FORM: Spacious storytelling, GSAP choreography, and progressively enhanced WebGL with a complete static fallback.
-FINISH: Every effect is subordinate to evidence, measured against reduced-motion, responsive, performance, and accessibility constraints.
+THESIS: A DevOps portfolio presented as a living phosphor terminal where every claim resolves into inspectable system evidence.
+OWN-WORLD: A Zion-era operations console with curved CRT glass, green phosphor, amber alerts, strict monospace hierarchy, and ruled command surfaces.
+STORY: The system boots, identifies Trieu, exposes capabilities and work records, then opens a direct communication channel.
+FIRST VIEWPORT: The exact ThreeUI CrtBackground terminal renderer types its authored 19-row boot log beside the primary engineering promise.
+FORM: Dense terminal metadata, responsive command panels, GSAP reveals, Raw WebGL, Canvas 2D glyph rendering, and semantic HTML.
+FINISH: The ThreeUI source remains hash-identical while the application shell adopts its palette, contrast, geometry, and motion language.
 -->`;
 
 export const metadata: Metadata = {
@@ -55,8 +56,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#07090d" },
-    { media: "(prefers-color-scheme: light)", color: "#f4f7fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#020704" },
+    { media: "(prefers-color-scheme: light)", color: "#020704" },
   ],
 };
 

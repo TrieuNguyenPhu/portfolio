@@ -34,7 +34,7 @@ export default function ScrollReveal({ children }: Readonly<{ children: React.Re
 
     media.add(
       {
-        isDesktop: "(min-width: 48rem)",
+        isDesktop: "(min-width: 62.01rem)",
         reduceMotion: "(prefers-reduced-motion: reduce)",
       },
       (context) => {
@@ -88,7 +88,7 @@ export default function ScrollReveal({ children }: Readonly<{ children: React.Re
           }
 
           if (isDesktop) {
-            const heroStage = hero.querySelector<HTMLElement>(".hero-stage");
+            const heroStage = hero.querySelector<HTMLElement>(".hero-stage, .shader-frame");
             const heroCopy = hero.querySelector<HTMLElement>(".folio-hero-copy");
             const heroHud = gsap.utils.toArray<HTMLElement>(".hero-stage__hud, .hero-node-label", hero);
             const heroScroll = gsap.timeline({

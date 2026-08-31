@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { CrtBackground } from "../src/shaders/crt/CrtBackground";
 import { ProjectArchitecture } from "./architecture-visual";
-import HeroThree from "./ambient-three";
 import { posts } from "./blog/posts";
-import InfrastructureField from "./infrastructure-field";
 import ProfileOverview from "./profile-overview";
 import { projects } from "./projects/projects";
 import { useSitePreferences } from "./site-preferences";
@@ -62,37 +61,42 @@ export default function Home() {
   const { preferences: { language } } = useSitePreferences();
   const t = copy[language];
   const post = posts[0];
-  const featured = projects[0];
   const proof = language === "en"
     ? [["01", "Cloud platforms"], ["02", "Delivery systems"], ["03", "Observability"]]
     : [["01", "Nền tảng cloud"], ["02", "Hệ thống triển khai"], ["03", "Khả năng quan sát"]];
 
   return (
     <main className="folio-home"><div id="home">
-      <section className="folio-hero" data-hero>
-        <HeroThree />
+      <section className="folio-hero terminal-hero" data-hero>
+        <div className="terminal-hero__status" data-hero-intro aria-hidden="true">
+          <span>SYS.NPT/PORTFOLIO</span><span>TTY-01</span><span>SECURE CHANNEL</span>
+        </div>
         <div className="folio-hero-copy">
-          <p className="hero-chapter" data-hero-intro>{language === "en" ? "CHAPTER 00 — LOGIC CORE" : "CHƯƠNG 00 — LOGIC CORE"}</p>
+          <p className="terminal-command" data-hero-intro>$ whoami --verbose</p>
           <p className="folio-role" data-hero-intro>{t.role}</p><AnimatedHeadline text={t.headline} /><p className="folio-lede" data-hero-intro>{t.lede}</p>
           <div className="hero-actions"><Link className="button button--primary" href="#case-studies"><UiIcon name="projects" />{t.work}<UiIcon name="arrow" /></Link><a className="button button--ghost" href="mailto:nguyentrieu080604@gmail.com"><UiIcon name="mail" />{t.hello}</a></div>
+          <div className="hero-proof" data-hero-intro>{proof.map(([index, label]) => <div key={index}><span>{index}</span><strong>{label}</strong></div>)}</div>
         </div>
-        <div className="hero-name" aria-hidden="true" data-hero-name>TRIEU</div>
-        <div className="hero-vertical" aria-hidden="true">DEVOPS / CLOUD / SYSTEMS</div>
-        <Link className="hero-feature-card" href={`/projects/${featured.slug}`} data-hero-feature>
-          <span>{language === "en" ? "FEATURED SYSTEM" : "HỆ THỐNG TIÊU BIỂU"}</span>
-          <strong>{featured.title}</strong>
-          <small>{featured.type[language]}</small>
-          <UiIcon name="arrow" />
-        </Link>
-        <div className="hero-proof" data-hero-intro>{proof.map(([index, label]) => <div key={index}><span>{index}</span><strong>{label}</strong></div>)}</div>
+        <div className="shader-frame" aria-label="ThreeUI CRT terminal boot sequence">
+          <CrtBackground
+            variant="terminal"
+            speed={1.00}
+            typeSpeed={1.00}
+            motion={1.00}
+            hue={0}
+            saturation={1.00}
+            brightness={1.00}
+            opacity={1.00}
+          />
+          <div className="shader-frame__bezel" aria-hidden="true" />
+          <div className="shader-frame__meta" aria-hidden="true"><span>RAW WEBGL / CANVAS 2D</span><span>PHOSPHOR ONLINE</span></div>
+        </div>
+        <p className="terminal-hero__hint" aria-hidden="true">[ SCROLL TO INSPECT RECORDS ]</p>
       </section>
 
       <ul className="technology-rail" aria-label={t.technologies} data-reveal>{technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
 
-      <div className="connectivity-zone">
-        <InfrastructureField />
-        <ProfileOverview />
-      </div>
+      <ProfileOverview />
 
       <section className="folio-writing" data-reveal><div><span>{t.writingLabel}</span><h2>{t.writingTitle}</h2><p>{t.writingText}</p></div><Link href={`/blog/${post.slug}`}><div className="blog-meta"><time dateTime={post.publishedAt}>{post.displayDate[language]}</time><span>{post.readingTime[language]}</span></div><h3>{post.title[language]}</h3><strong>{t.read}<UiIcon name="arrow" /></strong></Link></section>
 

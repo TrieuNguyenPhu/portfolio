@@ -1,100 +1,96 @@
 ---
 name: Nguyen Phu Trieu Portfolio
-description: A bilingual isometric Logic Core portfolio for verified DevOps work.
+description: A bilingual phosphor terminal portfolio for verified DevOps work.
 colors:
-  dark-paper: "#07090d"
-  dark-sheet: "#0d1119"
-  light-paper: "#f4f7fb"
-  light-sheet: "#ffffff"
-  ink-dark: "#f6f8fc"
-  ink-light: "#090d18"
-  cyan: "#22d3ee"
-  blue: "#2563eb"
-  violet: "#8b5cf6"
-  manifest: "linear-gradient(135deg, #22d3ee 0%, #2563eb 52%, #8b5cf6 100%)"
+  phosphor: "#77ff8a"
+  phosphor-bright: "#d5ffdf"
+  amber: "#ffbf47"
+  void: "#020704"
+  panel: "#071009"
 typography:
-  family: "var(--font-roboto), sans-serif"
+  family: "var(--font-roboto), ui-monospace, monospace"
   display-weight: 700
   body-weight: 400
   label-weight: 700
 motion:
-  quick: "350ms"
-  standard: "500ms"
+  quick: "180ms"
+  standard: "420ms"
   slow: "800ms"
   easing: "cubic-bezier(0.22, 1, 0.36, 1)"
 rounded:
   square: "0"
 ---
 
-# Design System: Logic Core Chapters
+# Design System: Phosphor Operations Terminal
 
 ## Creative direction
 
-The portfolio behaves like an interactive infrastructure chapter. The composition is based on ThreeUI's Kage landing-page hierarchy, Logic Core scene, Flowing Mesh diagnostic surface, Connectivity Graph field, and Gradient Beam CTA. Those references are translated into a DevOps system rather than copied verbatim.
+The portfolio is a live operations terminal, not a decorative dashboard. Its visual anchor is ThreeUI's authored `CrtBackground` in the `terminal` variant: a 19-row Zion boot log typed into a green-phosphor display and resolved through Raw WebGL plus an offscreen Canvas 2D text surface.
 
-The canonical machine-readable extraction is in `design-dna.json`.
+The complete machine-readable design extraction is in `design-dna.json`.
+
+## Source integrity
+
+The ThreeUI implementation is stored byte-for-byte in the project:
+
+- `src/shaders/crt/CrtBackground.tsx`
+- `src/shaders/crt/crtRenderer.ts`
+- `src/shaders/crt/crtShaders.ts`
+- `src/shaders/crt/crtScreens.ts`
+- `src/shaders/threeui.css`
+
+These files retain the registered source structure, shader programs, render lifecycle, interactions, breakpoints, and class names. `src/shaders/fonts/fragment-mono.woff2` is the font asset referenced by the authored stylesheet and was recovered from the live ThreeUI asset pipeline without changing its relative path.
 
 ## Core principles
 
-- **3D first, evidence always.** The hero earns attention; the rest of the page proves the engineering work.
-- **One signal spectrum.** Cyan, blue, and violet identify routes, active states, and important actions.
-- **Bilingual continuity.** Roboto supports English and Vietnamese without changing the visual voice.
-- **Constructed depth.** Fine rules, clipped corners, technical sheets, WebGL space, and controlled perspective replace generic rounded cards.
-- **Progressive enhancement.** Navigation, copy, and project evidence remain complete when WebGL or motion is unavailable.
+- **One coherent machine.** Every route shares the CRT palette, square frames, indexed labels, and command-line interaction language.
+- **Signal before decoration.** Phosphor green carries primary state; amber marks alternate/light mode and secondary status.
+- **Evidence stays readable.** The WebGL field establishes atmosphere while all portfolio content remains semantic HTML above opaque reading surfaces.
+- **Bilingual continuity.** Roboto Mono supports English and Vietnamese with one consistent terminal voice.
+- **Progressive enhancement.** Navigation, projects, case studies, and contact details remain complete if WebGL or animation is unavailable.
 
 ## Visual DNA
 
-Dark mode uses `#020606` as the hero field and `#0d1119` for raised technical sheets. Light mode uses `#f4f7fb` and white sheets. Cyan `#68eadb` is the primary signal, amber `#f0c078` indicates warm system state, and violet `#9d8dff` marks secondary topology.
+The dark field begins at `#020704`, panels use `#071009`, primary phosphor is `#77ff8a`, and hot glyph cores approach `#d5ffdf`. Light mode intentionally becomes an amber CRT rather than a conventional white theme. Borders are one-pixel registration rules, corners stay square, and backgrounds combine restrained grids, scanlines, vignettes, and glow.
 
-Roboto is the only type family. Hero type is tightly tracked and editorial; body copy remains relaxed; labels use compact uppercase tracking. Corners stay square, borders are one-pixel registration rules, and system diagrams use orthogonal routes with restrained arcs and status points.
+Typography is monospaced throughout. Headings are compact and uppercase; system labels use wide tracking; body text retains enough leading for long Vietnamese passages. Interactive labels use shell-like prefixes and bracketed states rather than generic pill styling.
 
 ## Spatial system
 
-Content uses a fluid maximum width of 88rem with responsive outer gutters. The home hero is a full-viewport chapter: editorial copy sits at upper left, an isometric infrastructure table occupies the center/right, and the monumental `TRIEU` wordmark crosses the bottom foreground. Below 48rem the scene moves lower, optional labels and the featured card disappear, actions become full width, and project/case-study layouts stack.
+Content uses a fluid maximum width of 88rem with responsive gutters. The home hero is a two-pane terminal workstation: operational copy occupies the left channel, while the exact ThreeUI CRT viewport occupies the right. A narrow status rail and lower metadata strip establish the console frame.
 
-Primary thresholds are 70rem, 62rem, 48rem, and 32rem.
+Below 62rem the panes stack so the shader remains legible at tablet widths. Below 48rem navigation and action groups wrap, terminal metadata simplifies, and all cards become single-column. The main thresholds are 70rem, 62rem, 48rem, and 32rem.
 
-## Three.js scene
+## CRT renderer
 
-`app/ambient-three.tsx` provides the dedicated home-hero WebGL stage:
+`src/shaders/crt/CrtBackground.tsx` mounts the renderer with the selected `terminal` variant and the configured values `speed=1`, `typeSpeed=1`, `motion=1`, `hue=0`, `saturation=1`, `brightness=1`, and `opacity=1`.
 
-- shader-scanned hexagonal Logic Core with cyan-to-amber Fresnel lighting;
-- Flowing Mesh diagnostic surface, boxed isometric platform, status ring, and atmospheric dust;
-- eight routed infrastructure nodes with moving deployment pulses;
-- desktop bloom post-processing;
-- pointer parallax, drag-to-orbit, node raycasting, and scroll-based camera response.
+The exact renderer:
 
-The renderer caps pixel ratio and particle density, disables bloom on narrow/low-core devices, pauses outside the viewport, observes resize, and disposes allocated resources. A failed WebGL context receives a CSS isometric-platform fallback.
+- rasterizes the authored boot screen at backing resolution in Canvas 2D;
+- uploads it into a WebGL texture and applies curvature, scanlines, grille, bloom, chromatic separation, noise, and vignette shaders;
+- responds to pointer position and viewport resizing;
+- caps backing resolution and observes its container with `ResizeObserver`;
+- pauses rendering when the page or component is not visible;
+- tears down listeners, observers, textures, programs, buffers, and the WebGL context on unmount.
 
-`app/infrastructure-field.tsx` adds the Connectivity Graph-inspired Canvas 2D field behind the profile sections. It uses deterministic rays, subtle pointer parallax, viewport pausing, a DPR cap, and a static reduced-motion frame.
-
-The scene is decorative and absent from the accessibility tree. DOM labels and a left-side vignette protect readable contrast while interaction remains optional.
+The surrounding `.shader-frame` supplies the accessible label, hardware bezel, status lamps, and visual isolation needed for readable neighboring content. No documentation page or iframe is embedded.
 
 ## Motion system
 
-The motion personality is **premium technical**: deliberate, precise, and without elastic overshoot. Quick feedback uses 350ms, standard transitions 500ms, and large spatial transitions 800ms.
+GSAP remains responsible for route-scoped interface choreography: hero copy enters in sequence, project cards reveal with shallow depth, architecture paths draw into view, and the global progress line follows the document. The CRT's shader and typing motion remain owned entirely by the unmodified ThreeUI source.
 
-`app/scroll-reveal.tsx` owns route-scoped GSAP behavior:
-
-- hero words arrive by word, followed by supporting copy and proof;
-- the desktop hero pins briefly while the core advances, the `TRIEU` layer drops through frame, and HUD signals recede;
-- project cards enter with shallow perspective and scrubbed visual parallax;
-- architecture routes draw as they enter the viewport;
-- the global progress line scrubs linearly;
-- magnetic response is limited to primary buttons on fine pointers.
-
-All animation is scoped and reverted on route changes.
+Motion uses direct, mechanical timing without elastic overshoot. Hover treatments are short signal changes; large spatial transitions use the shared ease `cubic-bezier(0.22, 1, 0.36, 1)`.
 
 ### Reduced motion
 
-When `prefers-reduced-motion: reduce` is active, the Three.js scene and Connectivity Graph each render one static frame with no pointer, scroll, or continuous spatial motion. Reveal targets remain visible, SVG routes appear complete, magnetic movement is removed, the Gradient Beam stops, and smooth scrolling is disabled.
+When `prefers-reduced-motion: reduce` is active, application-level smooth scrolling, reveals, magnetic response, transforms, and decorative CSS animation stop. The registered ThreeUI renderer is intentionally retained without source edits so its authored behavior and checksums remain intact; content never depends on that motion.
 
 ## Accessibility and performance contract
 
 - Preserve one visible `h1`, semantic heading order, landmarks, skip link, and dialog labels.
-- Keep visible keyboard focus and 44px interaction targets where space allows.
-- Do not convey status with color alone.
-- Treat Three.js and GSAP as enhancements; never gate content behind motion.
-- Cap renderer pixel ratio and scene complexity before adding visual effects.
-- Pause WebGL when hidden or offscreen and dispose geometry, materials, post-processing, and renderer resources.
-- Verify English, Vietnamese, light, dark, mobile, keyboard, WebGL fallback, and reduced-motion states.
+- Maintain visible keyboard focus and 44px targets where space permits.
+- Keep all critical copy outside the canvas and never convey status with color alone.
+- Treat the CRT and GSAP as enhancements; never gate navigation or evidence behind animation.
+- Preserve the renderer's DPR/backing-size caps, visibility pause, and disposal lifecycle.
+- Verify English, Vietnamese, both themes, desktop, mobile, keyboard navigation, and WebGL failure behavior.

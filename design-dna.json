@@ -1,280 +1,236 @@
 {
   "meta": {
-    "name": "Logic Core Chapters",
-    "description": "A cinematic DevOps portfolio that combines Kage's chapter-like editorial composition with an interactive isometric infrastructure core, flowing diagnostics mesh, connectivity field, and restrained beam interactions.",
+    "name": "Phosphor Operations Terminal",
+    "description": "A bilingual DevOps portfolio rebuilt as a responsive CRT operations console around the exact ThreeUI terminal renderer and its authored Zion boot sequence.",
     "source_references": [
-      "https://threeui.com/browse",
-      "https://threeui.com/landing-pages/kage-landing-page",
-      "https://threeui.com/three-js/structure-flow/logic-core",
-      "https://threeui.com/ui-elements/diagnostics-panel/flow",
-      "https://threeui.com/backgrounds/constellation-field/connectivity-graph",
-      "https://threeui.com/buttons/rectangle-buttons/gradient-beam-cta",
-      "PRODUCT.md",
-      "DESIGN.md"
+      "https://threeui.com/source-code/crt.json",
+      "ThreeUI CrtBackground terminal revision SHA-256 860a1eb1d4c9",
+      "src/shaders/crt/CrtBackground.tsx",
+      "src/shaders/crt/crtRenderer.ts",
+      "src/shaders/crt/crtShaders.ts",
+      "src/shaders/crt/crtScreens.ts",
+      "src/shaders/threeui.css",
+      "PRODUCT.md"
     ],
     "created_at": "2026-08-31"
   },
   "design_system": {
     "color": {
       "palette_type": "analogous",
-      "primary": {
-        "hex": "#2563eb",
-        "role": "secondary deployment paths, section indices, and system controls"
-      },
-      "secondary": {
-        "hex": "#22d3ee",
-        "role": "primary inspection signals, focus rings, topology nodes, and live status"
-      },
-      "accent": {
-        "hex": "#8b5cf6",
-        "role": "secondary topology accents and selected highlights"
-      },
+      "primary": { "hex": "#8df0b4", "role": "primary phosphor text, active commands, focus, and successful system state" },
+      "secondary": { "hex": "#4f9a76", "role": "dim terminal copy, metadata, inactive routes, and secondary telemetry" },
+      "accent": { "hex": "#ffba5e", "role": "alerts, highlighted boot results, section counters, and exceptional state" },
       "neutral": {
-        "scale": [
-          "#ffffff",
-          "#f4f7fb",
-          "#d8deea",
-          "#9aa5b8",
-          "#667085",
-          "#2a3140",
-          "#171c26",
-          "#0d1118",
-          "#07090d"
-        ],
-        "usage": "White and #f4f7fb are primary foregrounds in dark mode; #07090d and #0d1118 form the canvas and panels. Light mode reverses this relationship without changing hierarchy."
+        "scale": ["#eafff3", "#bdf8d2", "#8df0b4", "#75b88e", "#4f9a76", "#467659", "#153c26", "#071a0f", "#041109", "#020704"],
+        "usage": "Near-white mint is reserved for dominant headings; phosphor green carries body and state; deep green-black surfaces preserve tube contrast."
       },
-      "semantic": {
-        "success": "#3ddc97",
-        "warning": "#f6c453",
-        "error": "#ff667a",
-        "info": "#38bdf8"
-      },
-      "surface": {
-        "background": "#07090d",
-        "card": "#0d1118",
-        "elevated": "#171c26"
-      },
-      "contrast_strategy": "Near-white editorial text on deep neutral fields with cyan, blue, and violet reserved for signals; all body text targets WCAG AA."
+      "semantic": { "success": "#8df0b4", "warning": "#ffba5e", "error": "#ff7b5e", "info": "#bdf8d2" },
+      "surface": { "background": "#020704", "card": "#041109", "elevated": "#071a0f" },
+      "contrast_strategy": "High-contrast mint and green glyphs on nearly black green surfaces, with amber used sparingly and never as the sole status cue."
     },
     "typography": {
       "type_scale": {
-        "display": { "size": "clamp(3.5rem, 9vw, 9rem)", "weight": 700, "line_height": 0.88, "tracking": "-0.075em" },
-        "heading_1": { "size": "clamp(3rem, 7vw, 7rem)", "weight": 700, "line_height": 0.92, "tracking": "-0.065em" },
-        "heading_2": { "size": "clamp(2.25rem, 5vw, 5rem)", "weight": 600, "line_height": 0.98, "tracking": "-0.055em" },
-        "heading_3": { "size": "clamp(1.5rem, 3vw, 2.75rem)", "weight": 600, "line_height": 1.05, "tracking": "-0.04em" },
-        "body": { "size": "clamp(1rem, 0.96rem + 0.2vw, 1.125rem)", "weight": 400, "line_height": 1.75, "tracking": "0em" },
-        "body_small": { "size": "0.9375rem", "weight": 400, "line_height": 1.65, "tracking": "0em" },
-        "caption": { "size": "0.75rem", "weight": 500, "line_height": 1.45, "tracking": "0.06em" },
-        "overline": { "size": "0.6875rem", "weight": 700, "line_height": 1.4, "tracking": "0.16em" }
+        "display": { "size": "clamp(2.55rem, 4.35vw, 5.15rem)", "weight": 600, "line_height": 0.92, "tracking": "-0.055em" },
+        "heading_1": { "size": "clamp(2.8rem, 7vw, 6.8rem)", "weight": 600, "line_height": 0.94, "tracking": "-0.055em" },
+        "heading_2": { "size": "clamp(2.25rem, 5vw, 5rem)", "weight": 600, "line_height": 0.98, "tracking": "-0.05em" },
+        "heading_3": { "size": "clamp(1.45rem, 3vw, 2.65rem)", "weight": 600, "line_height": 1.05, "tracking": "-0.035em" },
+        "body": { "size": "clamp(0.9375rem, 0.9rem + 0.15vw, 1.0625rem)", "weight": 400, "line_height": 1.75, "tracking": "0em" },
+        "body_small": { "size": "0.875rem", "weight": 400, "line_height": 1.65, "tracking": "0em" },
+        "caption": { "size": "0.6875rem", "weight": 500, "line_height": 1.45, "tracking": "0.08em" },
+        "overline": { "size": "0.625rem", "weight": 700, "line_height": 1.4, "tracking": "0.16em" }
       },
       "font_families": {
-        "heading": "Roboto, sans-serif",
-        "body": "Roboto, sans-serif",
-        "mono": "Roboto, sans-serif"
+        "heading": "Roboto Mono, ui-monospace, monospace",
+        "body": "Roboto Mono, ui-monospace, monospace",
+        "mono": "ThreeUI Fragment Mono, ui-monospace, SF Mono, JetBrains Mono, Menlo, Consolas, monospace"
       },
-      "font_style_notes": "One Vietnamese-capable Roboto family across all roles; a monumental TRIEU wordmark and smaller editorial headline create the Kage-inspired scale contrast."
+      "font_style_notes": "A Vietnamese-capable Roboto Mono application shell surrounds the renderer's authored system monospace stack; scale and phosphor intensity create hierarchy."
     },
     "spacing": {
       "base_unit": "0.25rem",
       "scale": ["0.25rem", "0.5rem", "0.75rem", "1rem", "1.5rem", "2rem", "3rem", "4rem", "6rem", "9rem"],
       "content_density": "comfortable",
-      "section_rhythm": "Large cinematic pauses between sections, compact metadata clusters, and consistent 1rem or 1.5rem internal steps."
+      "section_rhythm": "Dense command metadata sits inside generous record-to-record pauses; panels use 1px gaps like adjacent terminal cells."
     },
     "layout": {
-      "grid_system": "Twelve-column fluid editorial grid with system-diagram overlays",
-      "max_content_width": "88rem",
+      "grid_system": "Twelve-column terminal record grid with a two-pane hero console",
+      "max_content_width": "92rem",
       "columns": 12,
-      "gutter": "clamp(1rem, 3vw, 2rem)",
-      "breakpoints": ["30rem", "48rem", "64rem", "80rem"],
-      "alignment_tendency": "Asymmetric editorial on desktop, single-column narrative on mobile"
+      "gutter": "clamp(0.625rem, 2vw, 2rem)",
+      "breakpoints": ["32rem", "48rem", "62rem", "70rem"],
+      "alignment_tendency": "Strict ruled grid with asymmetric hero panes and stacked mobile records"
     },
     "shape": {
-      "border_radius": { "small": "0.25rem", "medium": "0.5rem", "large": "0.75rem", "pill": "999px" },
-      "border_usage": "Precise one-pixel signal rules and angular clipped corners; pills are restricted to compact status indicators.",
-      "divider_style": "Low-contrast hairline with occasional cyan-to-violet gradient segment"
+      "border_radius": { "small": "0", "medium": "0", "large": "0", "pill": "0" },
+      "border_usage": "One-pixel phosphor rules define every command panel; no decorative rounding outside the shader's authored tube curvature.",
+      "divider_style": "Dim green hairline that brightens to full phosphor for active or focused state"
     },
     "elevation": {
-      "shadow_style": "Ambient glow plus constructed tonal layers",
+      "shadow_style": "Deep black occlusion with low-intensity phosphor halation",
       "levels": {
-        "low": "0 1px 0 rgb(255 255 255 / 0.04)",
-        "medium": "0 24px 80px rgb(0 0 0 / 0.28)",
-        "high": "0 40px 140px rgb(0 0 0 / 0.45), 0 0 80px rgb(139 92 246 / 0.10)"
+        "low": "0 0 0 1px rgb(141 240 180 / 0.14)",
+        "medium": "0 18px 55px rgb(0 0 0 / 0.46), 0 0 28px rgb(28 236 132 / 0.04)",
+        "high": "0 34px 110px rgb(0 0 0 / 0.68), 0 0 55px rgb(28 236 132 / 0.07)"
       },
-      "depth_cues": "An isometric platform, flowing wireframe surface, routed pulses, restrained glow, foreground wordmark, and WebGL particle depth"
+      "depth_cues": "Curved shader glass, inner bezel shadow, glyph halation, ruled foreground panels, and layered scan/grille texture"
     },
     "iconography": {
-      "style": "Geometric outline",
+      "style": "Monoline technical glyph",
       "stroke_weight": "1.5px",
-      "size_scale": ["1rem", "1.25rem", "1.5rem", "2rem"],
+      "size_scale": ["1rem", "1.125rem", "1.375rem", "2rem"],
       "preferred_set": "Existing custom inline SVG system icons"
     },
     "motion": {
-      "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
-      "duration_scale": { "micro": "350ms", "normal": "500ms", "macro": "800ms" },
-      "entrance_pattern": "Premium fade with 0.985-to-1 scale and a short upward settle",
-      "exit_pattern": "Accelerated fade with minimal downward displacement",
-      "philosophy": "Premium technical choreography: primary content first, system evidence second, ambient field last; no overshoot and no decorative motion that competes with reading."
+      "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "duration_scale": { "micro": "180ms", "normal": "420ms", "macro": "820ms" },
+      "entrance_pattern": "Command records resolve upward after the authored CRT boot begins typing",
+      "exit_pattern": "Opacity decay with shallow vertical displacement",
+      "philosophy": "Analogue terminal motion led by typewriter cadence, scan drift, flicker, and restrained GSAP record reveals"
     },
     "components": {
-      "button_style": "Angular 48px controls with a continuously rotating cyan-amber-violet gradient beam, dark inner fill, and compact directional icon",
-      "input_style": "Dark ruled field with visible cyan focus ring and no floating label",
-      "card_style": "Editorial signal panel with clipped corner, faint grid, and border highlight rather than conventional shadow",
-      "navigation_pattern": "Sticky translucent command bar with visible primary routes, language state, theme, search, and GitHub",
-      "modal_style": "Centered elevated command panel with dim backdrop, crisp border, and short premium transition",
-      "list_style": "Numbered evidence rows on shared baselines with compact status and technology metadata",
-      "component_notes": "Cards remain content-first; Three.js is a contextual layer, not an interaction requirement."
+      "button_style": "Square bracketed terminal commands; solid phosphor primary and ruled dark secondary",
+      "input_style": "Black-green command field with one-pixel phosphor focus inset",
+      "card_style": "Square record pane with dark-green gradient, status readout, thin grid rule, and no conventional card shadow",
+      "navigation_pattern": "Sticky command header with slash-prefixed routes, language state, theme mode, search, and repository channel",
+      "modal_style": "Full-height command search console with hard rules, black scrim, and phosphor focus",
+      "list_style": "Numbered or plus-prefixed evidence rows separated by dim raster rules",
+      "component_notes": "CrtBackground remains source-identical; all surrounding application components inherit its phosphor palette, square geometry, and terminal metadata grammar."
     }
   },
   "design_style": {
     "aesthetic": {
-      "mood": ["precise", "cinematic", "calm", "technical", "confident"],
-      "visual_metaphor": "A deployable logic core viewed as an isometric infrastructure table",
-      "era_influence": "Contemporary computational editorial with restrained retro-terminal cues",
-      "genre": "Technical portfolio / spatial editorial",
-      "personality_traits": ["meticulous", "curious", "reliable", "quietly ambitious"],
-      "adjectives": ["signal-rich", "structured", "immersive", "legible", "purposeful"]
+      "mood": ["immersive", "technical", "retro-futurist", "controlled", "alert"],
+      "visual_metaphor": "A secure operations terminal booting into an engineer's verified system records",
+      "era_influence": "Late-20th-century curved CRT consoles interpreted through contemporary responsive engineering UI",
+      "genre": "Retro-futurist technical portfolio",
+      "personality_traits": ["precise", "resourceful", "methodical", "vigilant", "direct"],
+      "adjectives": ["phosphorescent", "ruled", "monospace", "signal-rich", "cinematic"]
     },
     "visual_language": {
       "complexity": "rich",
-      "ornamentation": "subtle technical accents",
-      "whitespace_usage": "Generous section whitespace with compact evidence groupings",
-      "visual_weight_distribution": "Large typographic claims balanced by low-opacity spatial fields",
-      "focal_strategy": "A central isometric Logic Core balanced by a monumental foreground name and compact editorial copy",
+      "ornamentation": "functional analogue texture",
+      "whitespace_usage": "Large record gaps offset compact diagnostic labels",
+      "visual_weight_distribution": "A bright curved CRT pane balances a dense command-copy pane, followed by evenly ruled evidence surfaces",
+      "focal_strategy": "Exact boot terminal first, engineering identity second, progressively disclosed evidence afterward",
       "contrast_level": "high",
-      "texture_usage": "Fine noise, sparse dot matrices, and subtle scan-grid registration"
+      "texture_usage": "Scanlines, RGB grille, phosphor halo, grain, vignette, black-green grid, and blinking caret"
     },
     "composition": {
-      "hierarchy_method": "Scale contrast, spatial isolation, and signal color",
+      "hierarchy_method": "Phosphor intensity, type scale, command prefixes, and strict border grouping",
       "balance_type": "asymmetric",
-      "flow_direction": "Top-to-bottom chapter narrative with isometric diagonals and routed counter-motion",
-      "grouping_strategy": "Editorial sections, evidence rails, and bounded system diagrams",
-      "negative_space_role": "Creates calm around dense technical evidence and lets ambient 3D remain peripheral"
+      "flow_direction": "Boot sequence to identity prompt to system records to open communication channel",
+      "grouping_strategy": "Terminal panes, record headers, status rails, evidence tables, and command actions",
+      "negative_space_role": "Separates system records and protects readability from the continuous raster texture"
     },
     "imagery": {
-      "photo_treatment": "No decorative photography; company marks remain clean and high contrast",
-      "illustration_style": "Isometric topology, diagnostic wire mesh, routed nodes, particle depth, and diagrammatic SVG",
-      "graphic_elements": "Logic prism, deployment routes, connectivity rays, registration crosses, and clipped planes",
-      "pattern_usage": "Sparse grid and dot field used at low opacity",
-      "image_shape": "Wide landscape system canvases with small angular corners"
+      "photo_treatment": "Company marks are monochrome and phosphor-graded; decorative photography is absent",
+      "illustration_style": "Technical architecture diagrams treated as terminal schematics",
+      "graphic_elements": "Curved CRT glass, blinking block cursor, slash routes, bracket commands, status lamps, scan grille, and 1px rules",
+      "pattern_usage": "Low-opacity 4rem terminal grid beneath a fixed scanline overlay",
+      "image_shape": "Square, ruled system viewports without rounded card shells"
     },
     "interaction_feel": {
-      "feedback_style": "Immediate and precise with light, border, and 1-2px transform responses",
-      "hover_behavior": "Signal edge brightens while content lifts no more than 4px",
-      "transition_personality": "smooth premium glide",
-      "loading_style": "Small infrastructure signal with percentage or status text",
-      "microinteraction_density": "low-to-medium"
+      "feedback_style": "Immediate phosphor border, color, and 1-2px movement response",
+      "hover_behavior": "Border reaches full phosphor, inner green glow rises, and records lift no more than 2px",
+      "transition_personality": "Snappy terminal resolve with smooth macro scroll choreography",
+      "loading_style": "Authored 19-row Zion boot log types character by character with a blinking block caret",
+      "microinteraction_density": "medium"
     },
     "brand_voice_in_ui": {
-      "tone": "Direct, technically credible, and grounded in evidence",
-      "formality": "Professional but human",
-      "cta_style": "Direct imperative",
-      "empty_state_approach": "Explain the next useful action in one concise sentence",
-      "error_tone": "Calm, specific, and recovery-oriented"
+      "tone": "Direct, diagnostic, technically credible, and evidence-led",
+      "formality": "Professional with restrained system-console character",
+      "cta_style": "Executable command",
+      "empty_state_approach": "Print the next valid command and its expected result",
+      "error_tone": "Specific fault, affected boundary, and recovery command"
     }
   },
   "visual_effects": {
     "overview": {
       "effect_intensity": "heavy-immersive",
       "performance_tier": "heavy",
-      "fallback_strategy": "Render one static frame for reduced motion, reduce bloom and particle density on low-end devices, and retain a CSS isometric platform when WebGL fails.",
-      "primary_technology": "WebGL/Three.js with GSAP ScrollTrigger"
+      "fallback_strategy": "Semantic portfolio content remains independent of the decorative shader; CSS surfaces and terminal contrast remain when the CRT pane is unavailable.",
+      "primary_technology": "Raw WebGL + offscreen Canvas 2D with GSAP supporting motion"
     },
     "background_effects": {
       "type": "generative-art",
-      "description": "A full-viewport black field led by an isometric platform, luminous hexagonal logic prism, routed infrastructure nodes, flowing diagnostic mesh, and sparse particle dust.",
-      "technology": "Three.js",
+      "description": "A curved green-phosphor CRT composites an authored 19-row Zion boot screen through scan, grille, chroma, halation, flicker, grain, sheen, and vignette passes.",
+      "technology": "Raw WebGL fragment shader over an uploaded Canvas 2D text texture",
       "params": {
-        "color_palette": ["#68eadb", "#f0c078", "#9d8dff", "#dcebe7"],
-        "speed": "0.006 radians per second ambient drift with slow diagnostic ripples",
-        "density": "180-520 dust points plus eight infrastructure nodes",
-        "opacity": "0.18-0.8",
-        "blend_mode": "additive"
+        "color_palette": ["#03100a", "#4f9a76", "#8df0b4", "#bdf8d2", "#ffba5e", "#eafff3"],
+        "speed": "1.00 configured runtime speed",
+        "density": "Full backing resolution up to 1920px width and 2,400,000 pixels",
+        "opacity": "1.00",
+        "blend_mode": "Opaque WebGL composite with shader-level phosphor halation"
       }
     },
     "particle_systems": {
-      "enabled": true,
-      "type": "connected-nodes",
-      "description": "Sparse depth dust surrounds the isometric table while eight brighter route pulses travel from the central logic prism to named infrastructure nodes.",
-      "technology": "Three.js Points and BufferGeometry",
-      "params": {
-        "count": 520,
-        "shape": "soft circular points",
-        "size_range": "1-3px",
-        "movement_pattern": "slow vertical drift with routed Bezier pulses",
-        "color_behavior": "cyan with amber and violet system accents",
-        "interaction": "pointer parallax, raycast node focus, and drag-to-orbit on desktop",
-        "spawn_area": "rectangular depth field around the isometric infrastructure platform"
-      }
+      "enabled": false,
+      "type": "none",
+      "description": "The CRT design uses raster noise and glyph halation instead of particles.",
+      "technology": "none",
+      "params": { "count": 0, "shape": "none", "size_range": "none", "movement_pattern": "none", "color_behavior": "none", "interaction": "none", "spawn_area": "none" }
     },
     "3d_elements": {
-      "enabled": true,
-      "type": "isometric-infrastructure-scene",
-      "description": "A shader-scanned hexagonal Logic Core rises from a Flowing Mesh platform and connects to AWS, Kubernetes, GitOps, observability, Terraform, CI/CD, security, and runtime nodes.",
-      "technology": "Three.js",
-      "params": {
-        "renderer": "WebGLRenderer with ACES tone mapping, antialiasing, DPR capped at 1.5, and EffectComposer",
-        "lighting": "Shader-driven Fresnel rim, emissive route nodes, additive particles, and a restrained hemisphere/key/point-light set",
-        "camera": "Perspective camera, 34 degree FOV, fixed isometric base angle with subtle pointer and scroll response",
-        "materials": "Custom scan-band and diagnostic-wave ShaderMaterials, additive point sprites, emissive MeshStandardMaterial, and ruled wireframe",
-        "geometry": "Hexagonal cylinder core, boxed platform, diagnostic plane, torus status ring, cube nodes, and quadratic route curves",
-        "post_processing": ["UnrealBloomPass", "ACES tone mapping", "native additive blending", "CSS vignette fallback"],
-        "interaction_model": "Pointer parallax, drag-to-orbit, raycast node response, scroll-driven camera move; static fallback on touch/reduced-motion"
-      }
+      "enabled": false,
+      "type": "none",
+      "description": "Tube depth is simulated in the fragment shader rather than with a 3D scene.",
+      "technology": "none",
+      "params": { "renderer": "none", "lighting": "shader sheen and phosphor halo only", "camera": "none", "materials": "none", "geometry": "one fullscreen WebGL triangle", "post_processing": ["integrated CRT fragment pass"], "interaction_model": "none" }
     },
     "shader_effects": {
       "enabled": true,
-      "type": "color-shift",
-      "description": "The hexagonal core carries restrained scan-band displacement and Fresnel light while the wireframe platform emits radial diagnostic ripples.",
-      "technology": "Three.js ShaderMaterial / GLSL",
+      "type": "custom-GLSL",
+      "description": "The exact ThreeUI CRT fragment shader curves UVs, offsets RGB channels, applies a six-tap halo, scanlines, grille, rolling bar, flicker, vignette, grain, room spill, and edge falloff.",
+      "technology": "WebGLRenderingContext GLSL ES",
       "params": {
-        "uniforms": ["uTime", "uPixelRatio", "uColorA", "uColorB"],
-        "vertex_manipulation": "Low-amplitude vertical core scanning, radial sine-wave mesh displacement, and perspective-scaled point size",
-        "fragment_output": "Cyan-to-amber Fresnel prism, energy-weighted cyan mesh lines, and feathered additive dust sprites",
-        "noise_type": "deterministic sine-wave interference",
-        "distortion": "1.8% core scan displacement and 18% localized diagnostic mesh ripple"
+        "uniforms": ["uTex", "uRes", "uTime", "uMotion", "uCurve", "uScan", "uScanDepth", "uTriad", "uGrille", "uChroma", "uBar", "uFlicker", "uGrain", "uNoise", "uVignette", "uMono", "uGain", "uHalo", "uSheen", "uRoom"],
+        "vertex_manipulation": "One fullscreen triangle; CRT curvature is applied to fragment UV coordinates",
+        "fragment_output": "Opaque curved tube composite with green phosphor glyphs, amber boot results, scan structure, RGB grille, halo, vignette, and room spill",
+        "noise_type": "deterministic hash grain; analogue noise disabled for terminal variant",
+        "distortion": "terminal curve [0.115, 0.165], chroma 1, scan depth 0.30, grille 0.34"
       }
     },
     "scroll_effects": {
-      "parallax": { "enabled": true, "layers": 4, "depth_range": "0.1x to 1x", "speed_curve": "GSAP scrub 0.6 with counter-motion between copy, HUD, and WebGL stage" },
-      "scroll_triggered_animations": { "enabled": true, "trigger_points": "hero pinned from top to +=55vh; content enters at top 86%", "animation_type": "pinned 3D scene transition, by-word hero reveal, project perspective settle, SVG path draw", "scrub_behavior": "scrubbed hero and project depth; triggered once for supporting content" },
-      "scroll_morphing": { "enabled": true, "description": "Desktop hero pins briefly while the isometric core advances, the monumental name drops through frame, and the editorial layers recede into the technology rail." }
+      "parallax": { "enabled": true, "layers": 2, "depth_range": "0.1x to 1x", "speed_curve": "GSAP scrub 0.65 for the desktop CRT pane and copy" },
+      "scroll_triggered_animations": { "enabled": true, "trigger_points": "desktop hero pinned above 62rem; records enter near 88% viewport", "animation_type": "masked word reveal, terminal pane scale, record fade-up, architecture path draw", "scrub_behavior": "scrubbed hero; play-once supporting records" },
+      "scroll_morphing": { "enabled": true, "description": "The desktop command view pins briefly while the CRT pane advances and the identity pane dims into the technology rail." }
     },
     "text_effects": {
-      "type": "split-letter-animate",
-      "description": "The hero claim arrives by word with depth and a masked vertical reveal; selected signals retain the cyan-blue-violet highlight.",
-      "technology": "CSS with GSAP reveal sequencing",
-      "params": { "split_strategy": "by-word", "animation_per_unit": "translateY 110% rotateX -18deg and autoAlpha", "stagger": "45ms, capped below 450ms", "effect_style": "cinematic masked depth reveal" }
+      "type": "typewriter",
+      "description": "The exact renderer reveals 4.4 glyph units per frame step at typeSpeed 1.00 while the portfolio headline resolves by masked words.",
+      "technology": "Canvas 2D glyph painter plus GSAP",
+      "params": { "split_strategy": "authored terminal by character; semantic headline by word", "animation_per_unit": "Canvas reveal counter and translateY 115% rotateX -28deg", "stagger": "42ms maximum text redraw; 45ms headline word stagger", "effect_style": "phosphor typewriter with crisp glyph core and soft halo" }
     },
     "cursor_effects": {
       "enabled": true,
       "type": "magnetic-buttons",
-      "description": "Fine-pointer primary actions move at most 4px toward the cursor; the WebGL camera counter-moves.",
-      "params": { "shape": "native cursor", "size": "system default", "blend_mode": "normal", "trail": "none", "interaction_zone": "primary actions and WebGL canvas only" }
+      "description": "Primary command buttons move subtly toward a fine pointer while the terminal renderer remains non-interactive.",
+      "params": { "shape": "native cursor", "size": "system default", "blend_mode": "normal", "trail": "none", "interaction_zone": "primary command buttons only" }
     },
     "image_effects": {
       "type": "parallax-tilt",
-      "description": "System diagram canvases tilt by no more than two degrees and brighten their active route on hover.",
-      "technology": "CSS transforms and GSAP quickTo",
-      "params": { "filter_pipeline": "subtle contrast and glow only", "hover_transform": "translateY(-4px) rotateX/rotateY <= 2deg", "reveal_animation": "clip and fade", "distortion_type": "none" }
+      "description": "Architecture diagrams receive a green terminal grade and shallow project-card depth.",
+      "technology": "CSS filters and GSAP transforms",
+      "params": { "filter_pipeline": "reduced saturation plus green hue rotation", "hover_transform": "translateY(-2px)", "reveal_animation": "fade and shallow scale", "distortion_type": "none" }
     },
     "glassmorphism_neumorphism": {
-      "enabled": true,
-      "style": "frosted-layers",
-      "params": { "blur_radius": "18px", "transparency": "0.82 dark / 0.88 light", "border_treatment": "one-pixel neutral rule", "shadow_type": "minimal ambient shadow", "light_source_angle": "top-left" }
+      "enabled": false,
+      "style": "none",
+      "params": { "blur_radius": "0", "transparency": "opaque-to-84% terminal panels", "border_treatment": "one-pixel phosphor rule", "shadow_type": "phosphor halation only", "light_source_angle": "screen-normal" }
     },
     "canvas_drawings": {
       "enabled": true,
-      "type": "connectivity-graph",
-      "description": "A Canvas 2D constellation field radiates subtle infrastructure paths behind the profile and capability sections.",
-      "technology": "Canvas 2D",
-      "params": { "draw_method": "92 deterministic radial rays and nodes", "animation_loop": "slow sine drift paused outside viewport", "color_scheme": "cyan with sparse violet accents", "responsiveness": "ResizeObserver with DPR capped at 1.5", "interaction": "subtle pointer-origin parallax on fine pointers" }
+      "type": "terminal-screen-painter",
+      "description": "An offscreen full-backing-resolution Canvas 2D draws the authored 19-row log, double-pass glyph halo/core, and blinking caret before texture upload.",
+      "technology": "CanvasRenderingContext2D",
+      "params": { "draw_method": "two passes per glyph, soft phosphor shadow then crisp core", "animation_loop": "requestAnimationFrame with 42ms redraw gating", "color_scheme": "green phosphor with amber OK/READY results", "responsiveness": "ResizeObserver, DPR capped at 2, 1920px width and 2.4MP ceiling", "interaction": "viewport visibility pausing through IntersectionObserver" }
     },
     "svg_animations": {
       "enabled": true,
       "type": "path-draw",
-      "description": "Existing architecture routes draw once as each system diagram enters the viewport.",
-      "params": { "animation_method": "GSAP strokeDashoffset", "path_morphing": false, "stroke_animation": "pathLength 1 to 0", "filter_effects": "subtle cyan glow" }
+      "description": "Existing architecture routes draw once when their system record enters the viewport.",
+      "params": { "animation_method": "GSAP strokeDashoffset", "path_morphing": false, "stroke_animation": "pathLength from hidden to resolved", "filter_effects": "terminal green grade" }
     },
-    "composite_notes": "The Kage landing page supplies the chapter composition and monumental foreground typography. Logic Core supplies the central isometric infrastructure metaphor; Flowing Mesh supplies the diagnostic platform surface; Connectivity Graph supplies the Canvas 2D profile field; Gradient Beam CTA supplies the primary button edge treatment. The scene remains behind semantic HTML. GSAP pins and resolves the layered hero on desktop. Mobile removes pinning, labels, featured card, and bloom; reduced-motion receives a static Three.js frame, static connectivity field, complete text, and no continuous spatial movement."
+    "composite_notes": "All five registered ThreeUI source files are stored byte-for-byte with their published SHA-256 values. The exact terminal configuration uses speed, typeSpeed, motion, brightness, saturation, and opacity at 1.00 with hue 0. The font asset referenced by the registered shared CSS was recovered from the live ThreeUI stylesheet without modifying its relative path. Application CSS is layered after the registered stylesheet so the component source and its authored render remain untouched."
   }
 }

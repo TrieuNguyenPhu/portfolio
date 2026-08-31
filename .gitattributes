@@ -1,0 +1,3 @@
+src/shaders/crt/* text eol=lf
+src/shaders/threeui.css text eol=lf
+src/shaders/fonts/*.woff2 binary
